@@ -1,0 +1,75 @@
+---
+layout: default
+title: Python
+---
+
+h1. Python
+
+h3. IDE & Editor
+* "Python Tools for Visual Studio":http://pytools.codeplex.com/
+* "Eclipse":http://www.eclipse.org/ + "pydev":http://pydev.org/
+* "Aptana":http://aptana.com
+* "NetBeans":http://netbeans.org/
+* "VIM":http://www.vim.org/
+* "Emacs":http://www.gnu.org/software/emacs/
+* "Sublime Text 2":/pages/software/sublime-text.html - 强大的代码编辑器，堪比MacOS下的textmate
+
+h3. Web Framework
+* "CheerPy":http://www.cherrypy.org/
+* "Django":http://www.djangoproject.com/
+** "dajaxice":http://www.dajaxproject.com/ - easy to use ajax library for django
+** "imagekit":https://github.com/jdriscoll/django-imagekit/ - Automated image processing for Django models
+* "Tornado":http://www.tornadoweb.org/
+* "Flask":http://www.pocoo.org/projects/flask/ - a micro web framework
+* "Pylons":http://pylonshq.com/
+* "Tenjin":http://www.kuwata-lab.com/tenjin/
+* "TurboGears":http://turbogears.org/
+* "Web.py":http://webpy.org/
+* "Bottle":http://bottlepy.org - 单文件小巧web framework
+
+h3. Web Content Management System(CMS)
+* *CMS*
+** "Plone":http://plone.org/
+
+* *BBS*
+** "DjangoBB":https://bitbucket.org/slav0nic/djangobb
+** "pyBB":https://bitbucket.org/zeus/pybb
+** "Project Babel 2":https://github.com/livid/v2ex - 托管在google app engine上的社区系统
+
+* *WIKI*
+** "MoinMoinWiki":http://moinmo.in/
+
+h3. Packages & Utility Class
+* *CMS*
+** "APScheduler":http://packages.python.org/APScheduler/ - APScheduler is a light but powerful in-process task scheduler that lets you schedule functions (or any other python callables) to be executed at times of your choosing.
+
+* *Network*
+** "lxml":http://lxml.de/ - 一款高性能Python XML库，支持XPath、XSLT，可对XML和HTML执行解析、序列化和转换等
+** "requests":http://python-requests.org/ - Requests is an ISC Licensed HTTP library, written in Python, for human beings.
+
+* *Templating Engine*
+** "Jinja2":http://www.pocoo.org/projects/jinja2/ - Jinja2 is a popular text templating engine for Python
+
+* *ORM*
+** "autumn":https://github.com/luckythetourist/autumn - a Python ORM
+
+* *Other*
+** "odict":http://dev.pocoo.org/hg/sandbox/raw-file/tip/odict.py - 可以保证元素顺序的Dict
+** "WTForms":http://wtforms.simplecodes.com/ - WTForms is a forms validation and rendering library for python web development.
+** "Unofficial Windows Binaries for Python Extension Packages":http://www.lfd.uci.edu/~gohlke/pythonlibs/
+
+h3. Other
+* "bpython":http://bpython-interpreter.org/ - 支持语法高亮的控制台
+* "APNS Python Wrapper":http://code.google.com/p/apns-python-wrapper/ - Python wrapper for Apple Push Notification Service. 
+* "Pocoo":http://www.pocoo.org - The Pocoo Team consists of people from the Python community that are working under one umbrella on various Python libraries and applications.
+
+h3. Ebooks
+* *Python*
+** "《简明 Python 教程 - a byte of python》":http://junnan.org/ebooks/a_byte_of_python/
+** "《深入python - dive into python》":http://junnan.org/ebooks/dive_into_python/html/toc/
+** "《深入python3 - dive into python3》":http://woodpecker.org.cn/diveintopython3/table-of-contents.html
+** "《The Python Tutorial》":http://docs.python.org/tutorial/index.html
+** "《Learn Python The Hard Way - 笨办法学Python》中文版":http://readthedocs.org/docs/learn-python-the-hard-way-zh_cn-translation/en/latest/index.html
+* *Django*
+** "《The Django Book》":http://djangobook.py3k.cn/2.0/
+** "Django 1.3 Docs":http://junnan.org/ebooks/django_docs_1.3/

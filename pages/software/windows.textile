@@ -1,0 +1,97 @@
+---
+layout: default
+title: Windows - Software
+---
+
+h1. Windows
+
+h3(#misc). 实用工具
+* "QQ五笔":http://wubi.qq.com/ - 从极点中文转过来后一直使用到现在
+* "7zip":http://www.7-zip.org/ - 开源免费的压缩软件
+* "有道词典":http://cidian.youdao.com/ - 支持全文翻译
+* "Foxit Reader":http://www.foxitsoftware.com/Secure_PDF_Reader/ - 小巧的PDF阅读器
+* "SumatraPDF":http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html - 免费开源的PDF阅读器
+* "Everything":http://www.voidtools.com/ - 本地文件快速搜索工具
+* "AutoHotKey":http://www.autohotkey.com/ - 开源免费非常实用的热键自动化小工具
+* "FolderMenu":http://foldermenu.sourceforge.net/ - 在我的电脑、打开/保存对话框命令提示符中实现文件夹的快速切换
+
+h3(#network). 网络
+* "Google Chrome":http://www.google.com/chrome
+* "Filezilla":http://filezilla-project.org/ - 免费FTP软件（客户端和服务端）
+* "QQ旋风":http://xf.qq.com/ - 免费简洁的下载工具
+* "Privoxy":http://www.privoxy.org/ - 带过滤功能的代理服务器软件
+* "Tunnelier":http://www.bitvise.com/tunnelier - 实用的SSH客户端软件，支持端口转发
+* "Putty":http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html - 小巧绿色实用的ssh客户端工具
+* "KiTTY":http://www.9bis.net/kitty/ - putty的分支，比putty用起来更方便，配置文件保存在文件中
+* "Fiddler":http://www.fiddler2.com/fiddler2/ - 实用的http调试代理工具
+* "ClipGrab":http://clipgrab.de/en - 视频下载工具，支持代理
+* "Proxifier":http://www.proxifier.com - 让不支持代理服务器的程序使用代理
+
+h3(#develop). 开发
+* *编辑器*
+** "Notepad++":http://notepad-plus-plus.org/ - 免费强大的代码编辑工具
+** "Intype":http://inotai.com/intype/ - Windows下的textmate替代软件
+** "Sublime Text":http://wiki.junnan.org/software/sublime-text.html
+** "GVim":http://www.vim.org/
+*** 常用的Color Theme: "ps_color":http://vimcolorschemetest.googlecode.com/svn/colors/ps_color.vim / "rootwater":http://vimcolorschemetest.googlecode.com/svn/colors/rootwater.vim / "Solarized":http://ethanschoonover.com/solarized
+*** "Color Theme Test":http://code.google.com/p/vimcolorschemetest/
+*** "闲耘整理的Vim Wiki":http://wiki.hotoo.me/Vim.html
+*** "缩进提示线":http://www.vim.org/scripts/script.php?script_id=3361
+*** "VIM在线视频教程":http://vimcasts.org/
+** "SciTe":http://www.scintilla.org/
+** "EmEditor":http://www.emeditor.com/
+** "Notepad2":http://www.flos-freeware.ch/notepad2.html - 简单轻便的最适合替代系统notepad的编辑器
+*** "Notepad2-Mod":http://code.google.com/p/notepad2-mod/ - 官方版本的分支，加强了代码支持
+*** 通过 "映像劫持":http://www.portablesoft.org/notepad2-replacement/ 实现Notepad2替换记事本
+
+* *版本控制*
+** "TortoiseGit":http://code.google.com/p/tortoisegit/ - 实用的Git客户端
+*** "msysgit":http://code.google.com/p/msysgit/ - 安装TortoiseGit前，需要安装这个Git for Windows
+** "TortoiseSVN":http://tortoisesvn.net/ - 实用的Subversion客户端
+
+* *数据库*
+** "SQLiteSpy":http://www.yunqa.de/delphi/doku.php/products/sqlitespy/index - 小巧实用的SQLite管理工具
+** "SQLite Administrator":http://sqliteadmin.orbmu2k.de/ - 功能强大的SQLite管理软件
+
+h3(#design). 设计
+* "GIMP":http://www.gimp.org - 强大免费跨平台的2D图像处理软件
+* "FastStone Capture":http://www.faststone.org/ - 集截图、拾色、屏幕录像、标尺等于一身的实用设计工具
+* "MarkMan":http://www.getmarkman.com/ - 界面标注工具
+* "Pencil":http://pencil.evolus.vn/ - 跨平台产品原型图设计软件
+* "Balsamiq":http://www.balsamiq.com/ - 同上
+* "FreeMind":http://freemind.sourceforge.net - 免费的思维导图软件
+* "TexturePacker":http://www.texturepacker.com/ - 一款跨平台的SpriteSheet制作软件
+* "AndreaMosaic":http://www.andreaplanet.com/andreamosaic/ - 蒙太奇马赛克拼图制作软件
+* "GraphicsGale":http://www.humanbalance.net/gale/us/ - 强大的像素图制作软件
+
+h3(#image). 图片处理
+* "Converseen":http://converseen.sourceforge.net/ - 跨平台图片处理工具
+* "RIOT":http://luci.criosweb.ro/riot/ - 图片优化工具
+* "SuperGIF":http://www.boxtopsoft.com/supergif.html - gif优化工具
+
+h3(#media). 音视频处理
+* "Audition":http://www.adobe.com/products/audition.html - Adobe公司的音频处理软件，前身是CoolEdit
+* "NUENDO":http://www.nuendo.com - 德国STEINBERG公司开发的音乐制作软件
+* "Debut Video Capture Software":http://www.nchsoftware.com/capture/index.html - 摄像头和桌面视频录制
+
+h3(#productivity). 效率
+* "Evernote":http://evernote.com/ - 免费跨平台网络同步型笔记资料管理软件
+* "Tudumo":http://www.tudumo.com - 免费小巧的GTD软件
+* "ToDoList":http://www.abstractspoon.com - 免费功能强大的GTD软件
+* "Wunderlist":http://www.6wunderkinder.com/wunderlist/ - 免费跨平台的任务管理工具
+
+h3(#entertainment). 娱乐
+* "Foobar2000":http://www.foobar2000.org - 免费简洁实用的音乐播放软件
+* "射手影音(SPlayer)":http://www.splayer.org/ - 支持大部分视频格式的播放器
+
+h3(#system). 系统
+* "Console":http://sourceforge.net/projects/console/ - 命令行替换工具，支持多标签，字体设置等
+* "XueTr":http://www.xuetr.com/ - 内核级系统维护工具
+* "PowerTool":http://code.google.com/p/powertool-google/ - 内核级系统维护工具
+* "FolderMonitor":http://www.nodesoft.com/foldermonitor - 文件夹监控工具
+* "Listary":http://www.listary.com/ - Windows 文件浏览增强工具，为Windows 资源管理器增加智能命令、最近文档以及收藏功能
+
+h3(#other). 其他
+* "KidLogger":http://kidlogger.net/ - 用户行为监控软件，可以记录网页访问、键盘输入、运行程序等
+* "MarkdownPad":http://markdownpad.com/index.html - 免费的Markdown编辑器
+* "Synergy":http://synergy-foss.org/ - 实现一套鼠标控制局域网内的多台电脑，跨平台软件

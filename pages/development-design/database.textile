@@ -1,0 +1,36 @@
+---
+layout: default
+title: Database
+---
+h1. Database
+
+h3. Relational Database
+* "MySQL":http://www.mysql.com/
+* "PostgreSQL":http://www.postgresql.org/
+* "SQLite":http://sqlite.org/
+* "SQL Server":http://www.microsoft.com/sqlserver/
+* "Oracle":http://www.oracle.com
+* "DB2":http://www-01.ibm.com/software/data/db2/
+
+h3. NoSQL Database
+
+* **Document Store**
+** "MongoDB":http://www.mongodb.org/ - a scalable, high-performance, open source, document-oriented database. Written in C++.
+*** "RockMongo":http://code.google.com/p/rock-php/ - 基于PHP的MongoDB Web管理工具
+*** "MongoVUE":http://www.mongovue.com/ - 基于.Net的MongoDB windows管理工具
+** "CouchDB":http://couchdb.apache.org/
+** "Terrastore":http://code.google.com/p/terrastore/
+** "ThruDB":http://code.google.com/p/thrudb/
+
+* **Key-Value / Tuple Store**
+** "LevelDB":http://code.google.com/p/leveldb/ - Google开发的速度飞快的数据库键值存储引擎，可按照字符串键值顺序映射。
+** "Redis":http://redis.io/ - advanced key-value store.
+*** "Redis命令参考简体中文版":http://redis.readthedocs.org/en/2.4/index.html
+** "MemcacheDB":http://memcachedb.org/
+** "Couchbase":http://www.couchbase.org/
+** "Cassandra":http://cassandra.apache.org/
+
+<br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br />

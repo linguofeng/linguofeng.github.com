@@ -1,0 +1,98 @@
+---
+layout: post
+title: Ubuntu下搭建Ruby on Rails+MongoDB+Redis环境
+---
+
+h1. {{ page.title }}
+
+h3. 安装说明
+
+* 本文是以root用户为例进行安装，如用普通用户，某些命令前需加sudo。
+* 安装过程特别是用RubyGems和Git安装时，下载很慢，可以参考 "《Ubuntu下使用proxychains为程序做全局代理》":http://junnan.org/blog/1360.htm 来用proxychains加快下载速度。
+
+h3. 环境
+
+* Ubuntu Server版本：11.10
+* Ruby版本：1.9.2
+* RubyGems版本: 1.8.11
+* Rails版本: 3.1.1
+* MongoDB版本：2.0.1
+* Redis版本：2.4.2
+
+h3. 系统基本设置及常用软件安装
+
+bc. # 建立应用程序目录、工作目录及下载目录
+$ cd ~
+$ mkdir -p apps workspace downloads
+# 更新包管理器
+$ apt-get update
+# 安装常用库及软件
+$ apt-get install git git-core vim curl libxml2-dev libxslt-dev make gcc g++
+
+h3. Ruby on Rails 安装
+
+* Ruby 安装
+
+bc. $ apt-get install ruby1.9.2-full
+# 查看当前系统ruby版本
+$ ruby -v
+# ruby 1.9.2p290 (2011-07-09 revision 32553) [i686-linux]
+
+* RubyGems 更新
+
+bc. $ gem install rubygems-update
+$ update_rubygems
+$ gem -v
+# 1.8.11
+# 将下面语句写入~/.gemrc 禁止Gem安装本地文档
+# gem: --no-ri --no-rdoc
+
+* Rails 安装
+
+bc. $ gem install rails
+$ rails -v
+# Rails 3.1.1
+
+* 其他组件安装
+
+bc. $ apt-get install sqlite3 libsqlite3-dev
+$ gem install sqlite3-ruby
+
+h3. MongoDB安装
+
+bc.. $ apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+$ vim /etc/apt/sources.list
+# 添加下面语句到行尾
+# deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
+$ apt-get update
+$ apt-get install mongodb-10gen
+# create data directory
+$ mkdir -p /data/db
+
+# 启动服务，默认服务已启动，如果数据库目录不想建立在/data/db，可以用--dbpath参数指定目录
+$ mongod
+
+# test
+$ mongo
+> db.foo.save( { a : 1 } )
+> db.foo.find()
+
+h3. Redis安装
+
+bc.. $ cd ~/downloads
+$ wget http://redis.googlecode.com/files/redis-2.4.2.tar.gz
+$ tar xzf redis-2.4.2.tar.gz
+$ mv redis-2.4.2 ~/apps/
+$ cd ~/apps/redis-2.4.2
+$ make
+$ make install
+
+# 启动服务，默认已启动
+$ src/redis-server
+
+# test
+$ src/redis-cli
+redis> set foo bar
+OK
+redis> get foo
+"bar"

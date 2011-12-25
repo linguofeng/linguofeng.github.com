@@ -1,0 +1,21 @@
+---
+layout: default
+title: Csharp
+---
+h1. Csharp
+
+h3. Software
+* "Visual Studio":http://www.microsoft.com/visualstudio
+* "SharpDevelop":http://www.sharpdevelop.net/OpenSource/SD/Default.aspx - 一款开源免费的轻量级IDE
+* ".NET Reflector":http://www.reflector.net/ - 反编译工具，已开始收费
+* "ILSpy":http://wiki.sharpdevelop.net/ilspy.ashx - 用来替代reflector的反编译工具
+* "JustDecompile":http://www.telerik.com/products/decompiler.aspx - Powerful, Free .NET Decompiler. Forever.
+* "MonoDevelop":http://monodevelop.com/ - 跨平台的.net开发IDE，Linux/Windows/MacOS通吃。
+
+h3. Utility Class
+* "Html Agility Pack":http://htmlagilitypack.codeplex.com/ - HTML解析工具，支持xpath和xslt
+
+<br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br />

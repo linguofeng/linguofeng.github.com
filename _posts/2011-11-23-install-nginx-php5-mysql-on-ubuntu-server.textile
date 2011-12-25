@@ -1,0 +1,35 @@
+---
+layout: post
+title: Ubuntu Server下安装Nginx + PHP5 + MySQL
+---
+
+h1. {{ page.title }}
+
+h3. 版本说明
+
+* Ubuntu Server版本：11.10
+* Nginx版本：1.0.5
+* PHP版本：5.3.6
+* MySQL版本：5.1.58
+
+h3. 安装
+
+bc. $ apt-get install unzip nginx mysql-server php5-fpm php5-cli php5-mysql php5-curl php5-gd php5-idn php-pear php5-imagick php5-imap php5-mcrypt php5-memcache php5-mhash php5-ming php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl
+
+h3. 配置nginx 
+
+bc. # nginx配置文件路径：/etc/nginx/sites-available/default
+# 在 server 段中加入如下代码
+location ~ \.php$ {
+  fastcgi_pass 127.0.0.1:9000;
+  fastcgi_index index.php;
+  include fastcgi_params;
+}
+
+h3. 测试
+
+bc. # 新建文件index.php写一段测试php的代码放到网站目录中，默认路径：/usr/share/nginx/www
+<?php
+	phpinfo();
+?>
+# 打开http://127.0.0.1 测试通过。

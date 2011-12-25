@@ -1,0 +1,5 @@
+﻿auto: true
+server: true
+server_port: 4000
+markdown: redcarpet
+pygments: true

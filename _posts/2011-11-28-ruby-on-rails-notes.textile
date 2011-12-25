@@ -1,0 +1,54 @@
+---
+layout: post
+title: Ruby on Rails 学习手记
+---
+
+h1. {{ page.title }}
+
+h2. 命令
+
+* *Migration的建立和执行*
+
+bc. # 建立
+rails g migration [migration_name]
+# 执行
+rake db:migrate
+
+* *与Migration相关的Rake命令*
+** rake db:create 按照目前的 RAILS_ENV 环境建立数据库
+** rake db:create:all 建立所有环境的数据库
+** rake db:drop 按照目前的 RAILS_ENV 环境删除数据库
+** rake db:drop:all 删除所有环境的数据库
+** rake db:migrate 执行Migration操作
+** rake db:rollback STEP=n 回滚上N个Migration操作
+** rake db:migrate:up VERSION=20080906120000 执行指定版本的Migration
+** rake db:migrate:down VERSION=20080906120000 回滚指定版本的Migration
+** rake db:version 当前数据库的Migration版本
+** rake db:seed 执行 db/seeds.rb 载入种子数据
+
+h2. 配置
+
+* 安装Gem时不安装doc
+
+bc. # 修改~/.gemrc，加入
+gem: --no-ri --no-rdoc
+
+h2. 问题
+
+* *Error installing mysql2: ERROR: Failed to build gem native extension.*
+
+p((((. 没有安装必要的mysql库导致：
+
+bc. apt-get install libmysql-ruby libmysqlclient-dev
+
+* *Unknown database 'simple_cms_development'*
+
+bc. rake db:create
+
+* *使用mongoid的项目在生成migration的时候显示“error  mongoid [not found]”*
+
+p((((. 修改config/application.rb，加入
+
+bc. config.generators do |g|
+  g.orm :active_record
+end

@@ -1,0 +1,117 @@
+---
+layout: default
+title: ActionScript
+---
+
+<div id="charpter">
+h3. Contents
+* "Utility Class":#utility_class
+** "Tweener":#tweener
+** "Audio":#audio
+** "Graphic":#graphic
+** "Component":#component
+* "Engine":#engine
+** "Game":#game
+** "Physics":#physics
+** "3D":#3d
+** "Particle":#particle
+* "Framework":#framework
+* "Software":#software
+** "Design":#design
+** "Development":#development
+** "Useful Tools":#useful_tools
+* "Ebooks":#ebooks
+</div>
+
+h1. ActionScript
+
+h3(#utility_class). Utility Class
+* *(#tweener)Tweener*
+** "Tweening Platform":http://blog.greensock.com
+** "Tweener":http://code.google.com/p/tweener/
+
+* *(#audio)Audio*
+** "as3soundeditorlib":http://code.google.com/p/as3soundeditorlib
+
+* *(#graphic)Graphic*
+** "as3-bitmap-mosaic-class":http://juliankussman.com/blog/2008/10/01/as3-bitmap-mosaic-class
+** "graffiti":http://www.nocircleno.com/graffiti/
+
+* *(#component)Component*
+** "Minimalcomps":http://www.minimalcomps.com
+
+* *(#other)Other*
+** "CollisionDetectionKit":http://code.google.com/p/collisiondetectionkit/
+** "Casalib":http://casalib.org/
+** "doomsdayconsole(强大的控制台辅助工具)":http://code.google.com/p/doomsdayconsole/
+** "TransformTool":http://www.senocular.com/flash/tutorials/transformtool/
+** "XMLSerializer":http://www.libspark.org/wiki/clockmaker/XMLSerializer - 可以将xml和as3 object互相转换
+
+h3(#engine). Engine
+* *(#game)Game*
+** "as3isolib":http://code.google.com/p/as3isolib/
+** "Flixel":http://http://www.flixel.org/
+*** "Flixel Power Tools":http://www.photonstorm.com/flixel-power-tools
+** "FlashPunk":http://flashpunk.net/
+** "ffilmation":http://www.ffilmation.org
+** "Citrus":http://citrusengine.com
+** "OpenSpace":http://www.openspace-engine.com
+** "Pixelblitz":http://code.google.com/p/pixelblitz/
+** "PushButton":http://pushbuttonengine.com
+*** "Platform Starter Kit":http://hanclinto.com/site/
+** "QuickB2":http://code.google.com/p/quickb2/ - A 2d physics-based game engine for Flash.
+** "TheoWorlds":http://www.theoworlds.com/theobuilder.php
+
+* *(#physics)Physics*
+** "APE":http://www.cove.org/ape/index.htm
+** "Box2DFlash":http://box2dflash.org/
+** "Flade":http://www.cove.org/flade/
+** "Motor2":http://www.motorphysics.de/
+** "nape":http://code.google.com/p/nape/
+
+* *(#3d)3D*
+** "Away3D":http://away3d.com/
+** "Alternativa3D":http://alternativaplatform.com/en/alternativa3d/
+** "EasyAGAL":http://studio.barliesque.com
+** "Flare3d":http://www.flare3d.com/
+** "Five3D":http://five3d.mathieu-badimon.com/
+** "Minko":http://aerys.in/minko/
+** "ND2D":http://www.nulldesign.de/category/experiments/nd2d/
+** "Papervision3D":http://www.papervision3d.org/
+** "Sandy3D":http://www.flashsandy.org/
+** "Sophie3D":http://www.sophie3d.com
+** "Starling":http://www.starling-framework.org/
+** "Yogurt3D":http://www.yogurt3d.com/
+
+* *(#particle)Particle*
+** "Partigen":http://desuade.com/partigen
+** "Flint":http://flintparticles.org
+** "Stardust-Particle":http://code.google.com/p/stardust-particle-engine/
+
+h3(#framework). Framework
+* "SomaMVC":http://code.google.com/p/somamvc/
+* "Starling":http://www.starling-framework.org/ - The GPU powered 2D Flash API
+
+h3(#software). Software
+* *(#design)Design*
+** "MarkMan":http://www.getmarkman.com/ - 马克鳗
+** "TexturePacker":http://www.texturepacker.com/ - 一款跨平台的SpriteSheet制作软件
+
+* *(#development)Development*
+** *(#ide)IDE*
+*** "FlashDevelop":http://www.flashdevelop.org
+*** "Flash Builder":http://www.adobe.com/cn/products/flashbuilder/
+*** "SourceMate(强大的Flash Builder辅助工具)":http://www.elementriver.com/sourcemate3
+*** "FDT":http://www.fdt.powerflasher.com/
+
+** *(#useful_tools)Useful Tools*
+*** "DeMonsterDebugger":http://demonsterdebugger.com/ - Monster Debugger is an open source debugger for Adobe Flash, Flex and AIR.
+*** "Flash FireBug":http://www.o-minds.com/products/flashfirebug - FlashFirebug gives you the ability to debug any AS3 Flash on the web.
+*** "Pngcrush":http://pmt.sourceforge.net/pngcrush/ - PNG去掉Alpha通道工具
+*** "SWFWire Decompiler":http://www.swfwire.com/ - An open source library written in ActionScript 3 for reading and writing swfs.
+*** "SWFWire Debugger":http://www.swfwire.com/ - An open source AIR application for INTENSE ActionScript 3 debugging.
+
+h3(#ebooks). Ebooks
+* "优化Flash平台性能（官方PDF中文版）":http://help.adobe.com/zh_CN/as3/mobile/flashplatform_optimizing_content.pdf
+* "ActionScript3参考手册":http://help.adobe.com/zh_CN/FlashPlatform/reference/actionscript/3/
+* "Flex SDK 编码和最佳实践 (Flex SDK coding conventions and best practices）":http://opensource.adobe.com/wiki/display/flexsdk/Coding+Conventions

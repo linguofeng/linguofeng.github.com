@@ -1,0 +1,295 @@
+---
+layout: post
+title: Ruby语言学习手记
+---
+
+h1. {{ page.title }}
+
+* Ruby大小写敏感
+* 单行注释以#号开头，多行以=begin开头，以=end结尾
+* 文件尾加入__END__，Ruby编译器会处理到这里结束，余下的内容可以通过IO流对象DATA来读取
+* 标识符里的标点符号及含义
+** $ 全局变量以美元符号开头，Ruby也定义了一些包含其他标符号的全局变量，如：$_ and $_K
+** @ 实例变量以一个@开头，而类变量是以两个@开头
+** ? 作为一个有用的惯例，那些返回布尔值的方法名通常以一个问号结尾
+** ! 一些要小心使用的方法名要以感叹号结尾，这样的方法通常会改变调用它们的对像
+** = 以等号结尾的方法在被调用时可以省略此等号，通常被置于赋值操作符的左侧
+* print和puts的作用都是字符输出，但puts会在行尾加个换行符，另外还支持printf和sprintf。
+* 换行符是ruby默认的语句终结符，当然也可以用分号，但不是必须，只有试图在一行代码里放置多条语句时需要用到，除此之外分号都会被忽略掉。可以利用 \ 来对换行符进行转义，这样就可以把两行代码当做一行处理。
+* 在Ruby1.9里，如果一行代码是以一个句点开始，那这行将被当成上一行的延续，而且在该行语句之前的换行符也不被当成语句终结符。例如：
+
+bc. animals = Array.new
+	.push("dog")
+	.push("cow")
+	.sort
+
+* 关于代码块缩进，Ruby的惯例是两个空格
+* 通常情况下，如果代码块中的代码多于一行，就采用do和end分界符，否则就使用{和}分界符。例如：
+
+bc. # 只有一行的代码块
+1.times { print "Ruby!" }
+# 多行代码块
+1.upto(10) do |x|
+  print x
+  print x + 1
+end
+
+* 如果想自定义Unix系统对于ruby文件的执行方式（称为shebang注释），文件的第一行应加入类似如下语句，该语句必须位于第一行。
+
+bc. #!/usr/bin/ruby -w
+
+* 如果需要为ruby文件定义编码，那么编码需要在第二行，如果没有定义执行方式的代码，那么就应该在第一行，编码名称不区分大小写，如果一个文件头三个字节是0xEF 0xBB 0xBF，那么该文件的编码方式就是UTF-8，这三个字节也称为BOM（Byte Order Mark的缩写）。
+
+bc. # coding: utf-8
+# Emacs用户可以像下面这样写
+# -*- coding: utf-8 -*-
+# vi用户可以这样
+# vi: set fileencoding=utf-8 :
+
+* 用require载入代码，可以保证不会重复载入指定的代码
+* Ruby不像C或Java那样的静态编译型语言，有着像main这样的入口方法，他是从第一行代码一直执行到最后，所以函数或类的定义代码必须放在调用代码的前面。
+* 像PHP，Ruby的纯字符串也是由两个单引号首尾构成，如果用了双引号，那么字符串里的一些转义序列（如：\n）和表达式将会被编译器处理，另外双引号的字符串还支持跨越多行，如果想让一行长字符串分多行表示，只要在每行结尾加入反斜杠（\）。
+* 以反引号(`)来引用的文本，Ruby会将字符串以操作系统命令来执行，并将输出的结果作为字符串返回。以命令 ls 为例，与反引号(`)等价的表示方式还有：%x[ls] 。
+* 对于处理很长的甚至包含各种奇怪字符的字符串，可以用here document来处理，以<<后面紧跟一个用于指定结尾分界符的标识符和字符串，通常为大写。
+* 应该避免在循环中使用字符串，因为在Ruby中，每个字符串都是被看做一个对象，而每次循环都会新建一个对象，可以运行下面的代码来证明这一点：
+
+bc. 10.times { puts "test".object_id }
+
+* 加号(+)虽然也是字符串的连接符，但是和Java不一样，加号操作符不会自动转换右侧的操作数为字符，必须自己手动转换，否则报错。例如：
+
+bc. # to_s将操作数转换成字符串
+"Hello planet #" + planet_number.to_s
+# 但是采用 #{ 和 } 在字符串插入表达式的方式会比用+号更方便，如：
+"Hello planet ##{planet_number}"
+
+* << 操作符会将第二个参数添加到左侧的操作数后面，并不会创建新对象。例如：
+
+bc. greeting = "Hello"
+greeting << " World"
+puts greeting
+# Outputs "Hello World"
+
+* Ruby1.9为字符串提供了三种循环方法：each_byte(按字切进行循环)、each_char(按字符进行循环)、each_line(按行进行循环)，这要比使用[index, length]方法更高效。例如：
+
+bc. s = "$1000"
+s.each.char { |x| print "#{x}" }
+
+* Ruby中，以true和false来代表真和假、开和关，以nil来表示空值。
+* 就像Actionscript一样，在Ruby中使用对象，事实上也是在使用对象的引用，就是说当将一个值赋值给一个变量时，并没有将一个对象拷贝到该变量中，而是在此变量中存储了一个指向那个对象的引用。例如：
+
+bc. s = "Ruby"
+t = s
+t[-1] = ""
+print s
+# outputs "Rub"
+
+h3. Arrays
+* 可以用加号(+)、减号(-)或乘号(*)来操作数组，例如：
+
+bc. ['a', 'b'] + ['c']
+# ['a', 'b', 'c']
+['a', 'b', 'c'] - ['b']
+# ['a', 'c']
+[0] * 8
+# [0, 0, 0, 0, 0, 0, 0, 0]
+
+* 当然也可以用<< 来添加元素，例如：
+
+bc. a = []
+a << 1 << 2
+# a is [1, 2]
+
+* 也可以用与(&)操作符取交集、或(|)操作符取并集来操作数组，例如：
+
+bc. a = [1, 1, 2, 2, 3, 3, 4]
+b = [5, 5, 4, 4, 3, 3, 2]
+a | b
+# [1, 2, 3, 4, 5]
+b | a
+# [5, 4, 3, 2, 1]
+a & b
+# [2, 3, 4]
+b & a
+# [4, 3, 2]
+
+h3. Hashes
+* Map是由键值构成，键有两种表现方式，字符串(string)和符号(symbol)，一般用符号会更高效，两种表现形式如下：
+
+bc. # 字符串方式
+numbers = { "one" => 1, "two" => 2 }
+# 符号方式
+numbers = { :one => 1, :two => 2 }
+# Ruby 1.9 支持下面更简洁的表示方式，有点像Json
+numbers = { one: 1, two: 2 }
+
+h3. Ranges
+* Range 对象表示位于一个开始值和结束值之间的一些值，例如：
+
+bc. a = 0..10
+b = 'a'..'c'
+('b'..'d').to_a
+# ['b', 'c', 'd']
+# 返回5是否在a的范围内
+a.member? 5
+# 返回true
+
+h4. Symbols
+* 相对于字符串(String)每次新建一个新对象，Symbol对系统开销就很少，最普遍的应用是在Hash上，在Hash已经提到。
+
+h4. Methods
+* Methods定义
+
+bc. def say_hello(name)
+  result = "Hi, " + name
+  return result
+end
+# ruby可以将方法最后一行的运算结果自动return，所以上面方法还可以简化成
+def say_hello(name)
+  "Hi, " + name
+end
+
+h4. Classes
+* Class定义
+
+bc. class Person
+  def initialize(name) # 构造函数
+    @name = name
+  end
+  def say(word)
+    pus "#{word}, #{@name}" #字串相加
+  end
+end
+p1 = Person.new("Bindiry")
+p1.say("Hello")
+# 输出Hello, Bindiry
+
+* 类方法和变量
+
+bc. class Person
+  @@name = "Bindiry"
+  def self.say
+    puts @@name
+  end
+end
+Person.say
+# 输出 Bindiry
+# 所有的实例变量(@开头)和类变量(@@开头)都只能在类内部访问，外部无法存取
+# 为了能够读取实例变量，必须定义方法：
+class Person
+  def initialize(name)
+    @name = name
+  end
+  def name
+    @name
+  end
+  def name=(name)
+    @name = name
+  end
+end
+p = Person.new('Bindiry')
+p.name 
+=> "Bindiry"
+p.name="peny"
+=> "peny"
+# 更简洁的实例变量访问方法
+class Person
+  attr_accessor :name
+end
+# 同样还有只读和只写: attr_reader、attr_writer
+
+* 方法封装
+
+p(((. 类中默认的方法是public的，要设置成private或protected，可以用如下代码：
+
+<pre>
+ class MyClass
+
+  def public_method
+  end
+
+  private
+
+  def private_method1
+  end
+
+  def private_method2
+  end
+  
+  protected
+
+  def protected_method1
+  end
+
+  def protected_method2
+  end
+
+end
+</pre>
+
+p(((. Ruby中的private和protected和其他语言不太一样，都是可以在整个继承体系中被调用。
+
+* 类继承
+
+<pre>
+class Pet
+  attr_accessor :name, :age
+  def say(word)
+    puts "Say: #{word}"
+  end
+end
+
+class Cat < Pet
+  def say(word)
+    puts "Meow~"
+    super
+  end
+end
+
+Cat.new.say("Hi")
+</pre>
+
+h4. 循环体和迭代器
+
+bc. languages = ['Ruby', 'Javascript', 'Perl']
+languages.each do |lang|
+  puts "I love #{lang}!"
+end
+# I Love Ruby
+# I Love Javascript
+# I Love Perl
+
+<pre>
+# 重复三次
+3.times do
+  puts 'Good Job!'
+end
+# Good Job!
+# Good Job!
+# Good Job!
+
+# 从1到9，注：单行可用大括号形式
+1.upto(9) { |x| puts x }
+
+# 使用索引变量
+languages = ['Ruby', 'Javascript', 'Perl']
+languages.each_with_index do |lang, i|
+  puts "#{i}, I love #{lang}!"
+end
+# 0, I Love Ruby
+# 1, I Love Javascript
+# 2, I Love Perl
+</pre>
+
+h4. Module
+
+p(((. Module和Class很相似，也是在内部定义方法(Method)，只是不能用new来创建，多数被当做命名空间(Namespace)来放一些工具方法。
+
+<pre> module MyUtil
+  def self.foobar
+    puts "foobar"
+  end
+end
+
+MyUtil.foobar
+# 输出 foobar
+</pre>

@@ -1,0 +1,134 @@
+---
+layout: post
+title: Windows下用VirtualBox搭建Ubuntu环境做开发
+---
+
+h1. {{ page.title }}
+
+h3. 说明
+
+p. 本文目的是实现在VirtualBox中运行Ubuntu Server来做为Ruby on Rails的环境，然后通过Samba来共享Ubuntu下的文件供Windows编辑，用KiTTY通过SSH来连接Ubuntu Server进行系统常规操作。另外，关于如何在Ubuntu中搭建Ruby On Rails环境，请参考 "《在Ubuntu Server下搭建Ruby on Rails + MongoDB + Redis环境》":http://wiki.junnan.org/2011/11/11/ruby-on-rails-mongodb-redis-on-ubuntu-server.html ，软件的安装过程就不再详细说明，请自行Google（如：Ubuntu Server 安装、VirtualBox安装）。
+
+h3. 软件下载
+* "Ubuntu Server 11.10 ==(x86)==":http://releases.ubuntu.com/11.10/
+* "Oracle VM VirtualBox for Windows":https://www.virtualbox.org/wiki/Downloads
+* "KiTTY":http://www.9bis.net/kitty/
+
+h3. 相关设置
+
+h4. VirtualBox使用桥接连接方式
+
+p(((. 在用Virtual创建Ubuntu Server系统时， *设置* -> *网络* 中的连接方式应改为 *Bridged Adapter* (桥接连接方式)  ，这样才能使Ubuntu系统与Windows系统处于同一网段，便于使用SSH连接。
+
+h4. 设置Ubuntu Server安装包
+
+p(((. 进行到 *选择安装包* 时，应选中 *OpenSSH server* 和 *Samba file server*。
+
+h4. Ubuntu Server开启并使用root帐户
+
+bc. $ sudo passwd root
+# 输入当前用户密码，然后再输入两次root新密码
+# 注销当前用户
+$ logout
+# 就可以使用root登录了
+
+h4. 使用163的软件源
+
+bc. # 如果用官方的cn源更新包管理器很慢的话（一般电信是这种情况），可以用如下方法使用163提供的源
+$ cd /etc/apt
+$ cp sources.list sources.list.bak
+$ nano sources.list
+# 清空sources.list，将下面的源地址写入sources.list
+
+bc. deb http://mirrors.163.com/ubuntu/ intrepid main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ intrepid-security main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ intrepid-updates main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ intrepid-proposed main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ intrepid-backports main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ intrepid main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ intrepid-security main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ intrepid-updates main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ intrepid-proposed main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ intrepid-backports main restricted universe multiverse
+
+bc. # 更新包管理器
+$ apt-get update
+
+h4. 中文支持
+
+bc. $ apt-get install language-pack-zh-hans language-pack-zh-hans-base language-pack-zh-hant language-pack-zh-hant-base
+
+h4. Ubuntu Server静态IP地址及DNS设置
+
+bc. $ vim /etc/network/interfaces
+# 将iface eth0 inet dhcp注释掉
+# 请下面的代码写入，注意事先用ifconfig命令看一下你的网卡是eth0还是eth1，根据自己路由器网段自行修改address(IP)和gateway(网关)，保存退出
+
+bc. iface eth0 inet static
+address 192.168.1.6
+netmask 255.255.255.0
+gateway 192.168.1.1
+
+bc. # 重启网络
+$ /etc/init.d/networking restart
+# 修改DNS
+# vim /etc/resolv.conf
+
+h4. Samba设置共享文件夹让Windows匿名访问
+
+bc. # 如果在安装ubuntu server时没有选择samba file server包，可以用如下命令安装，如果安装了可跳过这一步。
+$ apt-get install samba smbclient
+# 选择需要共享的文件夹，并设置为最高权限，这里使用 /var/workspace
+# 切记不要在/root下面设置共享目录，会导致windows下无法访问
+$ chmod 777 -R /var/workspace
+# 备份samba配置文件
+$ cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+# 编辑samba配置文件，设置共享
+$ vim /etc/samba/smb.conf
+
+bc. # 将smb.conf替换成下面内容，[workspace]段的路径自行更换
+[global]
+security = share
+display charset = UTF-8
+unix charset = UTF-8
+dos charset = cp936
+guest account = nobody
+workgroup = WORKGROUP
+server string = %h server (Samba, Ubuntu)
+[workspace]
+comment = ubuntu workspace
+path = /var/workspace
+public = yes
+writable = yes
+browseable = yes
+guest ok = yes
+create mask = 0777
+directory mask = 0777
+
+bc. # 重启samba服务
+$ /etc/init.d/smbd restart
+# 在Windows的资源管理器中，在地址栏直接输入Ubuntu Server的IP，即可访问。
+
+h4. KiTTY相关设置
+
+* 编码设置
+
+p(((.  *Window* -> *Translation* -> *Remote character set* : *UTF-8*
+
+* 自动登录设置
+
+p(((.  *Connetcion* -> *Data* -> *Auto-login username* : *root*
+*Connetcion* -> *Data* -> *Auto-login password* : *password*
+
+* 在vim中使用小键盘输入数字的问题解决
+
+p(((.  *Terminal* -> *Features* 里，找到 *Disable application keypad mode* ，选上即可。
+
+* 保持连接状态
+
+p(((.  *Connection* -> *Seconds Between keepalives (0 to turn off)* ，设置为 *60* 
+同时勾选以下三项：
+
+bq. Enable TCP keepalives(SO_KEEPALIVE option)
+Attempt to reconnect on system wakeup
+Attempt to reconnect on connection failure
