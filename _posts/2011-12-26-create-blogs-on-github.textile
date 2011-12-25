@@ -1,0 +1,10 @@
+---
+layout: post
+title: 在Github创建博客
+---
+
+h1. {{ page.title }}
+
+h2. 说明
+
+* *博客模板来自Bindiry's Wiki｜http://wiki.junnan.org*
