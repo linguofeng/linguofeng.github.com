@@ -8,8 +8,8 @@ h3. Android
 * "四大组件":#4
 ** "Activity":#activity
 ** "Service":#service
-** "BroadcastReceiver":#broadcastReceiver
-** "ContentProvider":#contentProvider
+** "BroadcastReceiver":#broadcastreceiver
+** "ContentProvider":#contentprovider
 </div>
 
 h1. Android
@@ -23,6 +23,6 @@ h3(#4). 四大组件
 ** "startService":http://www.linguofeng.com
 ** "bindService":http://blog.greensock.com
 
-* *(#broadcastReceiver)BroadcastReceiver - 广播接收者*
+* *(#broadcastreceiver)BroadcastReceiver - 广播接收者*
 
-* *(#contentProvider)ContentProvider - 内容提供者*
+* *(#contentprovider)ContentProvider - 内容提供者*
