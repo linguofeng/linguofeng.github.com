@@ -2,10 +2,27 @@
 layout: default
 title: Android
 ---
+
+<div id="charpter">
+h3. Android
+* "四大组件":#4
+** "Activity":#activity
+** "Service":#service
+** "BroadcastReceiver":#broadcastReceiver
+** "ContentProvider":#contentProvider
+</div>
+
 h1. Android
 
-h3. Network
-* "Connectbot":http://code.google.com/p/connectbot/ - 支持ssh端口转发的翻墙利器
+h3(#4). 四大组件
 
-h3. Utility Tools
-* "android-ui-utils":http://code.google.com/p/android-ui-utils/ - Android UI Utilities
+* *(#activity)Activity*
+** "Activity生命周期":http://blog.greensock.com
+
+* *(#service)Service - 服务*
+** "startService":http://www.linguofeng.com
+** "bindService":http://blog.greensock.com
+
+* *(#broadcastReceiver)BroadcastReceiver - 广播接收者*
+
+* *(#contentProvider)ContentProvider - 内容提供者*
