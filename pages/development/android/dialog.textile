@@ -1,0 +1,48 @@
+---
+layout: default
+title: Android 对话框
+---
+
+<div id="charpter">
+h3. Android 对话框
+* "AlertDialog":#1
+* "ProgressDialog":#1
+* "DatePickerDialog":#1
+* "TimePickerDialog":#1
+</div>
+
+h1. {{ page.title }}
+
+p. Android中共有4种对话框： 
+* 警告对话框（AlertDialog）
+* 进度对话框（ProgressDialog）
+* 日期选择对话框（DatePickerDialog）
+* 时间选择对话框（TimePickerDialog）
+
+p(#1). *一、AlertDialog*
+
+<pre>
+AlertDialog.Builder builder = new AlertDialog.Builder(this);
+builder.setTitle("对话框标题");
+builder.setMessage("对话框内容");
+builder.setXXX(); // 其它参数
+builder.create();
+builder.show();
+</pre>
+
+p. 更多参数访问 "http://developer.android.com/reference/android/app/AlertDialog.Builder.html":http://developer.android.com/reference/android/app/AlertDialog.Builder.html
+
+p(#2). *二、ProgressDialog*
+
+<pre>
+ProgressDialog pd = new ProgressDialog(this);
+pd.setMessage("内容");
+pd.setXXX(); // 其它参数
+pd.show();
+pd.dismiss();
+
+// 进度条对话框有两种显示样式，通过
+pd.setProgressStyle(0/1); // 1表示水平，0表示圆形
+</pre>
+
+p. 更多参数访问 "http://developer.android.com/reference/android/app/ProgressDialog.html":http://developer.android.com/reference/android/app/ProgressDialog.html

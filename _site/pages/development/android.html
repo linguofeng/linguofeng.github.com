@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<title>Android - 林国锋的代码库</title>
+		<meta name="keywords" content="java" />
+		<meta name="description" content="这里是林国锋的开发代码库，用来收集工作学习中常用的代码。" />
+		<!-- link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css' -->
+		<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+		<!-- link rel="stylesheet" type="text/css" href="/assets/syntax-default.css" / -->
+		<link rel="stylesheet" type="text/css" href="/assets/ui.totop.css" />
+		<script type="text/javascript" src="/assets/jquery.min.js"></script>
+		<script type="text/javascript" src="/assets/waypoints.min.js"></script>
+		<script type="text/javascript" src="/assets/jquery.ui.totop.js"></script>
+		<script type="text/javascript" src="/assets/common.js"></script>
+		
+		<!-- SyntaxHighlighter -->
+	    <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
+	    <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shThemeDefault.css"/>
+		<script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shCore.js"></script>
+	    <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJava.js"></script>
+	    <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushXml.js"></script>
+	    <script type="text/javascript">
+	        SyntaxHighlighter.config.clipboardSwf = 'http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/clipboard.swf';
+	        SyntaxHighlighter.all();
+	    </script>
+	    <style type="text/css">
+		    .syntaxhighlighter {
+			    width: 750px !important;
+			    overflow: hidden !important;
+			    margin-left: 40px !important;
+			}
+	    </style>
+	</head>
+
+	<body>
+		<div id="container">
+		
+			<div id="sidebar">
+				<div id="menu-nav">
+					<div id="logo"><a href="/">Library</a></div>
+					
+					<ul>
+						<li>Development
+							<ul>
+								<li><a href="/pages/development/android.html">Android</a></li>
+								<li><a href="/pages/development/java.html">Java</a></li>
+								<li><a href="/pages/development/javascript.html">JavaScript</a></li>
+								<li><a href="/pages/development/jquery.html">jQuery</a></li>
+							</ul>
+						</li>
+						
+					</ul>
+					
+					<ul>
+						<li>Links
+							<ul>
+								<li><a href="http://www.linguofeng.com">Blog</a></li>
+							</ul>
+						</li>
+					</ul>
+					
+					<ul class="misc">
+						<li>Powered by <a href="http://pages.github.com/">github-pages</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div id="content">
+				<div id="charpter">
+<h3>Android</h3>
+<ul>
+	<li><a href="#1">四大组件</a></li>
+	<li><a href="#2">控件</a></li>
+	<li><a href="#3">动画</a>
+	<ul>
+		<li><a href="#301">Tween Animation</a></li>
+		<li><a href="#302">Frame Animation</a></li>
+	</ul></li>
+	<li><a href="#4">Threads线程</a>
+	<ul>
+		<li><a href="#41">AsyncTask异步任务</a></li>
+	</ul></li>
+	<li><a href="#5">常用</a>
+	<ul>
+		<li><a href="#501">获取当前系统版本号</a></li>
+		<li><a href="#502">横屏显示</a></li>
+		<li><a href="#503">全屏无标题栏显示</a></li>
+		<li><a href="#504">无标题栏显示</a></li>
+		<li><a href="#505">自定义标题栏布局</a></li>
+		<li><a href="#506">自定义标题栏背景</a></li>
+		<li><a href="#507">ListView滚动加载</a></li>
+		<li><a href="#508">异常处理</a></li>
+	</ul></li>
+	<li><a href="#6">优化</a>
+	<ul>
+		<li><a href="#601">ListView优化</a></li>
+		<li><a href="#602">图片缓存</a></li>
+	</ul></li>
+</ul>
+</div>
+<h1>Android</h1>
+<h3 id="1">Android四大组件<br />
+<hr /></h3>
+<ul>
+	<li><strong id="activity">Activity</strong>
+	<ul>
+		<li><a href="http://blog.greensock.com">Activity生命周期</a></li>
+		<li><a href="android/PreferenceActivity.html">PreferenceActivity的使用</a></li>
+	</ul></li>
+</ul>
+<ul>
+	<li><strong id="service">Service &#8211; 服务</strong>
+	<ul>
+		<li><a href="http://www.linguofeng.com">startService</a></li>
+		<li><a href="http://blog.greensock.com">bindService</a></li>
+	</ul></li>
+</ul>
+<ul>
+	<li><strong id="broadcastreceiver">BroadcastReceiver &#8211; 广播接收者</strong></li>
+</ul>
+<ul>
+	<li><strong id="contentprovider">ContentProvider &#8211; 内容提供者</strong></li>
+</ul>
+<h3 id="2">Android控件<br />
+<hr /></h3>
+<ul>
+	<li><a href="java.html">TextView</a> &#8211; 文本</li>
+	<li><a href="http://www.linguofneg.com">自定义控件</a></li>
+	<li><a href="android/menu.html">菜单</a></li>
+	<li><a href="android/dialog.html">对话框</a></li>
+</ul>
+<h3 id="3">Android动画<br />
+<hr /></h3>
+<ul>
+	<li id="301"><strong>Tween Animation</strong>
+	<ul>
+		<li><a href="android/TranslateAnimation.html">平移</a> &#8211; TranslateAnimation</li>
+		<li><a href="android/AlphaAnimation.html">渐变</a> &#8211; AlphaAnimation</li>
+		<li><a href="android/ScaleAnimation.html">缩放</a> &#8211; ScaleAnimation</li>
+		<li><a href="android/RotateAnimation.html">旋转</a> &#8211; RotateAnimation</li>
+	</ul></li>
+</ul>
+<ul>
+	<li id="302"><strong>Frame Animation</strong>
+	<ul>
+		<li><a href="android/animation_drawable.html">帧动画</a> &#8211; AnimationDrawable</li>
+	</ul></li>
+</ul>
+<h3 id="4">Threads线程<br />
+<hr /></h3>
+<ul>
+	<li id="41"><a href="android/async_task.html">AsyncTask 异步任务</a></li>
+</ul>
+<h3 id="5">常用<br />
+<hr /></h3>
+<ul>
+	<li id="501"><strong>获取当前系统版本号</strong><br />
+<hr /></li>
+</ul>
+<pre>android.os.Build.VERSION.SDK_INT</pre>
+<ul>
+	<li id="502"><strong>横屏显示</strong><br />
+<hr /></li>
+</ul>
+<pre>&lt;activity android:screenOrientation="landscape"</pre>
+<ul>
+	<li id="503"><strong>全屏无标题栏显示</strong><br />
+<hr /></li>
+</ul>
+<pre>&lt;application android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"</pre>
+<ul>
+	<li id="504"><strong>无标题栏显示</strong><br />
+<hr /></li>
+</ul>
+<pre class="brush: xml">
+&lt;!-- XML实现 --&gt;
+&lt;application android:theme="@android:style/Theme.Black.NoTitleBar" /&gt;
+</pre>
+
+<pre class="brush: java">
+// JAVA实现
+requestWindowFeature(Window.FEATURE_NO_TITLE);
+</pre>
+<ul>
+	<li id="505"><strong>自定义标题栏布局</strong><br />
+<hr /></li>
+</ul>
+<pre class="brush: java;">
+// 1.Activity：
+// 声明使用自定义标题
+requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+setContentView(R.layout.main);
+// 自定义标题栏布局
+getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);
+</pre>
+
+<pre class="brush: xml;">
+&lt;!-- 2.XML：main_title.xml --&gt;
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" &gt;
+
+    &lt;ImageView
+        android:id="@+id/title_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:focusable="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/title_back_btn" /&gt;
+
+    &lt;TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/app_name"
+        android:textColor="#ff000000" /&gt;
+
+    &lt;ImageView
+        android:id="@+id/title_reload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5.0px"
+        android:focusable="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/title_new_btn" /&gt;
+
+&lt;/RelativeLayout&gt;
+</pre>
+<ul>
+	<li id="506"><strong>自定义标题栏背景与高度</strong> (上面只是自定义标题栏的而已，而背景与高度还是没有变化，接下来就要处理标题栏背景与高度)<br />
+<hr /></li>
+</ul>
+<pre class="brush: xml">
+&lt;!-- 1.创建value/styles.xml文件 --&gt;
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;resources&gt;
+    &lt;style name="CustomWindowTitleBackground"&gt;
+        &lt;item name="android:background"&gt;@drawable/titlebar_bg_nor&lt;/item&gt;
+    &lt;/style&gt;
+    &lt;style name="title" parent="@android:style/Theme"&gt;
+        &lt;item name="android:windowTitleSize"&gt;50.0dip&lt;/item&gt;
+        &lt;item name="android:windowTitleBackgroundStyle"&gt;@style/CustomWindowTitleBackground&lt;/item&gt;
+    &lt;/style&gt;
+&lt;/resources&gt;
+
+&lt;!-- 2.接着在清单文件中添加android:theme属性 --&gt;
+&lt;activity android:name=".MainActivity" android:theme="@style/title" /&gt;
+</pre>
+<ul>
+	<li id="507"><strong>ListView滚动加载更新数据</strong><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+ListView.setOnScrollListener(new OnScrollListener() {
+    // 滚动状态改变时执行
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+        // 停止滚动状态
+        switch (scrollState) {
+        case OnScrollListener.SCROLL_STATE_IDLE:
+            // 判断滚动到底部
+            // view.getLastVisiblePosition() 获得最后一条可见记录的下标位置（下标从1开始）
+            if (view.getLastVisiblePosition() == (view.getCount() - 1)) {
+                // TODO 滚动到底部时自动加载更多数据
+            }
+        break;
+        }
+    }
+});
+</pre>
+<ul>
+	<li id="508"><strong>异常处理</strong> (提示用户把异常信息回馈给公司)<br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+//==================================================================================
+//= 1.实现UncaughtExceptionHandler接口
+//==================================================================================
+class ExceptionHandler implements UncaughtExceptionHandler {
+    private static ExceptionHandler exceptionHandler;
+    
+    // 私有构造方法
+    private ExceptionHandler(){}
+    
+    // 单态
+    public synchronized static ExceptionHandler getInstance(){
+        if(exceptionHandler == null)
+            exceptionHandler = new ExceptionHandler();
+        return exceptionHandler;
+    }
+    
+    // 实现该方法
+    public void uncaughtException(){
+        // TODO 能够捕获到所有异常
+        
+        // 获取手机硬件信息（通过反射）
+        Fields[] fields = Build.class.getDeclaredFields();
+        for(Field field : fields) {
+            // 暴力反射
+            field.setAccessible(true);
+            String name = field.getName();
+            // 静态字段值
+            String value = field.get(null).toString();
+            // TODO 把获取的手机信息拼装起来
+        }
+        
+        // 获取当前程序的版本
+        String version = Context.getPackageManager().getPackageInfo(Context.getPackageName(), 0).versionName;
+        
+        // 获取异常信息
+        Writer w = new StringWriter();
+        printWriter writer = new PirntWriter(w);
+        ex.printStackTrace(writer);
+        writer.flush();
+        writer.close();
+        
+        String error = writer.toString();
+        
+        // TODO 把上面获取到的信息提交到服务器
+        
+        // 退出程序(根据需求需要延迟杀死进程)
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
+}
+</pre>
+
+<pre class="brush: java">
+ //=================================================================================
+//= 2.让应用统一使用自定义的异常处理类
+//==================================================================================
+public class App extends Application {
+    public void onCreate(){
+        ExceptionHandler handler = ExceptionHandler.getInstance();
+        // 把异常处理设置到主线程中
+        Thread.setDefaultUncaughtExceptionHandler(handler);
+    }
+}
+</pre>
+<ul>
+	<li id="509"><strong>在子线程中使用主线程的消息队列</strong><br />
+<hr /></li>
+</ul>
+<pre class="brush: java;">
+Looper.prepare();
+Toase.makeText(...).show();
+Looper.loop();
+</pre>
+<ul>
+	<li id="510"><strong>获取应用版本号并在线更新应用</strong><br />
+<hr /></li>
+</ul>
+<pre>
+String version = Context.getPackageManager().getPackageInfo(Context.getPackageName(), 0).versionName;
+</pre>
+<h3 id="6">优化<br />
+<hr /></h3>
+<ul>
+	<li id="601"><strong>ListView优化</strong><br />
+<hr /></li>
+</ul>
+<pre class="brush: java;">
+class ViewHolder{
+    TextView mTextView;
+}
+
+public View getView(...){
+    if(convertView == null){
+        convertView = Layou...;
+        convertView.setTag(new ViewHolder());
+    }
+    
+    ViewHolder viewHolder = (ViewHolder)convertView.getTag();
+    viewHolder.mTextView = convertView.findById...;
+}
+</pre>
+<ul>
+	<li id="602"><strong>图片缓存</strong> 软引用办法实现缓存<br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+// 集合
+Map&lt;String, SoftReference&lt;Bitmap&gt;&gt; imageCache = new HashMap&lt;String, SoftReference&lt;Bitmap&gt;&gt;();
+
+// 取
+if (imageCache.containsKey(imageUrl)) {
+    Bitmap bitmap = imageCache.get(imageUrl).get();
+}
+
+// 存
+imageCache.put(imageUrl, new SoftReference&lt;Drawable&gt;(bitmap));
+</pre>
+<h3 id="7">网络编程</h3>
+<ul>
+	<li><strong><span class="caps">URL</span></strong></li>
+</ul>
+<ul>
+	<li><strong>HttpURLConnection</strong></li>
+</ul>
+<ul>
+	<li><strong>HttpClient</strong></li>
+</ul>
+			</div>
+			
+		</div>
+	</body>
+</html>

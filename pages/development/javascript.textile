@@ -1,0 +1,210 @@
+---
+layout: default
+title: JavaScript
+---
+
+<div id="charpter">
+h3. JavaScript
+
+* *"Window对象":#1*
+* *"Ajax":#5*
+* *"Json":#6*
+
+</div>
+
+h1. JavaScript
+
+h3(#1). Window对象
+
+* "document":java.html - 文档对象
+* window - 自身
+* self - 自身
+
+h3(#2). JavaScript函数定义
+
+* *(#2_1)普通方式*
+
+bc. function print(msg){
+    document.write(msg);
+}
+print('abc');
+
+* *(#2_2)函数直接量定义*
+
+bc. var result = function(a,b){
+    return a+b;
+}
+var sum = result(7,8);
+
+* *(#2_3)构造函数方法*
+
+bc. var add = new Function('a','b','return a+3');
+var sum = add(3,4);
+
+h3(#3). Window窗口传值
+
+* *(#3_1)方式一*
+
+bc. // 父窗口
+window.showModalDialog(url,window当前窗口,params);
+window.showModelessDialog(url,window当前窗口,params);
+// 子窗口
+window.dialogArguments; // 得到父窗口的window对象
+// 得到父窗口的window对象可以执行父方法
+
+* *(#3_2)方式二*
+
+bc. // 父窗口
+window.open(url,target,params);
+// 子窗口
+window.opener; // 得到父窗口的window对象
+// 得到父窗口的window对象可以执行父方法
+
+h3(#4). DOM编程
+
+* *(#4_1)DOM 属性*
+
+bc. nodeName
+    元素节点名称：元素
+    文本节点名称：#text
+    属性节点名称：name
+nodeType       值
+    元素节点    1
+    属性节点    2
+    文本节点    3
+nodeValue
+    元素节点值：null
+    文本节点值：文本内容
+    属性节点值：属性值
+
+* *(#4_2)DOM 属性操作*
+
+bc. getAttribute();
+    Element.getAttribute('value');
+setAttribute();
+    Element.setAttribute('value', 'abc');
+
+* *(#4_3)DOM 节点操作*
+
+bc. // 在target之前插入节点
+insertBefore();
+    document.insertBefor(new,target);
+// 创建节点
+createElement();
+    document.createElement('input');
+// 创建文本节点
+createTextNode();
+    document.createTextNode('text');
+// 添加子节点
+appendChild();
+    document.appendChild(Element);
+// 替换节点
+replaceChild();
+    document.replaceChild(new, target);
+// 删除节点
+removeChild();
+    document.removeChild(Element);
+    
+h3(#5). Ajax
+
+* *(#5_1)创建XMLHttpRequest对象*
+
+bc. function getXmlHttpRequest(){
+    var xmlHttp = null;
+    try {
+        xmlHttp = new XMLHttpRequest();
+    } catch (e) {
+        try {
+            xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+    return xmlHttp;
+}
+var xhr = getXmlHttpRequest();
+
+* *(#5_2)XMLHttpRequest 属性*
+
+bc. xhr.onreadystatechange  - 状态监听
+xhr.readyState          - 状态
+xhr.status              - 响应码
+xhr.statusText          - 响应文本
+xhr.responseText        - 返回文本内容
+xhr.responseXML         - 返回XML内容 MIME=text/xml
+
+* *(#5_3)XMLHttpRequest 方法*
+
+bc. xhr.open()  - 与服务器建立连接
+xhr.send()  - 向服务器发送数据
+
+* *(#5_4)XMLHttpRequest 请求*
+
+bc. // POST请求
+xhr.open("POST", "url", 是否异步：true/false);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+send(data);
+
+bc. // GET请求
+xhr.open("GET", "url", 是否异步：true/false);
+send(null);
+
+* *(#5_5)XMLHttpRequest 响应*
+
+bc. xhr.onreadystatechange = function() {
+    if(xhr.readyState == 4 && xhr.status == 200){
+        alert(xhr.responseText);
+    }
+}
+
+h3(#6). Json - JavaScript Object Notation
+
+* *(#6_1)Json 对象*
+
+bc. var user = {
+    'username' : 'admin',
+    'password' : 'admin'
+};
+var username    = user.username;
+
+* *(#6_2)Json 数组*
+
+bc. var users = [
+    {'username' : 'admin', 'password' : 'admin'},
+    {'username' : 'root', 'password' : 'root'},
+    {'username' : 'guest', 'password' : 'guest'}
+];
+var length      = users.length;
+var user        = users[0];
+var username    = user.username;
+
+* *(#6_3)Json 复合*
+
+bc. var users = {
+    'address' : [
+        {'address' : 'bj'},
+        {'address' : 'gz'}
+    ],
+    'tels' : [
+        {'tel' : {'hometel' : '110', 'moblie' : '111'}},
+        {'tel' : {'hometel' : '120', 'moblie' : '112'}}
+    ]
+};
+var address = users.address[0].address;
+var hometel = users.tels[0].tel.hometel;
+
+* *(#6_4)eval 函数*
+
+bc. var json = eval('(' + xhr.responseText + ')');
+==>
+var json = eval("({'username' : 'admin', 'password' : 'admin'})");
+var username = json.username;
+
+* *(#6_5)Java -> Json* - 使用json_lib这个工具包把一个Java对象转换成json串
+
+bc. // 转换对象
+JSONObject.fromObject(Object).toString();
+// 转换数组
+JSONArray.fromObject(List<Object>).toString();
+// 过滤
+JSONArray.fromObject(List<Object>, new JsonConfig().setE(new String[]{"id"})).toString();

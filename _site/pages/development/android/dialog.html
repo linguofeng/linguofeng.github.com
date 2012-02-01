@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+		<title>Android 对话框 - 林国锋的代码库</title>
+		<meta name="keywords" content="java" />
+		<meta name="description" content="这里是林国锋的开发代码库，用来收集工作学习中常用的代码。" />
+		<!-- link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css' -->
+		<link rel="stylesheet" type="text/css" href="/assets/style.css" />
+		<!-- link rel="stylesheet" type="text/css" href="/assets/syntax-default.css" / -->
+		<link rel="stylesheet" type="text/css" href="/assets/ui.totop.css" />
+		<script type="text/javascript" src="/assets/jquery.min.js"></script>
+		<script type="text/javascript" src="/assets/waypoints.min.js"></script>
+		<script type="text/javascript" src="/assets/jquery.ui.totop.js"></script>
+		<script type="text/javascript" src="/assets/common.js"></script>
+		
+		<!-- SyntaxHighlighter -->
+	    <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
+	    <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shThemeDefault.css"/>
+		<script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shCore.js"></script>
+	    <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJava.js"></script>
+	    <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushXml.js"></script>
+	    <script type="text/javascript">
+	        SyntaxHighlighter.config.clipboardSwf = 'http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/clipboard.swf';
+	        SyntaxHighlighter.all();
+	    </script>
+	    <style type="text/css">
+		    .syntaxhighlighter {
+			    width: 750px !important;
+			    overflow: hidden !important;
+			    margin-left: 40px !important;
+			}
+	    </style>
+	</head>
+
+	<body>
+		<div id="container">
+		
+			<div id="sidebar">
+				<div id="menu-nav">
+					<div id="logo"><a href="/">Library</a></div>
+					
+					<ul>
+						<li>Development
+							<ul>
+								<li><a href="/pages/development/android.html">Android</a></li>
+								<li><a href="/pages/development/java.html">Java</a></li>
+								<li><a href="/pages/development/javascript.html">JavaScript</a></li>
+								<li><a href="/pages/development/jquery.html">jQuery</a></li>
+							</ul>
+						</li>
+						
+					</ul>
+					
+					<ul>
+						<li>Links
+							<ul>
+								<li><a href="http://www.linguofeng.com">Blog</a></li>
+							</ul>
+						</li>
+					</ul>
+					
+					<ul class="misc">
+						<li>Powered by <a href="http://pages.github.com/">github-pages</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div id="content">
+				<div id="charpter">
+<h3>Android 对话框</h3>
+<ul>
+	<li><a href="#1">AlertDialog</a></li>
+	<li><a href="#1">ProgressDialog</a></li>
+	<li><a href="#1">DatePickerDialog</a></li>
+	<li><a href="#1">TimePickerDialog</a><br />
+</div></li>
+</ul>
+<h1>Android 对话框</h1>
+<p>Android中共有4种对话框：</p>
+<ul>
+	<li>警告对话框（AlertDialog）</li>
+	<li>进度对话框（ProgressDialog）</li>
+	<li>日期选择对话框（DatePickerDialog）</li>
+	<li>时间选择对话框（TimePickerDialog）</li>
+</ul>
+<p id="1"><strong>一、AlertDialog</strong></p>
+<pre>
+AlertDialog.Builder builder = new AlertDialog.Builder(this);
+builder.setTitle("对话框标题");
+builder.setMessage("对话框内容");
+builder.setXXX(); // 其它参数
+builder.create();
+builder.show();
+</pre>
+<p>更多参数访问 <a href="http://developer.android.com/reference/android/app/AlertDialog.Builder.html">http://developer.android.com/reference/android/app/AlertDialog.Builder.html</a></p>
+<p id="2"><strong>二、ProgressDialog</strong></p>
+<pre>
+ProgressDialog pd = new ProgressDialog(this);
+pd.setMessage("内容");
+pd.setXXX(); // 其它参数
+pd.show();
+pd.dismiss();
+
+// 进度条对话框有两种显示样式，通过
+pd.setProgressStyle(0/1); // 1表示水平，0表示圆形
+</pre>
+<p>更多参数访问 <a href="http://developer.android.com/reference/android/app/ProgressDialog.html">http://developer.android.com/reference/android/app/ProgressDialog.html</a></p>
+			</div>
+			
+		</div>
+	</body>
+</html>
