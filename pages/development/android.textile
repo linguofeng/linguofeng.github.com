@@ -64,12 +64,12 @@ h3(#3). Android动画
 ** "旋转":android/RotateAnimation.html - RotateAnimation
 
 *(#302) *Frame Animation*
-** "帧动画":android/AnimationDrawable.html - AnimationDrawable
+** "帧动画":android/animation_drawable.html - AnimationDrawable
 
 h3(#4). Threads线程
 <hr />
 
-*(#41) "AsyncTask 异步任务":android/AsyncTask.html
+*(#41) "AsyncTask 异步任务":android/async_task.html
 
 h3(#5). 常用
 <hr />
