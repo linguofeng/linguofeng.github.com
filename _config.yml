@@ -1,5 +1,5 @@
-﻿auto: true
+auto: true
 server: true
 server_port: 4000
-markdown: redcarpet
+markdown: maruku
 pygments: true

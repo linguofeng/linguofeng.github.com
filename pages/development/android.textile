@@ -4,20 +4,39 @@ title: Android
 ---
 
 <div id="charpter">
+
 h3. Android
-* "四大组件":#4
-** "Activity":#activity
-** "Service":#service
-** "BroadcastReceiver":#broadcastreceiver
-** "ContentProvider":#contentprovider
+
+* "四大组件":#1
+* "控件":#2
+* "动画":#3
+** "Tween Animation":#301
+** "Frame Animation":#302
+* "Threads线程":#4
+** "AsyncTask异步任务":#41
+* "常用":#5
+** "获取当前系统版本号":#501
+** "横屏显示":#502
+** "全屏无标题栏显示":#503
+** "无标题栏显示":#504
+** "自定义标题栏布局":#505
+** "自定义标题栏背景":#506
+** "ListView滚动加载":#507
+** "异常处理":#508
+* "优化":#6
+** "ListView优化":#601
+** "图片缓存":#602
+
 </div>
 
 h1. Android
 
-h3(#4). 四大组件
+h3(#1). Android四大组件
+<hr />
 
 * *(#activity)Activity*
 ** "Activity生命周期":http://blog.greensock.com
+** "PreferenceActivity的使用":android/PreferenceActivity.html
 
 * *(#service)Service - 服务*
 ** "startService":http://www.linguofeng.com
@@ -26,3 +45,261 @@ h3(#4). 四大组件
 * *(#broadcastreceiver)BroadcastReceiver - 广播接收者*
 
 * *(#contentprovider)ContentProvider - 内容提供者*
+
+h3(#2). Android控件
+<hr />
+
+* "TextView":java.html - 文本
+* "自定义控件":http://www.linguofneg.com
+* "菜单":android/menu.html
+* "对话框":android/dialog.html
+
+h3(#3). Android动画
+<hr />
+
+*(#301) *Tween Animation*
+** "平移":android/TranslateAnimation.html - TranslateAnimation
+** "渐变":android/AlphaAnimation.html - AlphaAnimation
+** "缩放":android/ScaleAnimation.html - ScaleAnimation
+** "旋转":android/RotateAnimation.html - RotateAnimation
+
+*(#302) *Frame Animation*
+** "帧动画":android/AnimationDrawable.html - AnimationDrawable
+
+h3(#4). Threads线程
+<hr />
+
+*(#41) "AsyncTask 异步任务":android/AsyncTask.html
+
+h3(#5). 常用
+<hr />
+
+*(#501) *获取当前系统版本号*
+<hr />
+
+pre. android.os.Build.VERSION.SDK_INT
+
+*(#502) *横屏显示*
+<hr />
+
+pre. <activity android:screenOrientation="landscape"
+
+*(#503) *全屏无标题栏显示*
+<hr />
+
+pre. <application android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"
+
+*(#504) *无标题栏显示*
+<hr />
+
+pre. <application android:theme="@android:style/Theme.Black.NoTitleBar"
+
+*(#505) *自定义标题栏布局*
+<hr />
+
+<pre class="brush: xml;">
+===================================================================================================
+= 1.Activity：
+===================================================================================================
+requestWindowFeature(Window.FEATURE_CUSTOM_TITLE); // 声明使用自定义标题
+setContentView(R.layout.main);
+getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);// 自定义布局
+
+===================================================================================================
+= 2.XML：main_title.xml
+===================================================================================================
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/title_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:focusable="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/title_back_btn" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/app_name"
+        android:textColor="#ff000000" />
+
+    <ImageView
+        android:id="@+id/title_reload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5.0px"
+        android:focusable="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/title_new_btn" />
+
+</RelativeLayout>
+</pre>
+
+*(#506) *自定义标题栏背景与高度* (上面只是自定义标题栏的而已，而背景与高度还是没有变化，接下来就要处理标题栏背景与高度)
+<hr />
+
+<pre>
+===================================================================================================
+= 1.创建value/styles.xml文件
+===================================================================================================
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <style name="CustomWindowTitleBackground">
+        <item name="android:background">@drawable/titlebar_bg_nor</item>
+    </style>
+    <style name="title" parent="@android:style/Theme">
+        <item name="android:windowTitleSize">50.0dip</item>
+        <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
+    </style>
+</resources>
+
+===================================================================================================
+= 2.接着在清单文件中添加android:theme属性
+===================================================================================================
+<activity android:name=".MainActivity" android:theme="@style/title" />
+</pre>
+
+*(#507) *ListView滚动加载更新数据*
+<hr />
+
+<pre>
+ListView.setOnScrollListener(new OnScrollListener() {
+    // 滚动状态改变时执行
+    public void onScrollStateChanged(AbsListView view, int scrollState) {
+        // 停止滚动状态
+        switch (scrollState) {
+        case OnScrollListener.SCROLL_STATE_IDLE:
+            // 判断滚动到底部
+            // view.getLastVisiblePosition() 获得最后一条可见记录的下标位置（下标从1开始）
+            if (view.getLastVisiblePosition() == (view.getCount() - 1)) {
+                // TODO 滚动到底部时自动加载更多数据
+            }
+        break;
+        }
+    }
+});
+</pre>
+
+*(#508) *异常处理* (提示用户把异常信息回馈给公司)
+<hr />
+
+<pre>
+===================================================================================================
+= 1.实现UncaughtExceptionHandler接口
+===================================================================================================
+class ExceptionHandler implements UncaughtExceptionHandler {
+    private static ExceptionHandler exceptionHandler;
+    
+    // 私有构造方法
+    private ExceptionHandler(){}
+    
+    // 单态
+    public synchronized static ExceptionHandler getInstance(){
+        if(exceptionHandler == null)
+            exceptionHandler = new ExceptionHandler();
+        return exceptionHandler;
+    }
+    
+    // 实现该方法
+    public void uncaughtException(){
+        // TODO 能够捕获到所有异常
+        
+        // 获取手机硬件信息（通过反射）
+        Fields[] fields = Build.class.getDeclaredFields();
+        for(Field field : fields) {
+            // 暴力反射
+            field.setAccessible(true);
+            String name = field.getName();
+            // 静态字段值
+            String value = field.get(null).toString();
+            // TODO 把获取的手机信息拼装起来
+        }
+        
+        // 获取当前程序的版本
+        String version = Context.getPackageManager().getPackageInfo(Context.getPackageName(), 0).versionName;
+        
+        // 获取异常信息
+        Writer w = new StringWriter();
+        printWriter writer = new PirntWriter(w);
+        ex.printStackTrace(writer);
+        writer.flush();
+        writer.close();
+        
+        String error = writer.toString();
+        
+        // TODO 把上面获取到的信息提交到服务器
+        
+        // 退出程序(根据需求需要延迟杀死进程)
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
+}
+</pre>
+
+<pre class="brush: java">
+/**
+ * 让应用统一使用自定义的异常处理类
+ */
+public class App extends Application {
+    public void onCreate(){
+        ExceptionHandler handler = ExceptionHandler.getInstance();
+        // 把异常处理设置到主线程中
+        Thread.setDefaultUncaughtExceptionHandler(handler);
+    }
+}
+</pre>
+
+* *在子线程中使用主线程的消息队列*
+<hr />
+
+<pre class="brush: java;">
+Looper.prepare();
+Toase.makeText(...).show();
+Looper.loop();
+</pre>
+
+h3(#6). 优化
+<hr />
+
+*(#601) *ListView优化*
+<hr />
+
+<pre class="brush: java;">
+class ViewHolder{
+    TextView mTextView;
+}
+
+public View getView(...){
+    if(convertView == null){
+        convertView = Layou...;
+        convertView.setTag(new ViewHolder());
+    }
+    
+    ViewHolder viewHolder = (ViewHolder)convertView.getTag();
+    viewHolder.mTextView = convertView.findById...;
+}
+</pre>
+
+*(#602) *图片缓存* 软引用办法实现缓存
+<hr />
+
+<pre class="brush: java">
+// 集合
+Map<String, SoftReference<Bitmap>> imageCache = new HashMap<String, SoftReference<Bitmap>>();
+
+// 取
+if (imageCache.containsKey(imageUrl)) {
+    Bitmap bitmap = imageCache.get(imageUrl).get();
+}
+
+// 存
+imageCache.put(imageUrl, new SoftReference<Drawable>(bitmap));
+</pre>

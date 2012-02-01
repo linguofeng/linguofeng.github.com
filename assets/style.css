@@ -98,6 +98,7 @@ li { padding: 5px 0; }
 	-moz-opacity:0.8;
 	-khtml-opacity: 0.8;
 	opacity: 0.8;
+	z-index: 999;
 }
 #content #charpter li ul {
 	margin-left: 0px;
@@ -181,3 +182,8 @@ li { padding: 5px 0; }
 }
 
 .sticky #menu-nav {	position:fixed; }
+
+.cursor {
+	color: green;
+	cursor: pointer;
+}
