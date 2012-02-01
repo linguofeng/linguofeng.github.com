@@ -92,22 +92,30 @@ pre. <application android:theme="@android:style/Theme.Black.NoTitleBar.Fullscree
 *(#504) *无标题栏显示*
 <hr />
 
-pre. <application android:theme="@android:style/Theme.Black.NoTitleBar"
+<pre class="brush: xml">
+<!-- XML实现 -->
+<application android:theme="@android:style/Theme.Black.NoTitleBar" />
+</pre>
+
+<pre class="brush: java">
+// JAVA实现
+requestWindowFeature(Window.FEATURE_NO_TITLE);
+</pre>
 
 *(#505) *自定义标题栏布局*
 <hr />
 
-<pre class="brush: xml;">
-===================================================================================================
-= 1.Activity：
-===================================================================================================
-requestWindowFeature(Window.FEATURE_CUSTOM_TITLE); // 声明使用自定义标题
+<pre class="brush: java;">
+// 1.Activity：
+// 声明使用自定义标题
+requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 setContentView(R.layout.main);
-getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);// 自定义布局
+// 自定义标题栏布局
+getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);
+</pre>
 
-===================================================================================================
-= 2.XML：main_title.xml
-===================================================================================================
+<pre class="brush: xml;">
+<!-- 2.XML：main_title.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
@@ -147,10 +155,8 @@ getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);// �
 *(#506) *自定义标题栏背景与高度* (上面只是自定义标题栏的而已，而背景与高度还是没有变化，接下来就要处理标题栏背景与高度)
 <hr />
 
-<pre>
-===================================================================================================
-= 1.创建value/styles.xml文件
-===================================================================================================
+<pre class="brush: xml">
+<!-- 1.创建value/styles.xml文件 -->
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <style name="CustomWindowTitleBackground">
@@ -162,16 +168,14 @@ getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);// �
     </style>
 </resources>
 
-===================================================================================================
-= 2.接着在清单文件中添加android:theme属性
-===================================================================================================
+<!-- 2.接着在清单文件中添加android:theme属性 -->
 <activity android:name=".MainActivity" android:theme="@style/title" />
 </pre>
 
 *(#507) *ListView滚动加载更新数据*
 <hr />
 
-<pre>
+<pre class="brush: java">
 ListView.setOnScrollListener(new OnScrollListener() {
     // 滚动状态改变时执行
     public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -192,10 +196,10 @@ ListView.setOnScrollListener(new OnScrollListener() {
 *(#508) *异常处理* (提示用户把异常信息回馈给公司)
 <hr />
 
-<pre>
-===================================================================================================
-= 1.实现UncaughtExceptionHandler接口
-===================================================================================================
+<pre class="brush: java">
+//==================================================================================
+//= 1.实现UncaughtExceptionHandler接口
+//==================================================================================
 class ExceptionHandler implements UncaughtExceptionHandler {
     private static ExceptionHandler exceptionHandler;
     
@@ -245,9 +249,9 @@ class ExceptionHandler implements UncaughtExceptionHandler {
 </pre>
 
 <pre class="brush: java">
-/**
- * 让应用统一使用自定义的异常处理类
- */
+ //=================================================================================
+//= 2.让应用统一使用自定义的异常处理类
+//==================================================================================
 public class App extends Application {
     public void onCreate(){
         ExceptionHandler handler = ExceptionHandler.getInstance();
@@ -257,13 +261,20 @@ public class App extends Application {
 }
 </pre>
 
-* *在子线程中使用主线程的消息队列*
+*(#509) *在子线程中使用主线程的消息队列*
 <hr />
 
 <pre class="brush: java;">
 Looper.prepare();
 Toase.makeText(...).show();
 Looper.loop();
+</pre>
+
+*(#510) *获取应用版本号并在线更新应用*
+<hr />
+
+<pre>
+String version = Context.getPackageManager().getPackageInfo(Context.getPackageName(), 0).versionName;
 </pre>
 
 h3(#6). 优化
@@ -303,3 +314,11 @@ if (imageCache.containsKey(imageUrl)) {
 // 存
 imageCache.put(imageUrl, new SoftReference<Drawable>(bitmap));
 </pre>
+
+h3(#7). 网络编程
+
+* *URL*
+
+* *HttpURLConnection*
+
+* *HttpClient*
