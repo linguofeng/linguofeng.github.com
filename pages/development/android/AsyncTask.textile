@@ -1,16 +1,14 @@
 ---
 layout: default
-title: Android 异步任务
+title: Android AsyncTask 异步任务
 ---
 
 h1. {{ page.title }}
 
-p(#1). *AsyncTask 异步任务*
+* *创建*
+<hr />
 
-<pre>
-===================================================================================================
-= 创建
-===================================================================================================
+<pre class="brush: java">
 private class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
     // 后台任务（子线程）
     protected Long doInBackground(URL... urls) {
@@ -18,6 +16,7 @@ private class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
         long totalSize = 0;
         for (int i = 0; i < count; i++) {
             totalSize += Downloader.downloadFile(urls[i]);
+            // 执行onProgressUpdate()方法
             publishProgress((int) ((i / (float) count) * 100));
         }
         return totalSize;
@@ -35,10 +34,10 @@ private class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
  }
 </pre>
 
-<pre>
-===================================================================================================
-= 使用 
-===================================================================================================
+* *使用*
+<hr />
+
+<pre class="brush: java">
 new DownloadFilesTask().execute(url1, url2, url3);
 </pre>
 

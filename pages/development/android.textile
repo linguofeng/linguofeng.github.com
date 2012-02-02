@@ -26,6 +26,12 @@ h3. Android
 * "优化":#6
 ** "ListView优化":#601
 ** "图片缓存":#602
+* "网络编程":#7
+* "资源":#8
+** "drawble":#801
+** "values":#802
+** "raw":#803
+** "assets":#804
 
 </div>
 
@@ -34,25 +40,28 @@ h1. Android
 h3(#1). Android四大组件
 <hr />
 
-* *(#activity)Activity*
-** "Activity生命周期":http://blog.greensock.com
+*(#activity) *Activity*
+** "Activity生命周期":http://www.linguofeng.com/2011/09/special-edition-_activity-android-life-cycle.html
 ** "PreferenceActivity的使用":android/PreferenceActivity.html
 
-* *(#service)Service - 服务*
+*(#service) *Service* - 服务
 ** "startService":http://www.linguofeng.com
 ** "bindService":http://blog.greensock.com
+** "AIDL":android/AIDL.html - Android Interface Definition Language(接口描述语言，用于进程通信)
 
-* *(#broadcastreceiver)BroadcastReceiver - 广播接收者*
+*(#broadcastreceiver) *BroadcastReceiver* - 广播接收者
 
-* *(#contentprovider)ContentProvider - 内容提供者*
+*(#contentprovider) *ContentProvider* - 内容提供者
 
-h3(#2). Android控件
+h3(#2). Android UI控件
 <hr />
 
 * "TextView":java.html - 文本
-* "自定义控件":http://www.linguofneg.com
-* "菜单":android/menu.html
-* "对话框":android/dialog.html
+* "Menus":android/menu.html - 菜单（Options Menu、Context Menu、Submenu）
+* "Dialogs":android/dialog.html - 对话框（AlertDialog、ProgressDialog、DatePickerDialog、TimePickerDialog）
+* "Notifications":android/Notifications.html - 通知（Toast Notification、Status Bar Notification、Dialog Notification）
+* "ViewPager":android/ViewPager.html - *视图切换
+* "Custom Components":http://www.linguofeng.com - 自定义控件
 
 h3(#3). Android动画
 <hr />
@@ -64,7 +73,7 @@ h3(#3). Android动画
 ** "旋转":android/RotateAnimation.html - RotateAnimation
 
 *(#302) *Frame Animation*
-** "帧动画":android/AnimationDrawable.html - AnimationDrawable
+** "逐帧动画":android/AnimationDrawable.html - AnimationDrawable
 
 h3(#4). Threads线程
 <hr />
@@ -265,16 +274,21 @@ public class App extends Application {
 <hr />
 
 <pre class="brush: java;">
+// 创建消息队列
 Looper.prepare();
-Toase.makeText(...).show();
+// 在消息队列中执行
+Toase.makeText(this, "我是在子线程中利用Looper消息队列实现显示", 0).show();
+// 进入消息循环
 Looper.loop();
 </pre>
 
 *(#510) *获取应用版本号并在线更新应用*
 <hr />
 
-<pre>
-String version = Context.getPackageManager().getPackageInfo(Context.getPackageName(), 0).versionName;
+<pre class="brush: java">
+PackageInfo pi = Context.getPackageManager().getPackageInfo(Context.getPackageName(), 0);
+// 版本
+pi.versionName;
 </pre>
 
 h3(#6). 优化
@@ -316,9 +330,68 @@ imageCache.put(imageUrl, new SoftReference<Drawable>(bitmap));
 </pre>
 
 h3(#7). 网络编程
+<hr />
 
-* *URL*
+* *URL* & *URLConnection* （常用于下载文件）
+** 下载文件
 
-* *HttpURLConnection*
+* *HttpURLConnection* （POST请求时参数是以流的形式发送给服务器）
+** GET
+** POST
 
 * *HttpClient*
+** GET
+** POST
+** 上传文件
+
+* *AndroidHttpClient*
+
+* *Socket* （TCP & UDP）
+
+h3(#8). 资源
+<hr />
+
+*(#801) *drawable*
+
+<pre class="brush: xml">
+<!-- XML中使用该类型资源 -->
+<ImageView android:src="@drawable/icon" />
+</pre>
+
+<pre class="brush: java">
+// java中使用该类型资源
+Drawable icon = getResources().getDrawable(R.drawable.icon);
+</pre>
+
+*(#802) *values*
+
+<pre class="brush: xml">
+<!-- XML中使用该类型资源 -->
+<TextView android:text="@string/text" />
+</pre>
+
+<pre class="brush: java">
+// java中使用该类型资源
+
+// 对应：<string name="text">xxx</string>
+String text = getResources().getString(R.string.text);
+
+// 对应：<string-array name="texts"><item>xxx</item></string-array>
+String[] texts = getResources().getStringArray(R.array.texts);
+
+// 对应：<color name="black">#000000</color>
+int color = getResources().getColor(R.color.black);
+</pre>
+
+*(#803) *raw*
+
+<pre class="brush: java">
+InputStream in = getResources().openRawResource(R.raw.test);
+</pre>
+
+*(#804) *assets*
+
+<pre class="brush: java">
+AssetManager assetManager = getResources().getAssets();
+InputStream is = assetManager.open("文件名", MODE_APPEND);
+</pre>

@@ -1,76 +1,88 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<meta http-equiv="pragma" content="no-cache" />
-		<meta http-equiv="cache-control" content="no-cache" />
-		<meta http-equiv="expires" content="0" />
-		<title>JavaScript - 林国锋的代码库</title>
-		<meta name="keywords" content="java" />
-		<meta name="description" content="这里是林国锋的开发代码库，用来收集工作学习中常用的代码。" />
-		<!-- link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css' -->
-		<link rel="stylesheet" type="text/css" href="/assets/style.css" />
-		<!-- link rel="stylesheet" type="text/css" href="/assets/syntax-default.css" / -->
-		<link rel="stylesheet" type="text/css" href="/assets/ui.totop.css" />
-		<script type="text/javascript" src="/assets/jquery.min.js"></script>
-		<script type="text/javascript" src="/assets/waypoints.min.js"></script>
-		<script type="text/javascript" src="/assets/jquery.ui.totop.js"></script>
-		<script type="text/javascript" src="/assets/common.js"></script>
-		
-		<!-- SyntaxHighlighter -->
-	    <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
-	    <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shThemeDefault.css"/>
-		<script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shCore.js"></script>
-	    <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJava.js"></script>
-	    <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushXml.js"></script>
-	    <script type="text/javascript">
-	        SyntaxHighlighter.config.clipboardSwf = 'http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/clipboard.swf';
-	        SyntaxHighlighter.all();
-	    </script>
-	    <style type="text/css">
-		    .syntaxhighlighter {
-			    width: 750px !important;
-			    overflow: hidden !important;
-			    margin-left: 40px !important;
-			}
-	    </style>
-	</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <title>JavaScript - 林国锋的代码库</title>
+        <meta name="keywords" content="java" />
+        <meta name="description" content="这里是林国锋的开发代码库，用来收集工作学习中常用的代码。" />
+        <!-- link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css' -->
+        <link rel="stylesheet" type="text/css" href="/assets/style.css" />
+        <link rel="stylesheet" type="text/css" href="/assets/ui.totop.css" />
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="/assets/jquery.min.js"></script>
+        <script type="text/javascript" src="/assets/waypoints.min.js"></script>
+        <script type="text/javascript" src="/assets/jquery.ui.totop.js"></script>
+        <script type="text/javascript" src="/assets/common.js"></script>
+        
+        <!-- SyntaxHighlighter -->
+        <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shThemeEmacs.css"/>
+        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shCore.js"></script>
+        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJava.js"></script>
+        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJScript.js"></script>
+        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = 'http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/clipboard.swf';
+            SyntaxHighlighter.all();
+        </script>
+        
+        <!-- 
+        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shThemeDefault.css"/>
+        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shCore.js"></script>
+        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushJava.js"></script>
+        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.all();
+        </script>
+        -->
+         
+        <style type="text/css">
+            .syntaxhighlighter {
+                width: 750px !important;
+                /*overflow: hidden !important;*/
+                margin-left: 40px !important;
+            }
+        </style>
+    </head>
 
-	<body>
-		<div id="container">
-		
-			<div id="sidebar">
-				<div id="menu-nav">
-					<div id="logo"><a href="/">Library</a></div>
-					
-					<ul>
-						<li>Development
-							<ul>
-								<li><a href="/pages/development/android.html">Android</a></li>
-								<li><a href="/pages/development/java.html">Java</a></li>
-								<li><a href="/pages/development/javascript.html">JavaScript</a></li>
-								<li><a href="/pages/development/jquery.html">jQuery</a></li>
-							</ul>
-						</li>
-						
-					</ul>
-					
-					<ul>
-						<li>Links
-							<ul>
-								<li><a href="http://www.linguofeng.com">Blog</a></li>
-							</ul>
-						</li>
-					</ul>
-					
-					<ul class="misc">
-						<li>Powered by <a href="http://pages.github.com/">github-pages</a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<div id="content">
-				<div id="charpter">
+    <body>
+        <div id="container">
+            <div id="sidebar">
+                <div id="menu-nav">
+                    <div id="logo"><a href="/">Library</a></div>
+                    
+                    <ul>
+                        <li>Development
+                            <ul>
+                                <li><a href="/pages/development/android.html">Android</a></li>
+                                <li><a href="/pages/development/java.html">Java</a></li>
+                                <li><a href="/pages/development/javascript.html">JavaScript</a></li>
+                                <li><a href="/pages/development/jquery.html">jQuery</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                    
+                    <ul>
+                        <li>Links
+                            <ul>
+                                <li><a href="http://www.linguofeng.com">Blog</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <ul class="misc">
+                        <li>Powered by <a href="http://pages.github.com/">github-pages</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="content">
+                <div id="charpter">
 <h3>JavaScript</h3>
 <ul>
 	<li><strong><a href="#1">Window对象</a></strong></li>
@@ -217,30 +229,36 @@ send(null);</code></pre>
         alert(xhr.responseText);
     }
 }</code></pre>
-<h3 id="6">Json &#8211; JavaScript Object Notation</h3>
+<h3 id="6">Json &#8211; JavaScript Object Notation<br />
+<hr /></h3>
 <ul>
-	<li><strong id="6_1">Json 对象</strong></li>
+	<li><strong id="6_1">Json 对象</strong><br />
+<hr /></li>
 </ul>
-<pre><code>var user = {
+<pre class="brush: javascript">var user = {
     'username' : 'admin',
     'password' : 'admin'
 };
-var username    = user.username;</code></pre>
+var username = user.username;
+</pre>
 <ul>
-	<li><strong id="6_2">Json 数组</strong></li>
+	<li><strong id="6_2">Json 数组</strong><br />
+<hr /></li>
 </ul>
-<pre><code>var users = [
+<pre class="brush: javascript">var users = [
     {'username' : 'admin', 'password' : 'admin'},
     {'username' : 'root', 'password' : 'root'},
     {'username' : 'guest', 'password' : 'guest'}
 ];
 var length      = users.length;
-var user        = users[0];
-var username    = user.username;</code></pre>
+var user        = users[ 0];
+var username    = user.username;
+</pre>
 <ul>
-	<li><strong id="6_3">Json 复合</strong></li>
+	<li><strong id="6_3">Json 复合</strong><br />
+<hr /></li>
 </ul>
-<pre><code>var users = {
+<pre class="brush: javascript">var users = {
     'address' : [
         {'address' : 'bj'},
         {'address' : 'gz'}
@@ -250,26 +268,104 @@ var username    = user.username;</code></pre>
         {'tel' : {'hometel' : '120', 'moblie' : '112'}}
     ]
 };
-var address = users.address[0].address;
-var hometel = users.tels[0].tel.hometel;</code></pre>
+var address = users.address[ 0].address;
+var hometel = users.tels[ 0].tel.hometel;
+</pre>
 <ul>
-	<li><strong id="6_4">eval 函数</strong></li>
+	<li><strong id="6_4">eval 函数</strong><br />
+<hr /></li>
 </ul>
-<pre><code>var json = eval('(' + xhr.responseText + ')');
+<pre class="brush: javascript">
+var json = eval('(' + xhr.responseText + ')');
 ==&gt;
 var json = eval("({'username' : 'admin', 'password' : 'admin'})");
-var username = json.username;</code></pre>
+var username = json.username;
+</pre>
 <ul>
-	<li><strong id="6_5">Java &#8594; Json</strong> &#8211; 使用json_lib这个工具包把一个Java对象转换成json串</li>
+	<li><strong id="6_5">Java &#8594; Json</strong> &#8211; 使用json_lib这个工具包把一个Java对象转换成json串<br />
+<hr /></li>
 </ul>
-<pre><code>// 转换对象
+<pre class="brush: javascript">
+// 转换对象
 JSONObject.fromObject(Object).toString();
 // 转换数组
 JSONArray.fromObject(List&lt;Object&gt;).toString();
 // 过滤
-JSONArray.fromObject(List&lt;Object&gt;, new JsonConfig().setE(new String[]{"id"})).toString();</code></pre>
-			</div>
-			
-		</div>
-	</body>
+JSONArray.fromObject(List&lt;Object&gt;, new JsonConfig().setE(new String[]{"id"})).toString();
+</pre>
+<h3 id="7">面向对象<br />
+<hr /></h3>
+<ul>
+	<li><strong>对象</strong><br />
+<hr /></li>
+</ul>
+<pre class="brush: javascript">
+var emptyObject1 = {};           //创建空对象
+var emptyObject2 = new Object(); //创建空对象
+var person = {"name":"sdcyst",
+          "age":18,
+          "sex":"male"};     //创建一个包含初始值的对象person
+alert(person.name);              //sdcyst
+alert(person["age"]);            //18
+</pre>
+
+<pre class="brush: javascript">
+var person = {};
+person.name = "sdcyst";
+person["age"] = 18;
+alert(person.name + "__" + person.age); //sdcyst__18
+//在构建一个对象时,属性的名字可以不用引号来标注(name)
+var _person = {name:"balala","age":23}; 
+//但是仍旧是一个字符串类型.在访问的时候[]内仍旧需要引号
+alert(_person["name"] + "__" + person.age); //balala__23
+alert(_person[name]);                   //undefinied
+</pre>
+
+<pre class="brush: javascript">
+var name = {"name1":"NAME1","name2":"NAME2","name3":"NAME3","name4":"NAME4"};
+var namestring = "";
+for(var props in name) {  //循环name对象中的属性名字
+    namestring += name[props];
+}
+alert(namestring);  //NAME1NAME2NAME3NAME4
+
+namestring = "";
+for(var i=0; i&lt;4; i++) {
+    namestring += name["name"+(i+1)];
+}
+alert(namestring);  //NAME1NAME2NAME3NAME4
+</pre>
+
+<pre class="brush: javascript">
+var name = {"name1":"NAME1","name2":"NAME2","name3":"NAME3","name4":"NAME4"};
+var namestring = "";
+for(var props in name) {  //循环name对象中的属性名字
+    namestring += name[props];
+}
+alert(namestring);  //NAME1NAME2NAME3NAME4
+
+delete name.name1;  //删除name1属性
+delete name["name3"];  //删除name3属性
+namestring = "";
+for(var props in name) {  //循环name对象中的属性名字
+    namestring += name[props];
+}
+alert(namestring);  //NAME2NAME4
+
+alert("name1" in name); //false
+alert("name4" in name); //true
+</pre>
+<pre class="brush: javascript">
+var date = new Date();
+alert(date.constructor);  //Date
+alert(date.constructor == "Date");  //false
+alert(date.constructor == Date);  //true
+</pre>
+                
+                <hr />
+                <p>Copyright &copy; 2012 linguofeng.com, Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0.</a></p>
+            </div>
+            
+        </div>
+    </body>
 </html>

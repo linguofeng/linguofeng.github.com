@@ -1,76 +1,88 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<meta http-equiv="pragma" content="no-cache" />
-		<meta http-equiv="cache-control" content="no-cache" />
-		<meta http-equiv="expires" content="0" />
-		<title>ActionScript - 林国锋的代码库</title>
-		<meta name="keywords" content="java" />
-		<meta name="description" content="这里是林国锋的开发代码库，用来收集工作学习中常用的代码。" />
-		<!-- link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css' -->
-		<link rel="stylesheet" type="text/css" href="/assets/style.css" />
-		<!-- link rel="stylesheet" type="text/css" href="/assets/syntax-default.css" / -->
-		<link rel="stylesheet" type="text/css" href="/assets/ui.totop.css" />
-		<script type="text/javascript" src="/assets/jquery.min.js"></script>
-		<script type="text/javascript" src="/assets/waypoints.min.js"></script>
-		<script type="text/javascript" src="/assets/jquery.ui.totop.js"></script>
-		<script type="text/javascript" src="/assets/common.js"></script>
-		
-		<!-- SyntaxHighlighter -->
-	    <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
-	    <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shThemeDefault.css"/>
-		<script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shCore.js"></script>
-	    <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJava.js"></script>
-	    <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushXml.js"></script>
-	    <script type="text/javascript">
-	        SyntaxHighlighter.config.clipboardSwf = 'http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/clipboard.swf';
-	        SyntaxHighlighter.all();
-	    </script>
-	    <style type="text/css">
-		    .syntaxhighlighter {
-			    width: 750px !important;
-			    overflow: hidden !important;
-			    margin-left: 40px !important;
-			}
-	    </style>
-	</head>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="expires" content="0" />
+        <title>ActionScript - 林国锋的代码库</title>
+        <meta name="keywords" content="java" />
+        <meta name="description" content="这里是林国锋的开发代码库，用来收集工作学习中常用的代码。" />
+        <!-- link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css' -->
+        <link rel="stylesheet" type="text/css" href="/assets/style.css" />
+        <link rel="stylesheet" type="text/css" href="/assets/ui.totop.css" />
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="/assets/jquery.min.js"></script>
+        <script type="text/javascript" src="/assets/waypoints.min.js"></script>
+        <script type="text/javascript" src="/assets/jquery.ui.totop.js"></script>
+        <script type="text/javascript" src="/assets/common.js"></script>
+        
+        <!-- SyntaxHighlighter -->
+        <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shThemeEmacs.css"/>
+        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shCore.js"></script>
+        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJava.js"></script>
+        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJScript.js"></script>
+        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.config.clipboardSwf = 'http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/clipboard.swf';
+            SyntaxHighlighter.all();
+        </script>
+        
+        <!-- 
+        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shThemeDefault.css"/>
+        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shCore.js"></script>
+        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushJava.js"></script>
+        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushXml.js"></script>
+        <script type="text/javascript">
+            SyntaxHighlighter.all();
+        </script>
+        -->
+         
+        <style type="text/css">
+            .syntaxhighlighter {
+                width: 750px !important;
+                /*overflow: hidden !important;*/
+                margin-left: 40px !important;
+            }
+        </style>
+    </head>
 
-	<body>
-		<div id="container">
-		
-			<div id="sidebar">
-				<div id="menu-nav">
-					<div id="logo"><a href="/">Library</a></div>
-					
-					<ul>
-						<li>Development
-							<ul>
-								<li><a href="/pages/development/android.html">Android</a></li>
-								<li><a href="/pages/development/java.html">Java</a></li>
-								<li><a href="/pages/development/javascript.html">JavaScript</a></li>
-								<li><a href="/pages/development/jquery.html">jQuery</a></li>
-							</ul>
-						</li>
-						
-					</ul>
-					
-					<ul>
-						<li>Links
-							<ul>
-								<li><a href="http://www.linguofeng.com">Blog</a></li>
-							</ul>
-						</li>
-					</ul>
-					
-					<ul class="misc">
-						<li>Powered by <a href="http://pages.github.com/">github-pages</a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<div id="content">
-				<div id="charpter">
+    <body>
+        <div id="container">
+            <div id="sidebar">
+                <div id="menu-nav">
+                    <div id="logo"><a href="/">Library</a></div>
+                    
+                    <ul>
+                        <li>Development
+                            <ul>
+                                <li><a href="/pages/development/android.html">Android</a></li>
+                                <li><a href="/pages/development/java.html">Java</a></li>
+                                <li><a href="/pages/development/javascript.html">JavaScript</a></li>
+                                <li><a href="/pages/development/jquery.html">jQuery</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                    
+                    <ul>
+                        <li>Links
+                            <ul>
+                                <li><a href="http://www.linguofeng.com">Blog</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <ul class="misc">
+                        <li>Powered by <a href="http://pages.github.com/">github-pages</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="content">
+                <div id="charpter">
 <h3>Contents</h3>
 <ul>
 	<li><a href="#utility_class">Utility Class</a>
@@ -233,8 +245,11 @@
 	<li><a href="http://help.adobe.com/zh_CN/FlashPlatform/reference/actionscript/3/">ActionScript3参考手册</a></li>
 	<li><a href="http://opensource.adobe.com/wiki/display/flexsdk/Coding+Conventions">Flex <span class="caps">SDK</span> 编码和最佳实践 (Flex <span class="caps">SDK</span> coding conventions and best practices）</a></li>
 </ul>
-			</div>
-			
-		</div>
-	</body>
+                
+                <hr />
+                <p>Copyright &copy; 2012 linguofeng.com, Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0.</a></p>
+            </div>
+            
+        </div>
+    </body>
 </html>

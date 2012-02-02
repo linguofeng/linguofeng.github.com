@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Android AnimationDrawable 帧动画
+title: Android AnimationDrawable 逐帧动画
 ---
 
 h1. {{ page.title }}
