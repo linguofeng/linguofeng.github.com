@@ -4,67 +4,81 @@ title: JavaScript
 ---
 
 <div id="charpter">
-h3. JavaScript
 
-* *"Window对象":#1*
-* *"Ajax":#5*
-* *"Json":#6*
+h3. JavaScript
 
 </div>
 
 h1. JavaScript
 
-h3(#1). Window对象
+h3(#1). Window对象 %(title)Window对象%
 
 * "document":java.html - 文档对象
 * window - 自身
 * self - 自身
 
-h3(#2). JavaScript函数定义
+h3(#2). JavaScript函数定义 %(title)函数定义%
 
 * *(#2_1)普通方式*
+<hr />
 
-bc. function print(msg){
+<pre class="brush: javascript">
+function print(msg){
     document.write(msg);
 }
 print('abc');
+</pre>
 
 * *(#2_2)函数直接量定义*
+<hr />
 
-bc. var result = function(a,b){
+<pre class="brush: javascript">
+var result = function(a,b){
     return a+b;
 }
 var sum = result(7,8);
+</pre>
 
 * *(#2_3)构造函数方法*
+<hr />
 
-bc. var add = new Function('a','b','return a+3');
+<pre class="brush: javascript">
+var add = new Function('a','b','return a+3');
 var sum = add(3,4);
+</pre>
 
-h3(#3). Window窗口传值
+h3(#3). Window窗口传值 %(title)Window窗口传值%
 
 * *(#3_1)方式一*
+<hr />
 
-bc. // 父窗口
+<pre class="brush: javascript">
+// 父窗口
 window.showModalDialog(url,window当前窗口,params);
 window.showModelessDialog(url,window当前窗口,params);
 // 子窗口
 window.dialogArguments; // 得到父窗口的window对象
 // 得到父窗口的window对象可以执行父方法
+</pre>
 
 * *(#3_2)方式二*
+<hr />
 
-bc. // 父窗口
+<pre class="brush: javascript">
+// 父窗口
 window.open(url,target,params);
 // 子窗口
 window.opener; // 得到父窗口的window对象
 // 得到父窗口的window对象可以执行父方法
+</pre>
 
-h3(#4). DOM编程
+h3(#4). DOM编程 %(title)DOM编程%
 
 * *(#4_1)DOM 属性*
+<hr />
 
-bc. nodeName
+<pre class="brush: javascript">
+nodeName
     元素节点名称：元素
     文本节点名称：#text
     属性节点名称：name
@@ -76,17 +90,23 @@ nodeValue
     元素节点值：null
     文本节点值：文本内容
     属性节点值：属性值
+</pre>
 
 * *(#4_2)DOM 属性操作*
+<hr />
 
-bc. getAttribute();
+<pre class="brush: javascript">
+getAttribute();
     Element.getAttribute('value');
 setAttribute();
     Element.setAttribute('value', 'abc');
+</pre>
 
 * *(#4_3)DOM 节点操作*
+<hr />
 
-bc. // 在target之前插入节点
+<pre class="brush: javascript">
+// 在target之前插入节点
 insertBefore();
     document.insertBefor(new,target);
 // 创建节点
@@ -104,12 +124,15 @@ replaceChild();
 // 删除节点
 removeChild();
     document.removeChild(Element);
-    
-h3(#5). Ajax
+</pre>
+
+h3(#5). Ajax %(title)Ajax%
 
 * *(#5_1)创建XMLHttpRequest对象*
+<hr />
 
-bc. function getXmlHttpRequest(){
+<pre class="brush: javascript">
+function getXmlHttpRequest(){
     var xmlHttp = null;
     try {
         xmlHttp = new XMLHttpRequest();
@@ -123,47 +146,63 @@ bc. function getXmlHttpRequest(){
     return xmlHttp;
 }
 var xhr = getXmlHttpRequest();
+</pre>
 
 * *(#5_2)XMLHttpRequest 属性*
+<hr />
 
-bc. xhr.onreadystatechange  - 状态监听
+<pre class="brush: javascript">
+xhr.onreadystatechange  - 状态监听
 xhr.readyState          - 状态
 xhr.status              - 响应码
 xhr.statusText          - 响应文本
 xhr.responseText        - 返回文本内容
 xhr.responseXML         - 返回XML内容 MIME=text/xml
+</pre>
 
 * *(#5_3)XMLHttpRequest 方法*
+<hr />
 
-bc. xhr.open()  - 与服务器建立连接
+<pre class="brush: javascript">
+xhr.open()  - 与服务器建立连接
 xhr.send()  - 向服务器发送数据
+</pre>
 
 * *(#5_4)XMLHttpRequest 请求*
+<hr />
 
-bc. // POST请求
+<pre class="brush: javascript">
+// POST请求
 xhr.open("POST", "url", 是否异步：true/false);
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 send(data);
+</pre>
 
-bc. // GET请求
+<pre class="brush: javascript">
+// GET请求
 xhr.open("GET", "url", 是否异步：true/false);
 send(null);
+</pre>
 
 * *(#5_5)XMLHttpRequest 响应*
+<hr />
 
-bc. xhr.onreadystatechange = function() {
+<pre class="brush: javascript">
+xhr.onreadystatechange = function() {
     if(xhr.readyState == 4 && xhr.status == 200){
         alert(xhr.responseText);
     }
 }
+</pre>
 
-h3(#6). Json - JavaScript Object Notation
+h3(#6). Json - JavaScript Object Notation %(title)Json%
 <hr />
 
 * *(#6_1)Json 对象*
 <hr />
 
-<pre class="brush: javascript">var user = {
+<pre class="brush: javascript">
+var user = {
     'username' : 'admin',
     'password' : 'admin'
 };
@@ -173,7 +212,8 @@ var username = user.username;
 * *(#6_2)Json 数组*
 <hr />
 
-<pre class="brush: javascript">var users = [
+<pre class="brush: javascript">
+var users = [
     {'username' : 'admin', 'password' : 'admin'},
     {'username' : 'root', 'password' : 'root'},
     {'username' : 'guest', 'password' : 'guest'}
@@ -186,7 +226,8 @@ var username    = user.username;
 * *(#6_3)Json 复合*
 <hr />
 
-<pre class="brush: javascript">var users = {
+<pre class="brush: javascript">
+var users = {
     'address' : [
         {'address' : 'bj'},
         {'address' : 'gz'}
@@ -222,7 +263,7 @@ JSONArray.fromObject(List<Object>).toString();
 JSONArray.fromObject(List<Object>, new JsonConfig().setE(new String[]{"id"})).toString();
 </pre>
 
-h3(#7). 面向对象
+h3(#7). 面向对象 %(title)面向对象%
 <hr />
 
 * *对象*

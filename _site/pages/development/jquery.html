@@ -11,14 +11,14 @@
         <!-- link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css' -->
         <link rel="stylesheet" type="text/css" href="/assets/style.css" />
         <link rel="stylesheet" type="text/css" href="/assets/ui.totop.css" />
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        <!--link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' -->
         <script type="text/javascript" src="/assets/jquery.min.js"></script>
         <script type="text/javascript" src="/assets/waypoints.min.js"></script>
         <script type="text/javascript" src="/assets/jquery.ui.totop.js"></script>
         <script type="text/javascript" src="/assets/common.js"></script>
         
         <!-- SyntaxHighlighter -->
-        <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
+        <!--link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
         <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shThemeEmacs.css"/>
         <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shCore.js"></script>
         <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJava.js"></script>
@@ -27,24 +27,27 @@
         <script type="text/javascript">
             SyntaxHighlighter.config.clipboardSwf = 'http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/clipboard.swf';
             SyntaxHighlighter.all();
-        </script>
+        </script-->
         
-        <!-- 
         <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shCore.css"/>
-        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shThemeDefault.css"/>
+        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shThemeEmacs.css"/>
         <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shCore.js"></script>
         <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushJava.js"></script>
+        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushJScript.js"></script>
         <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushXml.js"></script>
         <script type="text/javascript">
             SyntaxHighlighter.all();
         </script>
-        -->
          
         <style type="text/css">
             .syntaxhighlighter {
                 width: 750px !important;
                 /*overflow: hidden !important;*/
                 margin-left: 40px !important;
+            }
+            
+            .title {
+                display: none;
             }
         </style>
     </head>
@@ -60,8 +63,14 @@
                             <ul>
                                 <li><a href="/pages/development/android.html">Android</a></li>
                                 <li><a href="/pages/development/java.html">Java</a></li>
+                                <li><a href="/pages/development/java/spring.html">Spring</a></li>
                                 <li><a href="/pages/development/javascript.html">JavaScript</a></li>
                                 <li><a href="/pages/development/jquery.html">jQuery</a></li>
+                            </ul>
+                        </li>
+                        <li>OS
+                            <ul>
+                                <li><a href="/pages/os/ubuntu.html">Ubuntu</a></li>
                             </ul>
                         </li>
                         
@@ -84,14 +93,9 @@
             <div id="content">
                 <div id="charpter">
 <h3>jQuery</h3>
-<ul>
-	<li><strong><a href="#1">Window对象</a></strong></li>
-	<li><strong><a href="#5">Ajax</a></strong></li>
-	<li><strong><a href="#6">Json</a></strong></li>
-</ul>
 </div>
 <h1>jQuery</h1>
-<h3 id="1">jQuery 对象</h3>
+<h3 id="1">jQuery 对象 <span class="title">对象</span></h3>
 <ul>
 	<li>jquery与dom对象</li>
 </ul>
@@ -113,7 +117,7 @@ var name = $('#name').get(0);</code></pre>
 	<li>jQuery 对象访问</li>
 </ul>
 <pre><code>each(callback) - 以每一个匹配的元素作为上下文来执行一个函数。</code></pre>
-<h3 id="2">jQuery 选择器</h3>
+<h3 id="2">jQuery 选择器 <span class="title">选择器</span></h3>
 <ul>
 	<li>基本选择器</li>
 </ul>
@@ -190,7 +194,7 @@ var name = $('#name').get(0);</code></pre>
     $('div:hidden');
 :visible 选择所有可见的元素
     $('div:visible');</code></pre>
-<h3 id="1">jQuery DOM操作</h3>
+<h3 id="3">jQuery DOM操作 <span class="title">DOM操作</span></h3>
 <ul>
 	<li>创建节点</li>
 </ul>
@@ -228,7 +232,7 @@ replaceAll() -- 把
 	<li>添加样式</li>
 </ul>
 <pre><code>addClass()</code></pre>
-<h3 id="1">jQuery Ajax</h3>
+<h3 id="4">jQuery Ajax <span class="title">Ajax</span></h3>
 <ul>
 	<li>载入远程HTML</li>
 </ul>

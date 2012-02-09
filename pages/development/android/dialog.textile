@@ -21,24 +21,26 @@ p. Android中共有4种对话框：
 
 p(#1). *一、AlertDialog*
 
-<pre>
+<pre class="brush: java">
 AlertDialog.Builder builder = new AlertDialog.Builder(this);
 builder.setTitle("对话框标题");
 builder.setMessage("对话框内容");
 builder.setXXX(); // 其它参数
-builder.create();
-builder.show();
+AlertDialog dialog = builder.create();
+dialog.show();
 </pre>
 
 p. 更多参数访问 "http://developer.android.com/reference/android/app/AlertDialog.Builder.html":http://developer.android.com/reference/android/app/AlertDialog.Builder.html
 
 p(#2). *二、ProgressDialog*
 
-<pre>
+<pre class="brush: java">
 ProgressDialog pd = new ProgressDialog(this);
 pd.setMessage("内容");
 pd.setXXX(); // 其它参数
+// 显示
 pd.show();
+// 销毁
 pd.dismiss();
 
 // 进度条对话框有两种显示样式，通过

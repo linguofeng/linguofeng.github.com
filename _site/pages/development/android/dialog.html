@@ -11,14 +11,14 @@
         <!-- link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css' -->
         <link rel="stylesheet" type="text/css" href="/assets/style.css" />
         <link rel="stylesheet" type="text/css" href="/assets/ui.totop.css" />
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        <!--link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' -->
         <script type="text/javascript" src="/assets/jquery.min.js"></script>
         <script type="text/javascript" src="/assets/waypoints.min.js"></script>
         <script type="text/javascript" src="/assets/jquery.ui.totop.js"></script>
         <script type="text/javascript" src="/assets/common.js"></script>
         
         <!-- SyntaxHighlighter -->
-        <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
+        <!--link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
         <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shThemeEmacs.css"/>
         <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shCore.js"></script>
         <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJava.js"></script>
@@ -27,24 +27,27 @@
         <script type="text/javascript">
             SyntaxHighlighter.config.clipboardSwf = 'http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/clipboard.swf';
             SyntaxHighlighter.all();
-        </script>
+        </script-->
         
-        <!-- 
         <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shCore.css"/>
-        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shThemeDefault.css"/>
+        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shThemeEmacs.css"/>
         <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shCore.js"></script>
         <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushJava.js"></script>
+        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushJScript.js"></script>
         <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushXml.js"></script>
         <script type="text/javascript">
             SyntaxHighlighter.all();
         </script>
-        -->
          
         <style type="text/css">
             .syntaxhighlighter {
                 width: 750px !important;
                 /*overflow: hidden !important;*/
                 margin-left: 40px !important;
+            }
+            
+            .title {
+                display: none;
             }
         </style>
     </head>
@@ -60,8 +63,14 @@
                             <ul>
                                 <li><a href="/pages/development/android.html">Android</a></li>
                                 <li><a href="/pages/development/java.html">Java</a></li>
+                                <li><a href="/pages/development/java/spring.html">Spring</a></li>
                                 <li><a href="/pages/development/javascript.html">JavaScript</a></li>
                                 <li><a href="/pages/development/jquery.html">jQuery</a></li>
+                            </ul>
+                        </li>
+                        <li>OS
+                            <ul>
+                                <li><a href="/pages/os/ubuntu.html">Ubuntu</a></li>
                             </ul>
                         </li>
                         
@@ -100,21 +109,23 @@
 	<li>时间选择对话框（TimePickerDialog）</li>
 </ul>
 <p id="1"><strong>一、AlertDialog</strong></p>
-<pre>
+<pre class="brush: java">
 AlertDialog.Builder builder = new AlertDialog.Builder(this);
 builder.setTitle("对话框标题");
 builder.setMessage("对话框内容");
 builder.setXXX(); // 其它参数
-builder.create();
-builder.show();
+AlertDialog dialog = builder.create();
+dialog.show();
 </pre>
 <p>更多参数访问 <a href="http://developer.android.com/reference/android/app/AlertDialog.Builder.html">http://developer.android.com/reference/android/app/AlertDialog.Builder.html</a></p>
 <p id="2"><strong>二、ProgressDialog</strong></p>
-<pre>
+<pre class="brush: java">
 ProgressDialog pd = new ProgressDialog(this);
 pd.setMessage("内容");
 pd.setXXX(); // 其它参数
+// 显示
 pd.show();
+// 销毁
 pd.dismiss();
 
 // 进度条对话框有两种显示样式，通过
