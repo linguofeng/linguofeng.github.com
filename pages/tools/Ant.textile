@@ -1,0 +1,43 @@
+---
+layout: default
+title: Ant
+---
+
+<div id="charpter">
+
+h3. Maven
+
+</div>
+
+h1. {{ page.title }}
+
+h3(#1). *安装* %(title)安装%
+<hr />
+
+* 下载
+<hr />
+
+<pre>
+官方下载地址：http://ant.apache.org/download.html
+
+解压至D:\Development\Apache
+</pre>
+
+* 环境变量配置
+<hr />
+
+<pre>
+ANT_HOME = D:\Development\Apache\apache-ant-1.8.2
+Path = .;%ANT_HOME%\bin
+</pre>
+
+* 检查是否安装成功
+<hr />
+
+<pre>
+打开命令行输入：ant -version
+
+Apache Ant(TM) version 1.8.2 compiled on December 20 2010
+
+就表示成功了
+</pre>
