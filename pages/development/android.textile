@@ -36,6 +36,8 @@ h3(#2). Android UI控件 %(title)UI控件%
 * "Dialogs":android/dialog.html - 对话框（AlertDialog、ProgressDialog、DatePickerDialog、TimePickerDialog）
 * "Notifications":android/Notifications.html - 通知（Toast Notification、Status Bar Notification、Dialog Notification）
 * "ViewFlipper":android/ViewFlipper.html - 视图切换
+* "ViewPager":android/ViewPager.html
+* "ExpandableListView":android/ExpandableListView.html - 折叠ListView
 * "Custom Components":http://www.linguofeng.com - 自定义控件
 
 h3(#3). Android动画 %(title)动画%
@@ -396,6 +398,14 @@ if (imageCache.containsKey(imageUrl)) {
 // 存
 imageCache.put(imageUrl, new SoftReference<Drawable>(bitmap));
 </pre>
+
+*(6#603) *使用线程池优化性能* %(title)线程池%
+<hr />
+** "ThreadPool":android/ThreadPool.html
+
+*(6#604) *完成退出程序* %(title)完全退出%
+<hr />
+** "完成退出程序":android/exitApplication.html
 
 h3(#7). 网络编程 %(title)网络编程%
 <hr />
