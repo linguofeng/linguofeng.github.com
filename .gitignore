@@ -1,4 +1,5 @@
 .project
-_site
+/_site
 /assets/SyntaxHighlighter
 push.sh
+*.swp
