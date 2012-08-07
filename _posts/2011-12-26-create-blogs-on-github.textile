@@ -1,6 +1,8 @@
 ---
 layout: post
 title: 在Github创建博客
+description: 这是文章描述
+tag: [a,b,c]
 ---
 
 h1. {{ page.title }}

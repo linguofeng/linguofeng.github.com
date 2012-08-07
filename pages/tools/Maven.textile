@@ -1,59 +1,71 @@
 ---
 layout: default
+category: Tools
 title: Maven3
 ---
 
-<div id="charpter">
+<header class="jumbotron subhead" id="overview">
 
-h3. Maven
+h1. Maven
 
-</div>
+p(lead). Maven安装与配置
 
-h1. {{ page.title }}
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li><a href="#download">1.下载</a></li>
+      <li><a href="#setting">2.配置</a></li>
+      <li><a href="#success">3.完成</a></li>
+    </ul>
+  </div>
+</header>
 
-h3(#1). *安装* %(title)安装%
-<hr />
+<section id="download">
+    <div class="page-header">
+        <h3>一、下载</h3>
+    </div>
 
-* 下载
-<hr />
+    <pre>
+        官方下载地址：http://maven.apache.org/download.html
+        
+        解压至D:\Development\Apache
+    </pre>
+</section>
 
-<pre>
-官方下载地址：http://maven.apache.org/download.html
+<section id="setting">
+    <div class="page-header">
+        <h3>二、配置</h3>
+    </div>
 
-解压至D:\Development\Apache
-</pre>
+    <pre>
+        M2_HOME = D:\Development\Apache\apache-maven-3.0.4
+        Path = .;%M2_HOME%\bin
+        
+        添加一个MAVEN_OPTS环境变量来改变JVM的内存
+        MAVEN_OPTS = -Xms256m -Xmx512m
+    </pre>
+</section>
 
-* 环境变量配置
-<hr />
+<section id="success">
+    <div class="page-header">
+        <h3>三、完成</h3>
+    </div>
+    <pre>
+        打开命令行输入：mvn -version
+        
+        Apache Maven 3.0.4 (r1232337; 2012-01-17 16:44:56+0800)
+        Maven home: D:\Development\Maven\apache-maven-3.0.4
+        Java version: 1.6.0_29, vendor: Sun Microsystems Inc.
+        Java home: C:\Program Files\Java\jdk1.6.0_29\jre
+        Default locale: zh_CN, platform encoding: GBK
+        OS name: "windows 7", version: "6.1", arch: "amd64", family: "windows"
+        
+        就表示成功了
+    </pre>
 
-<pre>
-M2_HOME = D:\Development\Apache\apache-maven-3.0.4
-Path = .;%M2_HOME%\bin
+安装参考： "http://maven.apache.org/download.html#Installation":http://maven.apache.org/download.html#Installation
+</section>
 
-添加一个MAVEN_OPTS环境变量来改变JVM的内存
-MAVEN_OPTS = -Xms256m -Xmx512m
-</pre>
-
-* 检查是否安装成功
-<hr />
-
-<pre>
-打开命令行输入：mvn -version
-
-Apache Maven 3.0.4 (r1232337; 2012-01-17 16:44:56+0800)
-Maven home: D:\Development\Maven\apache-maven-3.0.4
-Java version: 1.6.0_29, vendor: Sun Microsystems Inc.
-Java home: C:\Program Files\Java\jdk1.6.0_29\jre
-Default locale: zh_CN, platform encoding: GBK
-OS name: "windows 7", version: "6.1", arch: "amd64", family: "windows"
-
-就表示成功了
-</pre>
-
-* 安装参考： "http://maven.apache.org/download.html#Installation":http://maven.apache.org/download.html#Installation
-
-h3(#2). *HelloWorld* %(title)HelloWorld%
-<hr />
+<br /><br /><br /><br /><br />
 
 * 1、使用Archetype生成项目骨架
 <hr />

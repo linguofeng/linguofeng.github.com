@@ -1,110 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-        <meta http-equiv="pragma" content="no-cache" />
-        <meta http-equiv="cache-control" content="no-cache" />
-        <meta http-equiv="expires" content="0" />
-        <title>{{ page.title }} - 林国锋的代码库</title>
-        <meta name="keywords" content="java" />
-        <meta name="description" content="这里是林国锋的开发代码库，用来收集工作学习中常用的代码。" />
-        <!-- link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css' -->
-        <link rel="stylesheet" type="text/css" href="/assets/style.css" />
-        <link rel="stylesheet" type="text/css" href="/assets/ui.totop.css" />
-        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="/assets/jquery.min.js"></script>
-        <script type="text/javascript" src="/assets/waypoints.min.js"></script>
-        <script type="text/javascript" src="/assets/jquery.ui.totop.js"></script>
-        <script type="text/javascript" src="/assets/common.js"></script>
-        
-        <!-- SyntaxHighlighter -->
-        <!--link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shCore.css"/>
-        <link type="text/css" rel="stylesheet" href="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/styles/shThemeEmacs.css"/>
-        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shCore.js"></script>
-        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJava.js"></script>
-        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushJScript.js"></script>
-        <script type="text/javascript" src="http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/shBrushXml.js"></script>
-        <script type="text/javascript">
-            SyntaxHighlighter.config.clipboardSwf = 'http://www.linguofeng.com/wp-content/plugins/syntax-highlighter-and-code-prettifier/scripts/clipboard.swf';
-            SyntaxHighlighter.all();
-        </script-->
-        
-        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shCore.css"/>
-        <link type="text/css" rel="stylesheet" href="/assets/SyntaxHighlighter/styles/shThemeEmacs.css"/>
-        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shCore.js"></script>
-        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushJava.js"></script>
-        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushJScript.js"></script>
-        <script type="text/javascript" src="/assets/SyntaxHighlighter/scripts/shBrushXml.js"></script>
-        <script type="text/javascript">
-            SyntaxHighlighter.all();
-        </script>
-         
-        <style type="text/css">
-            .syntaxhighlighter {
-                width: 750px !important;
-                /*overflow: hidden !important;*/
-                margin-left: 40px !important;
-            }
-            
-            .title {
-                display: none;
-            }
-        </style>
-    </head>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }} - 林国锋的代码库</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="java,android,linux,ubuntu">
+    <meta name="author" content="linguofeng@msn.com">
 
-    <body>
-        <div id="container">
-            <div id="sidebar">
-                <div id="menu-nav">
-                    <div id="logo"><a href="/">Library</a></div>
-                    
-                    <ul>
-                        <li>Development
-                            <ul>
-                                <li><a href="/pages/development/android.html">Android</a></li>
-                                <li><a href="/pages/development/java.html">Java</a></li>
-                                <li><a href="/pages/development/java/spring.html">Spring</a></li>
-                                <li><a href="/pages/development/java/WebService.html">WebService</a></li>
-                                <li><a href="/pages/development/javascript.html">JavaScript</a></li>
-                                <li><a href="/pages/development/jquery.html">jQuery</a></li>
-                            </ul>
-                        </li>
-                        <li>OS
-                            <ul>
-                                <li><a href="/pages/os/ubuntu.html">Ubuntu</a></li>
-                            </ul>
-                        </li>
-                        <li>Tools
-                            <ul>
-                                <li><a href="/pages/tools/uml.html">UML</a></li>
-                                <li><a href="/pages/tools/Maven.html">Maven</a></li>
-                                <li><a href="/pages/tools/Ant.html">Ant</a></li>
-                            </ul>
-                        </li>
-                        
-                    </ul>
-                    
-                    <ul>
-                        <li>Links
-                            <ul>
-                                <li><a href="http://www.linguofeng.com">Blog</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    
-                    <ul class="misc">
-                        <li>Powered by <a href="http://pages.github.com/">github-pages</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div id="content">
-                {{ content }}
-                
-                <hr />
-                <p>Copyright &copy; 2012 linguofeng.com, Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0.</a></p>
-            </div>
-            
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/assets/css/blog.css" rel="stylesheet">
+    <link href="/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="/assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+  
+  <body data-spy="scroll" data-target=".subnav" data-offset="50">
+	<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/index.html">林国锋个人博客</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li{% if page.title == "Home" %} class="active"{% endif %}><a href="/index.html">Home</a></li>
+              <li{% if page.category == "Android" %} class="active"{% endif %}><a href="/pages/development/android.html">Android</a></li>
+              <li class="dropdown {% if page.category == "Tools" %}active{% endif %}" id="toolsMenu">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#toolsMenu">开发工具 <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+			      <li><a href="/pages/tools/Maven.html">Maven - 项目管理工具</a></li>
+			      <li><a href="#">Ant - 项目构建工具</a></li>
+			      <li><a href="#">Something else here</a></li>
+			      <li class="divider"></li>
+			      <li><a href="#">Eclipse+Android+Maven</a></li>
+			    </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
-    </body>
+      </div>
+    </div>
+
+	<div class="container">
+		{{ content }}
+		<footer class="footer">
+	        <p class="pull-right"><a href="#">Back to top</a></p>
+	        <p>Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+	        <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+	        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+      	</footer>
+	</div>
+
+	<script src="/assets/js/jquery.js"></script>
+	<script src="/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="/assets/js/bootstrap-transition.js"></script>
+    <script src="/assets/js/bootstrap-alert.js"></script>
+    <script src="/assets/js/bootstrap-modal.js"></script>
+    <script src="/assets/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/js/bootstrap-tab.js"></script>
+    <script src="/assets/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/js/bootstrap-popover.js"></script>
+    <script src="/assets/js/bootstrap-button.js"></script>
+    <script src="/assets/js/bootstrap-collapse.js"></script>
+    <script src="/assets/js/bootstrap-carousel.js"></script>
+    <script src="/assets/js/bootstrap-typeahead.js"></script>
+    <script src="/assets/js/application.js"></script>
+</body>
 </html>

@@ -1,50 +1,61 @@
 ---
 layout: default
+category: Android
 title: Android 对话框
 ---
 
-<div id="charpter">
-h3. Android 对话框
-* "AlertDialog":#1
-* "ProgressDialog":#1
-* "DatePickerDialog":#1
-* "TimePickerDialog":#1
-</div>
+<header class="jumbotron subhead" id="overview">
 
-h1. {{ page.title }}
+h1. Android 对话框
 
-p. Android中共有4种对话框： 
+p(lead). Android中共有4种对话框： 
 * 警告对话框（AlertDialog）
 * 进度对话框（ProgressDialog）
 * 日期选择对话框（DatePickerDialog）
 * 时间选择对话框（TimePickerDialog）
 
-p(#1). *一、AlertDialog*
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li><a href="#AlertDialog">AlertDialog</a></li>
+      <li><a href="#ProgressDialog">ProgressDialog</a></li>
+      <li><a href="#">DatePickerDialog</a></li>
+      <li><a href="#">TimePickerDialog</a></li>
+    </ul>
+  </div>
+</header>
 
-<pre class="brush: java">
-AlertDialog.Builder builder = new AlertDialog.Builder(this);
-builder.setTitle("对话框标题");
-builder.setMessage("对话框内容");
-builder.setXXX(); // 其它参数
-AlertDialog dialog = builder.create();
-dialog.show();
-</pre>
-
+<section id="AlertDialog">
+    <div class="page-header">
+        <h1>AlertDialog</h1>
+    </div>
+    <pre class="prettyprint linenums">
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("对话框标题");
+        builder.setMessage("对话框内容");
+        builder.setXXX(); // 其它参数
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    </pre>
 p. 更多参数访问 "http://developer.android.com/reference/android/app/AlertDialog.Builder.html":http://developer.android.com/reference/android/app/AlertDialog.Builder.html
+</section>
 
-p(#2). *二、ProgressDialog*
-
-<pre class="brush: java">
-ProgressDialog pd = new ProgressDialog(this);
-pd.setMessage("内容");
-pd.setXXX(); // 其它参数
-// 显示
-pd.show();
-// 销毁
-pd.dismiss();
-
-// 进度条对话框有两种显示样式，通过
-pd.setProgressStyle(0/1); // 1表示水平，0表示圆形
-</pre>
-
+<section id="ProgressDialog">
+    <div class="page-header">
+        <h1>ProgressDialog</h1>
+    </div>
+    
+    <pre class="prettyprint linenums">
+        ProgressDialog pd = new ProgressDialog(this);
+        pd.setMessage("内容");
+        pd.setXXX(); // 其它参数
+        // 显示
+        pd.show();
+        // 销毁
+        pd.dismiss();
+    
+        // 进度条对话框有两种显示样式，通过
+        pd.setProgressStyle(0/1); // 1表示水平，0表示圆形
+    </pre>
+    
 p. 更多参数访问 "http://developer.android.com/reference/android/app/ProgressDialog.html":http://developer.android.com/reference/android/app/ProgressDialog.html
+</section>

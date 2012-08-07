@@ -1,20 +1,32 @@
 ---
 layout: default
-title: Welcome
+title: Home
 ---
 
-<h1>Welcome</h1>
+<header class="jumbotron subhead" id="overview">
+  <h1>Hello World!!</h1>
+  <p class="lead">Code Code Code Code</p>
+</header>
 
-<p>这里是林国锋的开发代码库，用来收集工作学习中常用的代码。</p>
+<hr >
 
-<h3>Articles</h3>
-<ul class="posts">
-	{% for post in site.posts %}
-		<li><span>{{ post.date | date:"%m/%d/%Y" }}</span> - <a href="{{ post.url }}">{{ post.title }}</a></li>
-	{% endfor %}
-</ul>
-
-<br /><br /><br /><br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br /><br />
-<br /><br /><br /></r /><br /><br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br /><br />
+{% for post in site.posts %}
+<section>
+    <!-- 显示文章标题 -->
+    <div>
+        <h3><a href="{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date:"%Y-%m-%d" }}</small></h3>
+	</div>
+	
+	<!-- 显示文章描述 -->
+	<p>{{ post.description }}</p>
+	
+	<!-- 显示文章Tag -->
+	{% if post.tag %}
+		<p>Tag:
+		{% for tag in post.tag %}
+		   <a href="#">{{tag}}</a> 
+		{% endfor %}
+		</p>
+	{% endif %}
+</section>
+{% endfor %}

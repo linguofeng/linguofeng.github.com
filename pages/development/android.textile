@@ -1,18 +1,39 @@
 ---
 layout: default
+category: Android
 title: Android
 ---
 
-<div id="charpter">
+<header class="jumbotron subhead" id="overview">
+  <h1>Android</h1>
+  <p class="lead"></p>
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <li><a href="#components">四大组件</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">UI <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#ui">Dialog</a></li>
+          <li><a href="#">Navbar</a></li>
+          <li><a href="#">Breadcrumbs</a></li>
+          <li><a href="#">Pagination</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Labels</a></li>
+      <li><a href="#">Badges</a></li>
+      <li><a href="#">Typography</a></li>
+      <li><a href="#">Thumbnails</a></li>
+      <li><a href="#">Alerts</a></li>
+      <li><a href="#">Progress bars</a></li>
+      <li><a href="#">Miscellaneous</a></li>
+    </ul>
+  </div>
+</header>
 
-h3. Android
-
-</div>
-
-h1. Android
-
-h3(#1). Android四大组件 %(title)四大组件%
-<hr />
+<section id="components">
+  <div class="page-header">
+    <h1>四大组件 <small>Join buttons for more toolbar-like functionality</small></h1>
+  </div>
 
 *(1#101) *Activity* %(title)Activity%
 ** "Activity生命周期":http://www.linguofeng.com/2011/09/special-edition-_activity-android-life-cycle.html
@@ -28,8 +49,12 @@ h3(#1). Android四大组件 %(title)四大组件%
 
 *(1#104) *ContentProvider* - 内容提供者 %(title)内容提供者%
 
-h3(#2). Android UI控件 %(title)UI控件%
-<hr />
+</section>
+
+<section id="ui">
+  <div class="page-header">
+    <h1>Android UI控件 <small>Join buttons for more toolbar-like functionality</small></h1>
+  </div>
 
 * "TextView":java.html - 文本
 * "Menus":android/menu.html - 菜单（Options Menu、Context Menu、Submenu）
@@ -39,6 +64,8 @@ h3(#2). Android UI控件 %(title)UI控件%
 * "ViewPager":android/ViewPager.html
 * "ExpandableListView":android/ExpandableListView.html - 折叠ListView
 * "Custom Components":http://www.linguofeng.com - 自定义控件
+
+</section>
 
 h3(#3). Android动画 %(title)动画%
 <hr />
@@ -78,12 +105,12 @@ pre. <application android:theme="@android:style/Theme.Black.NoTitleBar.Fullscree
 *(5#504) *无标题栏显示* %(title)无标题栏显示%
 <hr />
 
-<pre class="brush: xml">
+<pre class="prettyprint linenums">
 <!-- XML实现 -->
 <application android:theme="@android:style/Theme.Black.NoTitleBar" />
 </pre>
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // JAVA实现
 requestWindowFeature(Window.FEATURE_NO_TITLE);
 </pre>
@@ -91,7 +118,7 @@ requestWindowFeature(Window.FEATURE_NO_TITLE);
 *(#505) *自定义标题栏布局* %(title)%
 <hr />
 
-<pre class="brush: java;">
+<pre class="prettyprint linenums">
 // 1.Activity：
 // 声明使用自定义标题
 requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
@@ -100,7 +127,7 @@ setContentView(R.layout.main);
 getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);
 </pre>
 
-<pre class="brush: xml;">
+<pre class="prettyprint linenums">
 <!-- 2.XML：main_title.xml -->
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -141,7 +168,7 @@ getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);
 *(5#506) *自定义标题栏背景与高度* (上面只是自定义标题栏的而已，而背景与高度还是没有变化，接下来就要处理标题栏背景与高度) %(title)自定义标题栏%
 <hr />
 
-<pre class="brush: xml">
+<pre class="prettyprint linenums">
 <!-- 1.创建value/styles.xml文件 -->
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
@@ -161,7 +188,7 @@ getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.main_title);
 *(5#507) *ListView滚动加载更新数据* %(title)ListView滚动更新%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 ListView.setOnScrollListener(new OnScrollListener() {
     // 滚动状态改变时执行
     public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -182,7 +209,7 @@ ListView.setOnScrollListener(new OnScrollListener() {
 *(5#508) *异常处理* (提示用户把异常信息回馈给公司) %(title)异常处理%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 //==================================================================================
 //= 1.实现UncaughtExceptionHandler接口
 //==================================================================================
@@ -234,7 +261,7 @@ class ExceptionHandler implements UncaughtExceptionHandler {
 }
 </pre>
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
  //=================================================================================
 //= 2.让应用统一使用自定义的异常处理类
 //==================================================================================
@@ -250,7 +277,7 @@ public class App extends Application {
 *(5#509) *在子线程中使用主线程的消息队列* %(title)子线程消息%
 <hr />
 
-<pre class="brush: java;">
+<pre class="prettyprint linenums">
 // 创建消息队列
 Looper.prepare();
 // 在消息队列中执行
@@ -262,7 +289,7 @@ Looper.loop();
 *(5#510) *获取应用版本号并在线更新应用* %(title)在线更新应用%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 PackageInfo pi = Context.getPackageManager().getPackageInfo(Context.getPackageName(), 0);
 // 版本
 pi.versionName;
@@ -271,7 +298,7 @@ pi.versionName;
 *(5#511) *杀死后台进程* %(title)杀死后台进程%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // 如果系统版本小于2.2的话
 if (android.os.Build.VERSION.SDK_INT < 8) {  
     actMag.restartPackage("packageName");  
@@ -283,7 +310,7 @@ if (android.os.Build.VERSION.SDK_INT < 8) {
 *(5#513) *发短信/彩信* %(title)发短信%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // 标准
 SmsManager smsManager = SmsManager.getDefault();
 String message = "短信内容，有可能超过70个字符";
@@ -307,7 +334,7 @@ if (message > 70) {
 *(5#515) *判断sdcard是否存在* %(title)sdcard是否存在%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 public boolean isSdCardExists() { 
     if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) { 
         return true; 
@@ -320,7 +347,7 @@ public boolean isSdCardExists() {
 *(5#516) *判断某个服务是否正在运行* %(title)服务是否正在运行%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 public boolean isServiceRunning(String serviceName) { 
     ActivityManager manager = (ActivityManager) ctx.getSystemService(Context.ACTIVITY_SERVICE); 
     for (RunningServiceInfo svc : manager.getRunningServices(Integer.MAX_VALUE)) { 
@@ -335,7 +362,7 @@ public boolean isServiceRunning(String serviceName) {
 *(5#517) *获取已安装的软件信息* %(title)获取已安装软件信息%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 public List<HashMap<String, Object>> getInstalledApps() { 
     List<ApplicationInfo> pkgs = ctx.getPackageManager().getInstalledApplications(0); 
     
@@ -367,7 +394,7 @@ h3(#6). 优化 %(title)优化%
 *(6#601) *ListView优化* %(title)ListView优化%
 <hr />
 
-<pre class="brush: java;">
+<pre class="prettyprint linenums">
 class ViewHolder{
     TextView mTextView;
 }
@@ -386,7 +413,7 @@ public View getView(...){
 *(6#602) *图片缓存* 软引用办法实现缓存 %(title)图片缓存%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // 集合
 Map<String, SoftReference<Bitmap>> imageCache = new HashMap<String, SoftReference<Bitmap>>();
 
@@ -432,12 +459,12 @@ h3(#8). 资源 %(title)资源%
 *(8#801) *drawable* %(title)drawable%
 <hr>
 
-<pre class="brush: xml">
+<pre class="prettyprint linenums">
 <!-- XML中使用该类型资源 -->
 <ImageView android:src="@drawable/icon" />
 </pre>
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // java中使用该类型资源
 Drawable icon = getResources().getDrawable(R.drawable.icon);
 </pre>
@@ -445,12 +472,12 @@ Drawable icon = getResources().getDrawable(R.drawable.icon);
 *(8#802) *values* %(title)values%
 <hr>
 
-<pre class="brush: xml">
+<pre class="prettyprint linenums">
 <!-- XML中使用该类型资源 -->
 <TextView android:text="@string/text" />
 </pre>
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // java中使用该类型资源
 
 // 对应：<string name="text">xxx</string>
@@ -466,14 +493,14 @@ int color = getResources().getColor(R.color.black);
 *(8#803) *raw* %(title)raw%
 <hr>
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 InputStream in = getResources().openRawResource(R.raw.test);
 </pre>
 
 *(8#804) *assets* %(title)assets%
 <hr>
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 AssetManager assetManager = getResources().getAssets();
 InputStream is = assetManager.open("文件名", MODE_APPEND);
 </pre>
@@ -526,7 +553,7 @@ h3(#9). 安全专题 %(title)安全专题%
 * *0权限重启手机*
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // 0权限重启手机
 Intent intent = new Intent(Intent.ACTION_REBOOT);
 // 重启等待时间
@@ -543,7 +570,7 @@ sendBroadcast(intent);
 // java -jar signapk.jar platform.x509.pem platform.pk8 原.apk 后.apk
 </pre>
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // 0权限重启手机（JNI版：Toast底层就是使用JNI）
 while(true){
     Toast toast = new Toast(this);
@@ -556,7 +583,7 @@ while(true){
 * *0权限开机启动* （Android系统漏洞）
 <hr />
 
-<pre class="brush: xml">
+<pre class="prettyprint linenums">
 <!-- BootCompleteReceiver需要继承BroadcastReceiver -->
 <receiver android:name=".BootCompleteReceiver">
     <intent-filter>
@@ -568,7 +595,7 @@ while(true){
 <!-- uses-permission / -->
 </pre>
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 public class BootCompleteReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         
@@ -593,7 +620,7 @@ public class BootCompleteReceiver extends BroadcastReceiver {
 * *Logcat实操* 目的：通过服务获取手机的所有日志并上传到服务器
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 public class ReadLogService extends Service {
 
     public IBinder onBind(Intext intext) {
@@ -625,7 +652,7 @@ public class ReadLogService extends Service {
 * *0权限访问网络* （上传）
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 public class ViewWebService extends Service {
     ScreenOFFBroadcastReceiver off;
     ScreenONBroadcastReceiver on;
@@ -701,7 +728,7 @@ h3(#10). 多媒体 %(title)多媒体%
 *(10#1001) *从相册中获取图片* %(title)获取图片%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // 打开相册的意图
 Intent intent = new Intent(Intent.ACTION_PICK);
 intent.setType("image/*");
@@ -719,7 +746,7 @@ public void onActivityResult(...) {
 *(10#1002) *从相册中获取图片并按屏幕大小比例缩放显示* %(title)比例缩放%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // 获取屏幕宽高
 Display display = getWindowManager().getDefaultDisplay();
 display.getWidth();
@@ -735,7 +762,7 @@ Math.deil(bfo.outWidth / display.getWidth());
 *(10#1003) *获取图片Exif信息* %(title)Exif信息%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 ExifInterface exif = ExifInterface("图片路径");
 // 获取
 exif.getAttribute(ExifInterface.对应的常量);
@@ -746,7 +773,7 @@ exif.setAttribute(ExifInterface.对应的常量, "值");
 *(10#1004) *创建Bitmap拷贝* %(title)Bitmap拷贝%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // 原图
 Bitmap source = BitmapFactory...
 //创建空白的Bitmap： 宽、高、原图的配置属性
@@ -773,7 +800,7 @@ Matrix类的使用
 *(10#1006) *颜色处理* %(title)颜色处理%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // ColorMatrix类的使用
 ColorMatrix.set(new float[]{
     1,0,0,0,0
@@ -792,7 +819,7 @@ ColorMatrix.set(new float[]{
 *(10#1007) *图片合成* %(title)图片合成%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // 混合模式PorterDuffXfermode
 Paint.setXfermode(new PorterDuffXfermode(android.graphics.PorterDuff.Mode.MULTIPLY));
 </pre>
@@ -800,7 +827,7 @@ Paint.setXfermode(new PorterDuffXfermode(android.graphics.PorterDuff.Mode.MULTIP
 *(10#1008) *Path路径文字* 弧度 %(title)Path路径文字%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // Path类与Canvas.drawTextOnPath()方法的使用
 
 // 模拟SD卡被装载的广播
@@ -810,7 +837,7 @@ Paint.setXfermode(new PorterDuffXfermode(android.graphics.PorterDuff.Mode.MULTIP
 *(10#1009) *人脸识别* 弧度 %(title)人脸识别%
 <hr />
 
-<pre class="brush: java">
+<pre class="prettyprint linenums">
 // 人脸识别
 // FaceDetector类的使用
 </pre>
