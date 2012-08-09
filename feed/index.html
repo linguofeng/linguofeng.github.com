@@ -4,13 +4,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title type="text" xml:lang="en">linguofeng</title>
     <link type="application/atom+xml" href="http://blog.linguofeng.com/feed/" rel="self"/>
-    <link type="text" href="http://vitobotta.com" rel="alternate"/>
+    <link type="text" href="http://blog.linguofeng.com" rel="alternate"/>
     <updated>{{ site.time | date_to_xmlschema }}</updated>
     <id>http://blog.linguofeng.com</id>
     <author>
-        <name>linguofeng</name>
+        <name>linguofeng@msn.com</name>
     </author>
-    <rights>Copyright (c) 2010-2011 linguofeng</rights>
+    <rights>Copyright (c) 2012 linguofeng</rights>
     {% for post in site.posts limit:20 %}
     <entry>
         <title>{{ post.title }}</title>

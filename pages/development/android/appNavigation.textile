@@ -5,19 +5,18 @@ title: Android 应用程序导航
 
 <header class="jumbotron subhead" id="overview">
 
-<h1>{{ page.title }}</h1>
+    <h1>{{ page.title }}</h1>
 
-<p class="lead">应用程序导航是Activity间进行切换的一种导航，能够方便地从子Activity回到父的Activity。<br>
-PS:该功能仅在Android3.0以上版本有效果，Android3.0以下版本无变化。</p>
+    <p class="lead">应用程序导航是Activity间进行切换的一种导航，能够方便地从子Activity回到父的Activity。<br>PS:该功能仅在Android3.0以上版本有效果，Android3.0以下版本无变化。</p>
 
-  <div class="subnav">
-    <ul class="nav nav-pills">
-      <li><a href="#1">1.准备</a></li>
-      <li><a href="#2">2.创建Android工程</a></li>
-      <li><a href="#3">3.关键属性参数</a></li>
-      <li><a href="#">TimePickerDialog</a></li>
-    </ul>
-  </div>
+    <div class="subnav">
+        <ul class="nav nav-pills">
+            <li><a href="#1">1.准备</a></li>
+            <li><a href="#2">2.创建Android工程</a></li>
+            <li><a href="#3">3.关键属性参数</a></li>
+            <li><a href="#">TimePickerDialog</a></li>
+        </ul>
+    </div>
 </header>
 
 <section id="1">

@@ -1,27 +1,25 @@
 ---
 layout: default
-title: Maven
-description: Maven安装与配置、插件与技巧
+category: Tools
+title: Maven3
 ---
 
 <header class="jumbotron subhead" id="overview">
 
-h1. {{ page.title }}
+h1. Maven
 
-p(lead). {{ page.description }}
+p(lead). Maven安装与配置
 
   <div class="subnav">
     <ul class="nav nav-pills">
-      <li><a href="#1">1.下载</a></li>
-      <li><a href="#2">2.配置</a></li>
-      <li><a href="#3">3.完成</a></li>
-      <li><a href="#4">4.Hello Maven</a></li>
-      <li><a href="#5">更多...</a></li>
+      <li><a href="#download">1.下载</a></li>
+      <li><a href="#setting">2.配置</a></li>
+      <li><a href="#success">3.完成</a></li>
     </ul>
   </div>
 </header>
 
-<section id="1">
+<section id="download">
     <div class="page-header">
         <h3>一、下载</h3>
     </div>
@@ -33,7 +31,7 @@ p(lead). {{ page.description }}
     </pre>
 </section>
 
-<section id="2">
+<section id="setting">
     <div class="page-header">
         <h3>二、配置</h3>
     </div>
@@ -47,7 +45,7 @@ p(lead). {{ page.description }}
     </pre>
 </section>
 
-<section id="3">
+<section id="success">
     <div class="page-header">
         <h3>三、完成</h3>
     </div>
@@ -67,10 +65,10 @@ p(lead). {{ page.description }}
 安装参考： "http://maven.apache.org/download.html#Installation":http://maven.apache.org/download.html#Installation
 </section>
 
-<section id="4">
-    <div class="page-header">
-        <h3>四、Hello Maven <small>第一个Maven工程</small></h3>
-    </div>
+<br /><br /><br /><br /><br />
+
+* 1、使用Archetype生成项目骨架
+<hr />
 
 <pre>
 // 1、输入命令
@@ -169,67 +167,3 @@ mvn clean package
 <pre>
 java -jar target\helloworld-1.0-SNAPSHOT.jar
 </pre>
-
-<section id="5">
-    <div class="page-header">
-        <h3>更多内容 <small>常用插件与技巧</small></h3>
-    </div>
-    <ul><h5>常用插件：</h5>
-    	<li><a href="http://maven.apache.org/scm/maven-scm-plugin/index.html">maven-scm-plugin</a> 把工程打Tag后发布到SCM(Git、Svn)服务器上，SCM＝Software Configuration Management软件配置管理</li>
-<pre>
-<scm>
-    <url>https://github.com/linguofeng/android-dynamic-loading-framework</url>
-    <connection>scm:git:git://github.com/linguofeng/android-dynamic-loading-framework.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/linguofeng/android-dynamic-loading-framework.git</developerConnection>
-</scm>
-
-<plugin>
-    <artifactId>maven-scm-plugin</artifactId>
-    <version>1.7</version>
-    <configuration>
-        <scmVersionType>branch</scmVersionType>
-        <scmVersion>master</scmVersion>
-    </configuration>
-</plugin>
-</pre>
-    	<li><a href="http://maven.apache.org/plugins/maven-release-plugin/">maven-release-plugin</a> 版本发布插件</li>
-<pre>
-<distributionManagement>
-    <repository>
-        <id>nexus-releases</id>
-        <name>Nexus Release Repository</name>
-        <url>http://127.0.0.1:8081/nexus/content/repositories/releases/</url>
-    </repository>
-    <snapshotRepository>
-        <id>nexus-snapshots</id>
-        <name>Nexus Snapshot Repository</name>
-        <url>http://127.0.0.1:8081/nexus/content/repositories/snapshots/</url>
-    </snapshotRepository>
-</distributionManagement>
-
-<plugin>
-    <artifactId>maven-release-plugin</artifactId>
-    <version>2.3.2</version>
-    <configuration>
-        <autoVersionSubmodules>true</autoVersionSubmodules>
-        <scmCommentPrefix></scmCommentPrefix>
-    </configuration>
-</plugin>
-
-使用命令：
-$ mvn release:prepare // 此命令会将工程发布到SCM服务器上，需要maven-scm-plugin插件的支持
-$ mvn release:perform // 此命令会将工程发布到Maven仓库中
-</pre>
-        <li><a href="https://github.com/jayway/maven-android-plugin">maven-android-plugin</a> 开发Android应用的插件，结合 <a href="/pages/favorites/eclipse.html#m2e-android">m2e-android</a> 一起使用</li>
-<pre>
-通过Maven命令行创建Android工程：https://github.com/rgladwell/m2e-android
-
-$ mvn archetype:generate \
-  -DarchetypeArtifactId=android-quickstart \
-  -DarchetypeGroupId=de.akquinet.android.archetypes \
-  -DarchetypeVersion=1.0.8 \
-  -DgroupId=your.company \
-  -DartifactId=my-android-application
-</pre>
-    </ul>
-</section>
