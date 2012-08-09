@@ -31,9 +31,17 @@
           <a class="brand" href="/index.html">林国锋个人博客</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li{% if page.title == "Home" %} class="active"{% endif %}><a href="/index.html">Home</a></li>
-              <li{% if page.category == "Android" %} class="active"{% endif %}><a href="/pages/development/android.html">Android</a></li>
-              <li class="dropdown {% if page.category == "Tools" %}active{% endif %}" id="toolsMenu">
+              <li class="{% if page.title == 'Home' %}active{% endif %}">
+                <a href="/index.html">Home</a>
+              </li>
+              <li class="{% if page.title == 'Archive' or page.category contains 'category' %}active{% endif %}">
+                <a href="/archive.html">Archive</a>
+              </li>
+              <!-- 页面URL包含android关键字 -->
+              <li class="{% if page.url contains 'android' %}active{% endif %}">
+                <a href="/pages/development/android.html">Android</a>
+              </li>
+              <li class="dropdown{% if page.url contains 'tools' %} active{% endif %}" id="toolsMenu">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#toolsMenu">开发工具 <b class="caret"></b></a>
                 <ul class="dropdown-menu">
 			      <li><a href="/pages/tools/Maven.html">Maven - 项目管理工具</a></li>
@@ -42,6 +50,15 @@
 			      <li class="divider"></li>
 			      <li><a href="#">Eclipse+Android+Maven</a></li>
 			    </ul>
+              </li>
+              <li class="dropdown{% if page.url contains 'favorites' %} active{% endif %}" id="siteMenu">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#siteMenu">参考网站 <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/pages/favorites/ruby.html">Ruby类</a></li>
+                  <li><a href="/pages/favorites/eclipse.html">Eclipse类</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Eclipse+Android+Maven</a></li>
+                </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->

@@ -1,5 +1,5 @@
 auto: true
 server: true
 server_port: 4000
-markdown: maruku
+markdown: rdiscount
 pygments: true
