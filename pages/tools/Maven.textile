@@ -2,24 +2,10 @@
 layout: default
 title: Maven
 description: Maven安装与配置、插件与技巧
+navigation: [1.下载, 2.配置, 3.完成, 4.Hello Maven, 更多...]
 ---
 
-<header class="jumbotron subhead" id="overview">
-
-h1. {{ page.title }}
-
-p(lead). {{ page.description }}
-
-  <div class="subnav">
-    <ul class="nav nav-pills">
-      <li><a href="#1">1.下载</a></li>
-      <li><a href="#2">2.配置</a></li>
-      <li><a href="#3">3.完成</a></li>
-      <li><a href="#4">4.Hello Maven</a></li>
-      <li><a href="#5">更多...</a></li>
-    </ul>
-  </div>
-</header>
+{% include header.ext %}
 
 <section id="1">
     <div class="page-header">
