@@ -4,15 +4,10 @@ title: Archive
 description: 日志归档
 ---
 
-<header class="jumbotron subhead" id="overview">
-  <h1>{{ page.title }}</h1>
-  <p class="lead">{{ page.description }}</p>
-</header>
-
-<hr >
+{% include header.ext %}
 
 {% for post in site.posts %}
 <ul>
-    <li><small>{{ post.date | date:"%Y-%m-%d" }}</small> » <a href="{{ post.url }}">{{ post.title }}</a></li>
+    <li>{{ post.date | date:"%Y-%m-%d" }} » <a href="{{ post.url }}" target="_blank">{{ post.title }}</a></li>
 </ul>
 {% endfor %}

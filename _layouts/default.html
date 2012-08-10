@@ -31,7 +31,7 @@
           <a class="brand" href="/about.html">林国锋个人博客</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="{% if page.title == 'Home' %}active{% endif %}">
+              <li class="{% if page.url contains 'index' %}active{% endif %}">
                 <a href="/index.html">Home</a>
               </li>
               <li class="{% if page.url contains 'archive' %}active{% endif %}">
