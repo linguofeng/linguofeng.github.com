@@ -1,9 +1,15 @@
 <header class="jumbotron subhead" id="overview">
             {% if page.title %}<h1>{{ page.title }}</h1>{% endif %}
-            {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
-            {% if page.navigation %}{% assign navs = page.navigation %}<div class="subnav">
-                <ul class="nav nav-pills">
-                {% for nav in navs %}    <li><a href="#{{ forloop.index }}">{{ nav }}</a></li>
+            {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}{% if page.navigation %}{% assign navs = page.navigation %}{% assign subnavs = page.subnavigation %}
+            <div class="subnav">
+                <ul class="nav nav-pills">{% for nav in navs %}{% assign nav-index = forloop.index %}{% assign subnav = subnavs[nav-index] %}{% if subnav %}
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ nav }} <b class="caret"></b></a>
+                        <ul class="dropdown-menu">{% for sub in subnav %}
+                            <li><a href="#{{nav-index}}-{{forloop.index}}">{{sub}}</a></li>{% endfor %}
+                        </ul>
+                    </li>{% else %}
+                    <li><a href="#{{ nav-index }}">{{ nav }}</a></li>{% endif %}
                 {% endfor %}</ul>
             </div>{% endif %}
         </header> <!--/header -->

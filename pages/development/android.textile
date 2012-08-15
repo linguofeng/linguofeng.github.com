@@ -2,35 +2,12 @@
 layout: default
 category: Android
 title: Android
+description: Android记录
+navigation: [四大组件, UI, c]
+subnavigation: [null,null,[Dialog, Navbar, Breadcrumbs, Pagination]]
 ---
 
-<header class="jumbotron subhead" id="overview">
-  <h1>Android</h1>
-  <p class="lead"></p>
-  <div class="subnav">
-    <ul class="nav nav-pills">
-      <li><a href="#components">四大组件</a></li>
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">UI <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="#ui">Dialog</a></li>
-          <li><a href="#">Navbar</a></li>
-          <li><a href="#">Breadcrumbs</a></li>
-          <li><a href="#">Pagination</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Labels</a></li>
-      <li><a href="#">Badges</a></li>
-      <li><a href="#">Typography</a></li>
-      <li><a href="#">Thumbnails</a></li>
-      <li><a href="#">Alerts</a></li>
-      <li><a href="#">Progress bars</a></li>
-      <li><a href="#">Miscellaneous</a></li>
-    </ul>
-  </div>
-</header>
-
-<section id="components">
+<section id="1">
   <div class="page-header">
     <h1>四大组件 <small>Join buttons for more toolbar-like functionality</small></h1>
   </div>
@@ -51,7 +28,7 @@ title: Android
 
 </section>
 
-<section id="ui">
+<section id="2">
   <div class="page-header">
     <h1>Android UI控件 <small>Join buttons for more toolbar-like functionality</small></h1>
   </div>
