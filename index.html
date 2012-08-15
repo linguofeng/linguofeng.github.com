@@ -1,12 +1,10 @@
 ---
 layout: default
 title: Hello World!!
-description: Code Code Code Code
+description: ~~@@@@~~~~~@@@@@@@@@@@@@#####~~~~~~~!!!!!!!!!!
 ---
 
-{% include header.ext %}
-
-{% for post in site.posts %}
+{% for post in site.posts limit:10 offset:0 %} <!-- 显示最新的10条日志 -->
 <section>
     <!-- 显示文章标题 -->
     <div>
@@ -35,6 +33,3 @@ description: Code Code Code Code
 	{% endif %}
 </section>
 {% endfor %}
-
-<br /><br /><br /><br /><br /><br /><br />
-<br /><br /><br /><br /><br /><br /><br />

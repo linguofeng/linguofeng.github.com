@@ -3,24 +3,9 @@ layout: post
 title: Maven+Nexus私服搭建
 description: 创建高速的本地（局域网）Maven仓库
 categories: [archive]
-tags: [maven, nexus]
+tags: [maven,nexus]
+navigation: [1.下载,2.安装,3.完成,4.配置]
 ---
-
-<header class="jumbotron subhead" id="overview">
-
-h1. {{ page.title }}
-
-p(lead). {{ page.description }}
-    
-  <div class="subnav">
-    <ul class="nav nav-pills">
-      <li><a href="#1">1.下载</a></li>
-      <li><a href="#2">2.安装</a></li>
-      <li><a href="#3">3.完成</a></li>
-      <li><a href="#4">4.配置</a></li>
-    </ul>
-  </div>
-</header>
 
 <section id="1">
     <div class="page-header">

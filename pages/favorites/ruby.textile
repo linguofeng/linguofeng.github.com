@@ -4,9 +4,5 @@ title: Ruby类网站收藏
 description: 收藏一些关于Ruby有用的网站用于参考！！
 ---
 
-{% include header.ext %}
-
-<hr />
-
-** 2012-08-08 » "Liquid":http://liquidmarkup.org/ 模板语言，使用Jekyll写博客时要用到它。
-** 2012-08-10 » "Octopress":http://octopress.org/ 基于Jekyll设计的框架。
+## <p>2012-08-08 » "Liquid":http://liquidmarkup.org/ 模板语言，使用Jekyll写博客时要用到它。</p>
+## <p>2012-08-10 » "Octopress":http://octopress.org/ 基于Jekyll设计的框架。</p>

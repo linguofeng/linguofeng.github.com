@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8">
     <title>{% if page.title %}{{ page.title }} - {% endif %}林国锋个人博客</title>
@@ -16,18 +16,18 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
   
-  <body data-spy="scroll" data-target=".subnav" data-offset="50">
-	<div class="navbar navbar-fixed-top">
+  <body data-spy="scroll" data-target=".subnav" data-offset="80">
+    <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </a>
+          </button>
           <a class="brand" href="/about.html">林国锋个人博客</a>
           <div class="nav-collapse">
             <ul class="nav">
@@ -37,20 +37,39 @@
               <li class="{% if page.url contains 'archive' %}active{% endif %}">
                 <a href="/archive.html">Archive</a>
               </li>
-              <!-- 页面URL包含android关键字 -->
+              <li class="dropdown{% if page.url contains 'language' %} active{% endif %}" id="languageMenu">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#languageMenu">Language <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/pages/language/java.html">Java</a></li>
+                      <li><a href="/pages/language/scala.html">Scala</a></li>
+                      <li><a href="/pages/language/ruby.html">Ruby</a></li>
+                      <li><a href="/pages/language/python.html">Python</a></li>
+                      <li><a href="/pages/language/nodejs.html">Nodejs</a></li>
+                      <li><a href="/pages/language/jquery.html">jQuery</a></li>
+                      <li><a href="/pages/language/javascript.html">JavaScript</a></li>
+                      <li><a href="/pages/language/erlang.html">Erlang</a></li>
+                      <li><a href="/pages/language/c.html">C/C++</a></li>
+                      <li><a href="/pages/language/php.html">PHP</a></li>
+                  </ul>
+              </li>
+              <li class="divider-vertical"></li>
               <li class="{% if page.url contains 'android' %}active{% endif %}">
                 <a href="/pages/development/android.html">Android</a>
               </li>
+              <li class="divider-vertical"></li>
               <li class="dropdown{% if page.url contains 'tools' %} active{% endif %}" id="toolsMenu">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#toolsMenu">开发工具 <b class="caret"></b></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#toolsMenu">Tools <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-			      <li><a href="/pages/tools/Maven.html">Maven - 项目管理工具</a></li>
-			      <li><a href="/pages/tools/Ant.html">Ant - 项目构建工具</a></li>
-			      <li><a href="/pages/tools/Git.html">Git - 项目版本管理工具</a></li>
-			      <li><a href="/pages/tools/Mylyn.html">Mylyn - 任务管理工具</a></li>
-			      <li class="divider"></li>
-			      <li><a href="#">Eclipse+Android+Maven</a></li>
-			    </ul>
+                  <li><a href="/pages/tools/Maven.html">Maven - 项目管理工具</a></li>
+                  <li><a href="/pages/tools/Ant.html">Ant - 项目构建工具</a></li>
+                  <li><a href="/pages/tools/Git.html">Git - 项目版本管理工具</a></li>
+                  <li><a href="/pages/tools/Mylyn.html">Mylyn - 任务管理工具</a></li>
+                  <li class="divider"></li>
+                  <li><a href="/pages/tools/vi.html">Vi - 很强大的文本编辑器</a></li>
+                  <li><a href="/pages/tools/Emacs.html">Emacs - 很强大的文本编辑器</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Eclipse+Android+Maven</a></li>
+                </ul>
               </li>
               <li class="dropdown{% if page.url contains 'favorites' %} active{% endif %}" id="siteMenu">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#siteMenu">参考网站 <b class="caret"></b></a>
@@ -62,23 +81,21 @@
                 </ul>
               </li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
     </div>
 
-	<div class="container">
-		{{ content }}
-		<footer class="footer">
-	        <p class="pull-right"><a href="#">Back to top</a></p>
-	        <p>Designed and built with all the love in the world <a href="http://twitter.com/twitter" target="_blank">@twitter</a> by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
-	        <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-	        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-      	</footer>
-	</div>
+    <div class="container">
+        {% include header.ext %}
+        
+        {{ content }}
+        
+        {% include footer.ext %}
+    </div><!-- /container -->
 
-	<script src="/assets/js/jquery.js"></script>
-	<script src="/assets/js/google-code-prettify/prettify.js"></script>
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/google-code-prettify/prettify.js"></script>
     <script src="/assets/js/bootstrap-transition.js"></script>
     <script src="/assets/js/bootstrap-alert.js"></script>
     <script src="/assets/js/bootstrap-modal.js"></script>
@@ -92,5 +109,5 @@
     <script src="/assets/js/bootstrap-carousel.js"></script>
     <script src="/assets/js/bootstrap-typeahead.js"></script>
     <script src="/assets/js/application.js"></script>
-</body>
+  </body>
 </html>

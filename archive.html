@@ -4,8 +4,6 @@ title: Archive
 description: 日志归档
 ---
 
-{% include header.ext %}
-
 {% for post in site.posts %}
 <ul>
     <li>{{ post.date | date:"%Y-%m-%d" }} » <a href="{{ post.url }}" target="_blank">{{ post.title }}</a></li>

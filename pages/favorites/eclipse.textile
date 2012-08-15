@@ -4,15 +4,13 @@ title: Eclipse插件
 description: 记录下工作中使用的一些常用插件！！
 ---
 
-{% include header.ext %}
+** 2012-08-09 » "*Zen Coding*":https://github.com/sergeche/eclipse-zencoding 快速编写HTML＋CSS代码的插件。
 
-<hr />
-
-<ol>
-    <li>2012-08-09 » <a href="https://github.com/sergeche/eclipse-zencoding">Zen Coding</a>，快速编写HTML＋CSS代码的插件。</li>
 <pre>
-输入：div#page>div.logo+ul#navigation>li*5>a 然后按一下Tab键，奇迹将出现
+输入：div#page>div.logo+ul#navigation>li*5>a 然后按一下Tab键，奇迹将出现 >>
+</pre>
 
+<pre class="prettyprint linenums">
 <div id="page">
     <div class="logo"></div>
     <ul id="navigation">
@@ -24,8 +22,9 @@ description: 记录下工作中使用的一些常用插件！！
     </ul>
 </div>
 </pre>
-    <li id="m2e-android">2012-08-09 » <a href="http://rgladwell.github.com/m2e-android">m2e-android</a>，使用Maven开发Android应用。</li>
+
+** 2012-08-09 » "*m2e-android*":http://rgladwell.github.com/m2e-android 使用Maven开发Android应用的插件。
+
 <pre>
 Eclipse -> Help -> Install New Software -> Work with：http://rgladwell.github.com/m2e-android/updates/master
 </pre>
-</ol>
