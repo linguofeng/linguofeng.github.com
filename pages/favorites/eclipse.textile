@@ -28,3 +28,9 @@ description: 记录下工作中使用的一些常用插件！！
 <pre>
 Eclipse -> Help -> Install New Software -> Work with：http://rgladwell.github.com/m2e-android/updates/master
 </pre>
+
+** 2012-08-16 » "*ScalaIDE*":http://scala-ide.org Scala开发插件
+
+<pre>
+Eclipse -> Help -> Install New Software -> Work with：http://download.scala-ide.org/releases-29/stable/site
+</pre>
