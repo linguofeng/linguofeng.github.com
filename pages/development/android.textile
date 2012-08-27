@@ -4,7 +4,6 @@ category: Android
 title: Android
 description: Android记录
 navigation: [四大组件, UI, c]
-subnavigation: [null,null,[Dialog, Navbar, Breadcrumbs, Pagination]]
 ---
 
 <section id="1">

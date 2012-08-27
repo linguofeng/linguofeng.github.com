@@ -1,0 +1,3 @@
+<ul class="nav nav-list sidenav">{% for nav in page.navigation %}
+                    <li><a href="#{{ forloop.index }}"><i class="icon-chevron-right"></i> {{nav}}</a></li>{% endfor %}
+                </ul>

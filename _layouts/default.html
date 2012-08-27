@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
   <head>
     <meta charset="utf-8">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
@@ -7,8 +7,8 @@
     <meta name="description" content="{{ site.description }}">
     <meta name="author" content="{{ site.author }}">
 
-    <link href="/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="/assets/css/blog.css" rel="stylesheet">
     <link href="/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
@@ -19,8 +19,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
   
-  <body data-spy="scroll" data-target=".subnav" data-offset="{% if page.offset %}{{ page.offset }}{% else %}80{% endif %}">
-    <div class="navbar navbar-fixed-top">
+  <body data-spy="scroll" data-target=".sidenavbar">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -29,7 +29,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="brand" href="/about.html">{{ site.title }}</a>
-          <div class="nav-collapse">
+          <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="{% if page.url contains 'index' %}active{% endif %}">
                 <a href="/index.html">Home</a>
@@ -37,8 +37,8 @@
               <li class="{% if page.url contains 'archive' %}active{% endif %}">
                 <a href="/archive.html">Archive</a>
               </li>
-              <li class="dropdown{% if page.url contains 'language' %} active{% endif %}" id="languageMenu">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#languageMenu">Language <b class="caret"></b></a>
+              <li class="dropdown{% if page.url contains 'language' %} active{% endif %}">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Language <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="/pages/language/java.html">Java</a></li>
                   <li><a href="/pages/language/scala.html">Scala</a></li>
@@ -52,22 +52,21 @@
                   <li><a href="/pages/language/php.html">PHP</a></li>
                 </ul>
               </li>
-              <li class="dropdown{% if page.url contains 'tools' %} active{% endif %}" id="toolsMenu">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#toolsMenu">Tools <b class="caret"></b></a>
+              <li class="dropdown{% if page.url contains 'tools' %} active{% endif %}">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tools <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="/pages/tools/Maven.html">Maven - 项目管理工具</a></li>
                   <li><a href="/pages/tools/Ant.html">Ant - 项目构建工具</a></li>
                   <li><a href="/pages/tools/Git.html">Git - 项目版本管理工具</a></li>
                   <li><a href="/pages/tools/Mylyn.html">Mylyn - 任务管理工具</a></li>
-                  <li class="divider"></li>
-                  <li><a href="/pages/tools/vi.html">Vi - 很强大的文本编辑器</a></li>
+                  <li><a href="/pages/tools/vim.html">Vim - 很强大的文本编辑器</a></li>
                   <li><a href="/pages/tools/Emacs.html">Emacs - 很强大的文本编辑器</a></li>
                   <li class="divider"></li>
                   <li><a href="#">Eclipse+Android+Maven</a></li>
                 </ul>
               </li>
-              <li class="dropdown{% if page.url contains 'favorites' %} active{% endif %}" id="siteMenu">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#siteMenu">Site <b class="caret"></b></a>
+              <li class="dropdown{% if page.url contains 'favorites' %} active{% endif %}">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Site <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="/pages/favorites/ruby.html">About Ruby</a></li>
                   <li><a href="/pages/favorites/eclipse.html">About Eclipse</a></li>
@@ -84,28 +83,28 @@
       </div>
     </div>
 
+    {% include header.ext %}
     <div class="container">
-        {% include header.ext %}
-        
-        {{ content }}
-        
-        {% include footer.ext %}
-    </div><!-- /container -->
+        <div class="row">
+            {% if page.navigation %}
+            <div class="span3 sidenavbar">
+                {% include sidenav.ext %}
+            </div>
+            <div class="span9">
+                {{ content }}
+            </div>
+            {% else %}
+            <div class="span12">
+                {{ content }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% include footer.ext %}
 
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/google-code-prettify/prettify.js"></script>
-    <script src="/assets/js/bootstrap-transition.js"></script>
-    <script src="/assets/js/bootstrap-alert.js"></script>
-    <script src="/assets/js/bootstrap-modal.js"></script>
-    <script src="/assets/js/bootstrap-dropdown.js"></script>
-    <script src="/assets/js/bootstrap-scrollspy.js"></script>
-    <script src="/assets/js/bootstrap-tab.js"></script>
-    <script src="/assets/js/bootstrap-tooltip.js"></script>
-    <script src="/assets/js/bootstrap-popover.js"></script>
-    <script src="/assets/js/bootstrap-button.js"></script>
-    <script src="/assets/js/bootstrap-collapse.js"></script>
-    <script src="/assets/js/bootstrap-carousel.js"></script>
-    <script src="/assets/js/bootstrap-typeahead.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/application.js"></script>
   </body>
 </html>
