@@ -1,4 +1,4 @@
 .project
-/_site
+.settings/
+_site/
 push.sh
-*.swp
