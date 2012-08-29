@@ -1,32 +1,14 @@
 ---
 layout: default
 category: Android
-title: Android 对话框
+title: Dialog 对话框
+description: 有四种：警告对话框、进度对话框、日期选择对话框、时间选择对话框
+navigation: [1.AlertDialog, 2.ProgressDialog, 3. DatePickerDialog, 4.TimePickerDialog]
 ---
 
-<header class="jumbotron subhead" id="overview">
-
-h1. Android 对话框
-
-p(lead). Android中共有4种对话框： 
-* 警告对话框（AlertDialog）
-* 进度对话框（ProgressDialog）
-* 日期选择对话框（DatePickerDialog）
-* 时间选择对话框（TimePickerDialog）
-
-  <div class="subnav">
-    <ul class="nav nav-pills">
-      <li><a href="#AlertDialog">AlertDialog</a></li>
-      <li><a href="#ProgressDialog">ProgressDialog</a></li>
-      <li><a href="#">DatePickerDialog</a></li>
-      <li><a href="#">TimePickerDialog</a></li>
-    </ul>
-  </div>
-</header>
-
-<section id="AlertDialog">
+<section id="1">
     <div class="page-header">
-        <h1>AlertDialog</h1>
+        <h3>AlertDialog <small>警告对话框</small></h3>
     </div>
     <pre class="prettyprint linenums">
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -39,9 +21,9 @@ p(lead). Android中共有4种对话框：
 p. 更多参数访问 "http://developer.android.com/reference/android/app/AlertDialog.Builder.html":http://developer.android.com/reference/android/app/AlertDialog.Builder.html
 </section>
 
-<section id="ProgressDialog">
+<section id="2">
     <div class="page-header">
-        <h1>ProgressDialog</h1>
+        <h3>ProgressDialog <small>进度对话框</small></h3>
     </div>
     
     <pre class="prettyprint linenums">
@@ -54,7 +36,7 @@ p. 更多参数访问 "http://developer.android.com/reference/android/app/AlertD
         pd.dismiss();
     
         // 进度条对话框有两种显示样式，通过
-        pd.setProgressStyle(0/1); // 1表示水平，0表示圆形
+        pd.setProgressStyle(0/1); // 0表示圆形，1表示水平
     </pre>
     
 p. 更多参数访问 "http://developer.android.com/reference/android/app/ProgressDialog.html":http://developer.android.com/reference/android/app/ProgressDialog.html

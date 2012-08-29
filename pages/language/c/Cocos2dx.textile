@@ -17,7 +17,7 @@ description: 开源、跨平台的游戏引擎
 
 <section>
     <div class="page-header">
-        <h3>二、安装 <small>环境：Ubuntu 12.04.1</small></h3>
+        <h3>二、安装 <small>环境：Ubuntu 12.04.1 32bit</small></h3>
     </div>
     
     <pre>

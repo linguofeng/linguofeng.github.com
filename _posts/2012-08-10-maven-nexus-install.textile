@@ -4,7 +4,7 @@ title: Maven+Nexus私服搭建
 description: 创建高速的本地（局域网）Maven仓库
 categories: [archive]
 tags: [maven,nexus]
-navigation: [1.下载,2.安装,3.完成,4.配置]
+navigation: [1.下载, 2.安装, 3.完成, 4.配置]
 ---
 
 <section id="1">
