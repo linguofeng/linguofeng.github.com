@@ -1,18 +1,14 @@
 ---
 layout: default
-title: Android ViewFlipper视图切换
+title: ViewFlipper
+description: 视图切换控件
 ---
 
-<div id="charpter">
-h3. Android 菜单
-</div>
-
-h1. {{ page.title }}
-
-* *一、XML布局*
-<hr />
-
-<pre class="brush: xml">
+<section>
+    <div class="page-header">
+        <h3>一、XML布局</h3>
+    </div>
+<pre class="prettyprint linenums">
 <!-- 方式一：通过代码动态给ViewFlipper添加视图 -->
 <ViewFlipper
     android:id="@+id/viewFlipper"
@@ -36,16 +32,21 @@ h1. {{ page.title }}
         .../>
 </ViewFlipper>
 </pre>
+</section>
 
-* *二、Activity*
-<hr />
-
-<pre class="brush: java">
+<section>
+    <div class="page-header">
+        <h3>二、Activity</h3>
+    </div>
+<pre class="prettyprint linenums">
 public class ViewFlipperDemo extends Activity {
     ViewFlipper mViewFlipper;
     
-    public void onCreate(..){
+    public void onCreate(Bundle savedInstanceState){
+        setContentView(R.layout.main);
+
         mViewFlipper = (ViewFlipper)findViewById(R.id.viewFlipper);
+
         // 方式一：通过代码动态给ViewFlipper添加视图
         mViewFlipper.addView(new TextView(this).setText("代码添加视图1"));
         mViewFlipper.addView(new TextView(this).setText("代码添加视图2"));
@@ -59,11 +60,13 @@ public class ViewFlipperDemo extends Activity {
     }
 }
 </pre>
+</section>
 
-* *三、手势左右识别切换视图*
-<hr />
-
-<pre class="brush: java">
+<section>
+    <div class="page-header">
+        <h3>三、手势左右识别切换视图</h3>
+    </div>
+<pre class="prettyprint linenums">
 public class ViewFlipperDemo extends Activity {
     ViewFlipper mViewFlipper;
     // 手势识别器
@@ -130,4 +133,6 @@ public class ViewFlipperDemo extends Activity {
         }
         return flag;
     }
+}
 </pre>
+</section>

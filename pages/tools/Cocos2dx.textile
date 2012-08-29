@@ -1,0 +1,46 @@
+---
+layout: default
+category: Tools
+title: Cocos2d-x
+description: 开源、跨平台的游戏引擎
+---
+
+<section>
+    <div class="page-header">
+        <h3>一、下载</h3>
+    </div>
+
+    <pre>
+        http://cocos2d-x.org/projects/cocos2d-x/wiki/Download
+    </pre>
+</section>
+
+<section>
+    <div class="page-header">
+        <h3>二、安装 <small>环境：Ubuntu 12.04.1</small></h3>
+    </div>
+    
+    <pre>
+        $ mkdir /path/to/cocos2d-x
+        $ mv cocos2d-2.0-rc2-x-2.0.1.zip /path/to/cocos2d-x
+        $ cd /path/to/cocos2d-x
+        $ unzip cocos2d-2.0-rc2-x-2.0.1.zip
+        $ <a href="/pages/tools/SublimeText.html">subl</a> ~/.bashrc
+    </pre>
+    <pre>
+        export COCOS2DX_ROOT=/path/to/cocos2d-x
+        export NDK_ROOT=/path/to/android-ndk-r8b    // 需要Android Ndk环境
+    </pre>
+</section>
+
+<section>
+    <div class="page-header">
+        <h3>三、HelloWorld <small>需要有Android SDK环境，<a href="#">点击查看</a></small></h3>
+    </div>
+    
+    <pre>
+        $ cd $COCOS2DX_ROOT/HelloWorld/proj.android
+        $ android update project -p . -t android-10    // 生成Ant需要的build.xml文件
+        $ ant debug install                            // 安装到机器上
+    </pre>
+</section>
