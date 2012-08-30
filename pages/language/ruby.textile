@@ -9,12 +9,13 @@ description: 运行于JVM虚拟机的语言，能够与JAVA相互调用！！
         <h1>一、安装RVM <small>管理多个Ruby的工具，很实用</small></h1>
     </div>
     <p>"https://rvm.io/rvm/install":https://rvm.io/rvm/install/</p>
-    <pre>
-        $ sudo apt-get install git-core curl
-        $ bash -s stable <<(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
-        $ source ~/.rvm/scripts/rvm
-        $ rvm -v
-    </pre>
+<pre>
+$ sudo apt-get install git-core curl
+$ bash -s stable << (curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+$ echo "source \"$HOME/.rvm/scripts/rvm\"" >> $HOME/.bashrc
+$ source ~/.bashrc
+$ rvm -v
+</pre>
     <pre>
         rvm 1.15.7 (stable) by Wayne E. Seguin <wayneeseguin@gmail.com>, Michal Papis <mpapis@gmail.com> [https://rvm.io/]
     </pre>
@@ -28,7 +29,7 @@ description: 运行于JVM虚拟机的语言，能够与JAVA相互调用！！
     <pre>
         $ rvm pkg install zlib      // 为避免在安装Jekyll时报cannot load such file -- zlib，先安装zlib
         $ rvm install *1.9.3*
-        $ rvm use 1.9.3
+        $ rvm use *1.9.3*
         $ ruby -v
     </pre>
     <pre>
