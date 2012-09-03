@@ -44,3 +44,38 @@ description: 开源、跨平台的游戏引擎
         $ ant debug install                            // 安装到机器上
     </pre>
 </section>
+
+<section>
+    <div class="page-header">
+        <h3>四、Cocds2d-x基础</h3>
+    </div>
+    <p>主要类介绍</p>
+table(table table-bordered).
+|_.类|_.说明|_.作用|_.关系|
+|@CCDirector@|导演(单例)|负责场景的切换以及场景的信息。如宽度，高度，旋转场景内容。|包含多个 CCScene|
+|@CCScene@|场景|场景包含有布景，精灵，每场戏的不同，要切换场景。游戏中可分为主界面， 游戏， 分数榜，结束界面等。|包含多个 CCLayer|
+|@CCLayer@|布景|类似是层的概念，也可来源于PS的层的概念。每一层都带有众多精灵等|包含多个 CCSprite|
+|@CCSprite@|精灵|就是演员的，演员就需要加入到层里面去的。有相应的动作。|包含多个 CCAction|
+|@CCAction@|动作|精灵的动作。||
+|@CCMenu@|菜单|||
+    <p>场景转换</p>
+<pre>
+CCScene* scene = CCScene::node();                                   // 创建scene
+CCLayer* layer = CCLayer::node();                                   // 创建layer
+scene->addChild(layer);                                             // 添加layer到scene
+CCScene* preScene = CCDirector::ShareDirector()->getRunningScene(); // 获取当前正在显示的场景
+if (preScene == null) {                                             // 如果当前没有正在显示的场景
+    CCDirecotr::ShareDirector()->runWithScene(scene);               // 显示myScene场景
+} else {                                                            // 否则
+    CCDirecotr::ShareDirector()->replaceScene(scene);               // 替换成myScene场景
+}
+</pre>
+
+    <p>@CCAction@ ：动作，分为瞬时动作 @CCActionInstanse@ ，延时动作 @CCActionInterval@</p>
+<pre>
+CCSize size = CCDirector::sharedDirector()->getWinSize();           // 获取屏幕大小
+CCSprite * pSprite = CCSprite::spriteWithFile("HelloWorld.png");    // 创建精灵
+CCActionInterval * actionTo = CCMoveTo::actionWithDuration(2, CCPointMake(size.width-40, size.height-40));
+pSprite->runAction(actionTo);                                       // 运行动作
+</pre>
+</section>
