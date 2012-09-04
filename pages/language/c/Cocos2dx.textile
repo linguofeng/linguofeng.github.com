@@ -58,8 +58,9 @@ table(table table-bordered).
 |@CCSprite@|精灵|就是演员的，演员就需要加入到层里面去的。有相应的动作。|包含多个 CCAction|
 |@CCAction@|动作|精灵的动作。||
 |@CCMenu@|菜单|||
+
     <p>场景转换</p>
-<pre>
+<pre class="prettyprint">
 CCScene* scene = CCScene::node();                                   // 创建scene
 CCLayer* layer = CCLayer::node();                                   // 创建layer
 scene->addChild(layer);                                             // 添加layer到scene
@@ -72,10 +73,101 @@ if (preScene == null) {                                             // 如果当
 </pre>
 
     <p>@CCAction@ ：动作，分为瞬时动作 @CCActionInstanse@ ，延时动作 @CCActionInterval@</p>
-<pre>
+<pre class="prettyprint">
 CCSize size = CCDirector::sharedDirector()->getWinSize();           // 获取屏幕大小
 CCSprite * pSprite = CCSprite::spriteWithFile("HelloWorld.png");    // 创建精灵
 CCActionInterval * actionTo = CCMoveTo::actionWithDuration(2, CCPointMake(size.width-40, size.height-40));
 pSprite->runAction(actionTo);                                       // 运行动作
+</pre>
+
+    <p>@CCMenu@ ：菜单，参考： "http://www.cocos2d-x.org/reference/native-cpp/d1/da0/classcocos2d_1_1_c_c_menu.html":http://www.cocos2d-x.org/reference/native-cpp/d1/da0/classcocos2d_1_1_c_c_menu.html</p>
+<pre class="prettyprint">
+// 创建菜单Item
+CCMenuItem* m1 = CCMenuItemFont::itemFromString("新游戏", this, menu_selector(MainLayer::onNewGame));  // menu_selector为全局常量
+
+CCLabelBMFont* label = CCLabelBMFont::labelWithString("Enable AtlasItem", "fonts/bitmapFontTest3.fnt");
+CCMenuItem* m2 = CCMenuItemLabel::itemWithLabel(label, this, menu_selector(MainLayer::onNewGame));        // 通过Label创建Item
+
+CCMenuItem* m3 = CCMenuItemAtlasFont    // 通过
+
+CCSprite *spriteNormal   = CCSprite::spriteWithFile("image.png",  CCRectMake(0,23*2,115,23));
+CCSprite *spriteSelected = CCSprite::spriteWithFile("image.png",  CCRectMake(0,23*1,115,23));
+CCSprite *spriteDisabled = CCSprite::spriteWithFile("image.png",  CCRectMake(0,23*0,115,23));
+CCMenuItem* m4 = CCMenuItemSprite::itemFromNormalSprite(spriteNormal, spriteSelected, spriteDisabled, 
+                                                        this, 
+                                                        menu_selector(MainLayer::onNewGame));
+
+CCMenuItem* m5 = CCMenuItemImage::itemFromNormalImage("image.png", "imagep.png", this, menu_selector(MainLayer::onNewGame) );
+
+CCMenuItem* m6 = CCMenuItemToggle::itemWithTarget(this, menu_selector(MainLayer::onNewGame), 
+                                                        CCMenuItemFont::itemFromString("High"),
+                                                        CCMenuItemFont::itemFromString("Low"),
+                                                        ...,
+                                                        NULL);
+m6->getSubItems()->addObject(CCMenuItemFont::itemFromString("33%"));
+m6->setSelectedIndex(2);
+
+// 添加菜单Item到菜单中
+CCMenu* menu = CCMenu::menuWithItems(m1, m2, m3, m4, m5, m6, NULL); // 最后必须加NULL
+
+void MainLayer::onNewGame(CCObject* pSender) {
+    // 回调
+}
+</pre>
+
+    <p>@CCLayerMultiplex@ :多个层，参考： "http://www.cocos2d-x.org/reference/native-cpp/d3/d7e/classcocos2d_1_1_c_c_layer_multiplex.html":http://www.cocos2d-x.org/reference/native-cpp/d3/d7e/classcocos2d_1_1_c_c_layer_multiplex.html</p>
+<pre class="prettyprint">
+CCLayer* pLayer1 = new MenuLayer1();
+CCLayer* pLayer2 = new MenuLayer2();
+CCLayer* pLayer3 = new MenuLayer3();
+CCLayer* pLayer4 = new MenuLayer4();
+
+CCLayerMultiplex* layer = CCLayerMultiplex::layerWithLayers(pLayer1, pLayer2, pLayer3, pLayer4, NULL);
+addChild(layer, 0); 
+
+pLayer1->release();
+pLayer2->release();
+pLayer3->release();
+pLayer4->release();
+
+CCDirector::sharedDirector()->replaceScene(this);
+
+// 切换
+((CCLayerMultiplex*)m_pParent)->switchTo(0);
+</pre>
+
+    <p>@CCAction@ ：动作</p>
+<pre class="prettyprint">
+CCMoveTo    // 移动
+CCMoveBy    // 移动
+
+CCScaleTo   // 缩放
+CCScaleBy   // 缩放
+
+CCSkewTo    // 倾斜
+CCSkewBy    // 倾斜
+
+CCRotateTo
+CCRotateBy
+
+CCJumpTo
+CCJumpBy
+
+CCBezierTo
+CCBezierBy
+
+Blink
+
+CCFadeIn
+CCFadeOut
+
+CCTintTo
+CCTintBy
+
+CCAnimate
+
+CCCallFunc
+CCCallFuncN
+CCCallFuncND
 </pre>
 </section>

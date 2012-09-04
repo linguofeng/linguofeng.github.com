@@ -10,7 +10,7 @@ navigation: [1.HelloWorld, 2.变量与数据类型, 3.常量, 4.输入输出, 5.
         <h1>一、HelloWorld</h1>
     </div>
 	<p>HelloWorld.cpp</p>
-<pre>
+<pre class="prettyprint">
 #include <iostream>
 using namespace std;
 
@@ -47,7 +47,7 @@ table(table table-bordered).
 
     <h3>变量</h3>
     <p>定义变量</p>
-<pre>
+<pre class="prettyprint">
 // 声明变量
 int a, b, c;
 
@@ -57,12 +57,12 @@ b = 2;
 c = 3;
 </pre>
     <p>变量初始化</p>
-<pre>
+<pre class="prettyprint">
 int x = 12;     // 方式一
 int y(52);      // 方式二
 </pre>
     <p>字符串</p>
-<pre>
+<pre class="prettyprint">
 #include <string>       // 需要引用string头文件
 ...
 string str1 = "Hello World1!";
@@ -76,7 +76,7 @@ string str2("Hello World2!");
         <h1>三、常量</h1>
     </div>
     <p>什么是常量？</p>
-<pre>
+<pre class="prettyprint">
 5           // 一个整数 int
 -5          // 有符号整数 int
 5u          // 无符号整数 unsigned
@@ -98,12 +98,12 @@ false       // 布尔值 bool
 等都是常量.
 </pre>
     <p>@#define@ ：常量的定义</p>
-<pre>
+<pre class="prettyprint">
 #define PI 3.14159
 #define NEWLINE '\n' 
 </pre>
     <p>@const@ ：常量的声明</p>
-<pre>
+<pre class="prettyprint">
 const int pathwidth = 100;
 const char tabulator = '\t';
 </pre>
@@ -114,16 +114,16 @@ const char tabulator = '\t';
         <h1>四、输入输出</h1>
     </div>
     <p>@std::cout <<@ ：输出</p>
-<pre>
+<pre class="prettyprint">
 cout << "Hello"; // cout为输出流 <<为插入运算符，把Hello插入到cout输出流中
 </pre>
     <p>@std::cin >>@ ：输入</p>
-<pre>
+<pre class="prettyprint">
 int age;
 cin >> age;      // cin为输入流，接受输入的数据并通过>>给age变量
 </pre>
     <p>输入字符串</p>
-<pre>
+<pre class="prettyprint">
 #include <string>
 ...
 string str;
@@ -131,7 +131,7 @@ getline(cin, str);
 ...
 </pre>
     <p>字符串流（stringstream）</p>
-<pre>
+<pre class="prettyprint">
 #include <string>
 #include <sstream>
 ...
@@ -147,7 +147,7 @@ stringstream(str) >> x;     // 这个过程实现了字符串转换成数字
         <h1>五、控制结构与函数</h1>
     </div>
     <p>控制结构</p>
-<pre>
+<pre class="prettyprint">
 if(true) {
     
 } else {
@@ -167,7 +167,7 @@ for(int i = 0; i < 10; i++) {
 }
 </pre>
     <p>结构控制</p>
-<pre>
+<pre class="prettyprint">
 break           // 退出循环
 continue        // 结束当前循环而继续进入下一个循环
 goto            // 跳到
@@ -178,7 +178,7 @@ cout << "abc"
 goto loop;      // 跳到目标
 </pre>
     <p>函数值传递与地址传递</p>
-<pre>
+<pre class="prettyprint">
 // 值传递函数
 int add1(int x, int y) {
     return x + y;
@@ -201,7 +201,7 @@ int main() {
 }
 </pre>
     <p>函数的参数默认值</p>
-<pre>
+<pre class="prettyprint">
 int add(int x, int y = 10) {
     return x + y;
 }
@@ -210,7 +210,7 @@ cout << add(5);     // 输出15
 cout << add(5, 20); // 输出25
 </pre>
     <p>函数重载</p>
-<pre>
+<pre class="prettyprint">
 int add(int x, int y) {
     return x + y;
 }
@@ -222,7 +222,7 @@ cout << add(1, 11)      // 调用第一个函数
 cout << add(1f, 11f)    // 调用第二个函数
 </pre>
     <p>Inline内联函数，使用时编译</p>
-<pre>
+<pre class="prettyprint">
 inline int add(int x, int y);
 
 int main() {
@@ -234,7 +234,7 @@ int add(int x, int y) {
 }
 </pre>
     <p>递归函数</p>
-<pre>
+<pre class="prettyprint">
 int add(int x, int y) {
     int result = x + y;
     if(result < 1000000) {
@@ -244,7 +244,7 @@ int add(int x, int y) {
 }
 </pre>
     <p>函数的声明，即在main函数后写函数</p>
-<pre>
+<pre class="prettyprint">
 int add(int x, int y);  // 声明函数
 
 int main() {
@@ -264,12 +264,12 @@ int add(int x, int y) {
         <h1>六、高级数据类型</h1>
     </div>
     <p>数组</p>
-<pre>
+<pre class="prettyprint">
 int is[5] = {12, 21, 51, 32, 95};         // 定义一个长度为5的数组
 int iss[2][10];                           // 定义一个多维数组
 </pre>
     <p>字符序列</p>
-<pre>
+<pre class="prettyprint">
 char cs1[20];                             // 能保存20个字符的字符数组
 char cs2[] = {'a', 'b', 'c', 'd', '\0'};  // 长度为5的字符数组
 char cs3[] = "abcd";                      // 与cs2相同，自动添加\0
@@ -277,7 +277,7 @@ char cs3[] = "abcd";                      // 与cs2相同，自动添加\0
 string str = cs3;                         // 成立
 </pre>
     <p>指针</p>
-<pre>
+<pre class="prettyprint">
 & -- 取地址符
 * -- 取地址指向的内容
 
@@ -289,7 +289,7 @@ x = *p;     // 取指针地址指向的内容赋予x
 x == i;     // 成立
 </pre>
     <p>指针与数组</p>
-<pre>
+<pre class="prettyprint">
 int numbers[5];             // 初始化一个数组，同时数组名其实是一个指针常量，指向的是数组的第一个元素的地址
 int * p;                    // 定义一个指针变量p
 p = numbers;                // 成立，指针变量指向数组第一个元素的地址
@@ -304,7 +304,7 @@ p = numbers;                // 指针变量指向数组第一个元素的地址
 *(p + 4) = 50;              // p+4移动指针到第五位，使其内容等于50
 </pre>
     <p>指针的数学运算</p>
-<pre>
+<pre class="prettyprint">
 假如：
 char * p1 = 1000;
 short * p2 = 2000;
@@ -316,7 +316,7 @@ cout << p3++;        // 3004，long的长度是4
 *p1++ => *(p1++)，这里是取1001地址指向的值，++比*运算符级别要高。
 </pre>
     <p>指针的指针</p>
-<pre>
+<pre class="prettyprint">
 char a;
 char * b;
 char ** c;
@@ -326,7 +326,7 @@ b = &a;     // 把a的指针赋予指针变量b
 c = &b;     // 把指针变量b的指针赋予c
 </pre> 
     <p>void 指针</p>
-<pre>
+<pre class="prettyprint">
 void increase(void * data, int psize) {      // void *表明data可以接收任意类型的指针
     if (psize == sizeof(char)) {             // 如果data是char *类型指针
         char * pchar;                        // 定义一个char *类型的指针变量
@@ -347,12 +347,12 @@ int main() {
 }
 </pre>
     <p>空指针</p>
-<pre>
+<pre class="prettyprint">
 int * p;
 p = 0;
 </pre>
     <p>函数指针</p>
-<pre>
+<pre class="prettyprint">
 int add(int x, int y) {
     return x + y;
 }
@@ -366,8 +366,8 @@ cout << (* addp)(12, 24);
     <div class="page-header">
         <h1>七、动态内存</h1>
     </div>
-    <p>new/new[]</p>
-<pre>
+    <p>@new@ / @new[]@</p>
+<pre class="prettyprint">
 int * p1 = new(nothrow) int;     // 给单个元素分配内存，nothrow关键字可以捕获异常
 int * p2 = new int[5];           // 给数组分配内存
 
@@ -375,8 +375,8 @@ if(p1 == 0 || p2 == 0) {
     // 空指针
 }
 </pre>
-    <p>delete/delete[]</p>
-<pre>
+    <p>@delete@ / @delete[]@</p>
+<pre class="prettyprint">
 delete p1;      // 删除单个元素分配的内存
 delete[] p2;    // 删除数组分配的内存
 </pre>
@@ -386,8 +386,8 @@ delete[] p2;    // 删除数组分配的内存
     <div class="page-header">
         <h1>八、数据结构</h1>
     </div>
-    <p>结构体</p>
-<pre>
+    <p>@struct@ ：结构体</p>
+<pre class="prettyprint">
 struct movies_t {
     string title;
     int year;
@@ -402,14 +402,14 @@ int main() {
 }
 </pre>
     <p>结构指针</p>
-<pre>
+<pre class="prettyprint">
 movies_t * p;           // 定义一个movies_t结构类型的指针变量
 p = &mine;              // 把movies_t结构类型的mine的地址赋予指针变量p
 p -> title = "abcdef";  // 通过结构指针访问结构体内变量，等同于下面的方式
 (*p).title = "xxx";
 </pre>
     <p>结构嵌套</p>
-<pre>
+<pre class="prettyprint">
 struct movies_t {
     string title;
     int year;
@@ -432,7 +432,7 @@ p -> m.year     => m1.m.year;
         <h1>九、其它数据类型</h1>
     </div>
     <p>@typedef@ ：自定义数据类型</p>
-<pre>
+<pre class="prettyprint">
 typedef char C;             // 自定义一个char类型
 typedef char * pChar;       // 自定义一个char *指针类型
 
@@ -442,7 +442,7 @@ pChar p = &c;
 cout << c;  // 输出b
 </pre>
     <p>@union@ ：联合，长度是元素中最长的元素的长度，作用是通过不同的元素类型访问 %(label label-info)同一块内存空间% 中不同的内容</p>
-<pre>
+<pre class="prettyprint">
 union u_u {
     long l;
     char c[4];
@@ -458,7 +458,7 @@ u.s.b   => 访问4个字节中的后两个字节的内容
 u.c[0]  => 访问4个字节中的第一个字节的内容
 </pre>
     <p>Anonymous @union@ ：匿名联合，直接通过结构体访问联合中的元素，但联合中的元素不能存储不同的值，因为使用的是同一块内存空间。</p>
-<pre>
+<pre class="prettyprint">
 struct book_t {
     char title[50];
     char author[50];
@@ -474,7 +474,7 @@ book.dllars = 23.5;
 book.yen = 10;
 </pre>
     <p>@enum@ ：枚举，生成任意类型的数据。</p>
-<pre>
+<pre class="prettyprint">
 enum colors_t {black, blue, green, cyan, red, purple, yellow, white} color;
 color.black == 0;   // 枚举在编译被编译成整数，并从0开始，如果没有指定的话，所以black实际是等于0，blue就等于1
 
@@ -491,7 +491,7 @@ enum months_t { january=1, february, march, april,
     </div>
     <h3><small>10.1</small> 类(Class)</h3>
     <p>@class@ ： %(label label-info)类% ，与C的struct类似，不同的是类可以包含结构体，而struct只包含数据元素。</p>
-<pre>
+<pre class="prettyprint">
 class Class_name {  // Class_name是自定义类型名称
     int x, y;
     public:         // 范围，有3种：private（私有，默认），protected（受保护），public（公共）
@@ -509,7 +509,7 @@ void Class_name::set_values(int _x, int _y) {    // 函数实现，"::"叫做范
 clazz.set_values(3, 4); // 可以访问public范围的函数
 </pre>
     <p>%(label label-info)构造函数% ：无返回值。</p>
-<pre>
+<pre class="prettyprint">
 class CRectangle {
     int width, height;
     public:
@@ -526,7 +526,7 @@ CRectangle rect (3,4);
 CRectangle rectb (5,6);
 </pre>
     <p>%(label label-info)析构函数% ：必须与class同名，加"~"前缀，必须无返回值。</p>
-<pre>
+<pre class="prettyprint">
 class CRectangle {
     int *width, *height;
     public:
@@ -548,7 +548,7 @@ CRectangle::~CRectangle () {    // 对象被销毁时自动调用，用于释放
 }
 </pre>
     <p>%(label label-info)构造函数重载% 与 %(label label-info)默认构造函数% ：如果没有定义构造函数，默认构造函数存在。</p>
-<pre>
+<pre class="prettyprint">
 class CRectangle {
     int width, height;
     public:
@@ -571,7 +571,7 @@ CRectangle rect (3,4);
 CRectangle rectb;   // CRectangle rectb()这样是不对的。
 </pre>
     <p>%(label label-info)类的指针%</p>
-<pre>
+<pre class="prettyprint">
 class CRectangle {
     int width, height;
     public:
@@ -608,7 +608,7 @@ delete d[2];    // 释放内存
 delete c;       // 释放内存
 </pre>
     <p>使用 @struct@ 与 @union@ 来定义 %(label label-info)类% ，在C++中。</p>
-<pre>
+<pre class="prettyprint">
 struct/union定义的结构体/联合也可以当作class来用，在C++中。有点不同的是union在同一时间只能存储一个数据成员，因为是共享同一块内存空间的。
 
 struct/union s_t {
@@ -626,13 +626,13 @@ s.add(12, 24);
 cout << s.result;   // 输出36，由于struct定义的class默认范围是public，这点与class不同。
 </pre>
     <p>%(label label-info)操作符重载% ，使用 @operator@ 来重载下面可被重载的操作符，以实现对象与对象的操作。</p>
-<pre>
+<pre class="prettyprint">
 +    -    *    /    =    <    >    +=   -=   *=   /=   <<   >>
 <<=  >>=  ==   !=   <=   >=   ++   --   %    &    ^    !    |
 ~    &=   ^=   |=   &&   ||   %=   []   ()   ,    ->*  ->
 new    delete    new[]     delete[]
 </pre>
-<pre>
+<pre class="prettyprint">
 class CVector {
     public:
         int x,y;
@@ -675,7 +675,7 @@ table(table table-bordered).
 |a->x|@->@|A::operator->()|-|
 
     <p>@this@ ：是一个指针，指向自身的内存地址。</p>
-<pre>
+<pre class="prettyprint">
 class CDummy {
     public:
         int isitme (CDummy& param);
@@ -690,7 +690,7 @@ int CDummy::isitme (CDummy& param) {
 }
 </pre>
     <p>@static@ ：静态成员，也叫 %(label label-info)类变量% ，对于同一个class类的所有object对象来说，值都是相同的。</p>
-<pre>
+<pre class="prettyprint">
 class CDummy {
     public:
         static int n;           // 静态成员变量n
@@ -712,7 +712,7 @@ int main() {
 </pre>
     <h3><small>10.2</small> 友元与继承关系(Friendship and inheritance)</h3>
     <p>@friend@ ：友元函数，提供访问 @private@ 和 @protected@ 成员</p>
-<pre>
+<pre class="prettyprint">
 class CRectangle {
     int width, height;
     public:
@@ -742,7 +742,7 @@ int main() {
 }
 </pre>
     <p>@friend class@ ：友元类，提供访问 @private@ 和 @protected@ 成员</p>
-<pre>
+<pre class="prettyprint">
 class CSquare;
 
 class CRectangle {
@@ -775,7 +775,7 @@ int main () {
 }
 </pre>
     <p>@: public/protected/private@ ：类之间的继承关系。 @public@ 表示从父类中继承的成员获得最低程序的保护； @protected@ 表示从父类中继承的所有public成员会成为被protected修饰的成员；同理 @private@ 将继承的所有成员被private来修饰。</p>
-<pre>
+<pre class="prettyprint">
 class CPolygon {                        // 父类
     protected:
         int width, height;              // 受保护的成员变量，表示除了自身能访问外还有子类能访问。
@@ -818,7 +818,7 @@ table(table table-bordered).
 
     <p>如果没有明确写出访问限制，所有由关键字 @class@ 生成的类被默认为 @private@ ，而所有由关键字 @struct@ 生成的类被默认为 @public@ 。</p>
     <p>从基类继承：首先 %(label label-info)构造函数% %(label label-info)析构函数% %(label label-info)operator=()成员% %(label label-info)friends友元函数% 不能被继承外其它成员均被继承。但要注意，当子类被创建或销毁时，基类的默认构造函数与析构函数会自动被调用。</p>
-<pre>
+<pre class="prettyprint">
 class mother {      // 基类
     public:
         mother() { cout << "mother: no parameters\n"; }
@@ -846,7 +846,7 @@ int main() {
 }
 </pre>
     <p>%(label label-info)多重继承% : @class xxx: public class1, public class2 {}@</p>
-<pre>
+<pre class="prettyprint">
 #include <iostream>
 
 using namespace std;
@@ -889,7 +889,7 @@ int main () {
 </pre>
     <h3><small>10.3</small> 多态性（Polymorphism）</h3>
     <p>基类的指针</p>
-<pre>
+<pre class="prettyprint">
 class CPolygon {
     protected:
         int width, height;
@@ -920,7 +920,7 @@ int main () {
 }
 </pre>
     <p>虚拟成员： @virtual@ 关键字的作用就是在当使用基类的指针的时候，使子类中与基类同名的成员在适当的时候被调用</p>
-<pre>
+<pre class="prettyprint">
 class CPolygon {
     protected:
         int width, height;
@@ -956,7 +956,7 @@ int main () {
 }
 </pre>
     <p>抽象基类，可以使用java的抽象类来理解。</p>
-<pre>
+<pre class="prettyprint">
 class CPolygon {
     protected:
         int width, height;
@@ -1002,7 +1002,7 @@ int main() {
     </div>
     <h3><small>11.1</small> 模板(Templates) <small>使得我们可以生成通用的函数</small></h3>
     <p>@template <class T> T/class ...@ ： 与java的泛型好像有那么一点相似。</p>
-<pre>
+<pre class="prettyprint">
 // 函数模板
 template <class T>  // 设定T的类型，如果有多点时使用","隔开。
 T GetMax (T a, T b) {
@@ -1044,7 +1044,7 @@ int main() {
 }
 </pre>
     <p>@template <> class ClassName <char/int/...>@ 模板特殊化，当T为某类型时使用指定类来完成功能。</p>
-<pre>
+<pre class="prettyprint">
 // 类模板:
 template <class T>
 class mycontainer {
@@ -1084,7 +1084,7 @@ int main() {
 }
 </pre>
     <p>@template <class T, int N> ...@ 模板的参数值，接收一个基本数据类型参数</p>
-<pre>
+<pre class="prettyprint">
 template <class T, int N>
 class mysequence {
     T memblock [N];
@@ -1117,7 +1117,7 @@ int main () {
     <p>@mysequence<> myseq;@ 实际是等价于 @mysequence<char,10> myseq;@</p>
     <h3><small>11.2</small> 命名空间(Namespaces) <small>将一组全局范围有效的类、对象或函数组织到一个名字下面。</small></h3>
     <p>命名空间的使用： @using namespace xxx@</p>
-<pre>
+<pre class="prettyprint">
 namespace first {
     int var = 5;
 }
@@ -1137,7 +1137,7 @@ int main () {
     <p>标准名空间： @using namespace std;@</p>
     <h3><small>11.3</small> 异常(Exceptions)</h3>
     <p>使用： @try {} catch(xxx) {}@</p>
-<pre>
+<pre class="prettyprint">
 int main () {
     char myarray[10];
     try {
@@ -1152,7 +1152,7 @@ int main () {
 }
 </pre>
     <p>基本异常库： @#include <exception>@</p>
-<pre>
+<pre class="prettyprint">
 try {
     int* myarray= new int[1000];
 } catch (exception& e) {
@@ -1176,15 +1176,15 @@ table(table table-bordered).
 
     <h3><small>11.5</small> 预处理指令(Preprocessor Directives)</h3>
     <p>@#define@ ：定义一个宏定义变量/函数</p>
-<pre>
+<pre class="prettyprint">
 #define name value
 </pre>
     <p>@#undef@ ：取消一个宏定义变量/函数</p>
-<pre>
+<pre class="prettyprint">
 #undef name
 </pre>
     <p>@#ifdef@ @ifndef@ @#if@ @#endif@ @#else@ @#elif@ ：常量表达式</p>
-<pre>
+<pre class="prettyprint">
 #ifdef name             // 如果常量已经定义，则会执行
 // code here
 #endif
@@ -1207,17 +1207,17 @@ table(table table-bordered).
 #endif                  // 结束if
 </pre>
     <p>@#line@ ：</p>
-<pre>
+<pre class="prettyprint">
 #line 1 "assigning variable"
 </pre>
     <p>@#error@ ：</p>
-<pre>
+<pre class="prettyprint">
 #ifndef __cplusplus
 #error A C++ compiler is required   // 如果__cplusplus没定义则会中断编译
 #endif
 </pre>
     <p>@#include@ ：声明包含一个文件</p>
-<pre>
+<pre class="prettyprint">
 #include "file"     // 先在当前路径下找，找不到再到默认标准头路径下找。
 #include <file>     // 直接在默认标准头路径下找。
 </pre>
