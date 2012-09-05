@@ -72,13 +72,49 @@ if (preScene == null) {                                             // 如果当
 }
 </pre>
 
+    <h3><small>4.1</small> 动作</h3>
+
     <p>@CCAction@ ：动作，分为瞬时动作 @CCActionInstanse@ ，延时动作 @CCActionInterval@</p>
 <pre class="prettyprint">
 CCSize size = CCDirector::sharedDirector()->getWinSize();           // 获取屏幕大小
 CCSprite * pSprite = CCSprite::spriteWithFile("HelloWorld.png");    // 创建精灵
 CCActionInterval * actionTo = CCMoveTo::actionWithDuration(2, CCPointMake(size.width-40, size.height-40));
 pSprite->runAction(actionTo);                                       // 运行动作
+
+CCMoveTo    // 移动
+CCMoveBy    // 移动
+
+CCScaleTo   // 缩放
+CCScaleBy   // 缩放
+
+CCSkewTo    // 倾斜
+CCSkewBy    // 倾斜
+
+CCRotateTo
+CCRotateBy
+
+CCJumpTo
+CCJumpBy
+
+CCBezierTo
+CCBezierBy
+
+Blink
+
+CCFadeIn
+CCFadeOut
+
+CCTintTo
+CCTintBy
+
+CCAnimate
+
+CCCallFunc
+CCCallFuncN
+CCCallFuncND
 </pre>
+
+    <h3><small>4.2</small> 菜单</h3>
 
     <p>@CCMenu@ ：菜单，参考： "http://www.cocos2d-x.org/reference/native-cpp/d1/da0/classcocos2d_1_1_c_c_menu.html":http://www.cocos2d-x.org/reference/native-cpp/d1/da0/classcocos2d_1_1_c_c_menu.html</p>
 <pre class="prettyprint">
@@ -115,6 +151,8 @@ void MainLayer::onNewGame(CCObject* pSender) {
 }
 </pre>
 
+    <h3><small>4.3</small> 多层</h3>
+
     <p>@CCLayerMultiplex@ :多个层，参考： "http://www.cocos2d-x.org/reference/native-cpp/d3/d7e/classcocos2d_1_1_c_c_layer_multiplex.html":http://www.cocos2d-x.org/reference/native-cpp/d3/d7e/classcocos2d_1_1_c_c_layer_multiplex.html</p>
 <pre class="prettyprint">
 CCLayer* pLayer1 = new MenuLayer1();
@@ -136,38 +174,99 @@ CCDirector::sharedDirector()->replaceScene(this);
 ((CCLayerMultiplex*)m_pParent)->switchTo(0);
 </pre>
 
-    <p>@CCAction@ ：动作</p>
+    <h3><small>4.4</small> 进度条</h3>
+
+    <p>@CCProgressTimer@ ：进度条</p>
+
+table(table table-bordered).
+|_.type|_.说明|
+|@kCCProgressTimerTypeRadialCCW@|径向逆时针旋转|
+|@kCCProgressTimerTypeRadialCW@|径向顺时针旋转|
+|@kCCProgressTimerTypeHorizontalBarLR@|水平从左往右|
+|@kCCProgressTimerTypeHorizontalBarRL@|水平从右往左|
+|@kCCProgressTimerTypeVerticalBarBT@|垂直从下往上|
+|@kCCProgressTimerTypeVerticalBarTB@|垂直从上往下|
+
 <pre class="prettyprint">
-CCMoveTo    // 移动
-CCMoveBy    // 移动
+CCProgressTimer * pt = CCProgressTimer::progressWithFile("image.png");
+pt->setType(kCCProgressTimerTypeRadialCCW);
+pt->setType(kCCProgressTimerTypeRadialCW);
+pt->setType(kCCProgressTimerTypeHorizontalBarLR);
+pt->setType(kCCProgressTimerTypeHorizontalBarRL);
+pt->setType(kCCProgressTimerTypeVerticalBarBT);
+pt->setType(kCCProgressTimerTypeVerticalBarTB);
+CCProgressTo * to = CCProgressTo::actionWithDuration(2, 100);    // 时间，百分比
+pt->runAction(CCRepeatForever::actionWithAction(to));
+</pre>
 
-CCScaleTo   // 缩放
-CCScaleBy   // 缩放
+    <h3><small>4.5</small> 场景转换</h3>
 
-CCSkewTo    // 倾斜
-CCSkewBy    // 倾斜
+    <p>@CCTransitionScene@ ：场景转换效果</p>
+table(table table-bordered).
+|_.效果|_.说明|_.方法|_.参数|
+|@CCTransitionFade@|以颜色淡出淡入|@transitionWithDuration(时间, 场景, ccBLACK)@|@ccc3(255,0,0)@ ：三原色|
+|@CCTransitionFlipX@|水平翻转屏幕|@transitionWithDuration(时间, 场景, kOrientationRightOver)@|@kOrientationLeftOver@ ：从左往右 <br>@kOrientationRightOver@ ：从右往左|
+|@CCTransitionFlipY@|垂直翻转屏幕|@transitionWithDuration(时间, 场景, kOrientationUpOver)@|@kOrientationUpOver@ ：从上往下 <br>@kOrientationDownOver@ ：从下往上|
+|@CCTransitionFlipAngular@|角度翻转屏幕|@transitionWithDuration(时间, 场景, kOrientationRightOver)@|@kOrientationLeftOver@ ：从左下角往上 <br>@kOrientationRightOver@ ：从右上角往下|
+|@CCTransitionZoomFlipX@|水平翻转并缩小/放大|@transitionWithDuration(时间, 场景, kOrientationRightOver)@|@kOrientationLeftOver@ ：从左(放大)往右 <br>@kOrientationRightOver@ ：从右(放大)往左|
+|@CCTransitionZoomFlipY@|垂直翻转并缩小/放大|@transitionWithDuration(时间, 场景, kOrientationUpOver)@|@kOrientationUpOver@ ：从上(放大)往下 <br>@kOrientationDownOver@ ：从下(放大)往上|
+|@CCTransitionZoomFlipAngular@|角度翻转并缩小/放大|@transitionWithDuration(时间, 场景, kOrientationRightOver)@|@kOrientationLeftOver@ ：从左下角(放大)往上 <br>@kOrientationRightOver@ ：从右上角(放大)往下|
+|@CCTransitionShrinkGrow@|收缩出放大入|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionRotoZoom@|转收缩出转放大入|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionMoveInL@|从左移动入|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionMoveInR@|从右移动入|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionMoveInT@|从上移动入|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionMoveInB@|从下移动入|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionSlideInL@|从左平滑移入|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionSlideInR@|从右平滑移入|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionSlideInT@|从上平滑移入|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionSlideInB@|从下平滑移入|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionCrossFade@|交叉淡入两个场景|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionPageTurn@|翻页|@transitionWithDuration(时间, 场景, 参数)@|@true@ ：合上 <br>@false@ ：翻开|
+|@CCTransitionFadeTR@|往右上角马赛克退出|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionFadeBL@|往左下角马赛克退出|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionFadeUp@|往上角马赛克退出|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionFadeDown@|往下角马赛克退出|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionTurnOffTiles@|随机马赛克退出|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionSplitRows@|基数行左，偶数行右退出|@transitionWithDuration(时间, 场景)@||
+|@CCTransitionSplitCols@|基数行上，偶数行下退出|@transitionWithDuration(时间, 场景)@||
 
-CCRotateTo
-CCRotateBy
+<pre class="prettyprint">
+CCTransitionFade * tfScene = CCTransitionFade::transitionWithDuration(2, new CCScene(), ccBLACK);
+if (tfScene) {
+    CCDirector::sharedDirector()->replaceScene(pScene);
+}
+</pre>
 
-CCJumpTo
-CCJumpBy
+    <h3><small>4.6</small> 效果</h3>
+table(table table-bordered).
+|_.类|_.说明|_.静态函数|
+|@CCShaky3D@|摇动的3D|@CCShaky3D::actionWithRange(5, true, ccg(15,10), t)@ // 范围 是否摇动 网格大小 时间|
+|@CCWaves3D@|波浪3D|@CCWaves3D::actionWithWaves(5, 40, ccg(15,10), t)@|
+|@CCFlipX3D@|水平翻转3D|@CCFlipX3D::actionWithDuration(t)@|
+|@CCFlipY3D@|垂直翻转3D|@CCFlipY3D::actionWithDuration(t)@|
+|@CCLens3D@|镜面3D|@CCLens3D::actionWithPosition(CCPointMake(size.width/2,size.height/2), 240, ccg(15,10), t)@|
+|@CCRipple3D@|波纹3D|@CCRipple3D::actionWithPosition(CCPointMake(size.width/2,size.height/2), 240, 4, 160, ccg(32,24), t)@|
+|@CCLiquid@|液体效果|@CCLiquid::actionWithWaves(4, 20, ccg(16,12), t)@|
+|@CCWaves@|波浪效果|@CCWaves::actionWithWaves(4, 20, true, true, ccg(16,12), t)@|
+|@CCTwirl@|晃动效果|@CCTwirl::actionWithPosition(CCPointMake(size.width/2, size.height/2), 1, 2.5f, ccg(12,8), t)@|
+|@CCShakyTiles3D@|摇动马赛克|@CCShakyTiles3D::actionWithRange(5, true, ccg(16,12), t)@|
+|@CCShatteredTiles3D@|破碎马赛克|@CCShatteredTiles3D::actionWithRange(5, true, ccg(16,12), t)@|
+|@CCShuffleTiles@|随机马赛克|@CCShuffleTiles::actionWithSeed(25, ccg(16,12), t)@|
+|@CCFadeOutTRTiles@|往右上角马赛克淡出|@CCFadeOutTRTiles::actionWithSize(ccg(16,12), t)@|
+|@CCFadeOutBLTiles@|往左下角马赛克淡出|@CCFadeOutBLTiles::actionWithSize(ccg(16,12), t)@|
+|@CCFadeOutUpTiles@|往上马赛克淡出|@CCFadeOutUpTiles::actionWithSize(ccg(16,12), t)@|
+|@CCFadeOutDownTiles@|往下马赛克淡出|@CCFadeOutDownTiles::actionWithSize(ccg(16,12), t)@|
+|@CCTurnOffTiles@|马赛克随机消失|@CCTurnOffTiles::actionWithSeed(25, ccg(48,32) , t)@|
+|@CCWavesTiles3D@|波浪马赛克|@CCWavesTiles3D::actionWithWaves(4, 120, ccg(15,10), t)@|
+|@CCJumpTiles3D@|跳动的3D马赛克|@CCJumpTiles3D::actionWithJumps(2, 30, ccg(15,10), t)@|
+|@CCSplitRows@|基数往左，偶数往下|@CCSplitRows::actionWithRows(9, t)@|
+|@CCSplitCols@|基数往上，偶数往下|@CCSplitCols::actionWithCols(9, t)@|
+|@CCPageTurn3D@|3D翻页效果|@CCPageTurn3D::actionWithSize(ccg(15,10), t)@|
 
-CCBezierTo
-CCBezierBy
-
-Blink
-
-CCFadeIn
-CCFadeOut
-
-CCTintTo
-CCTintBy
-
-CCAnimate
-
-CCCallFunc
-CCCallFuncN
-CCCallFuncND
+    <h3><small>4.7</small> 节点</h3>
+    <p>@CCOrbitCamera@ ：轨道摄影机</p>
+<pre class="prettyprint">
+CCOrbitCamera::actionWithDuration(10, 1, 0, 0, 360, 0, 0);  // 时间，起始半径，半径差，起始z角，旋转z角差，起始x角，旋转x角差
 </pre>
 </section>
