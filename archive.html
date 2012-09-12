@@ -4,8 +4,8 @@ title: Archive
 description: 日志归档
 ---
 
+<ul style="list-style:none; margin:0px;">
 {% for post in site.posts %}
-<ul>
-    <li>{{ post.date | date:"%Y-%m-%d" }} » <a href="{{ post.url }}" target="_blank">{{ post.title }}</a></li>
-</ul>
+    <li><h4 style="font-weight:normal;"><small>{{ post.date | date:"%Y-%m-%d" }} » </small><a href="{{ post.url }}" target="_blank">{{ post.title }}</a><h4></li>
 {% endfor %}
+</ul>
