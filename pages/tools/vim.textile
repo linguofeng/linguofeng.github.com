@@ -38,6 +38,7 @@ set nocompatible " 不使用vi兼容的模式
 </pre>
     <p>在Ubuntu 12.04中显示全局菜单的方法<p>
 @$ vim .bashrc@
+
 <pre>
 function gvim () { (/usr/bin/gvim -f "$@" &) }
 </pre>
