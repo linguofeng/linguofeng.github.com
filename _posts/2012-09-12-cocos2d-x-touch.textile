@@ -85,7 +85,7 @@ void MyLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent) {
     // 判断该坐标是否在rect矩形内
     bool flag = rect.containsPoint(local)
     if(flag) {
-        // 回调
+        // 回调 CCRange
     } else {
         // 不执行
     }
