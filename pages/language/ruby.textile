@@ -11,7 +11,7 @@ description: 运行于JVM虚拟机的语言，能够与JAVA相互调用！！
     <p>"https://rvm.io/rvm/install":https://rvm.io/rvm/install/</p>
 <pre>
 $ sudo apt-get install git-core curl
-$ bash -s stable << (curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+$ bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
 $ echo "source \"$HOME/.rvm/scripts/rvm\"" >> $HOME/.bashrc
 $ source ~/.bashrc
 $ rvm -v

@@ -37,11 +37,10 @@ set nobackup " 设置无备份文件
 set nocompatible " 不使用vi兼容的模式
 </pre>
     <p>在Ubuntu 12.04中显示全局菜单的方法<p>
-@$ vim .bashrc@
-
-<pre>
-function gvim () { (/usr/bin/gvim -f "$@" &) }
-</pre>
+    @$ vim .bashrc@
+    <pre>
+        function gvim () { (/usr/bin/gvim -f "$@" &) }
+    </pre>
 </section>
 
 <section>
@@ -61,4 +60,14 @@ function gvim () { (/usr/bin/gvim -f "$@" &) }
 参考：http://eclim.org/install.html
 </pre>
 
+    <p>%(label label-info)CommandT%</p>
+<pre>
+下载：http://www.vim.org/scripts/download_script.php?src_id=18167
+$ rvm install 1.8.7 // 必须使用1.8.7
+$ rvm use 1.8.7
+$ vim command-t-1.4.vba // :so %
+$ cd ~/.vim/ruby/command-t
+$ ruby extconf.rb
+$ make
+</pre>
 </section>

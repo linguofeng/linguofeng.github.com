@@ -11,7 +11,7 @@ description: 版本管理工具
     </div>
 
     <pre>
-        $ sudo apt-get install git-core
+        $ sudo apt-get install git-core git-gui gitk  // git-gui gitk
     </pre>
 </section>
 
@@ -21,6 +21,8 @@ description: 版本管理工具
     </div>
     
     <pre>
+       $ git config --global user.name "linguofeng"
+       $ git config --global user.email linguofeng@msn.com
        $ git init                // 初始化一个Git版本库
        $ git add                 // 添加文件到版本库（未正式添加）
        $ git commit -m 'message' // 提交文件到版本库
