@@ -36,6 +36,11 @@ filetype plugin indent on " 启用自动补全
 set nobackup " 设置无备份文件
 set nocompatible " 不使用vi兼容的模式
 </pre>
+    <p>在Ubuntu 12.04中显示全局菜单的方法<p>
+@$ vim .bashrc@
+<pre>
+function gvim () { (/usr/bin/gvim -f "$@" &) }
+</pre>
 </section>
 
 <section>
