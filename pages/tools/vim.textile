@@ -11,7 +11,7 @@ description: 很强大的文本编辑器
 <pre>
 $ sudo apt-get install vim vim-gtk cscope
 </pre>
-	<p>%(label label-info).vimrc%</p>
+    <p>%(label label-info).vimrc%</p>
 <pre>
 set tabstop=4 " 设置tab键的宽度
 set shiftwidth=4 " 换行时行间交错使用4个空格
@@ -34,8 +34,15 @@ filetype indent on " 针对不同的文件类型采用不同的缩进格式
 filetype plugin on " 针对不同的文件类型加载对应的插件
 filetype plugin indent on " 启用自动补全
 set nobackup " 设置无备份文件
+set nocompatible " 不使用vi兼容的模式
 </pre>
-	<p>%(label label-info).Taglist%</p>
+</section>
+
+<section>
+    <div class="page-header">
+        <h3>插件</h3>
+    </div>
+    <p>%(label label-info)Taglist%</p>
 <pre>
 先安装ctags：sudo apt-get install exuberant-ctags
 下载：http://www.vim.org/scripts/script.php?script_id=273
@@ -43,4 +50,9 @@ set nobackup " 设置无备份文件
 生成帮助标签：helptags ~/.vim/doc（在Vim命令中执行）
 启动：TlistToggle（在Vim命令中执行）
 </pre>
+    <p>%(label label-info)Eclim% 把Eclipse的功能集成到Vim中</p>
+<pre>
+参考：http://eclim.org/install.html
+</pre>
+
 </section>
