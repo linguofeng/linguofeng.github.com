@@ -13,41 +13,42 @@ $ sudo apt-get install vim vim-gtk cscope
 </pre>
     <p>%(label label-info).vimrc%</p>
 <pre>
-set tabstop=4 " 设置tab键的宽度
-set shiftwidth=4 " 换行时行间交错使用4个空格
-set autoindent " 自动对齐
-set backspace=2 " 设置退格键可用
-set cindent shiftwidth=4 " 自动缩进4空格
-set smartindent " 智能自动缩进
-set ai! " 设置自动缩进
-set nu! " 显示行号
-set showmatch " 显示括号配对情况
-set hlsearch " 开启高亮显示结果
-set incsearch " 开启实时搜索功能
-set nowrapscan " 搜索到文件两端时不重新搜索
-"set cursorline " 突出显示当前行
-"set hidden " 允许在有未保存的修改时切换缓冲区
-"set list " 显示Tab符，使用一高亮竖线代替
-syntax enable " 打开语法高亮
-syntax on " 开启文件类型侦测
-filetype indent on " 针对不同的文件类型采用不同的缩进格式
-filetype plugin on " 针对不同的文件类型加载对应的插件
-filetype plugin indent on " 启用自动补全
-set nobackup " 设置无备份文件
-set nocompatible " 不使用vi兼容的模式
+set tabstop=4               " 设置tab键的宽度
+set shiftwidth=4            " 换行时行间交错使用4个空格
+set autoindent              " 自动对齐
+set backspace=2             " 设置退格键可用
+set cindent shiftwidth=4    " 自动缩进4空格
+set smartindent             " 智能自动缩进
+set ai!                     " 设置自动缩进
+set nu!                     " 显示行号
+set showmatch               " 显示括号配对情况
+set hlsearch                " 开启高亮显示结果
+set incsearch               " 开启实时搜索功能
+set nowrapscan              " 搜索到文件两端时不重新搜索
+"set cursorline             " 突出显示当前行
+"set hidden                 " 允许在有未保存的修改时切换缓冲区
+"set list                   " 显示Tab符，使用一高亮竖线代替
+syntax enable               " 打开语法高亮
+syntax on                   " 开启文件类型侦测
+filetype indent on          " 针对不同的文件类型采用不同的缩进格式
+filetype plugin on          " 针对不同的文件类型加载对应的插件
+filetype plugin indent on   " 启用自动补全
+set nobackup                " 设置无备份文件
+set nocompatible            " 不使用vi兼容的模式
 </pre>
-    <p>在Ubuntu 12.04中显示全局菜单的方法<p>
-    @$ vim .bashrc@
-    <pre>
-        function gvim () { (/usr/bin/gvim -f "$@" &) }
-    </pre>
+
+    <p>在Ubuntu 12.04中显示全局菜单的方法</p>
+    <p>@$ vim .bashrc@</p>
+<pre>
+function gvim () { (/usr/bin/gvim -f "$@" &) }
+</pre>
 </section>
 
 <section>
     <div class="page-header">
         <h3>插件</h3>
     </div>
-    <p>%(label label-info)Taglist%</p>
+    <p>%(label label-info)Taglist% 标签查看插件</p>
 <pre>
 先安装ctags：sudo apt-get install exuberant-ctags
 下载：http://www.vim.org/scripts/script.php?script_id=273
@@ -55,12 +56,12 @@ set nocompatible " 不使用vi兼容的模式
 生成帮助标签：helptags ~/.vim/doc（在Vim命令中执行）
 启动：TlistToggle（在Vim命令中执行）
 </pre>
-    <p>%(label label-info)Eclim% 把Eclipse的功能集成到Vim中</p>
+    <p>%(label label-info)Eclim% 把Eclipse的功能集成到Vim中的插件</p>
 <pre>
 参考：http://eclim.org/install.html
 </pre>
 
-    <p>%(label label-info)CommandT%</p>
+    <p>%(label label-info)CommandT% 快速打开文件的插件</p>
 <pre>
 下载：http://www.vim.org/scripts/download_script.php?src_id=18167
 $ rvm install 1.8.7 // 必须使用1.8.7
@@ -70,4 +71,27 @@ $ cd ~/.vim/ruby/command-t
 $ ruby extconf.rb
 $ make
 </pre>
+
+    <p>%(label label-info)Pathogen% 自动加载插件</p>
+    <p>@安装@</p>
+<pre>
+$ mkdir -p ~/.vim/autoload ~/.vim/bundle
+$ curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+</pre>
+    <p>@$ vim .bashrc@</p>
+<pre>
+call pathogen#infect()
+</pre>
+    <p>@生成bundle目录下插件的帮助文档@</p>
+<pre>
+:Helptags
+</pre>
+
+    <p>%(label label-info)NERDTree% 文件浏览插件</p>
+<pre>
+$ cd ~/.vim/bundle
+$ git clone https://github.com/scrooloose/nerdtree.git
+</pre>
+<p>@:Helptags@ 生成帮助文档</p>
+<p>@:help NERD_tree.txt@ 查看帮助文档</p>
 </section>
