@@ -1,0 +1,36 @@
+---
+layout: default
+title: Python
+description: 
+---
+
+<section id="1">
+  <div class="page-header">
+    <h3>Ubuntu 12.04.1系统默认Python版本为2.7.3</h3>
+  </div>
+<p>@$ python --version@</p>
+<pre>
+Python 2.7.3
+</pre>
+</section>
+
+<section id="2">
+  <div class="page-header">
+    <h3>Hello World</h3>
+  </div>
+<p>@$ python@ 进入shell模式</p>
+<pre>
+Python 2.7.3 (default, Aug  1 2012, 05:16:07) 
+[GCC 4.6.3] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print 'Hello World!' <Enter>
+HelloWorld!
+</pre>
+
+<p>@$ subl helloworld.py@ 源文件版，保存下面内容，<Ctrl + B></p>
+<pre>
+#!/usr/bin/python
+# Fileame : helloworld.py
+print 'Hello World!!'
+</pre>
+</section>
