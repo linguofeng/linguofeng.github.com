@@ -74,9 +74,9 @@ void MyLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent) {
         CCTouch *pCurTouch =  (CCTouch*)(*iterTouch);
     }
 
-    // 获取点在视图中的坐标
+    // 获取点在视图中的坐标（左上角为原点）
     CCPoint touchLocation = pTouch->getLocationInView();
-    // 把点的坐标转换成OpenGL坐标
+    // 把点的坐标转换成OpenGL坐标（左下角为原点）
     touchLocation = CCDirector::sharedDirector()->convertToGL(touchLocation);
     // 把OpenGL的坐标转换成CCLayer的坐标
     CCPoint local = convertToNodeSpace(touchLocation)
@@ -85,7 +85,7 @@ void MyLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent) {
     // 判断该坐标是否在rect矩形内
     bool flag = rect.containsPoint(local)
     if(flag) {
-        // 回调 CCRange
+        // 回调
     } else {
         // 不执行
     }

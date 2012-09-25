@@ -1,0 +1,34 @@
+---
+layout: default
+category: Tools
+title: Git
+description: 版本管理工具
+---
+
+<section>
+    <div class="page-header">
+        <h3>一、安装</h3>
+    </div>
+
+<pre>
+$ sudo apt-get install subversion libapache2-svn
+$ sudo vim /etc/apache2/mods-available/dav_svn.conf
+</pre>
+
+<pre>
+<Location /svn>
+DAV svn
+SVNListParentPath on
+SVNParentPath /home/linguofeng/repository/svn/
+</Location>
+</pre>
+
+<pre>
+$ cd ~/repository/svn
+$ svnadmin create test
+$ sudo chown -R www-data test       // 更改用户组可通过apache2访问
+$ sudo chmod -R g+rws test          // 可读写
+</pre>
+</section>
+
+<p>参考：https://help.ubuntu.com/community/Subversion</p>

@@ -35,11 +35,13 @@ description: 开源、跨平台的游戏引擎
 
 <section>
     <div class="page-header">
-        <h3>三、HelloWorld <small>需要有Android SDK环境，<a href="#">点击查看</a></small></h3>
+        <h3>三、HelloWorld <small>需要有Android SDK环境与Ant，<a href="#">点击查看</a></small></h3>
     </div>
     
     <pre>
         $ cd $COCOS2DX_ROOT/HelloWorld/proj.android
+        $ chmod u+x build_native.sh
+        $ ./build_native.sh                            // 编译库
         $ android update project -p . -t android-10    // 生成Ant需要的build.xml文件
         $ ant debug install                            // 安装到机器上
     </pre>
@@ -49,7 +51,7 @@ description: 开源、跨平台的游戏引擎
     <div class="page-header">
         <h3>四、Cocds2d-x基础</h3>
     </div>
-    <p>主要类介绍</p>
+    <p>*主要类介绍*</p>
 table(table table-bordered).
 |_.类|_.说明|_.作用|_.关系|
 |@CCDirector@|导演(单例)|负责场景的切换以及场景的信息。如宽度，高度，旋转场景内容。|包含多个 CCScene|
@@ -59,7 +61,7 @@ table(table table-bordered).
 |@CCAction@|动作|精灵的动作。||
 |@CCMenu@|菜单|||
 
-    <p>场景转换</p>
+    <p>*场景的转换*</p>
 <pre class="prettyprint">
 CCScene* scene = CCScene::node();                                   // 创建scene
 CCLayer* layer = CCLayer::node();                                   // 创建layer
@@ -70,6 +72,32 @@ if (preScene == null) {                                             // 如果当
 } else {                                                            // 否则
     CCDirecotr::ShareDirector()->replaceScene(scene);               // 替换成myScene场景
 }
+</pre>
+
+    <p>*常见宏*</p>
+<pre class="prettyprint">
+NS_CC_BEGIN
+    // cocos2d命名空间开始
+NS_CC_END
+    // cocos2d命名空间结束
+USING_NS_CC;
+    // 声明cocos2d命名空间
+CC_SYNTHESIZE_READONLY(varType, varName, funName)
+    // 声明一个成员变量以及getfunName函数，没有set函数。getfunName已经实现，其实现就是返回这个值。
+CC_SYNTHESIZE_READONLY_PASS_BY_REF(varType, varName, funName)
+    // 类似CC_SYNTHESIZE_READONLY，不过getfunName返回的是引用。
+CC_SYNTHESIZE(varType, varName, funName)
+    // 声明一个成员变量以及getfunName，setfunName函数.函数声明和实现都有
+CC_SYNTHESIZE_PASS_BY_REF(varType, varName, funName)
+    // 类似CC_SYNTHESIZE，不过getfunName返回的是引用。
+CC_PROPERTY_READONLY(varType, varName, funName)
+    // 声明一个成员变量以及getfunName函数，没有set函数。getfunName函数的实现要自己做
+CC_PROPERTY_READONLY_PASS_BY_REF(varType, varName, funName)
+    // 类似CC_PROPERTY_READONLY，不过getfunName返回的是引用。getfunName函数的实现要自己做
+CC_PROPERTY(varType, varName, funName)
+    // 声明一个成员变量以及getfunName，setfunName函数.函数实现要自己做
+CC_PROPERTY_PASS_BY_REF(varType, varName, funName)
+    // 类似CC_PROPERTY，，不过getfunName返回的是引用
 </pre>
 
     <h3><small>4.1</small> 动作</h3>
@@ -369,5 +397,54 @@ void Class::callback(ccTime dt) {
 }
 
 unschedule(schedule_selector(Class::callback));   // 取消定时器
+</pre>
+
+    <h3><small>4.10</small> 内存管理 <small>原则：每个自定义类必须继承 @cocos2d::CCObject@ 对象</small></h3>
+
+    <p>*CCObject对象的内存管理相关接口*</p>
+<pre class="prettyprint">
+// 引用次数+1 
+virtual void CCObject::retain(void); 
+// 引用次数-1；若引用计数器=0，则delete this； 
+virtual void CCObject::release(void); 
+// helper方法，快速判断当前对象只有唯一引用 
+bool CCObject::isSingleRefrence(void); 
+// 返回引用次数 
+unsigned int CCObject::retainCount(void);
+// 自动释放（自动管理）
+CCObject* CCObject::autorelease(void); 
+</pre>
+
+    <p>*手动管理内存*</p>
+<pre class="prettyprint">
+class MyClass: public cocos2d::CCObject
+{
+public:
+    MyClass();
+    ~MyClass();
+}
+
+MyClass * obj = new MyClass();
+...
+obj->release(); // 谁生成（new、copy）谁负责release
+
+// 谁retain，谁负责release。
+obj->retain();
+...
+obj->release();
+
+// 传递赋值时，需要先retain形参，后release原指针，最后赋值。（注意，因为这里没有使用自赋值检查，所以这组顺序不能错。）
+void CCNode::setGrid(CCGridBase* pGrid) 
+{ 
+    CC_SAFE_RETAIN(pGrid);
+    CC_SAFE_RELEASE(m_pGrid);
+    m_pGrid = pGrid;
+}
+</pre>
+
+    <p>*自动管理内存*</p>
+<pre class="prettyprint">
+MyClass * obj = new MyClass();
+obj->autorelease(); // 每帧绘制结束，就自动release池中的对象。
 </pre>
 </section>
