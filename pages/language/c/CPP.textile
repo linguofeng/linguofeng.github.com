@@ -9,7 +9,7 @@ navigation: [1.HelloWorld, 2.变量与数据类型, 3.常量, 4.输入输出, 5.
     <div class="page-header">
         <h1>一、HelloWorld</h1>
     </div>
-	<p>HelloWorld.cpp</p>
+	<p>@HelloWorld.cpp@</p>
 <pre class="prettyprint">
 #include <iostream>
 using namespace std;
@@ -36,10 +36,10 @@ table(table table-bordered).
 *无符号（unsigned）*: 0 到 4294967295|
 |@int@|=.4|整数（integer），8位|*有符号（signed）*: -2147483648 到 2147483647
 *无符号（unsigned）*: 0 到 4294967295 |
-|@float@|=.4|浮点数|3.4e + / - 38 （7 个数字（7digits））|
-|@double@|=.8|双精度浮点数|1.7e + / - 308 (15 digits)|
-|@long double@|=.8|长双精度浮点数|1.7e + / - 308 (15 digits)|
-|@bool@|=.1|布尔Boolean值。它只能是真(true)或假(false)两值之一。|true 或 false|
+|@float@|=.4|浮点数|3.4e ==+ / -== 38 （7 个数字（7digits））|
+|@double@|=.8|双精度浮点数|1.7e ==+ / -== 308 (15 digits)|
+|@long double@|=.8|长双精度浮点数|1.7e ==+ / -== 308 (15 digits)|
+|@bool@|=.1|布尔Boolean值。|true 或 false|
 |@wchar_t@|=.2|宽字符(Wide character) 。存储两字节(2 bytes) 。|一个宽字符（1 wide characters）|
 |\4.*备注* ：有符号类型(signed)可以表示 %(label label-info)正数% 和 %(label label-info)负数% ，而无符号类型(unsigned)只能表示 %(label label-info)正数% 和 %(label label-info)0% ，默认为 %(label label-info)signed% 。
 定义一个有符号int类型： @signed int x;@
@@ -148,21 +148,21 @@ stringstream(str) >> x;     // 这个过程实现了字符串转换成数字
     </div>
     <p>控制结构</p>
 <pre class="prettyprint">
-if(true) {
+if (true) {
     
 } else {
     
 }
 
-while(true) {
+while (true) {
     
 }
 
 do {
     
-} while(true);
+} while (true);
 
-for(int i = 0; i < 10; i++) {
+for (int i = 0; i < 10; i++) {
     
 }
 </pre>
@@ -177,14 +177,14 @@ cout << "abc"
 
 goto loop;      // 跳到目标
 </pre>
-    <p>函数值传递与地址传递</p>
+    <p>值传递与地址传递</p>
 <pre class="prettyprint">
-// 值传递函数
+// 值传递
 int add1(int x, int y) {
     return x + y;
 }
 
-// 地址传递函数
+// 地址传递
 int add2(int x, int y, int& result) {   // &地址符表示把地址作为参数传递
     result = x + y;
 }
