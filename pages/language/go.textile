@@ -15,6 +15,7 @@ $ sudo tar -C /usr/local -xzf go1.0.3.linux-386.tar.gz
 <p>@$ subl ~/.bashrc@</p>
 <pre>
 export PATH=$PATH:/usr/local/go/bin
+export GOPATH="$HOME/workspace/gocode"
 </pre>
 </section>
 
@@ -24,17 +25,20 @@ export PATH=$PATH:/usr/local/go/bin
   </div>
 <p>@$ subl hello.go@</p>
 <pre>
-Python 2.7.3 (default, Aug  1 2012, 05:16:07) 
-[GCC 4.6.3] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
->>> print 'Hello World!' <Enter>
-HelloWorld!
-</pre>
+package main
 
-<p>@$ subl helloworld.py@ 源文件版，保存下面内容，<Ctrl + B></p>
-<pre>
-#!/usr/bin/python
-# Fileame : helloworld.py
-print 'Hello World!!'
+import (
+    "fmt"
+)
+
+func main() {
+    fmt.Println("Hello, 世界")
+}
 </pre>
+</section>
+
+<section id="3">
+    <div class="page-header">
+        <h3>插件</h3>
+    </div>
 </section>
