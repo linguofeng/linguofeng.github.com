@@ -6,24 +6,31 @@ description: http://golang.org/
 
 <section id="1">
   <div class="page-header">
-    <h3>安装</h3>
+    <h1>安装</h1>
   </div>
 <p>下载地址： "https://code.google.com/p/go/downloads/list":https://code.google.com/p/go/downloads/list</p>
 <pre>
 $ sudo tar -C /usr/local -xzf go1.0.3.linux-386.tar.gz
+$ mkdir $HOME/workspace/gocode
+$ mkdir $HOME/workspace/gocode/src    # 源文件存在目录
+$ mkdir $HOME/workspace/gocode/pkg    # 编译后的包（.a库）文件存在目录
+$ mkdir $HOME/workspace/gocode/bin    # 编译后的可执行文件存在目录
 </pre>
-<p>@$ subl ~/.bashrc@</p>
+<p>@$ subl ~/.bashrc@ 环境变量配置</p>
 <pre>
-export PATH=$PATH:/usr/local/go/bin
-export GOPATH="$HOME/workspace/gocode"
+export GOPATH="$HOME/workspace/gocode"            # 工作目录
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin   # go安装目录，编译后生成的可执行文件目录
 </pre>
 </section>
 
 <section id="2">
   <div class="page-header">
-    <h3>Hello World</h3>
+    <h1>Hello World</h1>
   </div>
-<p>@$ subl hello.go@</p>
+<pre>
+$ mkdir $GOPATH/src/helloworld            # 创建helloworld工程目录
+$ subl $GOPATH/src/helloworld/hello.go    # 创建helloworld工程的源文件
+</pre>
 <pre>
 package main
 
@@ -35,10 +42,226 @@ func main() {
     fmt.Println("Hello, 世界")
 }
 </pre>
+<pre>
+$ go install helloworld     # 编译安装helloworld工程
+$ helloworld                # 运行helloworld工程
+</pre>
 </section>
 
 <section id="3">
     <div class="page-header">
-        <h3>插件</h3>
+        <h1>三、基础</h1>
     </div>
+
+    <h3><small>3.1</small> 变量的定义</h3>
+<pre>
+var a int = 12          // 定义一个类型为int的变量a并初始化值为12
+var b int               // 定义一个类型为int的变量b默认初始化为0
+var c = 15              // 定义一个变量c并初始化值为13,类型自动推导
+var d, e int = 12, 16   // 变量d，e的类型都是int
+var d, e = 19, "abc"    // 同时定义多个变量，并根据值来推导类型
+var(                    // 与上面定义变量的方式一样
+    d = 19
+    e = "abc"
+)
+f := 16                 // 使用“:=”可以更简洁地定义变量，但不能在函数外使用这种方法定义变量
+_, g := 12, 16          // “_”是一个特殊的变量名，赋予它的值都会被丢弃，变量e的值是16
+                        // 注意事项：定义的变量未使用编译过程会报错
+</pre>
+    <p>关键字: @var@ 与 @:=@</p>
+
+    <h3><small>3.2</small> 常量的定义</h3>
+<pre>
+const Pi = 3.1415926
+</pre>
+    <p>关键字: @const@</p>
+
+    <h3><small>3.3</small> 基本数据类型</h3>
+<pre>
+bool                                            // 布尔值
+string                                          // 字符串，不可变
+int  int8  int16  int32  int64                  // 带符号整形
+uint uint8 uint16 uint32 uint64 uintptr         // 不带符号整形
+byte                                            // uint8 的别名
+rune                                            // int32 的别名，代表一个Unicode码点
+float32 float64                                 // 浮点数，默认是float64
+complex64 complex128                            // 复数
+</pre>
+
+    <h3><small>3.4</small> iota</h3>
+<pre>
+const(
+    x = iota  // x == 0
+    y = iota  // y == 1
+    z = iota  // z == 2
+    w  // 常量声明省略值时，默认和之前一个值的字面相同。这里隐式地说w = iota，因此w == 3。其实上面y和z可同样不用"= iota"
+)
+
+const v = iota // 每遇到一个const关键字，iota就会重置，此时v == 0
+</pre>
+
+    <h3><small>3.5</small> 数组</h3>
+<pre>
+var a1 [5]int          // 声明了一个长度为5的int数组
+a := [3]int{1, 2, 3}   // 声明了一个长度为3的int数组
+b := [10]int{1, 2, 3}  // 声明了一个长度为10的int数组，其中前三个元素初始化为1、2、3，其它默认为0
+c := [...]int{4, 5, 6} // 可以省略长度而采用`...`的方式，Go会自动根据元素个数来计算长度
+
+// 声明了一个二维数组，该数组以两个数组作为元素，其中每个数组中又有4个int类型的元素
+doubleArray := [2][4]int{[4]int{1, 2, 3, 4}, [4]int{5, 6, 7, 8}}
+// 如果内部的元素和外部的一样，那么上面的声明可以简化，直接忽略内部的类型
+easyArray := [2][4]int{{1, 2, 3, 4}, {5, 6, 7, 8}}
+</pre>
+
+    <h3><small>3.6</small> slice，指向数组的值</h3>
+<pre>
+p := []int{1, 2, 3, 4, 5}   // 与声明数组一样，只是少了长度
+
+// slice的应用
+var ar = [10]byte {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'}
+var a, b []byte
+
+a = ar[0:1]     // a = ['a']
+a = ar[2:6]     // a = ['c', 'd', 'e', 'f']
+b = ar[:4]      // b = ['a', 'b', 'c', 'd']
+b = ar[:]       // b = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+</pre>
+    <p>数组与slice的区别，数组声明时需要长度并大小不可变，slice声明时不需要长度，大小可变，是一个指针，是指向数组的值的指针</p>
+    <p>slice的长度: @len(ar)@</p>
+    <p>slice的容量: @cap(ar)@</p>
+    <p>slice追加: @append(a, 'h')@</p>
+
+    <h3><small>3.7</small> map</h3>
+<pre>
+var a map[string] int
+map["a"] = 1
+map["b"] = 2
+
+b := map[string] int {"a":1, "b":2, "c":3}
+value, exist = b["a"]   // 如果a存在，则exist为true，否则为false
+if (exist)
+{
+    // value = 1
+}
+else
+{
+    // value = 0
+}
+
+len(a)          // 返回a拥用key的个数，输出2
+delete(a, "a")  // 从a中删除key为a的记录
+</pre>
+
+    <h3><small>3.8</small> make与new内存分配</h3>
+    <p>make是给map、slice 和channel分配内存的</p>
+    <p>new是给各种类型分配内存的</p>
+<pre>
+a := make([]int, 5)     // 分配一个长度为5，容量为5的int类型的数组，默认值为[0, 0, 0, 0, 0]
+b := make([]int, 2, 5)  // 分配一个长度为2,容量为5的int类型的数组，默认值为[0, 0]
+
+c := make(map[int]string)
+</pre>
+</section>
+
+<section id="4">
+    <div class="page-header">
+        <h1>四、流程和函数</h1>
+    </div>
+
+    <h3><small>4.1</small> 流程控制</h3>
+    <p>@if@</p>
+<pre>
+if a > 10 {         // 不需要“()”
+    // true
+} else {
+    // false
+}
+
+// 条件中存在变量，作用域在if范围内
+if i := getVaule(); i > 10 {
+    // true
+} else {
+    // false
+}
+</pre>
+    <p>@for@</p>
+<pre>
+for i := 0; i < 10; i++ {       // 不需要“()”
+    
+}
+
+a := 0
+for ;a < 10; {                  // 省略前置和后置
+    a++
+}
+
+for a < 10 {                    // 可以省略“;”分号
+    
+}
+
+for ;; {                        // 死循环
+    
+}
+
+for {                           // 死循环
+    
+}
+</pre>
+    <p>@switch@</p>
+<pre>
+switch i {                      // 同时i也支持i := getVaule()这种形式
+case 1:
+    // 
+case 2:
+    // 自动终止
+defaule:
+    // 
+}
+
+switch i := getVaule(); i {
+    //
+}
+
+switch {                        // 没有条件
+case 1:
+    // 
+case 2:
+    // 
+}
+</pre>
+
+    <h3><small>4.2</small> 函数</h3>
+<pre>
+func add(x int, y int) int {        // 接收两个int类型的参数，返回值是int类型
+    return x + y
+}
+
+func add(x, y int) int {            // 同上，当参数类型相同时可省略前面参数的类型声明
+    return x + y
+}
+
+func get()(string, string) {        // 函数可以返回任意数量的返回值
+    return "a", "b"
+}
+
+func result()(a, b string) {        // 把a,b变量当作返回值返回
+    a := "abc"
+    b := "def"
+    return
+}
+
+func do(args ...int) {              // 接收不定数量的int类型的参数，args是一个slice
+    for i := 0; i < len(args); i++ {
+        args[i]
+    }
+}
+
+func br(a *int) {                   // 指针传递，参数应该使用“&”取地址符
+    
+}
+
+func la(a int) {
+    defer a := 0                    // a := 0会在la函数结束时执行，类似于try中的finally
+}
+</pre>
 </section>

@@ -15,7 +15,7 @@ description: 运行于JVM虚拟机的语言，能够与JAVA相互调用！！
 
 <section id="2">
   <div class="page-header">
-    <h3>二、安装CDT <small>SBT（Simple Build Tool），是一个快速构建Scala工程的命令行工具。</small></h3>
+    <h3>二、安装CDT</h3>
   </div>
   <pre>
     直接下载Eclipse CDT版

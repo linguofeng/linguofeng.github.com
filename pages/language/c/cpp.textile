@@ -2,14 +2,14 @@
 layout: default
 title: C++基础
 description: 学习笔记
-navigation: [1.HelloWorld, 2.变量与数据类型, 3.常量, 4.输入输出, 5.控制结构与函数, 6.高级数据类型, 7.动态内存, 8.数据结构, 9.其它数据类型, 10.面向对象, 11.C++高级概念]
+navigation: [1.HelloWorld, 2.数据类型、变量与常量, 3.输入输出, 4.控制结构与函数, 5.高级数据类型, 6.动态内存, 7.数据结构, 8.其它数据类型, 9.面向对象, 10.C++高级概念]
 ---
 
 <section id="1">
     <div class="page-header">
         <h1>一、HelloWorld</h1>
     </div>
-	<p>@HelloWorld.cpp@</p>
+	<p>@$ subl HelloWorld.cpp@</p>
 <pre class="prettyprint">
 #include <iostream>
 using namespace std;
@@ -19,13 +19,15 @@ int main() {
     return 0;
 }
 </pre>
+    <p>Build: @ctrl + b@</p>
+    <p>Run: @shift + ctrl + b@</p>
 </section>
 
 <section id="2">
     <div class="page-header">
-        <h1>二、变量与数据类型</h1>
+        <h1>二、数据类型、变量与常量</h1>
     </div>
-    <h3>数据类型</h3>
+    <h3><small>2.1</small> 数据类型</h3>
 table(table table-bordered).
 |_.名称|_=.字节数|_.描述|_.范围|
 |@char@|=.1|字符（character）或整数（integer），8位|*有符号（signed）*: -128 到 127
@@ -45,7 +47,7 @@ table(table table-bordered).
 定义一个有符号int类型： @signed int x;@
 定义一个无符号int类型： @unsigned int y;@|
 
-    <h3>变量</h3>
+    <h3><small>2.2</small> 变量</h3>
     <p>定义变量</p>
 <pre class="prettyprint">
 // 声明变量
@@ -64,17 +66,12 @@ int y(52);      // 方式二
     <p>字符串</p>
 <pre class="prettyprint">
 #include <string>       // 需要引用string头文件
-...
-string str1 = "Hello World1!";
-string str2("Hello World2!");
-...
-</pre>
-</section>
 
-<section id="3">
-    <div class="page-header">
-        <h1>三、常量</h1>
-    </div>
+std::string str1 = "Hello World1!";
+std::string str2("Hello World2!");
+</pre>
+
+    <h3><small>2.3</small> 常量</h3>
     <p>什么是常量？</p>
 <pre class="prettyprint">
 5           // 一个整数 int
@@ -97,21 +94,21 @@ false       // 布尔值 bool
 
 等都是常量.
 </pre>
-    <p>@#define@ ：常量的定义</p>
+    <p>常量的定义</p>
 <pre class="prettyprint">
 #define PI 3.14159
 #define NEWLINE '\n' 
 </pre>
-    <p>@const@ ：常量的声明</p>
+    <p>常量的声明</p>
 <pre class="prettyprint">
 const int pathwidth = 100;
 const char tabulator = '\t';
 </pre>
 </section>
 
-<section id="4">
+<section id="3">
     <div class="page-header">
-        <h1>四、输入输出</h1>
+        <h1>三、输入输出</h1>
     </div>
     <p>@std::cout <<@ ：输出</p>
 <pre class="prettyprint">
@@ -142,9 +139,9 @@ stringstream(str) >> x;     // 这个过程实现了字符串转换成数字
 </pre>
 </section>
 
-<section id="5">
+<section id="4">
     <div class="page-header">
-        <h1>五、控制结构与函数</h1>
+        <h1>四、控制结构与函数</h1>
     </div>
     <p>控制结构</p>
 <pre class="prettyprint">
@@ -259,9 +256,9 @@ int add(int x, int y) {
 </section>
 
 
-<section id="6">
+<section id="5">
     <div class="page-header">
-        <h1>六、高级数据类型</h1>
+        <h1>五、高级数据类型</h1>
     </div>
     <p>数组</p>
 <pre class="prettyprint">
@@ -362,9 +359,9 @@ cout << (* addp)(12, 24);
 </pre>
 </section>
 
-<section id="7">
+<section id="6">
     <div class="page-header">
-        <h1>七、动态内存</h1>
+        <h1>六、动态内存</h1>
     </div>
     <p>@new@ / @new[]@</p>
 <pre class="prettyprint">
@@ -382,9 +379,9 @@ delete[] p2;    // 删除数组分配的内存
 </pre>
 </section>
 
-<section id="8">
+<section id="7">
     <div class="page-header">
-        <h1>八、数据结构</h1>
+        <h1>七、数据结构</h1>
     </div>
     <p>@struct@ ：结构体</p>
 <pre class="prettyprint">
@@ -427,9 +424,9 @@ p -> m.year     => m1.m.year;
 </pre>
 </section>
 
-<section id="9">
+<section id="8">
     <div class="page-header">
-        <h1>九、其它数据类型</h1>
+        <h1>八、其它数据类型</h1>
     </div>
     <p>@typedef@ ：自定义数据类型</p>
 <pre class="prettyprint">
@@ -485,11 +482,11 @@ enum months_t { january=1, february, march, april,
 </pre>
 </section>
 
-<section id="10">
+<section id="9">
     <div class="page-header">
-        <h1>十、面向对象</h1>
+        <h1>九、面向对象</h1>
     </div>
-    <h3><small>10.1</small> 类(Class)</h3>
+    <h3><small>9.1</small> 类(Class)</h3>
     <p>@class@ ： %(label label-info)类% ，与C的struct类似，不同的是类可以包含结构体，而struct只包含数据元素。</p>
 <pre class="prettyprint">
 class Class_name {  // Class_name是自定义类型名称
@@ -710,7 +707,7 @@ int main() {
     return 0;
 }
 </pre>
-    <h3><small>10.2</small> 友元与继承关系(Friendship and inheritance)</h3>
+    <h3><small>9.2</small> 友元与继承关系(Friendship and inheritance)</h3>
     <p>@friend@ ：友元函数，提供访问 @private@ 和 @protected@ 成员</p>
 <pre class="prettyprint">
 class CRectangle {
@@ -887,7 +884,7 @@ int main () {
     return 0;
 }
 </pre>
-    <h3><small>10.3</small> 多态性（Polymorphism）</h3>
+    <h3><small>9.3</small> 多态性（Polymorphism）</h3>
     <p>基类的指针</p>
 <pre class="prettyprint">
 class CPolygon {
@@ -996,11 +993,11 @@ int main() {
 </pre>
 </section>
 
-<section id="11">
+<section id="10">
     <div class="page-header">
-        <h1>十一、C++高级概念</h1>
+        <h1>十、C++高级概念</h1>
     </div>
-    <h3><small>11.1</small> 模板(Templates) <small>使得我们可以生成通用的函数</small></h3>
+    <h3><small>10.1</small> 模板(Templates) <small>使得我们可以生成通用的函数</small></h3>
     <p>@template <class T> T/class ...@ ： 与java的泛型好像有那么一点相似。</p>
 <pre class="prettyprint">
 // 函数模板
@@ -1115,7 +1112,7 @@ int main () {
 </pre>
     <p>默认值： @template <class T=char, int N=10> class mysequence {..};@</p>
     <p>@mysequence<> myseq;@ 实际是等价于 @mysequence<char,10> myseq;@</p>
-    <h3><small>11.2</small> 命名空间(Namespaces) <small>将一组全局范围有效的类、对象或函数组织到一个名字下面。</small></h3>
+    <h3><small>10.2</small> 命名空间(Namespaces) <small>将一组全局范围有效的类、对象或函数组织到一个名字下面。</small></h3>
     <p>命名空间的使用： @using namespace xxx@</p>
 <pre class="prettyprint">
 namespace first {
@@ -1135,7 +1132,7 @@ int main () {
 </pre>
     <p>别名定义： @namespace new_name = current_name;@</p>
     <p>标准名空间： @using namespace std;@</p>
-    <h3><small>11.3</small> 异常(Exceptions)</h3>
+    <h3><small>10.3</small> 异常(Exceptions)</h3>
     <p>使用： @try {} catch(xxx) {}@</p>
 <pre class="prettyprint">
 int main () {
@@ -1168,13 +1165,13 @@ table(table table-bordered).
 |bad_typeid|thrown by typeid|
 |ios_base::failure|thrown by functions in the iostream library|
 
-    <h3><small>11.4</small> 类型转换(Type Casting)</h3>
+    <h3><small>10.4</small> 类型转换(Type Casting)</h3>
     <p>隐式转换(Implicit conversion)</p>
     <p>显式转换(Explicit conversion)</p>
     <p>动态转换(dynamic_cast)</p>
     <p>静态转换(static_cast)</p>
 
-    <h3><small>11.5</small> 预处理指令(Preprocessor Directives)</h3>
+    <h3><small>10.5</small> 预处理指令(Preprocessor Directives)</h3>
     <p>@#define@ ：定义一个宏定义变量/函数</p>
 <pre class="prettyprint">
 #define name value
