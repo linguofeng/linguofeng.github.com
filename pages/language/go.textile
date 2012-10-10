@@ -12,9 +12,9 @@ description: http://golang.org/
 <pre>
 $ sudo tar -C /usr/local -xzf go1.0.3.linux-386.tar.gz
 $ mkdir $HOME/workspace/gocode
-$ mkdir $HOME/workspace/gocode/src    # 源文件存在目录
-$ mkdir $HOME/workspace/gocode/pkg    # 编译后的包（.a库）文件存在目录
-$ mkdir $HOME/workspace/gocode/bin    # 编译后的可执行文件存在目录
+$ mkdir $HOME/workspace/gocode/src    # 源文件存放目录
+$ mkdir $HOME/workspace/gocode/pkg    # 编译后的包（.a库）文件存放目录
+$ mkdir $HOME/workspace/gocode/bin    # 编译后的可执行文件存放目录
 </pre>
 <p>@$ subl ~/.bashrc@ 环境变量配置</p>
 <pre>
@@ -110,7 +110,7 @@ c := [...]int{4, 5, 6} // 可以省略长度而采用`...`的方式，Go会自�
 // 声明了一个二维数组，该数组以两个数组作为元素，其中每个数组中又有4个int类型的元素
 doubleArray := [2][4]int{[4]int{1, 2, 3, 4}, [4]int{5, 6, 7, 8}}
 // 如果内部的元素和外部的一样，那么上面的声明可以简化，直接忽略内部的类型
-easyArray := [2][4]int{{1, 2, 3, 4}, {5, 6, 7, 8}}
+easyArray := [2][4]int{ {1, 2, 3, 4}, {5, 6, 7, 8} }
 </pre>
 
     <h3><small>3.6</small> slice，指向数组的值</h3>
@@ -160,6 +160,24 @@ a := make([]int, 5)     // 分配一个长度为5，容量为5的int类型的数
 b := make([]int, 2, 5)  // 分配一个长度为2,容量为5的int类型的数组，默认值为[0, 0]
 
 c := make(map[int]string)
+</pre>
+
+    <h3><small>3.9</small> Range</h3>
+<pre>
+// for 循环的 range 格式可以对 slice 或者 map 进行迭代循环
+var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+for i, v := range pow {                                 // i表示为下标，v表示为值
+    fmt.Printf("2**%d = %d\n", i, v)
+}
+
+for _, v := range pow {                                 // 省略下标，v表示为值
+    fmt.Printf("%d\n", v)
+}
+
+for i := range pow {                                    // 省略值
+    fmt.Printf("%d\n", i)
+}
+
 </pre>
 </section>
 
@@ -261,7 +279,278 @@ func br(a *int) {                   // 指针传递，参数应该使用“&”�
 }
 
 func la(a int) {
+    ...
     defer a := 0                    // a := 0会在la函数结束时执行，类似于try中的finally
+}
+
+a := func(b int) int {              // 有点类似于javascript中的函数定义
+    return b + 10
+}
+a(12)
+</pre>
+
+    <h3><small>4.3</small> type</h3>
+    <p>函数也可以作为变量或类型使用</p>
+<pre>
+type a func(b int) int              // 声明一个函数类型
+
+func a1(b int) int {                // 函数类型的一个实现1
+    
+}
+
+a2 := func(b int) int {             // 函数类型的一个实现2
+    
+}
+
+func c(x int, y a) {                // 声明一个接收两个参数的函数，第二个参数是函数类型
+    y(x)                            // 调用函数类型y处理x参数
+}
+
+c(10, a1)                           // 使用示例1
+c(15, a2)                           // 使用示例2
+</pre>
+
+    <h3><small>4.4</small> 闭包</h3>
+<pre>
+func a() func() int {
+    b := 0
+    return func() int {
+        return b + 10
+    }
+}
+</pre>
+
+    <h3><small>4.5</small> main函数与init函数</h3>
+    <p>这两个函数都是系统自动调用的，不需要手动调用</p>
+<pre>
+func main() {                       // 只有package main时main函数才会被调用，并作为入口函数
+    
+}
+
+func init() {                       // 在任意包下都有一个init函数，系统自动调用
+    
+}
+</pre>
+</section>
+
+<section id="5">
+    <div class="page-header">
+        <h1>五、结构体</h1>
+    </div>
+    <h3><small>5.1</small> struct</h3>
+<pre>
+type s struct {                     // 声明一个拥有两个成员变量的s结构体
+    X int
+    Y int
+}
+
+a := s{X:12, Y:98}                  // 初始化方式1
+b := s{20, 50}                      // 初始化方式2
+a.X                                 // 以“.”为访问结构体的字段
+</pre>
+
+    <h3><small>5.2</small> struct嵌套</h3>
+<pre>
+type s1 struct {
+    s                               // 这里就把上面定义的结构引进来，也叫做匿名字段
+    x int
+}
+
+a := s1{s{10, 20}, 30}
+fmt.Println(a.s.X, a.s.Y, a.X, a.Y, a.x)    // 匿名字段可以使用字段来访问也可以直接通过结构体来访问，如果字段重复，最外层的优先
+</pre>
+
+    <h3><small>5.3</small> 结构体的方法</h3>
+<pre>
+type Student struct {                       // 定义一个Student结构体
+    age int
+    name string
+}
+
+func (s Student) say(str string) {          // 为Student结构体定义一个say方法，接收一个string类型的参数
+    s.age = 20                              // 此处修改是无效的
+    fmt.Println(str)
+}
+
+s := Student{18, "Tom"}                     // 实例化Student结构体
+s.say("hello")                              // 调用结构体的say方法
+
+func (s *Student) say(str string) {         // 为Student结构体指针定义一个say方法，使用指针能够修改结构体的字段值
+    s.age = 25                              // 此处修改有效，因为是指针
+    fmt.Println(str)
+}
+
+s := &Student{20, "Lin"}
+s.say("world")
+</pre>
+
+    <h3><small>5.4</small> 结构体方法继承</h3>
+<pre>
+type s1 struct {
+    age int
+}
+
+type s2 struct {
+    s1
+}
+
+func (m *s1) hello(str string) {
+    
+}
+
+a := s1{10}
+b := s2{s1{15}}
+
+a.hello("Hello")
+b.hello("World")
+</pre>
+
+    <h3><small>5.5</small> 结构体方法重载</h3>
+<pre>
+type s1 struct {
+    age int
+}
+
+type s2 struct {
+    s1
+}
+
+func (m *s1) hello(str string) {
+    
+}
+
+func (m *s2) hello(str string) {            // 重载方法
+    
+}
+
+a := s1{10}
+b := s2{s1{15}}
+
+a.hello("Hello")
+b.s1.hello("Hello World")                   // 访问匿名结构体的方法
+b.hello("World")                            // 访问重载后的方法
+</pre>
+</section>
+
+<section id="6">
+    <div class="page-header">
+        <h1>六、interface</h1>
+    </div>
+    <h3><small>6.1</small> interface类型</h3>
+<pre>
+type Face interface {                       // 定义一接口，方法的集合
+    sayHi()
+    sing()
+}
+
+func (a *A) sayHi() {                       // 结构体实现了Face接口的sayHi()方法
+    
+}
+
+func (a *A) sing() {                        // 结构体实现了Face接口的sing()方法
+                                            // 这样，结构体就实现了Face接口的所有方法，即结构体实现了Face接口   
+}
+</pre>
+
+    <h3><small>6.2</small> interface值</h3>
+<pre>
+type Face interface {                       // 定义一接口，方法的集合
+    sayHi()
+    sing()
+}
+
+type f Face                                 // interface值
+f := A{}                                    // 类似于java中的实现与接口
+f.sayHi()                                   // 调用抽象接口的方法
+</pre>
+
+    <h3><small>6.3</small> interface{}</h3>
+<pre>
+// 定义a为空接口
+var a interface{}
+var i int = 5
+s := "Hello world"
+// a可以存储任意类型的数值
+a = i
+a = s
+
+func p(i interface{}) {         // 接收任意类型的参数
+    value, ok := i.(string)     // 实现类型判断，如果i是string类型的变量，则ok等于true，value就是i的值
+}
+
+p(i)
+p(s)
+</pre>
+<p>一个函数把interface{}作为参数，那么他可以接受任意类型的值作为参数，如果一个函数返回interface{},那么也就可以返回任意类型的值。</p>
+
+    <h3><small>6.4</small> 嵌入interface</h3>
+<pre>
+type I1 interface {
+    sayHi() string
+    add(x, y int) int
+}
+
+type I2 interface {
+    I1                                     // 嵌入一个interface，即I2包含I1的所有方法
+}
+</pre>
+</section>
+
+<section id="7">
+    <div class="page-header">
+        <h1>七、并发</h1>
+    </div>
+    <h3><small>7.1</small> goroutine</h3>
+<pre>
+func say(str string) {
+    fmt.Println(str)
+}
+
+func main() {
+    go say("hello")             // 开启新的goroutine执行
+    say("World")
+}
+</pre>
+<p>关键字: @go@</p>
+
+    <h3><small>7.2</small> channel</h3>
+<pre>
+ci := make(chan int)            // 创建一个channel
+cs := make(chan string)         // 
+
+a := 10
+ci <- a                         // 把a的值发送给ci
+b := <- ci                      // 从ci中接收数据赋值给b
+                                // 执行“<-”发送接收之前时会阻塞，直到读取到了值
+</pre>
+<p>关键字: @chan@</p>
+
+    <h3><small>7.3</small> 缓冲 channel</h3>
+<pre>
+ci := make(chan int, x)         // x为缓冲的长度，在x允许的长度内发送与接收都不会阻塞，当超过
+</pre>
+
+    <h3><small>7.4</small> Range和Close</h3>
+<pre>
+ci := make(chan int, 10)        // 创建一个缓冲长度为10的channel
+for i := 0; i < cap(ci); i++ {
+    ci <- i
+}
+close(ci)                       // 发送完数据就关闭channel
+for v := range ci {
+    fmt.Println(v)
+}
+</pre>
+
+    <h3><small>7.5</small> Select</h3>
+<pre>
+select {
+case <- :
+    
+case <- :
+
+default:
+    // 不阻塞时执行这里
 }
 </pre>
 </section>
