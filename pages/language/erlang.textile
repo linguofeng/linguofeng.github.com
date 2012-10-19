@@ -1,0 +1,15 @@
+---
+layout: default
+title: Erlang
+description: http://erlang.org/
+---
+
+<section id="1">
+  <div class="page-header">
+    <h1>安装</h1>
+  </div>
+  <p>1.添加源 @deb http://binaries.erlang-solutions.com/debian precise contrib@</p>
+  <p>2.添加公钥 @$ wget http://binaries.erlang-solutions.com/debian/erlang_solutions.asc && sudo apt-key add erlang_solutions.asc@</p>
+  <p>3.更新源 @$ sudo apt-get update@</p>
+  <p>4.安装 @$ sudo apt-get install esl-erlang@</p>
+</section>
