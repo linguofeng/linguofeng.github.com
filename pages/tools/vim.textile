@@ -32,7 +32,6 @@ syntax enable               " 打开语法高亮
 syntax on                   " 开启文件类型侦测
 filetype indent on          " 针对不同的文件类型采用不同的缩进格式
 filetype plugin on          " 针对不同的文件类型加载对应的插件
-filetype plugin indent on   " 启用自动补全
 set nobackup                " 设置无备份文件
 set nocompatible            " 不使用vi兼容的模式
 </pre>
@@ -94,4 +93,84 @@ $ git clone https://github.com/scrooloose/nerdtree.git
 </pre>
 <p>@:Helptags@ 生成帮助文档</p>
 <p>@:help NERD_tree.txt@ 查看帮助文档</p>
+
+	<p>插件安装</p>
+<pre>
+$ mkdir ~/.vim && cd ~/.vim
+$ git init
+$ git add .
+$ git commit -m 'init'
+$ git remote add origin git@github.com:linguofeng/vim.git
+$ git push origin master
+$ mkdir ~/.vim/bundle
+$ git submodule add git://github.com/tpope/vim-pathogen.git bundle/vim-pathogen
+$ vim ~/.vimrc
+</pre>
+<pre>
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+</pre>
+
+	<p>@bufexplorer@</p>
+<pre>
+$ git submodule add https://github.com/vim-scripts/bufexplorer.zip.git bundle/bufexplorer
+$ git add .
+$ git commit -m 'install bufexporer plugin'
+</pre>
+
+	<p>@生成插件文档@</p>
+<pre>
+$ vim >> :Helptags	# 启动vim后执行Helptags命令
+</pre>
+
+	<p>@升级插件@</p>
+<pre>
+$ cd ~/.vim/bundle/xxx && git pull origin master                # 更新某个插件
+$ cd ~/.vim/ && git submodule foreach git pull origin master	# 更新所有插件
+</pre>
+
+	<p>@删除插件@</p>
+<pre>
+$ cd ~/.vim && git rm bundle/xxx
+</pre>
+
+	<p>@同步到github@</p>
+<pre>
+$ git add .
+$ git commit -m '添加插件'
+$ git push origin master
+</pre>
+
+	<p>@同步到另一台电脑@</p>
+<pre>
+$ git clone git@github.com:linguofeng/vim.git ~/.vim
+$ ln -s ~/.vim/vimrc ~/.vimrc
+$ cd ~/.vim
+$ git submodule init
+$ git submodule update
+</pre>
+
+	<p>@cscope@</p>
+<pre>
+$ sudo apt-get install cscope
+$ curl -so ~/.vim/bundle/cscope/plugin/cscope_maps.vim http://cscope.sourceforge.net/cscope_maps.vim
+$ cscope -Rbkq ~/test/vimtest/zombie_game # 此时在zombie_game文件夹中生成cscope.out文件
+$ gvim 						# 启动gvim(下面都是vim命令)
+	:pwd					# 查看当前vim的工作目录
+	:cd ~/workspace			# 改变当前vim的工作目录为workspace
+	:cs add ~/test/vimtest/zombie_game/cscope.out ~/test/vimtest/zombie_game	# 添加cscope.out到cscope数据库中，对应路径，否则会出现找不到文件的错误。
+	:cs show				# 查看已经连接的数据库
+	:cs kill cscope.out		# 断开已经连接的数据库
+	:cs f g symbol			# 对应快捷键 Ctrl+]
+<p>@Ctrl+]@ :进入这个函数</p>
+<p>@Ctrl+O@ :返回搜索前的位置</p>
+</pre>
+
+	<p>生成工程的cscope.files</p>
+<pre>
+:cd /path/to/project												# 切换当前vim工作目录为工程目录
+:!find . -name '*.h' -o -name '*.c' -o -name '*.cpp' > cscope.files	# 搜索当前目录下所有.h、.c、.cpp文件并生成cscope.files文件列表
+:!cscope -b															# 根据cscope.files生成cscope.out数据库文件
+:cs add cscope.out .												# 连接cscope.out数据库
+</pre>
 </section>
