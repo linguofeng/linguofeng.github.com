@@ -1,0 +1,230 @@
+---
+layout: post
+title: C++学习笔记
+description: 笔记
+categories: [archive]
+---
+
+<section>
+    <div class="page-header">
+        <h1>一、文件结构</h1>
+    </div>
+
+    <h3>@.h@ 头文件：<small>由版权版本声明、预处理块、函数和类结构组成。</small></h3>
+<pre class="prettyprint">
+/**
+ * 版权版本声明
+ * 文件名：test.h
+ */
+
+#ifndef __TEST_H__   // 预处理块
+#define __TEST_H__
+
+// 全局函数
+int add(int x, int y);
+
+// 类结构
+class Test
+{
+public:
+    Test();
+    ~Test();
+    void sayHello(const char * str);
+}
+
+#endif
+</pre>
+
+    <h3>@.cpp@ 定义文件：<small>由版权版本声明、头文件引用、函数实现休</small></h3>
+<pre class="prettyprint">
+/**
+ * 版权版本声明
+ * 文件名：test.cpp
+ */
+
+#include <iostream>     // 标准库头文件
+#include "test.h"       // 非标准库头文件
+
+int add(int x, int y)   // 函数实现体
+{
+    return x + y;
+}
+
+Test::Test()            // 类实现体
+{
+
+}
+
+Test::~Test()
+{
+
+}
+
+Test::sayHello(const char * str)
+{
+    std::cout << "Hello " << str << std::endl;
+    std::cout << "10 + 15 = " << add(10 + 15) << std::endl;
+}
+</pre>
+
+    <p>总结：头文件的作用是隐藏实现体，通过头文件来调用库（.so）功能，加强类型检查，出现声明不一致时编译器报错。</p>
+    <p>技巧：通过头文件与声明文件放在不同的文件夹，如：include、source，对外提供时只需要提供include与编译后的.so库。</p>
+</section>
+
+<section>
+    <div class="page-header">
+        <h1>二、程序版式</h1>
+    </div>
+    <p>2.1： *空行* ，为了保持代码美观，函数与函数之间应该保持空行，函数内也应根据需要空行。</p>
+    <p>2.2： *代码行* ，一行代码应该只完成一件事，如定义一个变量，控制结构也应该使用 @{}@ 把代码包起来。</p>
+    <p>2.3： *代码行内的空格* ，在运行符与变量之间应该保持空格。</p>
+    <p>2.4： *对齐* ，控制结构的 @{}@ 应各占一行。</p>
+    <p>2.5： *长行拆分* ，一行代码的数量应该保持在70~80个字符，拆分时操作符应该放在新行的句首。</p>
+    <p>2.6： *修饰符的位置* ，修饰符应该靠近变量名，如 @char *name;@ 。</p>
+    <p>2.7： *注释* ，统一使用Doxygen的规范。</p>
+    <p>2.8： *类的版式* </p>
+    <p>2.8.1：以数据为中心的版式，private类型写在前面，重点关注类的内部结构。</p>
+    <p>2.8.2：以行为为中心的版式，public类型写在前面，重点关注类的行为，接口方法。</p>
+</section>
+
+<section>
+    <div class="page-header">
+        <h1>三、命名规则</h1>
+    </div>
+
+    <p>3.1：共性规则，变量使用 @名词@ 或 @形容词+名词@ ；全局函数使用 @动词@ 或 @动词+名词@ 。</p>
+<pre class="prettyprint">
+char * name;                        // 变量使用名词
+char * firstName;                   // 形容词+名词
+
+void setName(const char * name)     // 全局函数使用动词+名词
+{
+
+}
+
+void Student::sing(void)            // 类的成员函数使用动词 
+{
+
+}
+</pre>
+</section>
+
+<section>
+    <div class="page-header">
+        <h1>四、表达式与基本语句</h1>
+    </div>
+
+    <h3><small>4.1</small> 运行符优先级</h3>
+    <p>运行符太多，在复杂的语句中应使用 @()@ 把要先运行的代码包起来，如： @if ((a == 10) && (b == 10))@ 。</p>
+
+    <h3><small>4.2</small> if语句中的零值比较</h3>
+<pre class="prettyprint">
+if (flag)
+{
+    // flag为布尔值的正确写法
+}
+
+if (x == 0)
+{
+    // x为整数值的正确写法
+}
+
+if (p == NULL)
+{
+    // p为指针时的正确写法
+}
+
+if (f < 0 || f > 0)
+{
+    // f为不等于0的浮点数，浮点数比较时应使用比例符号，而不是==
+}
+</pre>
+
+    <h3><small>4.3</small> 循环语句中的效率问题</h3>
+<pre class="prettyprint">
+for (int i = 0; i < 5; i++)
+{
+    for (int j = 0; j < 100; j++)
+    {
+        // 高效率的写法
+    }
+}
+
+for (int i = 0; i < 100; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        // 低效率的写法
+    }
+}
+
+// 如果循环体内出现条件判断语句宜将条件判断语句放到循环体外。
+</pre>
+
+    <h3><small>4.4</small> switch语句</h3>
+<pre class="prettyprint">
+switch (var)
+{
+    case 1:
+        break;
+    case 2:
+        break;
+    case 3:
+        break;
+    default:        // default应该写完整，即使没有实现。
+        break;
+}
+</pre>
+</section>
+
+<section>
+    <div class="page-header">
+        <h1>五、常量</h1>
+    </div>
+
+    <h3><small>5.1</small> 常量定义</h3>
+    <p>可能有两种方式来声明一个常量，不过最好是使用 @const@ 来定义一个常量，而不使用 @#define@ 来定义常量。</p>
+<pre>
+#define MAX     10;     // 使用宏定义一个常量
+const int MAX = 10;     // 使用const定义一个常量，有数据类型
+</pre>
+    <p>需要对外公开的常量定义在头文件头部，不需要公开的定义在定义文件头部。</p>
+
+    <h3><small>5.2</small> 类中的常量</h3>
+<pre class="prettyprint">
+class Test
+{
+    const int X = 100;  // 错误，类中的常量不能在定义的时候初始化。
+    Text();
+    ~Test();
+}
+
+Test::Test()
+    :X(100)             // 正确，类中的常量应该在构造函数的时候初始化。
+{
+
+}
+</pre>
+</section>
+
+<section>
+    <div class="page-header">
+        <h1>六、函数设计</h1>
+    </div>
+
+    <h3><small>6.1</small> 函数命名规则</h3>
+    <p>应使用首字母小写，形容+动词或动词的命名方式。参数使用完整的参数列表。</p>
+<pre class="prettyprint">
+void add(int x, int y);
+void sayHello(const char *str);
+</pre>
+
+    <h3><small>6.2</small> 函数参数规则</h3>
+    <p>如果是指针传递应加 @const@ ，值传递加 @&@ 。</p>
+<pre class="prettyprint">
+void sayHello(const char *str);         // 指针传递
+
+void add(int x, int y, int &count);     // 值传递
+
+</pre>
+</section>
