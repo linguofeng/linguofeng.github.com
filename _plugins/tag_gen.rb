@@ -25,6 +25,8 @@ module Jekyll
           write_tag_index(site, File.join(dir, tag), tag)
         end
       end
+      #FileUtils.rm_r '/home/linguofeng/workspace/linguofeng.github.com/tag/'
+      #FileUtils.cp_r '/home/linguofeng/workspace/linguofeng.github.com/_site/tag/', '/home/linguofeng/workspace/linguofeng.github.com/'
     end
   
     def write_tag_index(site, dir, tag)
