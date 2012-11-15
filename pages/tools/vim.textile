@@ -35,12 +35,6 @@ filetype plugin on          " 针对不同的文件类型加载对应的插件
 set nobackup                " 设置无备份文件
 set nocompatible            " 不使用vi兼容的模式
 </pre>
-
-    <p>在Ubuntu 12.04中显示全局菜单的方法</p>
-    <p>@$ vim .bashrc@</p>
-<pre>
-function gvim () { (/usr/bin/gvim -f "$@" &) }
-</pre>
 </section>
 
 <section>

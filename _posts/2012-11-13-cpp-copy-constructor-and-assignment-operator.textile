@@ -3,6 +3,7 @@ layout: post
 title: C++的拷贝构造函数和赋值运算符
 description: 笔记
 categories: [archive]
+tags: [c++, cocos2d-x, c]
 ---
 
 <section>

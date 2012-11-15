@@ -33,7 +33,7 @@ void setName(const char * name)
 char * mName;
 void setName(const char * name)
 {
-    delete mName;                           // delete用于释放new申请的内存空间，同时记住释放后应该把指针置NULL防止出现“野指针”。
+    delete[] mName;                         // delete用于释放new申请的内存空间，同时记住释放后应该把指针置NULL防止出现“野指针”。
     mName = new char[strlen(name) + 1 + 8]; // abcdefg为8个字符长度
     if (NULL != mName)
     {

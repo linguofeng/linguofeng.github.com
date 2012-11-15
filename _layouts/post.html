@@ -1,9 +1,10 @@
 ---
 layout: default
 ---
-
         {{ content }}
         
+        {% if page.tags.size > 0 %}{% include tagbar.ext %}{% endif %}
+
         <hr />
 
         <!-- 上一篇或下一篇文章 -->

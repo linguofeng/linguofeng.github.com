@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<ul style="list-style:none; margin:0px;">{% for post in site.posts %}{% for tag in post.tags %}{% if tag == page.tag %}
+            <li>
+                <h4 style="font-weight:normal;">
+                    <small>{{ post.date | date:"%Y-%m-%d" }} » </small>
+                    <a href="{{ post.url }}" target="_blank">{{ post.title }}</a>
+                </h4>
+		        <!--ul>{% for tag in post.tags %}
+			        <li><a href="/tag/{{ tag }}">{{ tag }}</a></li>{% endfor %}
+		        </ul-->
+	        </li>{% endif %}{% endfor %}{% endfor %}
+        </ul>
