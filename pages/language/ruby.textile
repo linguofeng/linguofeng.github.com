@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Ruby
-description: 运行于JVM虚拟机的语言，能够与JAVA相互调用！！
+description: Ruby
 ---
 
 <section id="1">
@@ -25,9 +25,9 @@ $ rvm -v
     <div class="page-header">
         <h1>二、安装Ruby</h1>
     </div>
-    <p>"http://www.scala-sbt.org/":http://www.scala-sbt.org/</p>
     <pre>
         $ rvm pkg install zlib      // 为避免在安装Jekyll时报cannot load such file -- zlib，先安装zlib
+        $ rvm pkg install iconv     // 避免出现iconv will be deprecated in the future, use String#encode instead.
         $ rvm install *1.9.3*
         $ rvm use *1.9.3*
         $ ruby -v
