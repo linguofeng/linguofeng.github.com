@@ -1,14 +1,15 @@
 ---
 layout: post
 title: Cocos2d-x之CCSpriteFrameCache
-description: 通过贴现帧的方式加载一张大图
+description: 通过帧的方式加载一张大图
 categories: [archive]
+tags: [cocos2d-x]
 ---
 
-<section id="1">
+<section>
 <p>配合plist文件加载一张大图片中的某个区域</p>
 <p>@.plist@ 格式</p>
-<pre>
+<pre class="prettyprint">
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -46,7 +47,7 @@ categories: [archive]
 </plist>
 </pre>
 <p>使用CCSpriteFrameCache载入plist与图片</p>
-<pre>
+<pre class="prettyprint">
 CCSpriteFrameCache * cache = CCSpriteFrameCache::sharedSpriteFrameCache();
 
 cache->addSpriteFramesWithFile("plist文件", "图片");

@@ -3,11 +3,12 @@ layout: post
 title: C++的动态内存分配
 description: new与malloc动态内存分配的使用方法
 categories: [archive]
+tags: [c++]
 ---
 
 <section>
     <div class="page-header">
-        <h1>一、malloc/free</h1>
+        <h3>一、malloc/free</h3>
     </div>
 <pre class="prettyprint">
 char * mName;
@@ -25,7 +26,7 @@ void setName(const char * name)
 
 <section>
     <div class="page-header">
-        <h1>二、new/delete</h1>
+        <h3>二、new/delete</h3>
     </div>
 <pre class="prettyprint">
 #include <string.h>
@@ -48,7 +49,7 @@ void setName(const char * name)
 
 <section>
     <div class="page-header">
-        <h1>三、sizeof/strlen</h1>
+        <h3>三、sizeof/strlen</h3>
     </div>
 <pre class="prettyprint">
 char strs[] = "abcdefg";

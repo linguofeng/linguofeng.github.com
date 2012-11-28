@@ -3,9 +3,10 @@ layout: post
 title: Eclipse在Ubuntu 12.04下实现全局菜单
 description: https://bugs.launchpad.net/eclipse/+bug/618587/comments/46
 categories: [archive]
+tags: [ubuntu, eclipse]
 ---
 
-<section id="1">
+<section>
 <pre>
 step 1:
 $ sudo vim /usr/lib/gtk-2.0/2.10.0/menuproxies/libappmenu.so

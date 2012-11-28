@@ -3,6 +3,7 @@ layout: post
 title: Cocos2d-x之Touch事件处理机制
 description: 提供两种触摸事件处理机制：CCStandardTouchDelegate和CCTargetedTouchDelegate。
 categories: [archive]
+tags: [cocos2d-x]
 ---
 
 <section id="1">
@@ -29,7 +30,7 @@ table(table table-bordered).
     <p>默认情况下所有 @CCLayer@ 都没有启用触摸事件，需要 @this->setIsTouchEnabled(true);@ 启用。</p>
     <p>如需更改事件： @void registerWithTouchDispatcher(void) {}@</p>
 <pre class="prettyprint">
-class MyLayer: public coco2d:CCLayer {
+class MyLayer: public cocos2d:CCLayer {
 public:
     virtual void registerWithTouchDispatcher(void);
 

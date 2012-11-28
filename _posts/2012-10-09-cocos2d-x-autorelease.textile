@@ -3,9 +3,10 @@ layout: post
 title: Cocos2d-x之CCObject::autorelease
 description: Cocos2d-x对象自动释放的一些问题
 categories: [archive]
+tags: [cocos2d-x]
 ---
 
-<section id="1">
+<section>
     <div class="page-header">
         <h3>一、在传递对象指针的过程中有可能被自动释放的可能</h3>
     </div>
@@ -17,7 +18,7 @@ public:
     {
         return 25;
     }
-}
+};
 
 class B
 {
@@ -45,7 +46,7 @@ public:
     {
         return this->a->getValue();
     }
-}
+};
 
 int main(void)
 {

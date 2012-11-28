@@ -3,6 +3,7 @@ layout: post
 title: Cocos2d-x之区域裁剪
 description: 主要使用OpenGL提供的glScissor函数。
 categories: [archive]
+tags: [cocos2d-x]
 ---
 
 <section id="1">
@@ -10,13 +11,15 @@ categories: [archive]
         <h3>一、在Cocos2d-x中就这样来实现区域的显示</h3>
     </div>
 <pre class="prettyprint">
-class HelloLayer: cocos2d::CCLayer {
-public:
-    virtual void visit(void);
-}
+class HelloLayer: cocos2d::CCLayer
+{
+    public:
+        virtual void visit(void);
+};
 
 // visit()函数在每帧时调用
-void HelloLayer::visit() {
+void HelloLayer::visit()
+{
     glEnable(GL_SCISSOR_TEST);              // 开启显示指定区域
     float x = this->getPositionX();
     float y = this->getPositionY();

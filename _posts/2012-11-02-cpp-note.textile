@@ -3,14 +3,15 @@ layout: post
 title: C++学习笔记
 description: 笔记
 categories: [archive]
+tags: [c++]
 ---
 
 <section>
     <div class="page-header">
-        <h1>一、文件结构</h1>
+        <h3>一、文件结构</h3>
     </div>
 
-    <h3>@.h@ 头文件：<small>由版权版本声明、预处理块、函数和类结构组成。</small></h3>
+    <h4>@.h@ 头文件：<small>由版权版本声明、预处理块、函数和类结构组成。</small></h4>
 <pre class="prettyprint">
 /**
  * 版权版本声明
@@ -30,12 +31,12 @@ public:
     Test();
     ~Test();
     void sayHello(const char * str);
-}
+};
 
 #endif
 </pre>
 
-    <h3>@.cpp@ 定义文件：<small>由版权版本声明、头文件引用、函数实现休</small></h3>
+    <h4>@.cpp@ 定义文件：<small>由版权版本声明、头文件引用、函数实现休</small></h4>
 <pre class="prettyprint">
 /**
  * 版权版本声明
@@ -73,7 +74,7 @@ Test::sayHello(const char * str)
 
 <section>
     <div class="page-header">
-        <h1>二、程序版式</h1>
+        <h3>二、程序版式</h3>
     </div>
     <p>2.1： *空行* ，为了保持代码美观，函数与函数之间应该保持空行，函数内也应根据需要空行。</p>
     <p>2.2： *代码行* ，一行代码应该只完成一件事，如定义一个变量，控制结构也应该使用 @{}@ 把代码包起来。</p>
@@ -89,7 +90,7 @@ Test::sayHello(const char * str)
 
 <section>
     <div class="page-header">
-        <h1>三、命名规则</h1>
+        <h3>三、命名规则</h3>
     </div>
 
     <p>3.1：共性规则，变量使用 @名词@ 或 @形容词+名词@ ；全局函数使用 @动词@ 或 @动词+名词@ 。</p>
@@ -111,13 +112,13 @@ void Student::sing(void)            // 类的成员函数使用动词
 
 <section>
     <div class="page-header">
-        <h1>四、表达式与基本语句</h1>
+        <h3>四、表达式与基本语句</h3>
     </div>
 
-    <h3><small>4.1</small> 运行符优先级</h3>
+    <h4><small>4.1</small> 运行符优先级</h4>
     <p>运行符太多，在复杂的语句中应使用 @()@ 把要先运行的代码包起来，如： @if ((a == 10) && (b == 10))@ 。</p>
 
-    <h3><small>4.2</small> if语句中的零值比较</h3>
+    <h4><small>4.2</small> if语句中的零值比较</h4>
 <pre class="prettyprint">
 if (flag)
 {
@@ -140,7 +141,7 @@ if (f < 0 || f > 0)
 }
 </pre>
 
-    <h3><small>4.3</small> 循环语句中的效率问题</h3>
+    <h4><small>4.3</small> 循环语句中的效率问题</h4>
 <pre class="prettyprint">
 for (int i = 0; i < 5; i++)
 {
@@ -161,7 +162,7 @@ for (int i = 0; i < 100; i++)
 // 如果循环体内出现条件判断语句宜将条件判断语句放到循环体外。
 </pre>
 
-    <h3><small>4.4</small> switch语句</h3>
+    <h4><small>4.4</small> switch语句</h4>
 <pre class="prettyprint">
 switch (var)
 {
@@ -179,10 +180,10 @@ switch (var)
 
 <section>
     <div class="page-header">
-        <h1>五、常量</h1>
+        <h3>五、常量</h3>
     </div>
 
-    <h3><small>5.1</small> 常量定义</h3>
+    <h4><small>5.1</small> 常量定义</h4>
     <p>可能有两种方式来声明一个常量，不过最好是使用 @const@ 来定义一个常量，而不使用 @#define@ 来定义常量。</p>
 <pre>
 #define MAX     10;     // 使用宏定义一个常量
@@ -190,7 +191,7 @@ const int MAX = 10;     // 使用const定义一个常量，有数据类型
 </pre>
     <p>需要对外公开的常量定义在头文件头部，不需要公开的定义在定义文件头部。</p>
 
-    <h3><small>5.2</small> 类中的常量</h3>
+    <h4><small>5.2</small> 类中的常量</h4>
 <pre class="prettyprint">
 class Test
 {
@@ -209,17 +210,17 @@ Test::Test()
 
 <section>
     <div class="page-header">
-        <h1>六、函数设计</h1>
+        <h3>六、函数设计</h3>
     </div>
 
-    <h3><small>6.1</small> 函数命名规则</h3>
+    <h4><small>6.1</small> 函数命名规则</h4>
     <p>应使用首字母小写，形容+动词或动词的命名方式。参数使用完整的参数列表。</p>
 <pre class="prettyprint">
 void add(int x, int y);
 void sayHello(const char *str);
 </pre>
 
-    <h3><small>6.2</small> 函数参数规则</h3>
+    <h4><small>6.2</small> 函数参数规则</h4>
     <p>如果是指针传递应加 @const@ ，值传递加 @&@ 。</p>
 <pre class="prettyprint">
 void sayHello(const char *str);         // 指针传递

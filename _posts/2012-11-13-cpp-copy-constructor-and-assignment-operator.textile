@@ -3,12 +3,12 @@ layout: post
 title: C++的拷贝构造函数和赋值运算符
 description: 笔记
 categories: [archive]
-tags: [c++, cocos2d-x, c]
+tags: [c++]
 ---
 
 <section>
     <div class="page-header">
-        <h1>一、拷贝构造函数</h1>
+        <h3>一、拷贝构造函数</h3>
     </div>
     <p>使用原则：当对象中含有类型为指针的成员变量时，重载拷贝构造函数能够防止两对象共享同一成员指针的问题。</p>
 <pre class="prettyprint">
@@ -56,7 +56,7 @@ int main()
 
 <section>
     <div class="page-header">
-        <h1>二、赋值运算符</h1>
+        <h3>二、赋值运算符</h3>
     </div>
 <pre class="prettyprint">
 class Test
@@ -108,7 +108,7 @@ int main()
 
 <section>
     <div class="page-header">
-        <h1>三、总结</h1>
+        <h3>三、总结</h3>
     </div>
     <p>拷贝构造函数与赋值运算符的重载都是根据是否有指针类型的成员变量，如果有就需要重载来防止成员指针指向的地址是相同的。</p>
 </section>

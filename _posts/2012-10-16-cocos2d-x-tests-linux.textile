@@ -3,18 +3,19 @@ layout: post
 title: Cocos2d-x之tests工程在Ubuntu上运行
 description: Cocos2d-x对象自动释放的一些问题
 categories: [archive]
+tags: [cocos2d-x]
 ---
 
-<section id="1">
+<section>
     <div class="page-header">
-        <h1>一、安装依赖库</h1>
+        <h3>一、安装依赖库</h3>
     </div>
     <p>@$ sudo apt-get install libglfw2 libglfw-dev libzip2 libzip-dev@</p>
 </section>
 
-<section id="1">
+<section>
     <div class="page-header">
-        <h1>二、编译Box2D库</h1>
+        <h3>二、编译Box2D库</h3>
     </div>
 <pre>
 $ cd $COCOS2DX_ROOT/Box2D/proj.linux                    // 进入对应的linux工程
@@ -24,9 +25,9 @@ $ cp libbox2d.a $COCOS2DX_ROOT/lib/linux/Debug          // 复制库文件到Deb
 </pre>
 </section>
 
-<section id="1">
+<section>
     <div class="page-header">
-        <h1>三、编译chipmunk库</h1>
+        <h3>三、编译chipmunk库</h3>
     </div>
 <pre>
 $ cd $COCOS2DX_ROOT/chipmunk/proj.linux                 // 进入对应的linux工程
@@ -35,9 +36,9 @@ $ cp libchipmunk.a $COCOS2DX_ROOT/lib/linux/Debug       // 复制库文件到Deb
 </pre>
 </section>
 
-<section id="1">
+<section>
     <div class="page-header">
-        <h1>四、编译CocosDenshion库</h1>
+        <h3>四、编译CocosDenshion库</h3>
     </div>
 <pre>
 $ cd $COCOS2DX_ROOT/CocosDenshion/proj.linux                    // 进入对应的linux工程
@@ -47,9 +48,9 @@ $ cp ../third_party/linux/fmod/api/lib/libfmodex.so $COCOS2DX_ROOT/lib/linux/Deb
 </pre>
 </section>
 
-<section id="1">
+<section>
     <div class="page-header">
-        <h1>五、编译cocos2d库</h1>
+        <h3>五、编译cocos2d库</h3>
     </div>
 <pre>
 $ cd $COCOS2DX_ROOT/cocos2dx/proj.linux                 // 进入对应的linux工程
@@ -58,9 +59,9 @@ $ cp libcocos2d.so $COCOS2DX_ROOT/lib/linux/Debug       // 复制库文件到Deb
 </pre>
 </section>
 
-<section id="1">
+<section>
     <div class="page-header">
-        <h1>六、编译tests工程</h1>
+        <h3>六、编译tests工程</h3>
     </div>
 <pre>
 $ cd $COCOS2DX_ROOT/tests/test.linux                    // 进入对应的linux工程

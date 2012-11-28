@@ -11,44 +11,40 @@ navigation: [1.准备, 2.解锁, 3.Flash Recovery]
     <div class="page-header">
         <h3>一、准备 <small>下载获取Root权限的工具包。</small></h3>
     </div>
-
-    <pre>
-        下载地址：http://downloadandroidrom.com/file/Nexus7/rooting/Nexus7Root.zip
-    </pre>
+<pre>
+下载地址：http://downloadandroidrom.com/file/Nexus7/rooting/Nexus7Root.zip
+</pre>
 </section>
 
 <section id="2">
     <div class="page-header">
         <h3>二、解锁 <small>Ubuntu和Mac下是免驱动的。</small></h3>
     </div>
-
-    <pre>
-        $ mkdir nexus7 && cp Nexus7Root.zip nexus7 && cd nexus7
-        $ unzip Nexus7Root.zip              // 解压
-        $ chmod 755 *                       // 提升可执行权限
-        $ adb reboot bootloader             // 重启手机并让手机进入bootloader模式，使用adb命令的前提是安装了Android SDK，如果没有那可以按住 *电源键+减音量键* 来进入bootloader模式。
-        $ ./fastboot-linux oem unlock       // 解锁手机
-    </pre>
+<pre>
+$ mkdir nexus7 && cp Nexus7Root.zip nexus7 && cd nexus7
+$ unzip Nexus7Root.zip              // 解压
+$ chmod 755 *                       // 提升可执行权限
+$ adb reboot bootloader             // 重启手机并让手机进入bootloader模式，使用adb命令的前提是安装了Android SDK，如果没有那可以按住 *电源键+减音量键* 来进入bootloader模式。
+$ ./fastboot-linux oem unlock       // 解锁手机
+</pre>
 </section>
 
 <section id="3">
     <div class="page-header">
         <h3>三、flash recovery <small>先重启手机并把nexus7目录里的 *CWM-SuperSU-v0.94.zip* 拷贝到SD卡根目录，才刷Recovery。</small></h3>
     </div>
-
-    <pre>
-        $ adb reboot bootloader             // 进入bootloader模式，手动进入 *电源键+减音量键*
-        $ ./fastboot-linux flash recovery recovery-clockwork-touch-6.0.0.6-grouper.img
-        $ ./fastboot-linux erase cache
-    </pre>
+<pre>
+$ adb reboot bootloader             // 进入bootloader模式，手动进入 *电源键+减音量键*
+$ ./fastboot-linux flash recovery recovery-clockwork-touch-6.0.0.6-grouper.img
+$ ./fastboot-linux erase cache
+</pre>
 </section>
 
 <section>
     <div class="page-header">
         <h3>参考</h3>
     </div>
-    
-    <pre>
-        很详细的教程：http://nexus7root.com/nexus-7-root/how-to-root-nexus-7/
-    </pre>
+<pre>
+很详细的教程：http://nexus7root.com/nexus-7-root/how-to-root-nexus-7/
+</pre>
 </section>

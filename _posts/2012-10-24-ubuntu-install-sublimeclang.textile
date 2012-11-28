@@ -3,11 +3,12 @@ layout: post
 title: Ubuntu安装SublimeClang插件
 description: Ubuntu安装SublimeClang插件
 categories: [archive]
+tags: [ubuntu, Sublime Text 2, Clang]
 ---
 
 <section>
     <div class="page-header">
-        <h1>一、安装pythonbrew来安装Python2.6</h1>
+        <h3>一、安装pythonbrew来安装Python2.6</h3>
     </div>
 <pre>
 $ curl -kL http://xrl.us/pythonbrewinstall | bash
@@ -20,7 +21,7 @@ $ ln -s $HOME/.pythonbrew/pythons/Python-2.6/lib/python2.6/ <your Sublime Text 2
 
 <section>
     <div class="page-header">
-        <h1>二、Clang编译环境</h1>
+        <h3>二、Clang编译环境</h3>
     </div>
 <pre>
 $ sudo apt-get install clang
@@ -29,7 +30,7 @@ $ sudo apt-get install clang
 
 <section>
     <div class="page-header">
-        <h1>三、编译libcache.so</h1>
+        <h3>三、编译libcache.so</h3>
     </div>
 <pre>
 $ cd $HOME/.config/sublime-text-2/Packages/SublimeClang/src

@@ -3,9 +3,10 @@ layout: post
 title: C++的值、引用和指针的传递
 description: C++中值传递、引用传递、指针传递的区别
 categories: [archive]
+tags: [c++]
 ---
 
-<section id="1">
+<section>
 <pre class="prettyprint">
 #include <iostream>
 
@@ -41,6 +42,7 @@ int main()
     return 0;
 }
 </pre>
+
 <p>结果：</p>
 <pre class="prettyprint">
 x = 10                        // 初始值为10

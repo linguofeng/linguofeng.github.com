@@ -3,13 +3,14 @@ layout: post
 title: C++的const与pointer
 description: 笔记
 categories: [archive]
+tags: [c++]
 ---
 
 <section>
     <div class="page-header">
-        <h1>一、重载</h1>
+        <h3>一、重载</h3>
     </div>
-<pre class="">
+<pre class="prettyprint">
 const char* str;            // 常量指针，指向常量的指针，地址可变，值不可变。
 // char const *str;         // 同上。
 
