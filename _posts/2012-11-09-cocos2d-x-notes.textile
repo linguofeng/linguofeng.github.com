@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cocos2d-x学习笔记 
+title: Cocos2d-x之学习笔记 
 description: Cocos2dx学习笔记
 categories: [archive]
 tags: [cocos2d-x]

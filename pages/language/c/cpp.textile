@@ -7,7 +7,7 @@ navigation: [1.HelloWorld, 2.数据类型、变量与常量, 3.输入输出, 4.�
 
 <section id="1">
     <div class="page-header">
-        <h1>一、HelloWorld</h1>
+        <h3>一、HelloWorld</h3>
     </div>
 	<p>@$ subl HelloWorld.cpp@</p>
 <pre class="prettyprint">
@@ -25,9 +25,9 @@ int main() {
 
 <section id="2">
     <div class="page-header">
-        <h1>二、数据类型、变量与常量</h1>
+        <h3>二、数据类型、变量与常量</h3>
     </div>
-    <h3><small>2.1</small> 数据类型</h3>
+    <h4><small>2.1</small> 数据类型</h4>
 table(table table-bordered).
 |_.名称|_=.字节数|_.描述|_.范围|
 |@char@|=.1|字符（character）或整数（integer），8位|*有符号（signed）*: -128 到 127
@@ -47,7 +47,7 @@ table(table table-bordered).
 定义一个有符号int类型： @signed int x;@
 定义一个无符号int类型： @unsigned int y;@|
 
-    <h3><small>2.2</small> 变量</h3>
+    <h4><small>2.2</small> 变量</h4>
     <p>定义变量</p>
 <pre class="prettyprint">
 // 声明变量
@@ -71,7 +71,7 @@ std::string str1 = "Hello World1!";
 std::string str2("Hello World2!");
 </pre>
 
-    <h3><small>2.3</small> 常量</h3>
+    <h4><small>2.3</small> 常量</h4>
     <p>什么是常量？</p>
 <pre class="prettyprint">
 5           // 一个整数 int
@@ -108,7 +108,7 @@ const char tabulator = '\t';
 
 <section id="3">
     <div class="page-header">
-        <h1>三、输入输出</h1>
+        <h3>三、输入输出</h3>
     </div>
     <p>@std::cout <<@ ：输出</p>
 <pre class="prettyprint">
@@ -141,7 +141,7 @@ stringstream(str) >> x;     // 这个过程实现了字符串转换成数字
 
 <section id="4">
     <div class="page-header">
-        <h1>四、控制结构与函数</h1>
+        <h3>四、控制结构与函数</h3>
     </div>
     <p>控制结构</p>
 <pre class="prettyprint">
@@ -258,7 +258,7 @@ int add(int x, int y) {
 
 <section id="5">
     <div class="page-header">
-        <h1>五、高级数据类型</h1>
+        <h3>五、高级数据类型</h3>
     </div>
     <p>数组</p>
 <pre class="prettyprint">
@@ -361,7 +361,7 @@ cout << (* addp)(12, 24);
 
 <section id="6">
     <div class="page-header">
-        <h1>六、动态内存</h1>
+        <h3>六、动态内存</h3>
     </div>
     <p>@new@ / @new[]@</p>
 <pre class="prettyprint">
@@ -381,7 +381,7 @@ delete[] p2;    // 删除数组分配的内存
 
 <section id="7">
     <div class="page-header">
-        <h1>七、数据结构</h1>
+        <h3>七、数据结构</h3>
     </div>
     <p>@struct@ ：结构体</p>
 <pre class="prettyprint">
@@ -426,7 +426,7 @@ p -> m.year     => m1.m.year;
 
 <section id="8">
     <div class="page-header">
-        <h1>八、其它数据类型</h1>
+        <h3>八、其它数据类型</h3>
     </div>
     <p>@typedef@ ：自定义数据类型</p>
 <pre class="prettyprint">
@@ -484,9 +484,9 @@ enum months_t { january=1, february, march, april,
 
 <section id="9">
     <div class="page-header">
-        <h1>九、面向对象</h1>
+        <h3>九、面向对象</h3>
     </div>
-    <h3><small>9.1</small> 类(Class)</h3>
+    <h4><small>9.1</small> 类(Class)</h4>
     <p>@class@ ： %(label label-info)类% ，与C的struct类似，不同的是类可以包含结构体，而struct只包含数据元素。</p>
 <pre class="prettyprint">
 class Class_name {  // Class_name是自定义类型名称
@@ -707,7 +707,7 @@ int main() {
     return 0;
 }
 </pre>
-    <h3><small>9.2</small> 友元与继承关系(Friendship and inheritance)</h3>
+    <h4><small>9.2</small> 友元与继承关系(Friendship and inheritance)</h4>
     <p>@friend@ ：友元函数，提供访问 @private@ 和 @protected@ 成员</p>
 <pre class="prettyprint">
 class CRectangle {
@@ -884,7 +884,7 @@ int main () {
     return 0;
 }
 </pre>
-    <h3><small>9.3</small> 多态性（Polymorphism）</h3>
+    <h4><small>9.3</small> 多态性（Polymorphism）</h4>
     <p>基类的指针</p>
 <pre class="prettyprint">
 class CPolygon {
@@ -995,9 +995,9 @@ int main() {
 
 <section id="10">
     <div class="page-header">
-        <h1>十、C++高级概念</h1>
+        <h3>十、C++高级概念</h3>
     </div>
-    <h3><small>10.1</small> 模板(Templates) <small>使得我们可以生成通用的函数</small></h3>
+    <h4><small>10.1</small> 模板(Templates) <small>使得我们可以生成通用的函数</small></h4>
     <p>@template <class T> T/class ...@ ： 与java的泛型好像有那么一点相似。</p>
 <pre class="prettyprint">
 // 函数模板
@@ -1112,7 +1112,7 @@ int main () {
 </pre>
     <p>默认值： @template <class T=char, int N=10> class mysequence {..};@</p>
     <p>@mysequence<> myseq;@ 实际是等价于 @mysequence<char,10> myseq;@</p>
-    <h3><small>10.2</small> 命名空间(Namespaces) <small>将一组全局范围有效的类、对象或函数组织到一个名字下面。</small></h3>
+    <h4><small>10.2</small> 命名空间(Namespaces) <small>将一组全局范围有效的类、对象或函数组织到一个名字下面。</small></h4>
     <p>命名空间的使用： @using namespace xxx@</p>
 <pre class="prettyprint">
 namespace first {
@@ -1132,7 +1132,7 @@ int main () {
 </pre>
     <p>别名定义： @namespace new_name = current_name;@</p>
     <p>标准名空间： @using namespace std;@</p>
-    <h3><small>10.3</small> 异常(Exceptions)</h3>
+    <h4><small>10.3</small> 异常(Exceptions)</h4>
     <p>使用： @try {} catch(xxx) {}@</p>
 <pre class="prettyprint">
 int main () {
@@ -1165,13 +1165,13 @@ table(table table-bordered).
 |bad_typeid|thrown by typeid|
 |ios_base::failure|thrown by functions in the iostream library|
 
-    <h3><small>10.4</small> 类型转换(Type Casting)</h3>
+    <h4><small>10.4</small> 类型转换(Type Casting)</h4>
     <p>隐式转换(Implicit conversion)</p>
     <p>显式转换(Explicit conversion)</p>
     <p>动态转换(dynamic_cast)</p>
     <p>静态转换(static_cast)</p>
 
-    <h3><small>10.5</small> 预处理指令(Preprocessor Directives)</h3>
+    <h4><small>10.5</small> 预处理指令(Preprocessor Directives)</h4>
     <p>@#define@ ：定义一个宏定义变量/函数</p>
 <pre class="prettyprint">
 #define name value

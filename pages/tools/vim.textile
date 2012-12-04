@@ -168,3 +168,31 @@ $ gvim 						# 启动gvim(下面都是vim命令)
 :cs add cscope.out .												# 连接cscope.out数据库
 </pre>
 </section>
+
+<section>
+    <div class="page-header">
+        <h3>三、技巧</h3>
+    </div>
+    <h4><small>3.1</small> 替换(substitute)</h4>
+<div class="lgf-command">:[range]s/source/destination/[option]</div>
+<pre class="lgf-command-description">
+range: 范围
+    1,20    从第1行到20行
+    %       整个文件
+    .,$     从当前行到末尾
+    1,$     从第1行到末尾
+
+s: 替换操作
+
+source: 原内容
+
+destination: 目标内容
+
+option: 参数，省略时显替换第一个匹配的词
+    g:      全局替换
+    c:      需要确认替换
+    p:      逐行替换
+    i:      不区分大小写
+    e:      不显示error
+</pre>
+</section>
