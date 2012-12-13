@@ -1,17 +1,31 @@
 ---
-layout: default
+layout: page
 title: Python
 description: 面对对象，直译式编程语言。
+update: 2012-12-05
 ---
 
 <section id="1">
-  <div class="page-header">
-    <h3>Ubuntu 12.04.1系统默认Python版本为2.7.3</h3>
-  </div>
-<p>@$ python --version@</p>
+    <div class="page-header">
+        <h3>一、安装</h3>
+    </div>
+
+    <h4><small>1.1</small> Ubuntu</h4>
 <pre>
-Python 2.7.3
+$ sudo apt-fast install python
+$ python --version
+
+    Python 2.7.3
 </pre>
+
+    <h4><small>1.2</small> pythonbrew <small>python多版本管理工具</small></h4>
+<pre>
+$ curl -kL http://xrl.us/pythonbrewinstall | bash
+$ source $HOME/.pythonbrew/etc/bashrc
+$ pythonbrew install 2.7.2
+</pre>
+    <p>官方源码: https://github.com/utahta/pythonbrew</p>
+    <p>中文文档: https://pythonbrew.readthedocs.org</p>
 </section>
 
 <section id="2">

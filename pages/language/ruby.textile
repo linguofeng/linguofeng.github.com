@@ -1,7 +1,8 @@
 ---
-layout: default
+layout: page
 title: Ruby
 description: Ruby
+update: 2012-12-06
 ---
 
 <section id="1">

@@ -31,4 +31,30 @@ $ sudo chmod -R g+rws test          // 可读写
 </pre>
 </section>
 
+<section>
+    <div class="page-header">
+        <h3>二、配置</h3>
+    </div>
+    <h4><small>2.1</small> 修改svn diff为vim diff</h4>
+<pre>
+$ sudo vim /usr/local/bin/svndiff
+</pre>
+<pre>
+#!/bin/sh
+# 配置你喜欢的diff程序路径
+DIFF="gvimdiff"
+# SVN diff命令会传入两个文件的参数 
+LEFT=${6}
+RIGHT=${7}
+# 拼接成diff命令所需要的命令格式
+$DIFF $LEFT $RIGHT
+</pre>
+<pre>
+$ sudo chmod 777 /usr/local/bin/svndiff
+$ vim ~/.subversion/config
+</pre>
+<pre>
+diff-cmd = /usr/local/bin/svndiff
+</pre>
+</section>
 <p>参考：https://help.ubuntu.com/community/Subversion</p>
