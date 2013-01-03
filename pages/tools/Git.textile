@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 category: Tools
 title: Git
 description: 版本管理工具

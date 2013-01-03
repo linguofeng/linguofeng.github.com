@@ -58,3 +58,18 @@ diff-cmd = /usr/local/bin/svndiff
 </pre>
 </section>
 <p>参考：https://help.ubuntu.com/community/Subversion</p>
+
+<section>
+    <div class="page-header">
+        <h3>三、常用命令</h3>
+    </div>
+    <h4><small>3.1</small> 查看服务器列表</h4>
+<pre>
+$ svn ls svn://127.0.0.1/svn
+</pre>
+
+    <h3><small>3.2</small> 检出</h3>
+<pre>
+$ svn checkout svn://127.0.0.1/svn
+</pre>
+</section>

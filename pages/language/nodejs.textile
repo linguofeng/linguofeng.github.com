@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Nodejs
 description: Nodejs
 date: 2012-11-29 14:21
@@ -10,10 +10,27 @@ date: 2012-11-29 14:21
         <h3>一、安装Nodejs</h3>
     </div>
 
-    <h4>ubuntu 12.10 x32</h4>
+    <h4><small>1.1</small> ubuntu 12.10 x32</h4>
 <pre>
 $ sudo add-apt-repository ppa:chris-lea/node.js
 $ sudo apt-get update
 $ sudo apt-get install nodejs npm   # npm为Nodejs的包管理器
+</pre>
+
+    <h4><small>1.2</small> OS X</h4>
+<pre>
+$ brew install node
+    add /usr/local/share/npm/bin to $PATH
+</pre>
+</section>
+
+<section>
+    <div class="page-header">
+        <h3>二、Hello World</h3>
+    </div>
+<pre>
+$ vim hello-world.js
+    console.log('Hello World!!');
+$ node hello-world.js
 </pre>
 </section>
