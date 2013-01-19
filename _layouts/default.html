@@ -50,6 +50,7 @@
                   <li><a href="/pages/language/javascript.html">JavaScript</a></li>
                   <li><a href="/pages/language/erlang.html">Erlang</a></li>
                   <li><a href="/pages/language/go.html">Golang</a></li>
+                  <li><a href="/pages/language/lua.html">Lua</a></li>
                   <li class="dropdown-submenu">
                     <a href="/pages/language/c.html">C/C++</a>
                     <ul class="dropdown-menu">
@@ -63,21 +64,30 @@
               <li class="dropdown{% if page.url contains 'tools' %} active{% endif %}">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tools <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/pages/tools/Maven.html">Maven - 项目管理工具</a></li>
-                  <li><a href="/pages/tools/Ant.html">Ant - 项目构建工具</a></li>
-                  <li><a href="/pages/tools/Git.html">Git - 项目版本管理工具</a></li>
-                  <li><a href="/pages/tools/svn.html">Svn - 项目版本管理工具</a></li>
+                  <li class="dropdown-submenu">
+                    <a href="javascript:void(0)">项目管理工具</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/pages/tools/Maven.html">Maven - 项目管理工具</a></li>
+                      <li><a href="/pages/tools/Ant.html">Ant - 项目构建工具</a></li>
+                      <li><a href="/pages/tools/Git.html">Git - 项目版本管理工具</a></li>
+                      <li><a href="/pages/tools/svn.html">Svn - 项目版本管理工具</a></li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-submenu">
+                    <a href="javascript:void(0)">开发工具</a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/pages/tools/vim.html">Vim - 很强大的文本编辑器</a></li>
+                      <li><a href="/pages/tools/Emacs.html">Emacs - 很强大的文本编辑器</a></li>
+                      <li><a href="/pages/tools/SublimeText.html">Sublime Text - 很强大的文本编辑器</a></li>
+                    </ul>
+                  </li>
                   <li><a href="/pages/tools/Mylyn.html">Mylyn - 任务管理工具</a></li>
-                  <li><a href="/pages/tools/vim.html">Vim - 很强大的文本编辑器</a></li>
-                  <li><a href="/pages/tools/Emacs.html">Emacs - 很强大的文本编辑器</a></li>
                   <li><a href="/pages/tools/rsync.html">rsync - 很强大的文件同步备份工具</a></li>
-                  <li><a href="/pages/tools/SublimeText.html">Sublime Text - 很强大的文本编辑器</a></li>
-                  <li><a href="#">Mqtt - IBM消息推送</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Eclipse+Android+Maven</a></li>
                   <li class="divider"></li>
                   <li class="nav-header">OS X (Mac OS X)</li>
                   <li><a href="/pages/tools/Homebrew.html">Homebrew - 很强大软件包管理器</a></li>
+                  <li><a href="/pages/tools/iTerm.html">iTerm - 很不错的终端</a></li>
+                  <li><a href="/pages/tools/tmux.html">tmux - 很不错的终端复用器</a></li>
                 </ul>
               </li>
               <li class="dropdown{% if page.url contains 'favorites' %} active{% endif %}">

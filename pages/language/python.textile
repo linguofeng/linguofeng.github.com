@@ -2,12 +2,13 @@
 layout: page
 title: Python
 description: 面对对象，直译式编程语言。
+navigation: [1.Install, 2.Hello World]
 update: 2012-12-05
 ---
 
 <section id="1">
     <div class="page-header">
-        <h3>一、安装</h3>
+        <h3>一、Install</h3>
     </div>
 
     <h4><small>1.1</small> Ubuntu</h4>
