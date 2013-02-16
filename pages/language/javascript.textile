@@ -1,58 +1,55 @@
 ---
-layout: default
+layout: page
 title: JavaScript
+description: http://golang.org/
+navigation: [1.Window对象, 2.函数定义, 3.Window窗口传值, 4.DOM编程, 5.Ajax, 6.Json, 7.面向对象]
+update: 2013-01-12
 ---
 
-<div id="charpter">
+<section>
+    <div class="page-header">
+        <h3>一、Window对象</h3>
+    </div>
 
-h3. JavaScript
-
-</div>
-
-h1. JavaScript
-
-h3(#1). Window对象 %(title)Window对象%
-
-* "document":java.html - 文档对象
+* document - 文档对象
 * window - 自身
 * self - 自身
+</section>
 
-h3(#2). JavaScript函数定义 %(title)函数定义%
+<section>
+    <div class="page-header">
+        <h3>二、函数定义</h3>
+    </div>
 
-* *(#2_1)普通方式*
-<hr />
-
-<pre class="brush: javascript">
+    <h4><small>2.1</small> 普通方式</h4>
+<pre class="prettyprint">
 function print(msg){
     document.write(msg);
 }
 print('abc');
 </pre>
 
-* *(#2_2)函数直接量定义*
-<hr />
-
-<pre class="brush: javascript">
+    <h4><small>2.2</small> 函数直接量定义</h4>
+<pre class="prettyprint">
 var result = function(a,b){
     return a+b;
 }
 var sum = result(7,8);
 </pre>
 
-* *(#2_3)构造函数方法*
-<hr />
-
-<pre class="brush: javascript">
-var add = new Function('a','b','return a+3');
+    <h4><small>2.3</small> 构造函数方法</h4>
+<pre class="prettyprint">
+var add = new Function('a','b','return a+b');
 var sum = add(3,4);
 </pre>
+</section>
 
 h3(#3). Window窗口传值 %(title)Window窗口传值%
 
 * *(#3_1)方式一*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 // 父窗口
 window.showModalDialog(url,window当前窗口,params);
 window.showModelessDialog(url,window当前窗口,params);
@@ -64,7 +61,7 @@ window.dialogArguments; // 得到父窗口的window对象
 * *(#3_2)方式二*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 // 父窗口
 window.open(url,target,params);
 // 子窗口
@@ -77,7 +74,7 @@ h3(#4). DOM编程 %(title)DOM编程%
 * *(#4_1)DOM 属性*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 nodeName
     元素节点名称：元素
     文本节点名称：#text
@@ -95,7 +92,7 @@ nodeValue
 * *(#4_2)DOM 属性操作*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 getAttribute();
     Element.getAttribute('value');
 setAttribute();
@@ -105,7 +102,7 @@ setAttribute();
 * *(#4_3)DOM 节点操作*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 // 在target之前插入节点
 insertBefore();
     document.insertBefor(new,target);
@@ -131,7 +128,7 @@ h3(#5). Ajax %(title)Ajax%
 * *(#5_1)创建XMLHttpRequest对象*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 function getXmlHttpRequest(){
     var xmlHttp = null;
     try {
@@ -151,7 +148,7 @@ var xhr = getXmlHttpRequest();
 * *(#5_2)XMLHttpRequest 属性*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 xhr.onreadystatechange  - 状态监听
 xhr.readyState          - 状态
 xhr.status              - 响应码
@@ -163,7 +160,7 @@ xhr.responseXML         - 返回XML内容 MIME=text/xml
 * *(#5_3)XMLHttpRequest 方法*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 xhr.open()  - 与服务器建立连接
 xhr.send()  - 向服务器发送数据
 </pre>
@@ -171,14 +168,14 @@ xhr.send()  - 向服务器发送数据
 * *(#5_4)XMLHttpRequest 请求*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 // POST请求
 xhr.open("POST", "url", 是否异步：true/false);
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 send(data);
 </pre>
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 // GET请求
 xhr.open("GET", "url", 是否异步：true/false);
 send(null);
@@ -187,7 +184,7 @@ send(null);
 * *(#5_5)XMLHttpRequest 响应*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 xhr.onreadystatechange = function() {
     if(xhr.readyState == 4 && xhr.status == 200){
         alert(xhr.responseText);
@@ -201,7 +198,7 @@ h3(#6). Json - JavaScript Object Notation %(title)Json%
 * *(#6_1)Json 对象*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 var user = {
     'username' : 'admin',
     'password' : 'admin'
@@ -212,7 +209,7 @@ var username = user.username;
 * *(#6_2)Json 数组*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 var users = [
     {'username' : 'admin', 'password' : 'admin'},
     {'username' : 'root', 'password' : 'root'},
@@ -226,7 +223,7 @@ var username    = user.username;
 * *(#6_3)Json 复合*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 var users = {
     'address' : [
         {'address' : 'bj'},
@@ -244,7 +241,7 @@ var hometel = users.tels[ 0].tel.hometel;
 * *(#6_4)eval 函数*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 var json = eval('(' + xhr.responseText + ')');
 ==>
 var json = eval("({'username' : 'admin', 'password' : 'admin'})");
@@ -254,7 +251,7 @@ var username = json.username;
 * *(#6_5)Java -> Json* - 使用json_lib这个工具包把一个Java对象转换成json串
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 // 转换对象
 JSONObject.fromObject(Object).toString();
 // 转换数组
@@ -269,7 +266,7 @@ h3(#7). 面向对象 %(title)面向对象%
 * *对象*
 <hr />
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 var emptyObject1 = {};           //创建空对象
 var emptyObject2 = new Object(); //创建空对象
 var person = {"name":"sdcyst",
@@ -279,7 +276,7 @@ alert(person.name);              //sdcyst
 alert(person["age"]);            //18
 </pre>
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 var person = {};
 person.name = "sdcyst";
 person["age"] = 18;
@@ -291,8 +288,8 @@ alert(_person["name"] + "__" + person.age); //balala__23
 alert(_person[name]);                   //undefinied
 </pre>
 
-<pre class="brush: javascript">
-var name = {"name1":"NAME1","name2":"NAME2","name3":"NAME3","name4":"NAME4"};
+<pre class="prettyprint">
+var name = {"name1":"NAME1", "name2":"NAME2", "name3":"NAME3", "name4":"NAME4"};
 var namestring = "";
 for(var props in name) {  //循环name对象中的属性名字
     namestring += name[props];
@@ -306,7 +303,7 @@ for(var i=0; i<4; i++) {
 alert(namestring);  //NAME1NAME2NAME3NAME4
 </pre>
 
-<pre class="brush: javascript">
+<pre class="prettyprint">
 var name = {"name1":"NAME1","name2":"NAME2","name3":"NAME3","name4":"NAME4"};
 var namestring = "";
 for(var props in name) {  //循环name对象中的属性名字
@@ -325,7 +322,7 @@ alert(namestring);  //NAME2NAME4
 alert("name1" in name); //false
 alert("name4" in name); //true
 </pre>
-<pre class="brush: javascript">
+<pre class="prettyprint">
 var date = new Date();
 alert(date.constructor);  //Date
 alert(date.constructor == "Date");  //false

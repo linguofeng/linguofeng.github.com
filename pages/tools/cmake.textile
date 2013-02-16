@@ -1,7 +1,8 @@
 ---
-layout: default
+layout: page
 title: CMake
 description: 跨平台的make编译工具
+update: 2013-01-19
 ---
 
 <section>
