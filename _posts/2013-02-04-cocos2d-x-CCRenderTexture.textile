@@ -39,3 +39,4 @@ GL_ONE_MINUS_DST_ALPHA     // 表示用1.0减去目标颜色的alpha值来作为
 
     <p>参考：http://blog.csdn.net/aurora_mylove/article/details/1700540</p>
 </section>
+
