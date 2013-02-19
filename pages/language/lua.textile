@@ -17,7 +17,7 @@ $ sudo apt-get install lua5.2
     <h4><small>1.2</small> OS X</h4>
 <pre>
 $ brew tap homebrew/versions
-$ brew install lua52
+$ brew install lua52 luarocks
 </pre>
 </section>
 

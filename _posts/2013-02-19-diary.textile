@@ -1,0 +1,15 @@
+---
+layout: post
+title: 每日日记
+description: 学习Cocos2d-x与Lua结合、Ubuntu应用开发视频
+categories: [archive]
+tags: [cocos2d-x]
+---
+
+<section>
+<pre>
+    今天主要是学习Cocos2d-x平台下如何使用Lua做动态模块，因为工作需要开发一个插件式的应用，希望通过下载一个模块来增加新功能，了解到Lua是很不错的脚本语言，在查看Cocos2d-X官方2.0版本的时候无意看到spidermonkey，Google了一下才知道原来是javascript的C++解析器，能够在C++中直接调用javascript，也能够实现脚本的动态加载，不过仔细查看了一下，如果要在javascript中调用Cocos2d-x中的对象还需要绑定，目前官方实现的对象还没有Lua中的丰富，看来是刚刚弄起来的东西，不过相信以后会更加完善的，目前还是先使用Lua来实现这个动态加载的功能。
+    目前的想法是使用Lua实现一个新的场景，然后通过CCDirector都进行场景的切换，做了简单的测试这个可以实现，不过在进行测试的时候有用到CCScale9Sprite这个对象，不过官方的LuaCocos2d.cpp中并没有注册这个对象，所以无法在Lua中直接使用该对象，还需要自己添加，不过在想直接用C++实现好一个Layer的封装，再注册这个简单接口的，而不需要注册CCScale9Sprite这个很多接口的，用到的时候直接:create()进来，不过需要作一些事件的回调。
+    晚上的时候看了Ubuntu开发者网站的第一个做应用的视频，才发现原来Ubuntu可以这么容易开发，不过现在用着RMBP，分辨率太高了，跑Ubuntu字太小了，在考虑要不要增加一个外置显示器。
+</pre>
+</section>
