@@ -1,0 +1,391 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"奖金转",
+				"奖金转预存金"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "_layouts/tag.html",
+			"settings":
+			{
+				"buffer_size": 672,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "archive.html",
+			"settings":
+			{
+				"buffer_size": 646,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"git ",
+				"Git: Log All"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"ip",
+				"Package Control: Install Package"
+			],
+			[
+				"gits",
+				"Git: Status"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git stat	",
+				"Git: Status"
+			],
+			[
+				"git ad",
+				"Git: Add..."
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":s",
+				":w - Save"
+			],
+			[
+				":lo",
+				"Git: Log All"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/linguofeng/repositories/linguofeng.github.com/_layouts/default.html",
+		"/Users/linguofeng/repositories/linguofeng.github.com/index.html",
+		"/Users/linguofeng/repositories/linguofeng.github.com/_posts/2013-02-25-luajit-on-android.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/_posts/2013-01-04-android-get-status-bar-height.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/_posts/2013-02-19-diary.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/_posts/2012-11-14-cocos2d-x-CCTextureCache.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/archive.html",
+		"/Users/linguofeng/repositories/linguofeng.github.com/_posts/2013-02-04-cocos2d-x-CCRenderTexture.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/_layouts/tag.html",
+		"/Users/linguofeng/repositories/linguofeng.github.com/pages/language/javascript.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/pages/language/lua.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/pages/language/nodejs.textile",
+		"/Users/linguofeng/uuzzWorkspace/cocos2d-2.0-x-2.0.4/Cocos2dxDemo/LuaScript/HappyReunion/lua/HappyReunion.lua",
+		"/Users/linguofeng/repositories/linguofeng.github.com/_posts/2013-02-20-cocos2d-x-toluaxx.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/pages/tools/vim.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/pages/language/go.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/pages/tools/tmux.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/pages/language/c/Cocos2dx.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/_site/tag/android/index.html",
+		"/Users/linguofeng/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/linguofeng/repositories/linguofeng.github.com/linguofeng_github_com.sublime-project",
+		"/Users/linguofeng/repositories/linguofeng.github.com/linguofeng_github_com.sublime-workspace",
+		"/Users/linguofeng/uuzzWorkspace/Android/Lottery/src/com/lottery/client/activity/MyAccountDetailsActivity.java",
+		"/Users/linguofeng/Downloads/PackageAll 2/src/com/visionet/AppInfo.java",
+		"/Users/linguofeng/uuzzWorkspace/Lotteryziyou/LotterySD/Classes/protocol/LSDataOper.h",
+		"/Users/linguofeng/uuzzWorkspace/Lotteryziyou/LotterySD/Classes/protocol/resource.h",
+		"/Users/linguofeng/repositories/linguofeng.github.com/assets/css/base.css",
+		"/Users/linguofeng/repositories/linguofeng.github.com/assets/css/docs.css",
+		"/Users/linguofeng/repositories/linguofeng.github.com/assets/css/blog.css",
+		"/Users/linguofeng/repositories/linguofeng.github.com/pages/tools/Homebrew.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/pages/tools/fcitx.textile",
+		"/Users/linguofeng/repositories/linguofeng.github.com/assets/css/bootstrap.css",
+		"/Users/linguofeng/repositories/linguofeng.github.com/assets/js/google-code-prettify/prettify.css",
+		"/Users/linguofeng/repositories/linguofeng.github.com/_site/assets/css/docs.css",
+		"/Users/linguofeng/uuzzWorkspace/Lotteryziyou/LotterySD/Classes/protocol/LSUserData.h",
+		"/Users/linguofeng/uuzzWorkspace/Lotteryziyou/LotterySD/Classes/protocol/LSDataOper.cpp",
+		"/Users/linguofeng/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/linguofeng/uuzzWorkspace/Lotteryziyou/LotterySD/Classes/user/LSUserLayer.h",
+		"/Users/linguofeng/uuzzWorkspace/Lotteryziyou/LotterySD/Classes/widget/LSProgressDialog.cpp",
+		"/Users/linguofeng/uuzzWorkspace/Lotteryziyou/LotterySD/Classes/widget/LSProgressDialog.h",
+		"/Users/linguofeng/uuzzWorkspace/Lotteryziyou/LotterySD/Classes/widget/LSDialog.cpp",
+		"/Users/linguofeng/uuzzWorkspace/Lotteryziyou/LotterySD/Classes/widget/LSDialog.h",
+		"/Users/linguofeng/repositories/linguofeng.github.com/pages/favorites/eclipse.textile",
+		"/Users/linguofeng/Downloads/textmate-r9323/README.md",
+		"/Users/linguofeng/Desktop/ubuntu/linguofeng.github.com/_posts/2012-12-07-cpp-new-nothrow-new_handler.textile"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"brush: javascript",
+			"glBlendFunc有两个参数，前者表示源因子，后者表示目标因子。",
+			">\n",
+			"ParserLogin",
+			"m_requestData",
+			"requestData",
+			"getAccountDetailsInfo",
+			"HTTP_COMMAND_NEWS",
+			"vi\ngetAccountItemDetail",
+			"getAccountItemDetail",
+			"111",
+			"getAccountDetail",
+			"getAccountDetailsInfo",
+			"MyAccountAllAsyncTask",
+			"dropdown",
+			"footer",
+			"bs-docs-sidenav",
+			"android",
+			"></"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"prettyprint",
+			"sidenav"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "_layouts/tag.html",
+					"settings":
+					{
+						"buffer_size": 672,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								589,
+								589
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "archive.html",
+					"settings":
+					{
+						"buffer_size": 646,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								646,
+								646
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.git":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"nodejs",
+				"pages/language/nodejs.textile"
+			],
+			[
+				"vim",
+				"pages/tools/vim.textile"
+			],
+			[
+				"lua",
+				"pages/language/lua.textile"
+			],
+			[
+				"gol",
+				"pages/language/go.textile"
+			],
+			[
+				"javas",
+				"pages/language/javascript.textile"
+			],
+			[
+				"coco",
+				"pages/language/c/Cocos2dx.textile"
+			],
+			[
+				"go.",
+				"pages/language/go.textile"
+			],
+			[
+				"go.t",
+				"linguofeng.github.com/pages/language/go.textile"
+			],
+			[
+				"pyth",
+				"linguofeng.github.com/pages/language/python.textile"
+			],
+			[
+				"cpp.te",
+				"linguofeng.github.com/pages/language/c/cpp.textile"
+			],
+			[
+				"node",
+				"linguofeng.github.com/pages/language/nodejs.textile"
+			],
+			[
+				"resour",
+				"Lotteryziyou/LotterySD/Classes/protocol/resource.h"
+			],
+			[
+				"ecli",
+				"pages/favorites/eclipse.textile"
+			],
+			[
+				"svn",
+				"pages/tools/svn.textile"
+			],
+			[
+				"git",
+				"pages/tools/Git.textile"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 216.0,
+	"status_bar_visible": true
+}

@@ -3,7 +3,7 @@ layout: post
 title: Cocos2d-x之CCTextureCache 
 description: Cocos2dx的图片预加载进度条
 categories: [archive]
-tags: [cocos2d-x, c++]
+tags: [cocos2d-x]
 ---
 
 <section>
