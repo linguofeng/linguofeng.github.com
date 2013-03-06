@@ -1,9 +1,8 @@
 ---
-layout: post
-title: Cocos2d-x之Box2D物理引擎
-description: Cocos2d-x中的碰撞检测
-categories: [archive]
-tags: [cocos2d-x]
+layout: default
+title: Box2D物理引擎
+description: 很出名的2d物理引擎，有C++、Flash、Java等版本
+navigation: [1.基础概念]
 ---
 
 <section>
@@ -18,11 +17,11 @@ tags: [cocos2d-x]
     </ul>
     <p>创建刚体</p>
 <pre class="prettyprint">
-b2BodyDef bodyDef;                                      // 定义刚体
-bodyDef.type = b2_dynamicBody;                          // 定义刚体的类型b2_staticBody*, b2_kinematicBody, b2_dynamicBody
-bodyDef.position.Set(x/PTM_RATIO, y/PTM_RATIO);         // 设置刚体的位置，进行单位转换，box2d以米作单位，所以把像素转换成米，32像素为1米
+b2BodyDef bodyDef;                                  // 定义刚体
+bodyDef.type = b2_dynamicBody;                      // 定义刚体的类型b2_staticBody*, b2_kinematicBody, b2_dynamicBody
+bodyDef.position.Set(x/PTM_RATIO, y/PTM_RATIO);     // 设置刚体的位置，进行单位转换，box2d以米作单位，所以把像素转换成米，32像素为1米
 
-b2Body* groundBody = world->CreateBody(&bodyDef);       // 根据刚体定义创建刚体
+b2Body* groundBody = world->CreateBody(&bodyDef);   // 根据刚体定义创建刚体
 </pre>
 
     <h4><small>1.2</small> 形状，添加到刚体上进行碰撞，具有摩擦和恢复等材料特性</h4>

@@ -59,6 +59,12 @@ $ echo $GOPATH
 $ go get -u github.com/nsf/gocode
 </pre>
     <p>Gocode官网: @https://github.com/nsf/gocode@</p>
+
+    <h4><small>1.6</small> 配置zsh自动完成提示</h4>
+<pre>
+$ mkdir -p ~/.oh-my-zsh/custom/plugins/go/
+$ cp $GOROOT/misc/zsh/go ~/.oh-my-zsh/custom/plugins/go/go.plugin.zsh
+</pre>
 </section>
 
 <section id="2">
