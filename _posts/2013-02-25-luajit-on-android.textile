@@ -8,7 +8,7 @@ tags: [android, lua]
 
 <section>
     <div class="page-header">
-        <h3>一、编译Android平台的LuaJIT</h3>
+        <h4>一、编译Android平台的LuaJIT</h4>
     </div>
 <pre>
 $ git clone http://luajit.org/git/luajit-2.0.git

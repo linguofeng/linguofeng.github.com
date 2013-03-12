@@ -22,6 +22,15 @@
         margin: 30px 0;
       }
 
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+
     </style>
     <link href="/assets/components/bootstrap/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -127,7 +136,14 @@
 
       <hr>
 
-      {% if page.navigation %}<!-- 子导航栏 -->
+      <div class="jumbotron">
+        <h1>{{ page.title }}</h1>
+        <p class="lead">{{ page.description }}</p>
+      </div>
+
+      <hr>
+
+      {% if page.navigation %}
       <div class="sidenavbar">
         {% include sidenav.ext %}
       </div>
