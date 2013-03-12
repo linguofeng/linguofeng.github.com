@@ -5,11 +5,11 @@ description: 日志归档
 ---
 
 <ul style="list-style:none; margin:0px;">{% for post in site.posts %}{% capture m %}{{post.date | date:"%m"}}{% endcapture %}{% if month != m %}{% assign month = m %}
-                    <li><blockquote><h3>{{post.date | date:"%m/%Y"}}</h3></blockquote></li>{% endif %}
-                    <li>
-                        <h4 style="font-weight:normal;">
+                    <li><blockquote><h4>{{post.date | date:"%m/%Y"}}</h4></blockquote></li>{% endif %}
+                    <li style="padding-left: 23px;">
+                        <h5 style="font-weight:normal;">
                             <small>{{ post.date | date:"%d" }} » </small>
                             <a href="{{ post.url }}">{{ post.title }}</a>
-                        <h4>
+                        </h5>
                     </li>{% endfor %}
                 </ul>

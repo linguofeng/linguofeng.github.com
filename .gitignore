@@ -1,3 +1,6 @@
 _site/
 *.swp
 .DS_Store
+
+assets/components/bootstrap/*
+!assets/components/bootstrap/bootstrap

@@ -4,11 +4,13 @@ layout: default
 
 <ul style="list-style:none; margin:0px;">{% for post in site.posts %}{% for tag in post.tags %}{% if tag == page.tag %}
     {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}{% if year != y %}{% assign year = y %}
-                    <li><blockquote><h3>{{ y }}</h3></blockquote></li>{% endif %}
-                    <li>
-                        <h4 style="font-weight:normal;">
+                    <li><blockquote><h4>{{ y }}</h4></blockquote></li>{% endif %}
+                    <li style="padding-left: 20px;">
+                        <h5 style="font-weight:normal;">
                             <small>{{ post.date | date:"%b %d" }} » </small>
                             <a href="{{ post.url }}">{{ post.title }}</a>
-                        </h4>
+                            <span style="float:right;">{% for t in post.tags %}
+                            <span class="badge badge-info">{{ t }}</span>{% endfor %}</span>
+                        </h5>
                     </li>{% endif %}{% endfor %}{% endfor %}
                 </ul>
