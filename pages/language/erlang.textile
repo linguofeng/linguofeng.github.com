@@ -1,15 +1,39 @@
 ---
-layout: default
+layout: page
 title: Erlang
 description: http://erlang.org/
+navigation: [1.安装, 2.Hello World]
+update: 2013-03-20
 ---
 
 <section id="1">
-  <div class="page-header">
-    <h1>安装</h1>
-  </div>
-  <p>1.添加源 @deb http://binaries.erlang-solutions.com/debian precise contrib@</p>
-  <p>2.添加公钥 @$ wget http://binaries.erlang-solutions.com/debian/erlang_solutions.asc && sudo apt-key add erlang_solutions.asc@</p>
-  <p>3.更新源 @$ sudo apt-get update@</p>
-  <p>4.安装 @$ sudo apt-get install esl-erlang@</p>
+    <div class="page-header">
+        <h3>一、安装</h3>
+    </div>
+    <h4><small>1.1</small> OSX</h4>
+<pre class="prettyprint">
+$ brew install erlang
+</pre>
+</section>
+
+<section id="2">
+    <div class="page-header">
+        <h3>二、Hello World</h3>
+    </div>
+    <p>@vim hello.erl@</p>
+<pre class="prettyprint">
+-module(hello).
+-export([sayHello/0]).
+
+sayHello() -> io:fwrite("hello, world\n").
+</pre>
+
+<pre class="prettyprint">
+$ erl
+1> c(hello).         // 加载hello.erl文件
+{ok,hello}
+2> hello:sayHello(). // 调用sayHello方法
+hello, world
+ok                   // 连续按两次ctrl + c退出
+</pre>
 </section>

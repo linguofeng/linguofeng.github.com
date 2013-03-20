@@ -222,4 +222,15 @@ expandtab   使用空格替换tab
 retab       把所有tab替换成tabstop宽度的空格
 </pre>
 
+    <h4><small>3.4</small> 文件格式</h4>
+<div class="lgf-command">
+:set fileformat=unix
+:set fileformat=dos
+:set fileformat=mac
+</div>
+<div class="lgf-command-description">
+unix        表示是unix下的文件格式
+dos         windows下的文件格式
+mac         苹果下的文件格式
+</div>
 </section>

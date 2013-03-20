@@ -2,22 +2,30 @@
 layout: page
 title: Lua
 description: 简洁、轻量、可扩展的脚本语言
-navigation: [1.安装, 2.HelloWorld, 3.数据类型, 4.函数]
+navigation: [1.安装, 2.HelloWorld, 3.数据类型, 4.函数, 5.数据结构]
 update: 2013-01-17
 ---
 
 <section id="1">
     <div class="page-header">
-        <h3>一、安装</h3>
+        <h3>一、Lua安装及常用库的安装</h3>
     </div>
     <h4><small>1.1</small> Ubuntu</h4>
-<pre>
+<pre class="prettyprint">
 $ sudo apt-get install lua5.2
 </pre>
     <h4><small>1.2</small> OS X</h4>
-<pre>
-$ brew tap homebrew/versions
-$ brew install lua52 luarocks
+<pre class="prettyprint">
+$ brew install lua luarocks                 # luarocks是lua的模块管理工具
+$ sudo ln -s /usr/bin/make /usr/bin/gmake   # 解决 sh: gmake: command not found
+</pre>
+
+    <h4><small>1.3</small> luasocket库的安装</h4>
+<pre class="prettyprint">
+$ luarocks install luasocket
+$ lua
+> socket = require("socket")
+> print(socket._VERSION)                    -- LuaSocket 2.0.2
 </pre>
 </section>
 
@@ -25,7 +33,7 @@ $ brew install lua52 luarocks
     <div class="page-header">
         <h3>二、HelloWorld</h3>
     </div>
-<pre>
+<pre class="prettyprint">
 $ lua
 > print("Hello World!!")
 </pre>
@@ -41,16 +49,16 @@ Hello World!!
 
 table(table table-bordered).
 |_.类型|_.说明|
-|nil||
+|nil|全局变量默认值，如果要删除一个全局变量可以赋值为nil|
 |boolean|布尔值|
 |number|数字型|
 |string|字符串型|
-|userdata|用户自定义类型|
+|userdata|用户自定义类型，一般是C/C++中的类型|
 |function|函数|
 |thread|线程|
 |table|表|
 
-<pre>
+<pre class="prettyprint">
 print(type(nil))                    -- 输出 nil
 print(type(99.7+12*9))              -- 输出 number
 print(type(true))                   -- 输出 boolean
@@ -62,48 +70,357 @@ print(type{1, 2, test = "test"})    -- 输出 table
 
 <section id="4">
     <div class="page-header">
-        <h3>三、函数</h3>
+        <h3>四、函数 <small>第一类值</small></h3>
     </div>
-<pre class="">
-function add(x, y)                          // 定义一个函数add，并接收两个参数
-    local a = x + y                         // 定义一个局部变量a，接收x+y的和，局部变量仅在函数add中有效
-    return a                                // 返回
-end                                         // 结束add函数
+    <p><b>第一类值指</b>：在Lua中函数和其他值（数值、字符串）一样，函数可以被存放在变量中，也可以存放在表中，可以作为函数的参数，还可以作为函数的返回值。</p>
+<pre class="prettyprint">
+function add(x, y)             -- 定义一个函数add，并接收两个参数
+    local a = x + y            -- 定义一个局部变量a，接收x+y的和，局部变量仅在函数add中有效
+    return a                   -- 返回
+end                            -- 结束add函数
 
-print("15 + 64 = " .. add(15, 64));         // 打印add(15, 64)的结果
+print("15 + 64 = " .. add(15, 64));    -- 打印add(15, 64)的结果
+
+local x = 1                    -- local 关键字表示该变量为局部变量，作用域为当前上下文
+                               -- 无该关键字修饰时为全局变量，作用于整个Lua状态机
+
+local add = function(x, y)     -- 局部函数，作用于当前脚本（chumk）
+Lib = {}
+Lib.add = function(x, y)       -- 表函数，作用于Lib表
+</pre>
+
+    <h4>函数闭包</h4>
+    <p>闭包是一个内部函数以及它的upvalues，内部函数使用了外部（父函数）局部变量。</p>
+<pre class="prettyprint">
+function newCounter()
+    local i = 0           -- i为匿名函数的外部局部变量（upvalue）
+    return function()     -- 匿名内部函数
+        i = i + 1         -- 使用了i，所以该匿名函数是一个闭包
+        return i
+    end
+end
+
+c1 = newCounter()         -- 得到一个匿名函数的变量（闭包）
+print(c1())               -- 调用匿名函数，打印出1
+print(c1())               -- 调用匿名函数，打印出2
+
+c2 = newCounter()
+print(c2())  --> 1
+print(c1())  --> 3
+print(c2())  --> 2
 </pre>
 </section>
 
 <section id="5">
     <div class="page-header">
-        <h3>四、控制语句</h3>
+        <h3>五、控制语句</h3>
     </div>
-<pre>
-for int i = 0, 10, 2 do     // for循环，2表示步长，省略时为1
-    print("i = " .. i)      // .. 表示字符串连接符
-end                         // 结束for
+<pre class="prettyprint">
+for int i = 0, 10, 2 do     -- for循环，2表示步长，省略时为1
+    print("i = " .. i)      -- .. 表示字符串连接符
+end                         -- 结束for
 
-if a > b then               // if条件判断语句
+if a > b then               -- if条件判断语句
     print("a > b")
 else
     print("b > a")
 end
+
+while a > b do              -- while循环
+    print("")
+end
+
+repeat                      -- repeat-until循环
+    print("")
+until a > b
 </pre>
 </section>
 
 <section id="6">
     <div class="page-header">
-        <h3>五、数据结构 <small>table</small></h3>
+        <h3>六、逻辑运算符 <small>and、or、not</small></h3>
     </div>
-<pre>
-arrays = {}                         // 数组
-arrays[0] = "abc"
-arrays[1] = 123
+    <p>逻辑运算符认为false和nil是假（false），其他为真，0也是true.</p>
+<pre class="prettyprint">
+a and b       -- 如果a为false，则返回a，否则返回b
+a or  b       -- 如果a为true，则返回a，否则返回b
 
-arrays["key"] = "value"             // map
+x = x or v    -- 如果x为false或者nil时则给x赋初始值v
+-- 等价于
+if not x then
+    x = v
+end
 
-for key, value in pairs(arrays) do  // 迭代table
+-- 三元运算符
+a ? b : c   =>   a and b or c   -- and 的优先级别比 or 高
+
+not                 -- not 的结果只返回false或true，作用类似于"非" "!"取反的意思
+print(not nil)      -- true
+print(not false)    -- true
+print(not 0)        -- false
+</pre>
+</section>
+
+<section id="7">
+    <div class="page-header">
+        <h3>七、协同程序 <small>coroutine</small></h3>
+    </div>
+    <h4><small>7.1</small> 创建协同</h4>
+<pre class="prettyprint">
+co = coroutine.create(function ()   -- 创建一个协同函数，接收一个匿名函数，返回thread类型
+    print("hi")
+end)
+
+print(co)                           -- thread: 0x7fe1834127d0
+</pre>
+
+    <h4><small>7.2</small> 协同的三个状态:挂起态（suspended）、运行态（running）、停止态（dead）。</h4>
+<pre class="prettyprint">
+print(coroutine.status(co))         -- 查看协同的状态，默认状态是挂起态 suspended
+
+coroutine.resume(co)                -- 改变协同的状态为运行太 hi
+
+print(coroutine.status(co))         -- 协同运行完以后将变量停止态 dead
+</pre>
+
+    <h4><small>7.3</small> 如此挂起正在运行的协同</h4>
+<pre class="prettyprint">
+co = coroutine.create(function ()
+    print("hi")
+    coroutine.yield()               -- 协同运行到此状态将变成挂起
+    print("你好")
+end)
+
+coroutine.resume(co)                -- hi
+coroutine.resume(co)                -- 你好
+coroutine.resume(co)                -- false，协同结束后将不能再使用
+</pre>
+
+    <h4><small>7.4</small> 协同数据交换</h4>
+<pre class="prettyprint">
+co = coroutine.create(function (x, y)   -- 接收两个参数
+    print("hi", coroutine.yield(x + y)) -- 返回一个值，同时参数也传递给了coroutine.yield
+    return 100                          -- 第三种返回值的方式
+end)
+
+print(coroutine.resume(co, 12, 87))     -- 传递两个参数并接收返回值(true, 99)
+
+-- 执行coroutine.yield(x + y)之前协同被挂起，但值被返回，因此print函数未被执行，下面执行
+
+print(coroutine.resume(co, 12, 87))     -- 传递两个参数并接收返回值(true, 100)
+</pre>
+</section>
+
+<section id="8">
+    <div class="page-header">
+        <h3>八、数据结构 <small>table</small></h3>
+    </div>
+    <h4><small>8.1</small> 表的创建</h4>
+<pre class="prettyprint">
+arrays = {}                         -- 创建一个空表
+arrays[1] = "abc"                   -- 第一个索引值为1
+arrays[2] = 123
+
+arrays["key"] = "value"             -- map
+
+for key, value in pairs(arrays) do  -- 迭代table
     print(key .. " = " .. value)
 end
 </pre>
+    <h4><small>8.2</small> 表的增删改查</h4>
+<pre class="prettyprint">
+list = {123}            -- 初始化表
+list[2] = "abc"         -- 增
+list.x = 123
+list.y = 987
+list[1] = nil           -- 删
+list.y = nil
+list[2] = 456           -- 改
+list.x = 987
+print(list[2])          -- 查
+print(list.x)
+print(list['x'])
+</pre>
+    <h4><small>8.3</small> 数组</h4>
+<pre class="prettyprint">
+list = {}               -- 初始空化数组，数组的下标是整数，遵循Lua的标准，下标从1开始
+list[1] = "abc"
+list[2] = "edg"
+list[3] = "hij"
+</pre>
+    <h4><small>8.4</small> 矩阵（二维数组）</h4>
+<pre class="prettyprint">
+mt = {}                 -- 创建矩阵matrix
+for i = 1, N do         -- 创建N行
+    mt[i] = {}          -- 每行都是一个数组（table元素）
+    for j = 1, M do     -- 创建M列
+        mt[i][j] = "a"  -- 第N行第M行的值
+    end
+end
+</pre>
+    <h4><small>8.5</small> 链表</h4>
+    <p><img class="thumbnail"  alt="Singly-linked-list.svg" src="//upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/816px-Singly-linked-list.svg.png" width="408" height="41" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/612px-Singly-linked-list.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/816px-Singly-linked-list.svg.png 2x"></p>
+<pre class="prettyprint">
+list = nil
+list = {next = list, value = "hello3"}
+list = {next = list, value = "hello2"}
+list = {next = list, value = "hello1"}
+
+-- 遍历
+local l = list
+while l do
+    print(l.value)
+    l = l.next
+end
+</pre>
 </section>
+
+<section id="9">
+    <div class="page-header">
+        <h3>九、metatable 元表</h3>
+    </div>
+    <h4><small>9.1</small> 元表与元方法</h4>
+    <p>元表也是普通表</p>
+<pre class="prettyprint">
+t = {}
+print(getmetatable(t))      -- 获取表的metatable nil，默认不带
+
+mt = {}
+setmetatable(t, mt)         -- 设置一个元素
+
+-- metamethod 元表的方法（元方法）
+mt.__add                    -- 加 +
+mt.__sub                    -- 减 -
+mt.__mul                    -- 乘 *
+mt.__div                    -- 除 /
+mt.__unm                    -- 负 -
+mt.__pow                    -- 幂 ^
+mt.__concat                 -- 连接
+
+mt.__eq                     -- 等于 =
+mt.__lt                     -- 小于 <
+mt.__le                     -- 大于 >
+
+mt.__tostring               -- print调用
+mt.__metatable              -- 设置该元表不被修改与访问
+
+mt.__index                  -- 当访问不存在的元素时会去查询，相当于子类继承父类一样
+mt.__newindex               -- 更新表，如果增加一个不存在的元素，会去查询，有直接用，否则增加
+</pre>
+
+    <h4><small>9.2</small> 表的代理</h4>
+    <p>记录下表的增查记录</p>
+<pre class="prettyprint">
+local index = {}                  -- 私有的key，用来记录原始表在代理表中的下标
+local mt = {                      -- 创建元表
+    __index = function(t, k)
+        print("访问了" .. tostring(k) .. "元素")
+        return t[index][k]        -- 从代理表中获取原始表中k下标的数据
+    end,
+    
+    __newindex = function(t, k, v)
+        print("更新了 " .. tostring(k) .. " 元素的值为 " .. tostring(v))
+        t[index][k] = v           -- 更新代理表中下标为index的原始表中的元素
+    end
+}
+
+function setProxy(t)
+    local proxy = {}              -- 创建代理表
+    proxy[index] = t              -- 把原始表加到代理表的index下标中
+    setmetatable(proxy, mt)       -- 设置代理表的元表
+    return proxy                  -- 返回代理表，即所有操作都是直接操作代理表
+end
+
+p = setProxy({})
+
+p[2] = 'abcdefg'            -- 更新了 2 元素的值为 abcdefg
+print(p[2])                 -- 访问了2元素
+</pre>
+</section>
+
+<section id="10">
+    <div class="page-header">
+        <h3>十、环境 <small>全局变量，即系统变量 _G</small></h3>
+    </div>
+<pre class="prettyprint">
+> _G["ewgegw"] = "ddddddgege"
+> table.foreach(_G, print)
+string  table: 0x7ffce3407a60
+xpcall  function: 0x7ffce3404780
+package table: 0x7ffce3405780
+tostring    function: 0x7ffce3405020
+print   function: 0x7ffce3405160
+os  table: 0x7ffce34073e0
+unpack  function: 0x7ffce34050d0
+ewgegw  ddddddgege                          -- 上面添加的全局变量
+require function: 0x7ffce3405e70
+getfenv function: 0x7ffce3404db0
+setmetatable    function: 0x7ffce3404f60
+next    function: 0x7ffce3404d20
+assert  function: 0x7ffce3404a80
+tonumber    function: 0x7ffce3404fc0
+io  table: 0x7ffce3406bd0
+rawequal    function: 0x7ffce34051b0
+collectgarbage  function: 0x7ffce3404ad0
+getmetatable    function: 0x7ffce3404e00
+module  function: 0x7ffce3405e20
+rawset  function: 0x7ffce3405260
+math    table: 0x7ffce3408290
+debug   table: 0x7ffce3408c50
+pcall   function: 0x7ffce3404d70
+table   table: 0x7ffce3405f10
+newproxy    function: 0x7ffce34052e0
+type    function: 0x7ffce3405080
+coroutine   table: 0x7ffce3405380            -- 对应的是协同的表
+_G  table: 0x7ffce3404110
+select  function: 0x7ffce3404ec0
+gcinfo  function: 0x7ffce3404150
+pairs   function: 0x7ffce34048c0
+rawget  function: 0x7ffce3405210
+loadstring  function: 0x7ffce3404cc0
+ipairs  function: 0x7ffce3404830
+_VERSION    Lua 5.1
+dofile  function: 0x7ffce3404bd0
+setfenv function: 0x7ffce3404f10
+load    function: 0x7ffce3404c70
+error   function: 0x7ffce3404c20
+loadfile    function: 0x7ffce3404e60
+
+> table.foreach(_G.os, print)
+</pre>
+</section>
+
+<section id="11">
+    <div class="page-header">
+        <h3>十一、包 package</h3>
+    </div>
+    <h5><small>11.1</small> 包的定义</h5>
+<pre class="prettyprint">
+-- student.lua
+student = {}
+
+function student.sayHi()
+    print('Hello')
+end
+
+return student
+
+-- 使用
+student = require("student")
+student.sayHi()                 -- Hello
+</pre>
+    <h5><small>11.2</small> 私有函数</h5>
+<pre class="prettyprint">
+local function _add(x, y)       -- 私有局部函数
+    return x + y
+end
+
+utils = {                       -- utils包
+    add = _add                  -- 对外公开的函数
+}
+
+return utils
+</pre>
+</section>
+
+<p>参考：http://book.luaer.cn</p>

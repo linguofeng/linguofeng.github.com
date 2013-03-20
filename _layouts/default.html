@@ -85,7 +85,7 @@
               <li><a href="/pages/language/php.html">PHP</a></li>
             </ul>
           </li>
-          <li class="dropdown{% if page.url contains 'tools' %} active{% endif %}">
+          <li class="dropdown{% if page.url contains 'tools' or page.url contains 'os' and page.date == null %} active{% endif %}">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tools <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="dropdown-submenu">
@@ -113,6 +113,10 @@
               <li><a href="/pages/tools/zsh.html">zsh - 强大的Shell</a></li>
               <li><a href="/pages/tools/iTerm2.html">iTerm2 - 很不错的终端</a></li>
               <li><a href="/pages/tools/tmux.html">tmux - 很不错的终端复用器</a></li>
+              <li class="divider"></li>
+              <li class="nav-header">操作系统</li>
+              <li><a href="/pages/os/ubuntu.html">Ubuntu</a></li>
+              <li><a href="/pages/os/osx.html">OS X</a></li>
             </ul>
           </li>
           <li class="dropdown{% if page.url contains 'favorites' %} active{% endif %}">

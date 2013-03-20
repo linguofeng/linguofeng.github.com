@@ -3,14 +3,14 @@ layout: post
 title: Android中编译和使用LuaJIT开发应用
 description: 使用LuaJIT开发Android应用
 categories: [archive]
-tags: [android, lua]
+tags: [android, lua, luajit]
 ---
 
 <section>
     <div class="page-header">
-        <h4>一、编译Android平台的LuaJIT</h4>
+        <h3>一、编译Android平台的LuaJIT</h3>
     </div>
-<pre>
+<pre class="prettyprint">
 $ git clone http://luajit.org/git/luajit-2.0.git
 $ cd luajit-2.0
 $ NDK=/opt/android/ndk
@@ -25,14 +25,15 @@ $ make HOST_CC="gcc -m32" CROSS=$NDKP TARGET_FLAGS="$NDKF" TARGET_SYS=Linux #在
 
 <section>
   <div class="page-header">
-    <h3>二、把生成的libluajit.a静态库文件与一些头文件拷贝到jni目录下</h3>
+    <h3>二、把生成的libluajit.a库文件与一些头文件拷贝到jni目录下</h3>
   </div>
   <p>本例子中使用的是ndk中的hello-jni工程</p>
-<pre>
-$ cp src/{libluajit.a,lua.h,lauxlib.h,lua.hpp,luaconf.h,luajit.h,lualib.h} ../android/jni
+<pre class="prettyprint">
+$ cp src/{libluajit.a,lua.h,lauxlib.h,lua.hpp,luaconf.h,luajit.h,lualib.h} \
+> ../android/jni  # android工程jni目录
 $ vim ../android/jni/Android.mk
 </pre>
-<pre>
+<pre class="prettyprint">
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)

@@ -3,89 +3,75 @@ layout: default
 title: Ubuntu
 ---
 
-<div id="charpter">
+<section>
+  <div class="page-header"><h4>一、Linux指令</h4></div>
 
-h3. 导航
-
-</div>
-
-h1. {{ page.title }}
-
-h3(#1). *一、Linux指令* %(title)Linux指令%
-<hr />
-
-*(1#101) *常用指令* %(title)常用指令%
-<hr />
+<h5><small>1.1</small> 常用指令</h5>
 
 <pre>
-pwd：    当前工作目录              pwd
-ls：     当前目录内容（list）      ls
-mkdir：  创建目录（makedir）       mkdir books
-cd：     进入目录                  cd books
-touch：  生成空文件                touch book.txt
-echo：   带内容的文件              echo "内容" > book.txt
-cp：     拷贝文件（copy）          cp book.txt book.txt.bak
-rm：     删除文件（remove）        rm -r（删除所有文件）/-f（强制删除） book.txt
-rmdir：  删除空目录                rmdir 空目录
-mv：     移动文件（move）          mv 原文件 目标位置
-mv：     重命名                    mv a.txt b.txt
-find：   查找文件                  find [指定目录] -name 文件名
-grep：   查找指定文件里的内容      grep "是否有包含内容" book.txt
-wc：     统计文本的行数字符数      wc book.txt
-tree：   树状目录                  tree
-ln：     建立软链接（link）        ln -s 目标目录 链接目录（快捷方式）
-cat：    查看文件内容              cat book.txt
-more：   分页显示文件内容
-less：   分页显示文件内容
-head：   显示文本开头内容
-tail：   显示文件内容结尾内容
+pwd      当前工作目录               pwd
+ls       当前目录内容(list)         ls
+mkdir    创建目录(makedir)         mkdir books
+cd       进入目录                  cd books
+touch    生成空文件                touch book.txt
+echo     带内容的文件              echo "内容" > book.txt
+cp       拷贝文件（copy）          cp book.txt book.txt.bak
+rm       删除文件（remove）        rm -r（删除所有文件）/-f（强制删除） book.txt
+rmdir    删除空目录                rmdir 空目录
+mv       移动文件（move）          mv 原文件 目标位置
+mv       重命名                    mv a.txt b.txt
+find     查找文件                  find [指定目录] -name 文件名
+grep     查找指定文件里的内容      grep "是否有包含内容" book.txt
+wc       统计文本的行数字符数      wc book.txt
+tree     树状目录                  tree
+ln       建立软链接（link）        ln -s 目标目录 链接目录（快捷方式）
+cat      查看文件内容              cat book.txt
+more     分页显示文件内容
+less     分页显示文件内容
+head     显示文本开头内容
+tail     显示文件内容结尾内容
 </pre>
 
-*(1#102) *系统管理命令* %(title)系统管理命令%
-<hr />
+<h5><small>1.2</small> 系统管理命令</h5>
 
 <pre>
-stat：       查看目录详细信息                stat 目录
-who：        查看有多少登录用户              who
-hostname：   显示主机名称                    hostname
-uname：      显示系统信息                    uname -a
-top：        显示当前系统资源实时信息        top
-ps：         显示当前系统瞬间进程状态        ps -aux
-du：         显示指定文件目录的磁盘使用情况  du -h 目录/文件
-df：         显示磁盘使用情况                df -h
-free：       显示当前内存使用情况            free -s2 2秒数更新数据
-ifconfig：   显示网络接口信息                ifconfig
-ping：       测试网络连通性
-netstat：    显示网络状态信息
-man：        命令帮助信息查询                man ls 查看ls的帮助
-alias：      设置命令别名                    aliax list="ls"
-unaliax：    删除命令别名                    unaliax list
-clear：      清屏
-kill：       杀死一个进程
+stat         查看目录详细信息                stat 目录
+who          查看有多少登录用户              who
+hostname     显示主机名称                    hostname
+uname        显示系统信息                    uname -a
+top          显示当前系统资源实时信息        top
+ps           显示当前系统瞬间进程状态        ps -aux
+du           显示指定文件目录的磁盘使用情况  du -h 目录/文件
+df           显示磁盘使用情况                df -h
+free         显示当前内存使用情况            free -s2 2秒数更新数据
+ifconfig     显示网络接口信息                ifconfig
+ping         测试网络连通性
+netstat      显示网络状态信息
+man          命令帮助信息查询                man ls 查看ls的帮助
+alias        设置命令别名                    aliax list="ls"
+unaliax      删除命令别名                    unaliax list
+clear        清屏
+kill         杀死一个进程
 </pre>
 
-*(1#103) *备份压缩命令* %(title)备份压缩命令%
-<hr />
+<h5><small>1.2</small> 备份压缩命令</h5>
 
 <pre>
+# gzip 只能压缩文件 后缀  gz
 -----------------------------------------------------------
-gzip 只能压缩文件 后缀：gz
------------------------------------------------------------
-压缩：      gzip 文件名
-解压：      gzip -d xxx.gz
-压缩比：    gzip -l xxx.gz
-压缩速度：  gzip -num    默认num=6 数值越小压缩率越小
+压缩         gzip 文件名
+解压         gzip -d xxx.gz
+压缩比       gzip -l xxx.gz
+压缩速度     gzip -num    默认num=6 数值越小压缩率越小
 
+# bzip2 只能压缩文件 后缀  bz2
 -----------------------------------------------------------
-bzip2 只能压缩文件 后缀：bz2
------------------------------------------------------------
-压缩：bzip2 -z 文件名
-解压：bzip2 -d xxx.bz2
-压缩比： bzip2 -l xxx.gz
-压缩速度：  bzip2 -num    默认num=6 数值越小压缩率越小
+压缩  bzip2 -z 文件名
+解压  bzip2 -d xxx.bz2
+压缩比   bzip2 -l xxx.gz
+压缩速度    bzip2 -num    默认num=6 数值越小压缩率越小
 
------------------------------------------------------------
-tar 打包
+# tar 打包
 -----------------------------------------------------------
 -c 打包
 -x 解包
@@ -94,9 +80,9 @@ tar 打包
 -v 显示压缩过程
 -f 文件名
 
-例子：
+例子  
 tar -cvf 文件名 把谁压缩
-tar -xvf 文件名 把谁压缩
+tar -xvf 文件名 把谁解包
 
 tar -zcvf 文件名 把谁压缩
 tar -zxvf 文件名 解压到
@@ -105,8 +91,7 @@ tar -jcvf 文件名 把谁压缩
 tar -jxvf 文件名 解压到
 </pre>
 
-*(1#104) *关机重启命令* %(title)关机重启命令%
-<hr />
+<h5><small>1.2</small> 关机重启命令</h5>
 
 <pre>
 shutdown -r now 立即重启
@@ -116,6 +101,7 @@ reboot          重启
 
 Linux 通道符 |
 </pre>
+</section>
 
 h3(#2). *二、VIM编辑器的使用* %(title)VIM编辑器的使用%
 <hr />
@@ -123,9 +109,9 @@ h3(#2). *二、VIM编辑器的使用* %(title)VIM编辑器的使用%
 *(2#201) *VIM的三种模式* %(title)三种模式%
 
 <pre>
-编辑模式：等待编辑，按esc进入编辑模式
-插入模式：输入“i、o、a”进入插入模式
-命令模式：在编辑模式输入“:”进入命令
+编辑模式  等待编辑，按esc进入编辑模式
+插入模式  输入“i、o、a”进入插入模式
+命令模式  在编辑模式输入“:”进入命令
 </pre>
 
 *(2#202) *VIM的常用命令* %(title)常用命令%
@@ -180,14 +166,14 @@ Ubuntu      注释
 /etc/group
 组名:组口令:组ID:组成员
 
-groups：显示某用户所有的组
+groups  显示某用户所有的组
 </pre>
 
 *(3#a303) *帐户管理* %(title)帐户管理%
 <hr />
 
 <pre>
-添加一个用户：
+添加一个用户  
 sudo useradd -m 用户名
 useradd -u  指定UID
 useradd -p  密码
@@ -198,7 +184,7 @@ useradd -d  用户目录
 adduser 用户名
 
 -------------------------------------------------------------------------------
-修改用户：
+修改用户  
 sudo usermod -l 新用户名 原用户名
 usermod -u  指定UID
 usermod -p  修改密码
@@ -210,7 +196,7 @@ usermod -L  锁定用户密码
 usermod -U  锁定用户帐号
 
 -------------------------------------------------------------------------------
-删除用户：
+删除用户  
 userdel     删除帐号
 userdel -r  删除帐号的同时也删除目录
 </pre>
@@ -219,15 +205,15 @@ userdel -r  删除帐号的同时也删除目录
 <hr />
 
 <pre>
-添加一个组：
+添加一个组  
 sudo groupadd 组名
 groupadd -g 指定组ID
 
-修改一个组：
+修改一个组  
 groupmod -g 更改组GID
 groupmod -n 更改组名
 
-删除一个组：
+删除一个组  
 groupdel 组名
 </pre>
 
@@ -235,13 +221,13 @@ groupdel 组名
 <hr />
 
 <pre>
-修改密码：
+修改密码  
 sudo passwd root
 passwd -l   锁定用户帐户
 passwd -u   解锁用户帐户
 passwd -d   删除帐记口令
 
-修改组口令：
+修改组口令  
 gpasswd -a 添加指定用户到指定组
 gpasswd -d
 gpasswd -A
@@ -279,14 +265,14 @@ h3(#4). *四、文件权限管理* %(title)文件权限管理%
 <hr />
 
 <pre>
-第一段：文件类型
+第一段  文件类型
     d   目录
     -   普通文件
     l   链接文件
 
-第二段：所属用户的权限
-第三段：所属组的权限
-第四段：其它用户的权限
+第二段  所属用户的权限
+第三段  所属组的权限
+第四段  其它用户的权限
     r   只读
     w   可读
     x   可执行
@@ -296,7 +282,7 @@ h3(#4). *四、文件权限管理* %(title)文件权限管理%
 <hr />
 
 <pre>
-chmod命令：
+chmod命令  
     u   所属用户
     g   所属组用户
     o   其它用户
@@ -308,7 +294,7 @@ chmod命令：
     r   读权限 4 +  =7
     x   执行权 1 +
     
-    例子：chmod g+w xxx.txt 给所属组用户增加写权限，多个用逗号分开
+    例子  chmod g+w xxx.txt 给所属组用户增加写权限，多个用逗号分开
 </pre>
 
 h3(#5). *五、软件安装* %(title)软件安装%
@@ -318,10 +304,10 @@ h3(#5). *五、软件安装* %(title)软件安装%
 <hr />
 
 <pre>
-安装：sudo dpkg -i xxx.deb
-卸载：sudo dpkg -r xxx
-信息：sudo dpkg -c xxx.deb
-列表：sudo dpkg -l
+安装  sudo dpkg -i xxx.deb
+卸载  sudo dpkg -r xxx
+信息  sudo dpkg -c xxx.deb
+列表  sudo dpkg -l
 </pre>
 
 *(5#502) *apt软件包管理工具* %(title)apt软件包工具%
@@ -330,19 +316,19 @@ h3(#5). *五、软件安装* %(title)软件安装%
 <pre>
 下载的包保存在/var/cache/apt目录下
 
-安装：sudo apt-get install xxx
-重装：sudo apt-get reinstall xxx
-卸载：sudo apt-get remove xxx
-更新：sudo apt-get update
-升级：sudo apt-get upgrade
-帮助：sudo apt-get help
+安装  sudo apt-get install xxx
+重装  sudo apt-get reinstall xxx
+卸载  sudo apt-get remove xxx
+更新  sudo apt-get update
+升级  sudo apt-get upgrade
+帮助  sudo apt-get help
 </pre>
 
 *(5#503) *安装目录* %(title)安装目录%
 <hr />
 
 <pre>
-通常软件都安装在：
+通常软件都安装在  
 /usr/local/     用户软件
 /opt/           拓展软件
 </pre>
@@ -352,7 +338,7 @@ h3(#6). *六、远程登录* %(title)远程登录%
 <hr />
 
 <pre>
-设置IP地址：ifconfig eth0 192.168.1.2 netmask 255.255.255.0
+设置IP地址  ifconfig eth0 192.168.1.2 netmask 255.255.255.0
 </pre>
 
 *(6#601) *telnet* %(title)telnet%
@@ -375,7 +361,7 @@ h3(#6). *六、远程登录* %(title)远程登录%
 
     vim /etc/xinetd.conf
     
-加入如下内容：
+加入如下内容  
 
 defaults
 {
@@ -393,7 +379,7 @@ cps = 25 30
 
     vim /etc/xinetd.d/telnet
 
-加入如下内容：
+加入如下内容  
 
 # default: on 
 # description: The telnet server serves telnet sessions; it uses \ 
@@ -453,7 +439,7 @@ ln -s /usr/java/jdk1.6.0_24/ /usr/jdk
 
 vim /etc/profile
 
-添加如下内容：
+添加如下内容  
 JAVA_HOME=/usr/jdk
 CLASSPATH=$JAVA_HOME/lib/
 PATH=$PATH:$JAVA_HOME/bin
@@ -479,7 +465,7 @@ tar -zxvf apache-tomcat-6.0.29.tar.gz -C /opt       (解压到/opt下)
 ln -s /opt/apache-tomcat-6.0.29/ /opt/tomcat   (建立链接文件)
 启动tomcat
 cd /opt/tomcat/bin/
-./startup.sh   (注意：点代表当前目录下)
+./startup.sh   (注意  点代表当前目录下)
 如果启动不了，请尝试
 -i 切换到root用户再重新启动
 ./startup.sh
@@ -492,5 +478,5 @@ cd /opt/tomcat/bin/
 <pre>
 tar -zxvf eclipse-jee-helios-linux-gtk.tar.gz -C /opt (解压到/usr/local目录下并生成/usr/local/eclipse目录)
 cd /opt/eclipse/
-./eclipse (注意：点代表当前目录下)
+./eclipse (注意  点代表当前目录下)
 </pre>

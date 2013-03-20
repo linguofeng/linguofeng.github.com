@@ -120,3 +120,13 @@ repo demo
         http://git-scm.com/book/zh
     </pre>
 </section>
+
+<section>
+    <div class="page-header">
+        <h3>技巧</h3>
+    </div>
+    <h4>Git修改最后提交的Message</h4>
+<pre>
+git commit --amend -m "New commit message"
+</pre>
+</section>
