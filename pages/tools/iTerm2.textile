@@ -39,7 +39,9 @@ $ tmux -C
     <div class="page-header">
         <h3>二、配置</h3>
     </div>
-<pre>
 
+    <h4><small>2.1</small> 插件</h4>
+<pre>
+plugins=(svn git brew github bower)
 </pre>
 </section>
