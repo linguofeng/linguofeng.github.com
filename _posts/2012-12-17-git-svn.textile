@@ -1,63 +1,34 @@
 ---
 layout: post
 title: Git与Svn配合使用
-description: C++的动态内存管理之new关键字
+description: git-svn
 categories: [archive]
 tags: [git, svn]
 ---
 
 <section>
-    <h4><small>1.1</small> new</h4>
+    <h4><small>1.1</small> 取出最新版本</h4>
 <pre class="prettyprint">
-#include <iostream>
-
-int main()
-{
-    try
-    {
-        int *pInt = new int();
-    }
-    catch (std::bad_alloc e)
-    {
-        // new申请内存失败时会抛出bad_alloc异常，而malloc不会
-    }
-    return 0;
-}
+$ git svn clone -r HEAD svn://svn.linguofeng.com/test/ test
 </pre>
 
-    <h4><small>1.2</small> nothrow</h4>
+    <h4><small>1.2</small> 取出全部</h4>
 <pre class="prettyprint">
-#include <iostream>
-#include <new>
-
-int main()
-{
-    int *pInt = new (std::nothrow)int();
-    if (pInt == NULL)
-    {
-        std::cout << "申请内存失败";
-    }
-    return 0;
-}
+$ git svn clone svn://svn.linguofeng.com/test/
 </pre>
 
-    <h4><small>1.3</small> new_handler</h4>
+    <h4><small>1.3</small> 提交</h4>
 <pre class="prettyprint">
-#include <iostream>
-#include <cstdlib>
-#include <new>
+$ git add -u
+$ git commit -m 'update'
+$ git svn rebase
+$ git svn dcommit
+</pre>
 
-void __cdecl newhandler()
-{
-    std::cout << "申请内存失败";
-    exit(0);
-}
-
-int main()
-{
-    std::set_new_handler(newhandler);
-    int *pInt = new int();          // 如果申请内存失败则调用newhandler()函数。
-    return 0;
-}
+    <h4><small>1.4</small> 更新</h4>
+<pre class="prettyprint">
+$ git svn rebase
 </pre>
 </section>
+
+<p>"https://git.wiki.kernel.org/index.php/Git-svn":https://git.wiki.kernel.org/index.php/Git-svn</p>

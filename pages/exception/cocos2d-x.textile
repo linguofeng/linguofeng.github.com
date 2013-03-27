@@ -31,3 +31,15 @@ public Cocos2dxGLSurfaceView(final Context context, final AttributeSet attrs) {
 }
 </pre>
 </section>
+
+<section id="2">
+  <div class="page-header">
+    <blockquote><h3>GLES/glplatform.h: No such file or directory</h3> <small>2013/03/27</small></blockquote>
+  </div>
+
+<p>@$ vim jni/Application.mk@</p>
+<pre class="prettyprint linenums">
+APP_ABI := armeabi armeabi-v7a
+APP_PLATFORM := android-8
+</pre>
+</section>

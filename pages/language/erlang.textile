@@ -35,7 +35,7 @@ $ erl
 2> hello:sayHello(). // 调用sayHello方法
 hello, world
 ok
-3> q().              // 退出
+3> q().              // 退出，或者ctrl+g后输入q回车
 </pre>
 </section>
 
@@ -62,9 +62,15 @@ ok
 -2
 3> 17.368.
 17.368
+4> 10/2.            // 整数/相除，结果永远是浮点型
+5.0
+5> 10 div 2.        // 整数div相除则返回的是整数
+5
+6> 10 rem 3.        // 取余
+1
 </pre>
 
-    <h4><small>3.3</small> Atom</h4>
+    <h4><small>3.3</small> Atom 原子，表示不同的非数字常量值</h4>
 <pre>
 1> abc.
 abc
@@ -127,7 +133,7 @@ true
 false
 </blockquote>|
 
-    <h4><small>3.4</small> Tuple</h4>
+    <h4><small>3.4</small> Tuple 元组</h4>
 <pre class="prettyprint">
 1> {123, {'a', 'b'}, 987}.
 {123, {'a', 'b'}, 987}
