@@ -53,7 +53,7 @@ $ ./a.out # Hello from Lua!
 
 <section>
     <div class="page-header">
-        <h3>三、FFI</h3>
+        <h3>三、FFI (foreign function interface)</h3>
     </div>
     <p>通过 @table.foreach(ffi, print)@ 获取的元素表</p>
 table(table table-bordered).
@@ -299,5 +299,37 @@ os.execute([[gcc -I . -E -P stub.c > bindings.ffi]])
 os.execute([[rm stub.c]])
 print 'done'
 </pre>
-    <p>源码: "https://github.com/linguofeng/labs/tree/master/luajit_lab":https://github.com/linguofeng/labs/tree/master/luajit_lab</p>
+<p>build</p>
+<pre class="prettyprint">
+$ g++ \
+    -lluajit-5.1 \
+    -I/usr/local/include/luajit-2.0 \
+    -pagezero_size 10000 \
+    -image_base 100000000 \
+    -o maincpp \
+    main.cpp Student.cpp bindings.cpp
+$ ./maincpp
+</pre>
+<p>@student.dylib@ 加载动态库并绑定</p>
+<pre class="prettyprint">
+$ g++ -c Student.cpp bindings.cpp                           # 生成Student.o bindings.o
+$ g++ -dynamiclib Student.o bindings.o -o libstudent.dylib  # 生成动态库
+$ g++ \
+    -lluajit-5.1 \
+    -I/usr/local/include/luajit-2.0 \
+    -pagezero_size 10000 \
+    -image_base 100000000 \
+    -o maincpp \
+    main.cpp
+</pre>
+<p>@$ vim main.lua@</p>
+<pre class="prettyprint">
+- --local C = ffi.C
++ local C = ffi.load('student')
+</pre>
+<p>@$ ./maincpp@</p>
 </section>
+
+<blockquote><h4>源码</h4></blockquote>
+
+<div class="github-widget" data-repo="linguofeng/labs"></div></br>
