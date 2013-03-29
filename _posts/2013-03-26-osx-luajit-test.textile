@@ -58,9 +58,9 @@ $ ./a.out # Hello from Lua!
     <p>通过 @table.foreach(ffi, print)@ 获取的元素表</p>
 table(table table-bordered).
 |_.元素|_.类型|_.说明|
-|new|function|创建C数据类型 @ffi.new('Point', {23, 89})@|
-|cast|function|转换成C数据类型 @ffi.cast('int', 123)@|
-|typeof|function||
+|new|function|创建C数据类型 @cpoint = ffi.new('Point', {23, 89})@|
+|cast|function|转换成C数据类型 @cint = ffi.cast('int', 123)@|
+|typeof|function|创建给定的C数据类型 @cdouble = ffi.typeof('double')@|
 |sizeof|function||
 |alignof|function||
 |istype|function||
@@ -328,6 +328,96 @@ $ g++ \
 + local C = ffi.load('student')
 </pre>
 <p>@$ ./maincpp@</p>
+<p>@testcallback.c@ 首先要明白函数指针</p>
+<pre class="prettyprint">
+
+#include "lua.h"
+#include "lualib.h"
+#include "lauxlib.h"
+
+typedef void (*Callback)(void);         // 定义一个无参无返回值的函数指针类型
+typedef int (*Callback2)(int,int);      // 定义一个接收两个参数int返回值的函数指针类型
+
+
+void callLuaFunc(Callback);
+void callLuaFunc2(Callback2);
+
+Callback callbackFunc = NULL;
+Callback2 callbackFunc2 = NULL;
+
+// 函数指针变量例子
+void MyFunc(int);      // 普通函数
+void (*MyFuncP)(int);  // 函数指针变量MyFuncP，注意有typedef与没有的区别
+
+void MyFunc(int x) {
+    printf("x = %d\n", x);
+}
+
+int main(void) {
+   
+    MyFuncP = &MyFunc;  // 把普通函数的地址赋给MyFuncP函数指针变量
+    MyFuncP(12);        // 通过函数指针调用普通函数
+
+    lua_State* L = luaL_newstate();   
+    luaL_openlibs(L);
+    luaL_dofile(L, "luascripts/testcallback.lua");
+    lua_close(L);
+    
+    return 0;
+}
+
+void callLuaFunc(Callback cb) {
+    callbackFunc = cb;
+    callbackFunc();
+}
+
+void callLuaFunc2(Callback2 cb2) {
+    callbackFunc2 = cb2;
+    int count = callbackFunc2(12, 46);
+
+    printf("count: %d\n", count);
+}
+</pre>
+<p>@testcallback.lua@ ffi的回调机制</p>
+<pre class="prettyprint">
+local log = function(...)
+    print('[LuaJIT] -- ' .. string.format(...))
+end
+
+local ffi = require 'ffi'
+
+ffi.cdef[[
+    typedef void (*Callback)(void);
+    typedef int (*Callback2)(int,int);
+
+    void callLuaFunc(Callback);
+    void callLuaFunc2(Callback2);
+]]
+
+local function lfunc()
+    log('lfunc')
+end
+
+local function lfunc2()
+    log('lfunc2')
+end
+
+local cb = ffi.cast('Callback', lfunc); -- 把lua函数转换成c函数指针
+ffi.C.callLuaFunc(cb)                   -- 把转换后的c函数指针传递给c函数
+
+cb:set(lfunc2);         -- 修改回调函数
+ffi.C.callLuaFunc(cb)
+
+cb:free()
+
+local cb2 = ffi.cast('Callback2', function(x, y)
+    log(x .. ' + ' .. y .. ' = ' .. x + y)
+    return x + y
+end)
+
+ffi.C.callLuaFunc2(cb2)
+cb2:free()
+</pre>
 </section>
 
 <blockquote><h4>源码</h4></blockquote>
