@@ -1,9 +1,9 @@
 ---
 layout: post
-title: OSX下安装VirtualBox与Ubuntu Server
-description: osx virtualbox ubuntu
+title: OSX下安装zeromq
+description: osx zeromq
 categories: [archive]
-tags: [osx, virtualbox, ubuntu]
+tags: [osx, zeromq]
 ---
 
 <section>
@@ -11,12 +11,12 @@ tags: [osx, virtualbox, ubuntu]
         <h3>一、安装</h3>
     </div>
 <pre class="prettyprint">
-此处省略N个字...
+$ brew install zeromq
 </pre>
 </section>
 
 <section class="page-header">
-    <h3>二、安装后的配置</h3>
+    <h3>二、Hello World For C++</h3>
     <h4><small>2.1</small> 安装VBoxLinuxAdditions</h4>
     <h4><small>2.1</small> 把网络连接方式设置为桥接网卡</h4>
     <p><img src="http://ww3.sinaimg.cn/large/bfadf3bejw1e36k18ssw8j.jpg" alt=""></p>
