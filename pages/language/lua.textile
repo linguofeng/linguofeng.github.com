@@ -340,8 +340,9 @@ print(p[2])                 -- 访问了2元素
 
 <section id="10">
     <div class="page-header">
-        <h3>十、环境 <small>全局变量，即系统变量 _G</small></h3>
+        <h3>十、环境</h3>
     </div>
+    <h4><small>10.1</small> 全局变量 _G</h4>
 <pre class="prettyprint">
 > _G["ewgegw"] = "ddddddgege"
 > table.foreach(_G, print)
@@ -388,6 +389,54 @@ loadfile    function: 0x7ffce3404e60
 
 > table.foreach(_G.os, print)
 </pre>
+    <h4><small>10.2</small> 非全局变量 setfenv</h4>
+<pre class="prettyprint">
+--pack.lua---------------------------------------------------------------------
+local P = {}
+
+-- 改变P表的__index,这里的_G代表全局环境
+setmetatable(P, {__index = _G})
+
+-- 改变当前的环境为P,setfenv前的所有定义都是在全局环境中进行的，后面的则都是在新环境中进行的，互不影响
+setfenv(1, P)
+
+-- 声明的add函数在环境P中，如果要在外部访问必须P.add
+function add(x, y)
+    print(x .. ' + ' .. y .. ' = ' .. (x + y))
+    -- 由于当前新的环境中没有print函数，但是__index指向的是全局环境，所以print是全局的函数
+end
+
+return P
+
+--pack1.lua--------------------------------------------------------------------
+local P = {}
+
+-- 如果需要改变环境后使用全局环境的方法需要记住，这种方法比上面的要快
+local print = print
+
+-- 改变当前的环境为P
+setfenv(1, P)
+
+-- 声明的add函数在环境P中，如果要在外部访问必须P.add
+function add(x, y)
+    print(x .. ' + ' .. y .. ' = ' .. (x + y))
+end
+
+-- 私有方法
+local function div(x, y)
+end
+
+return P
+
+--main.lua---------------------------------------------------------------------
+local p = require 'pack'
+
+p.add(12, 34)
+
+local p1 = require 'pack1'
+
+p1.add(43, 19)
+</pre>
 </section>
 
 <section id="11">
@@ -423,4 +472,274 @@ return utils
 </pre>
 </section>
 
+<section id="12">
+    <div class="page-header">
+        <h3>十二、面向对象</h3>
+    </div>
+    <h4><small>12.1</small> 类与继承</h4>
+<pre class="prettyprint">
+--Person.lua
+local Person = {name = ''}
+
+function Person:getName()
+    return self.name
+end
+
+function Person:setName(name)
+    self.name = name
+end
+
+function Person:new(object)
+    object = object or {}
+    setmetatable(object, {__index = self}) -- 元表 类似继承的意思
+    return object
+end
+
+return Person
+
+--main.lua
+-- 类
+local Person = require 'Person'
+
+-- 对象
+local student = Person:new({age = 23})
+student:setName('Tom')
+
+print('name: ' .. student:getName() .. ' age: ' .. student.age)
+</pre>
+    <h4><small>12.2</small> 多重继承</h4>
+    <p>实际就是记住所有父类，然后访问不存在的元素的时候去查询哪个父类中有，有就执行</p>
+<pre class="prettyprint">
+local function search (k, plist)
+    for i=1, table.getn(plist) do
+       local v = plist[i][k]    -- 去所有父类中获取
+       if v then return v end
+    end
+end
+
+function Person:new(...)
+    local o = {}
+
+    setmetatable(o, {__index = function (t, k)
+        local v = search(k, arg)
+        t[k] = v      -- save for next access
+        return v
+    end})
+
+    return o
+end
+</pre>
+    <h4><small>12.3</small> 私有性</h4>
+<pre class="prettyprint">
+local function createAccount(_name) -- 工厂方法
+    local self = {name = _name}
+
+    local function _setName(name)
+        self.name = name
+    end
+
+    local function _getName()
+        return self.name
+    end
+
+    -- 公有方法表
+    local public = {
+        setName = _setName,
+        getName = _getName,
+        --name = self.name -- 不公开私有成员变量
+    }
+
+    return public
+end
+
+local account = createAccount('Tom')
+print(account.name) -- 无法访问，因为没有公开
+</pre>
+</section>
+
+<section id="12">
+    <div class="page-header">
+        <h3>十三、weak table</h3>
+    </div>
+<pre class="prettyprint">
+t = {name = 'table'}              -- 创建一个普通表
+setmatetable(t, {__made = 'k'})   -- k表示t表中的keys是weak的，v表示t表中的values是weak的
+
+k = {}              -- 创建一个空表，此时{}被k引用，引用值为1
+t[k] = 1            -- 把空表作为key，由于t表的key是weak的，所以k值的引用如果为0则会被gc回收，如
+k = {}              -- 把k指向另一个新的{}，则旧的{}引用值减1变成0了，目前t[k] = 1还有效
+t[k] = 2            -- 把新的{}作为key，值是2
+
+collectgarbage()    -- 调用gc，清除引用为0的内存空间，此时，第一个{}的引用是0，会被gc掉，所以第一个t[k]以及值会被删除
+
+for k, v in pairs(a) do print(v) end
+    -- 此时应该只剩下2了，因为第2个k = {}时改变了k指向新的{}，而旧的{}引用会变成0，被gc掉
+
+-------------------------------------------------------------------------
+
+a = {}; 
+setmetatable(a, {__mode = 'v'}); -- values为weak，当值的引用为0时，删除
+v1 = {name = 'v1'}
+v2 = {name = 'v2'}
+
+a[1] = v1
+a[2] = v2
+
+v1 = v2
+
+collectgarbage();   -- 调用GC，清掉weak表中没有引用的内存 
+
+for k, v in pairs(a) do print(v.name) end
+    -- 输出v2，因为v1重新指向{name = 'v2'}，则{name = 'v1'}引用减1为0
+
+-------------------------------------------------------------------------
+
+a = {}; 
+setmetatable(a, {__mode = 'kv'}); -- 同时检查kv，是上面两种情况的组合 
+v1 = {name = 'v1'}
+v2 = {name = 'v2'}
+
+v = {}
+k = {}
+
+a[1] = v
+v = {}              -- value重新引用新值，旧值被gc，如果旧值在table则对应的记录被清空
+a[2] = v
+
+a[k] = 1
+k = {}              -- key重新引用新值，旧值被gc，如果旧值在table则对应的记录被清空
+a[k] = 2
+
+
+collectgarbage();   -- 调用GC，清掉weak表中没有引用的内存 
+
+for k, v in pairs(a) do 
+    print(v)
+end
+
+</pre>
+</section>
+<section id="12">
+    <div class="page-header">
+        <h3>十四、标准库</h3>
+    </div>
+    <h4><small>14.1</small> 数学库 Mathematical Functions</h4>
+
+table(table table-bordered).
+|_.函数|_.说明|
+|math.abs (x)|求绝对值|
+|math.acos (x)|求反余弦|
+|math.asin (x)||
+|math.atan (x)||
+|math.atan2 (y, x)||
+|math.ceil (x)||
+|math.cos (x)||
+|math.cosh (x)||
+|math.deg (x)||
+|math.exp (x)||
+|math.floor (x)||
+
+    <h4><small>14.2</small> table库</h4>
+
+table(table table-bordered).
+|_.函数|_.说明|
+|table.concat (table [, sep [, i [, j]]])|拼接成字符串，sep代表连接符，i开始位置，j结束位置|
+|table.insert (table, [pos,] value)|插入一个元素，默认是最后一个，pos指定位置|
+|table.maxn (table)|获取最大长度|
+|table.remove (table [, pos])|删除一个元素，默认删除最后一个，pos指定位置|
+|table.sort (table [, comp])|排序|
+
+<pre class="prettyprint">
+tables = {1, 2, 3, 4, 5, 6, 7}
+print(#tables)      -- 5.1开始使用#获取长度    -- 7
+
+table.insert(tables, 8)
+print(table.concat(tables))                 -- 12345678
+table.insert(tables, 1, 0)
+print(table.concat(tables))                 -- 012345678
+
+
+print(table.maxn(tables))                   -- 9
+
+table.remove(tables)
+print(table.concat(tables))                 -- 01234567
+
+table.remove(tables, 5)
+
+print(table.concat(tables))                 -- 0123567
+print(table.concat(tables, ','))            -- 0,1,2,3,5,6,7
+print(table.concat(tables, '-', 2))         -- 1-2-3-5-6-7
+print(table.concat(tables, '=', 1, 4))      -- 0=1=2=3
+
+table.sort(tables)
+print(table.concat(tables))                 -- 0123567
+
+table.sort(tables, function(t1, t2)
+    if t1 > t2 then
+        return true
+    else
+        return false
+    end
+end)
+print(table.concat(tables))                 -- 7653210
+</pre>
+
+    <h4><small>14.3</small> string库</h4>
+
+table(table table-bordered).
+|_.函数|_.说明|
+|string.byte (s [, i [, j]])|把字符转换成ASCII码|
+|string.char (...)|把ASCII码转换成字符|
+|string.dump (function)||
+|string.find (s, pattern [, init [, plain]])|查找，pattern查找的字符串，init从那里开始默认为1，plain|
+|string.format (formatstring, ...)|格式化字符串|
+
+    <h4><small>14.4</small> io库</h4>
+
+table(table table-bordered).
+|_.函数|_.说明|
+|io.close ([file])|等效file:close()，如果没有file则关闭默认输出|
+|io.flush ()|等效file:flush()|
+|io.input ([file])||
+|io.lines ([filename])|等效io.input():lines()|
+|io.open (filename [, mode])|打开一个文件，模式：r,w,a,r+,w+,a+|
+|io.output ([file])||
+|io.popen (prog [, mode])|依赖系统的，不是所有平台都能用|
+|io.read (...)|等效io.input():read|
+|io.tmpfile ()|创建一个临时文件，当程序退出时自动删除|
+|io.type (obj)|判断obj的类型，如果返回file是一个打开的文件句柄，返回close file是一个
+关闭的文件句柄，nil不是文件|
+|io.write (...)|等效io.output():write|
+|file:close ()|关闭文件，会自动gc掉，但时间不确定|
+|file:flush ()|保存任何数据到文件中|
+|file:lines ()|迭代文件的每一行|
+|file:read (...)|读取文件，==*n,*a,*l,number==|
+|file:seek ([whence] [, offset])|指定位置，默认是cur,1，set,end|
+|file:setvbuf (mode [, size])|设置buff缓存，no,full,line|
+|file:write (...)|写文件，参数必须是string或者number|
+
+<pre class="prettyprint">
+local file = io.open('tabletest.lua', 'r')
+print(io.type(file))
+
+for line in file:lines() do
+    --print(line)
+end
+
+--file:close()
+io.close(file)
+print(io.type(file))
+
+------------------------------------------------------
+
+for line in io.input('tabletest.lua'):lines() do
+    print(line)
+end
+
+for line in io.lines('tabletest.lua') do
+    --print(line)
+end
+</pre>
+
 <p>参考：http://book.luaer.cn</p>
+<p>参考：http://www.lua.org/manual/5.1/manual.html</p>
