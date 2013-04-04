@@ -41,7 +41,7 @@ int main(int argc, const char * argv[])
     int age;
 }
 
-@property(nonatomic, retain) NSString* name; // 线程不安全并且是指针类型要引用+1
+@property(nonatomic, copy) NSString* name;   // 线程不安全，拷贝字符串
 @property(nonatomic) int age;                // 线程不安全
 
 - (void) goHome;                             // 对象方法，注意没有()
@@ -144,8 +144,128 @@ table(table table-bordered).
 |instancesRespondToSelector|selector|判断类是否有这个方法</br>
 <blockquote>if ([Person instancesRespondToSelector: @select(run)])
 </blockquote>|
+</section>
 
+<section>
+    <div class="page-header">
+        <h3>三、常用类</h3>
+    </div>
+    <h4><small>3.1</small> NSNumber</h4>
 <pre class="prettyprint">
+NSNumber *number1 = [[NSNumber alloc] init];
+NSLog(@"number1 %@", number1);
 
+NSNumber *number2 = [[NSNumber alloc] initWithInt:12];
+NSLog(@"number2 %@", number2);
+
+NSNumber *number3 = [NSNumber numberWithInt:87];
+NSLog(@"number3 %@", number3);
+NSLog(@"number3 %d", number3.intValue);
+</pre>
+</section>
+
+<section>
+    <div class="page-header">
+        <h3>四、类目、延展、协议与代理模式</h3>
+    </div>
+    <h4><small>4.1</small> 类目</h4>
+    <p>类目，我的理解是把类的函数进行分类，在现在类并不修改原类的基础上增加新的函数，并且这些函数能够被子类继承</p>
+<pre class="prettyprint">
+// 参考NSArray.h
+@interface NSArray : NSObject
+...
+@end
+
+@interface NSArray (NSExtendedArray)
+...
+@end
+
+@interface NSArray (NSArrayCreation)
+...
+@end
+</pre>
+    <h4><small>4.2</small> 延展</h4>
+    <p>延展，我的理解就是把头文件的声明写在了.m文件里，达到所谓的私有函数的功能</p>
+<pre class="prettyprint">
+@interface Student ()
+
+- (void)test;
+
+@end
+
+@implementation Student
+</pre>
+    <h4><small>4.3</small> 协议与代理模式</h4>
+    <p>协议，我的理解就是java中的抽象类，有可实现与必须实现的方法。</p>
+<pre class="prettyprint">
+@protocol TestProtocol <NSObject>
+
+@required
+- (void)callback;
+
+@optional
+- (void)callback1;
+
+@end
+</pre>
+<pre class="prettyprint">
+// Italk.h
+#import <Foundation/Foundation.h>
+
+@protocol Italk <NSObject>
+
+- (void)talk:(NSString*) msg;
+
+@end
+
+// ItalkProxy.h
+#import <Foundation/Foundation.h>
+#include "Italk.h"
+
+@interface ItalkProxy : NSObject <Italk>
+{
+    @private id <Italk> _italk;
+}
+
+@property(nonatomic, assign) id <Italk> italk;
+
+- (void)talk:(NSString *)msg sing:(NSString*) sing;
+
+- (void)sing:(NSString *)sing;
+
+@end
+
+// ItalkProxy.m
+#import "ItalkProxy.h"
+
+@implementation ItalkProxy
+
+@synthesize italk = _italk;
+
+- (void)talk:(NSString*) msg {
+    [self.italk talk:msg];
+}
+
+- (void)talk:(NSString *)msg sing:(NSString*) sing {
+    [self.italk talk:msg];
+    
+    [self sing:sing];
+}
+
+- (void)sing:(NSString *)sing {
+    NSLog(@"sing %@", sing);
+}
+
+@end
+
+// Student.h
+@interface Student : NSObject <Italk>
+
+// main.m
+[stu talk:@"hello"];    // 原来只有talk方法
+
+// 代理增加了sing方法，并且代理了原来的talk方法
+ItalkProxy *proxy = [[ItalkProxy alloc] initWithItalk: stu];
+[proxy talk:@"joy" sing:@"七里香"];
 </pre>
 </section>

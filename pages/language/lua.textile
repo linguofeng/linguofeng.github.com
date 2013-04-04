@@ -557,7 +557,7 @@ print(account.name) -- 无法访问，因为没有公开
 </pre>
 </section>
 
-<section id="12">
+<section id="13">
     <div class="page-header">
         <h3>十三、weak table</h3>
     </div>
@@ -619,7 +619,8 @@ end
 
 </pre>
 </section>
-<section id="12">
+
+<section id="14">
     <div class="page-header">
         <h3>十四、标准库</h3>
     </div>
@@ -740,6 +741,112 @@ for line in io.lines('tabletest.lua') do
     --print(line)
 end
 </pre>
+
+    <h4><small>14.5</small> os库</h4>
+
+table(table table-bordered).
+|_.函数|_.说明|
+|os.clock ()|返回程序所使用的cpu时间|
+|os.date ([format [, time]])|当前系统日期，或格式化某个日期|
+|os.difftime (t2, t1)|时间差|
+|os.execute ([command])|执行shell命令|
+|os.exit ([code])|调用C的exit函数|
+|os.getenv (varname)|获取系统环境变量，变量名，不包含$|
+|os.remove (filename)|删除文件，文件名|
+|os.rename (oldname, newname)|修改文件名|
+|os.setlocale (locale [, category])|设置地区，"all", "collate", "ctype", "monetary", "numeric", or "time"|
+|os.time ([table])|返回当前时间或把时间保存在table中，|
+|os.tmpname ()|临时文件名|
+
+<pre class="prttyprint">
+table.foreach(os, print)
+
+print(os.clock())
+
+print(os.date())
+
+print(os.date('%Y-%m-%d %H:%M'))
+
+print(os.time())
+
+print(os.difftime(1364957757, os.time()))
+
+print(os.getenv ('PATH'))
+
+print(os.tmpname ())
+</pre>
+
+    <h4><small>14.6</small> debug库</h4>
+table(table table-bordered).
+|_.函数|_.说明|
+
+</section>
+
+<section id="15">
+    <div class="page-header">
+        <h3>十五、标准库</h3>
+    </div>
+    <h4><small>15.1</small> 堆栈，后进先出原则</h4>
+    <p>@压入@</p>
+table(table table-bordered).
+|_.函数|_.说明(栈底最后一个元素的索引是1,栈顶第一个元素是-1)|
+|lua_pushnil(lua_State*)|压入一个空值|
+|lua_pushboolean(lua_State*, int)|压入一个布尔值|
+|lua_pushcclosure(lua_State*, lua_CFunction, int)|压入一个C闭包?|
+|lua_pushcfunction(lua_State*, lua_CFunction)|压入一个C函数，由lua_pushcclosure(L, f, 0)宏定义出来|
+|lua_pushlightuserdata(lua_State*, void*)|压入一个指针，不被gc管理|
+|lua_pushinteger(lua_State*, lua_Integer)|压入一个数字|
+|lua_pushnumber(lua_State*, lua_Number)|压入数字|
+|lua_pushstring(lua_State*, const char*)|压入字符串|
+|lua_pushfstring(lua_State*, const char*, ...)|压入一个格式化的string|
+|lua_pushvfstring(lua_State*, const char*, va_list)|同上，只是接收一个va_list|
+|lua_pushlstring(lua_State*, const char*, size_t);|压入长字符串|
+|lua_pushliteral(lua_State*, const char*)|压入文字|
+|lua_pushthread(lua_State*)|压入一个线程?|
+
+    <p>@判断类型@</p>
+table(table table-bordered).
+|_.函数|_.说明|
+|lua_isboolean(lua_State*, int)|是否是布尔类型|
+|lua_iscfunction(lua_State*, int)|是否是C函数类型|
+|lua_isfunction(lua_State*, int)|是否是C函数或者Lua函数|
+|lua_islightuserdata(lua_State*, int)|是否是用户自定义类型指针|
+|lua_isnil(lua_State*, int)|是否是空|
+|lua_isnone(lua_State*, int)|是否是有效的|
+|lua_isnoneornil(lua_State*, int)|是否是上面两者|
+|lua_isnumber(lua_State*, int)|是否是数字|
+|lua_isstring(lua_State*, int)|是否是字符串|
+|lua_istable(lua_State*, int)|是否是table|
+|lua_isthread(lua_State*, int)|是否是线程|
+|lua_isuserdata(lua_State*, int)|是否是用户类型，包括full和light|
+|lua_type(lua_State*, int)|返回元素的类型，对应LUA_TNIL等枚举|
+|lua_typename(lua_State*, int)|返回元素的类型名称|
+
+    <p>@获取栈中的元素并转换成C类型@</p>
+table(table table-bordered).
+|_.函数|_.说明|_.返回值类型|
+|lua_toboolean(lua_State*, int)|把元素转换成C的布尔类型的值|int|
+|lua_tocfunction(lua_State*, int)|把元素转换成C的函数|lua_CFunction|
+|lua_tointeger (lua_State*, int)||lua_Integer|
+|lua_tolstring (lua_State*, int, size_t *len)||const char*|
+|lua_tonumber (lua_State*, int)||lua_Number|
+|lua_topointer (lua_State*, int)||const void*|
+|lua_tostring (lua_State*, int)||const char*|
+|lua_tothread (lua_State*, int)||lua_State|
+|lua_touserdata (lua_State*, int)||void*|
+
+    <p>@栈内元素的操作@</p>
+table(table table-bordered).
+|_.函数|_.说明||
+|lua_gettop(lua_State*)|返回栈的元素个数，同时也是栈顶元素的索引|
+|lua_settop(lua_State*, int)|设置某个元素为栈顶元素，该元素之上的元素会被清除|
+|lua_pushvalue(lua_State*, int)|压入（拷贝）一个已经存在栈的元素至栈顶|
+|lua_insert(lua_State*, int)|移动栈顶元素至某个位置|
+|lua_remove(lua_State*, int)|删除栈中某个元素|
+|lua_replace(lua_State*, int)|替换栈顶元素至某个位置，相应那个位置的元素至栈顶|
+
+</section>
+
 
 <p>参考：http://book.luaer.cn</p>
 <p>参考：http://www.lua.org/manual/5.1/manual.html</p>
