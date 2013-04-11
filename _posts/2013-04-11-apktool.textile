@@ -1,0 +1,44 @@
+---
+layout: post
+title: apktool 的使用
+description: android apktool
+categories: [archive]
+tags: [android, apktool]
+---
+
+<section>
+    <div class="page-header">
+        <h3>一、安装apktool</h3>
+    </div>
+    <h4><small>1.1</small> 安装方法很简单，只需要下载解压到本地即可</h4>
+<pre class="prettyprint">
+$ wget https://android-apktool.googlecode.com/files/apktool1.5.2.tar.bz2
+$ wget https://android-apktool.googlecode.com/files/apktool-install-macosx-r05-ibot.tar.bz2
+$ tar -xvf apktool1.5.2.tar.bz2
+$ tar -xvf apktool-install-macosx-r05-ibot.tar.bz2
+$ mv apktool-install-macosx-r05-ibot/* apktool1.5.2/
+</pre>
+</section>
+
+<section>
+    <div class="page-header">
+        <h3>二、使用apktool</h3>
+    </div>
+    <h4><small>1.1</small> 查找帮助，直接执行apktool</h4>
+<pre class="prettyprint">
+$ cd apktool1.5.2
+$ ./apktool
+</pre>
+
+    <h4><small>1.2</small> 解包decode，会在当前目录创建与apk文件同名的目录</h4>
+<pre class="prettyprint">
+$ ./apktool d test.apk
+</pre>
+
+    <h4><small>1.3</small> 打包build，会把当前test目录打包，打包后的未签名apk在test/dist下</h4>
+<pre class="prettyprint">
+$ ./apktool b test
+</pre>
+
+    <h4><small>1.4</small> 关于如何重新签名看一下篇文章</h4>
+</section>

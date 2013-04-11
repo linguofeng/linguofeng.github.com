@@ -1,0 +1,18 @@
+---
+layout: post
+title: keytool 的使用
+description: android keytool
+categories: [archive]
+tags: [android, keytool]
+---
+
+<section>
+    <div class="page-header">
+        <h3>一、使用keytool</h3>
+    </div>
+    <p>keytool 是java的jar签名与校验工具，随jdk一同安装</p>
+    <h4><small>1.1</small> 使用keytool生成签名文件</h4>
+<pre class="prettyprint">
+$ keytool -genkey -v -keystore test.keystore -alias test -keyalg RSA -keysize 2048 -validity 10000
+</pre>
+</section>

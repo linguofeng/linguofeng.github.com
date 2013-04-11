@@ -241,6 +241,19 @@ unix        表示是unix下的文件格式
 dos         windows下的文件格式
 mac         苹果下的文件格式
 </div>
+
+    <h4><small>3.5</small> 窗口管理快捷键</h4>
+<pre>
+ctrl + w, h     -->     选择左边窗口，存在的话
+ctrl + w, j     -->     选择下边窗口
+ctrl + w, k     -->     选择上边窗口
+ctrl + w, l     -->     选择右边窗口
+ctrl + w, w     -->     逆时针选择窗口
+ctrl + w, s     -->     水平拆分窗口
+ctrl + w, v     -->     垂直拆分窗口
+ctrl + w, n     -->     新建一个窗口
+ctrl + w, q     -->     关闭窗口
+</pre>
 </section>
 
 <section>

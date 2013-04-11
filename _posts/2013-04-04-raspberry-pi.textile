@@ -22,14 +22,20 @@ tags: [raspberrypi]
 <pre class="prettyprint">
 $ unzip 2013-02-09-wheezy-raspbian.zip
 $ df -h
-$ sudo diskutil unmount /dev/<df -h 找到的SD卡名称>
-$ sudo dd bs=1m if=2012-12-16-wheezy-raspbian.img of=/dev/<df -h 找到SD卡名称,不用加s*>
-$ sudo diskutil eject /dev/rdisk3
+$ sudo diskutil unmount /dev/rdisk1s1
+$ sudo dd bs=1m if=2013-02-09-wheezy-raspbian.img of=/dev/rdisk1
+$ sudo diskutil eject /dev/rdisk1
 </pre>
     <p>更新系统，由于基于debian，可以通过下面的命令更新升级</p>
 <pre>
 $ sudo apt-get update
 $ sudo apt-get upgrade
+</pre>
+    <p>升级内核</p>
+<pre>
+$ sudo apt-get install git-core
+$ sudo wget http://goo.gl/1BOfJ -O /usr/bin/rpi-update && sudo chmod +x /usr/bin/rpi-update
+$ sudo rpi-update
 </pre>
 
     <h4><small>1.2</small> 无线网卡配置</h3>
@@ -51,6 +57,25 @@ $ sudo ifdown wlan0
 $ sudo ifup wlan0
 </pre>
 
+    <h4><small>1.2.1</small> 配置无线</h4>
+<pre>
+$ sudo vim /etc/wpa_supplicant/wpa_supplicant.conf
+    network={
+        scan_ssid=1
+        ssid="TP-LINK_DDECA2"
+        psk=""
+        proto=RSN
+        key_mgmt=WPA-PSK
+        pairwise=CCMP TKIP
+        group=CCMP TKIP
+    }
+$ sudo vim /etc/network/interfaces
+    auto wlan0
+$ sudo ifdown wlan0
+$ sudo ifup wlan0
+$ iwconfig
+</pre>
+
     <h4><small>1.3</small> 配置vncserver</h4>
     <p>参考：http://elinux.org/RPi_VNC_Server</p>
     <p>刚好手上有一Nexus 7平板，可以通过Android连接vnc</p>
@@ -61,6 +86,39 @@ $ vncserver :0 -geometry 1280x720 -depth 24
 </pre>
     <p>然后android安装android-vnc-viewer，通过简单的配置就能够连接上了，不过屏幕实在是小了点，玩一下还行，真正使用我觉得SSH会更好一些。</p>
     <p>https://play.google.com/store/apps/details?id=android.androidVNC</p>
+
+    <h4><small>1.4</small> 修改swap分区大小</h4>
+<pre>
+$ sudo vim /etc/dphys-swapfile
+    CONF_SWAPSIZE=1024
+$ sudo dphys-swapfile setup
+$ sudo dphys-swapfile swapon
+$ free -m
+</pre>
+    
+    <h4><small>1.5</small> 安装golang</h4>
+<pre>
+$ export GOARM=5
+$ mkdir repos && cd repos
+$ hg clone -u release http://code.google.com/p/go
+$ cd go/src
+$ ./make.bash #只编译，不进行测试，如果测试会无法通过
+$ vim ~/.zshrc
+</pre>
+<pre>
+export GOARM=5
+export GOROOT=/home/pi/repos/go
+export GOPATH=/home/pi/go
+
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+</pre>
+
+    <h4><small>1.6</small> 安装zsh</h4>
+<pre>
+$ sudo apt-get install zsh
+$ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+$ chsh -s /bin/zsh
+</pre>
 </section>
 
 <p>很不错的手册：http://elinux.org/RPi_Tutorials</p>
