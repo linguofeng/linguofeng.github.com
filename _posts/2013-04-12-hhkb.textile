@@ -1,0 +1,22 @@
+---
+layout: post
+title: HHKB到手
+description: Happy Hacking Keyboard
+categories: [archive]
+tags: [hhkb]
+---
+
+<section>
+    
+    <p>从下订到手差不多一个月了，第一次海淘，还算理想，也是因为年后萌购的订单多，导致到货速度慢。</p>
+    <p>第一次买这么贵的键盘，因平时喜欢用vim，所以这个键盘最合适不过了，刚上手的时候，还是有点不习惯没有方向键，当想要移动光标的时候手指问题习惯性地放在原本方向键的位置，可是已经木有方向键了，在hhkb上是使用fn+;、[、'、/分别代替左上右下，这个要慢慢习惯了，话说在vim中完全不需要方向键，hjkl足矣</p>
+    <p>最近萌购的日元汇率降了，所以现在买会更便宜一些，不过现在日本亚马逊已经没货了。</p>
+    <p>日本原装进口，质量无得弹，手感不错，声音很好听。</p>
+    <p>键盘加手续费1281元，再加点运费也才1300不到，比某宝上1600便宜多了。不过我多买了一个专用的包，心想这么贵的键盘怎么也要给它一个好一点的包吧，没想到现在键盘的包比我背的还要贵，现在的生活水平真的是越来越“高”了，不过程序员也不容易，工作辛苦，平时想买啥就买啥，总之自己开心最重要。</p>
+    <p><img class="thumbnail" src="http://ww1.sinaimg.cn/large/a74eed94jw1e3n5snjouqj.jpg" alt=""></p>
+    <p><img class="thumbnail" src="http://ww4.sinaimg.cn/large/a74e55b4jw1e3n5t5e6ukj.jpg" alt=""></p>
+    <p><img class="thumbnail" src="http://ww1.sinaimg.cn/large/bfadf3bejw1e3n5tf008bj.jpg" alt=""></p>
+    <p><img class="thumbnail" src="http://ww4.sinaimg.cn/large/a74ecc4cjw1e3n5tpe3ltj.jpg" alt=""></p>
+    <p><img class="thumbnail" src="http://ww2.sinaimg.cn/large/a74eed94jw1e3n5ty2kuaj.jpg" alt=""></p>
+    <p>高清相册: "https://plus.google.com/101408036511204166638/posts/fxzs7MWMuzZ":https://plus.google.com/101408036511204166638/posts/fxzs7MWMuzZ</p>
+</section>
