@@ -1,0 +1,39 @@
+---
+layout: post
+title: GDB学习笔记
+description: GNU Debugger
+categories: [archive]
+tags: [gdb]
+---
+
+<section>
+    <h3><small>1.1</small> 常用命令</h3>
+
+table(table table-bordered).
+|_.命令|_.用法|_.说明|
+|@r@||run 的缩写，运行程序|
+|@q@||quit 的缩写，退出程序|
+|@l@||list 的缩写，查看当前10行代码|
+|@b@|@b linenumber@
+@b functionname@|break 的缩写，打断点，接收一个行号或函数名|
+|@d@|@d number@|delete 的缩写，表示删除一个或全部断点，编写从1开始|
+|@s@||step 的缩写，表示执行一行代码，如果该行代码有方法则进入方法|
+|@n@||next 的缩写，表示执行一行代码，如果该行代码有方法不进入方法|
+|@c@||continue 的缩写，表示继续执行代码，直到下一个断点或结束|
+|@p@|@p varname@|print 的缩写，表示打印一个变量的值|
+|@display@|@display varname@|每中断一次就显示相应的数据|
+|@undisplay@|@undisplay number@|取消|
+|@i@|@i b@|info 的缩写，表示查看详细信息，这里表示查看断点的信息|
+|@bt@||backtrace 的缩写，查看函数堆栈，方便清楚函数的流程|
+|@f@|@f number@|frame 的缩写，表示切换当前栈，0表示栈顶，1表示栈的第二层|
+|@up@|@up n@|向栈的上面移动一层或多层|
+|@down@|@down n@|向栈的下面移动一层或多层|
+|@u@||until 的缩写，退出循环体|
+|@finish@||退出函数|
+|@h@|@h cmd@|help 的缩写，显示指令的帮助|
+
+</section>
+
+<p>参考</p>
+<p>http://blog.csdn.net/dadalan/article/details/3758025</p>
+<p>http://blog.csdn.net/liigo/article/details/582231</p>
