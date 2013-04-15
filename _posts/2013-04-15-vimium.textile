@@ -1,0 +1,22 @@
+---
+layout: post
+title: 像操作vim一样操作chrome的插件vimium
+description: 解放你的鼠标，用键盘操作
+categories: [archive]
+tags: [vim, chrome]
+---
+
+<section>
+    <h3><small>1.1</small> 安装</p>
+<pre>
+https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb
+</pre>
+
+    <h3><small>1.2</small> 常用操作</h3>
+    <p>确保该插件已启用: <img src="http://ww4.sinaimg.cn/large/a74ecc4cjw1e3q1q4d0d4j.jpg" height="34" width="121" alt=""></p>
+    <p>查看帮助: @ctrl + ?@</p>
+    <p><img src="http://ww2.sinaimg.cn/large/a74eed94jw1e3q1thhp8bj.jpg" height="512" width="672" alt=""></p>
+    <p>打开当前页面某链接: @f@ 接着再按提示的字母即可打开对应的链接，如果需要在新tab中打开使用: @F@</p>
+    <p><img src="http://ww4.sinaimg.cn/large/a74e55b4jw1e3q1z7ivbwj.jpg" width="485" height="64" alt=""></p>
+    <br>
+</section>
