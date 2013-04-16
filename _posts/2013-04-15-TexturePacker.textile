@@ -21,4 +21,5 @@ CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("test.plis
 CCSprite *pNor = CCSprite::spriteWiteSpriteFrameName("bt_publicinfo_close_nor.png");
 CCSprite *pPr = CCSprite::spriteWiteSpriteFrameName("bt_publicinfo_close_pr.png");
 </pre>
+    <p>4.16更新: 查看邮件，收到了该工具作者赠送的license了，非常感谢</p>
 </section>
