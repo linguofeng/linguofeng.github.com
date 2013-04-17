@@ -14,7 +14,7 @@ $ cp -r libtiff $NDK_ROOT/samples/hello-jni/jni/tiff
 $ cd libtiff
 $ ./configure 
     # 目的是生成tif_config.h和tiffconf.h两个文件
-$ cp libtiff/{tif_config.h,tiffconf.h} $NDK_ROOT/sample/hello-jni/jni/tiff/libtiff
+$ cp libtiff/{tif_config.h,tiffconf.h} $NDK_ROOT/samples/hello-jni/jni/tiff/libtiff
 $ vim $NDK_ROOT/samples/hello-jni/jni/tiff/libtiff/tif_config.h
     # 注释120行的#define HAVE_SEARCH_H 1与206行的#define LZMA_SUPPORT 1
 $ vim $NDK_ROOT/samples/hello-jni/jni/tiff/libtiff/mkg3states.c
@@ -85,6 +85,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,libjpeg)
 </pre>
+    <p>参考: https://code.google.com/p/tiffonandroid/source/browse/tiffviewer/project/jni/Android.mk</p>
 <pre class="prettyprint">
 $ ndk-build NDK_MODULE_PATH=$COCOS2DX_ROOT/cocos2dx/platform/third_party/android/prebuilt
 $ cp obj/local/armeabi/libtiff.a $COCOS2DX_ROOT/cocos2dx/platform/third_party/android/prebuilt/libtiff/libs/armeabi
