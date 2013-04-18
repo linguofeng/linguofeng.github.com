@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
     <p>8. 获取jni_call的jni头文件</p>
 <pre>
 $ cd $DebugNdkTest/jni
-$ javah -classpath ../../bin/classes  com.linguofeng.debugndktest.MainActivity
+$ javah -classpath ../bin/classes  com.linguofeng.debugndktest.MainActivity
 </pre>
     <p>9. 修改DebugNdkTest.cpp</p>
 <pre class="prettyprint">
