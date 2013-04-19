@@ -4,7 +4,8 @@ title: Archive
 description: 日志归档
 ---
 
-<ul style="list-style:none; margin:0px;">{% for post in site.posts %}{% capture m %}{{post.date | date:"%m"}}{% endcapture %}{% if month != m %}{% assign month = m %}
+<section>
+                <ul style="list-style:none; margin:0px;">{% for post in site.posts %}{% capture m %}{{post.date | date:"%m"}}{% endcapture %}{% if month != m %}{% assign month = m %}
                     <li><blockquote><h4>{{post.date | date:"%m/%Y"}}</h4></blockquote></li>{% endif %}
                     <li style="padding-left: 23px;">
                         <h5 style="font-weight:normal;">
@@ -13,3 +14,4 @@ description: 日志归档
                         </h5>
                     </li>{% endfor %}
                 </ul>
+            </section>
