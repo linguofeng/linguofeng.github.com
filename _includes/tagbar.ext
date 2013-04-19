@@ -1,6 +1,6 @@
-<!-- tag导航 -->
-        <section>
-            <div class="btn-group">{% for tag in page.tags %}
-                <button class="btn" onclick="window.location.href='/tag/{{ tag }}/'">{{ tag }}</button>{% endfor %}
-            </div>
-        </section>
+    <!-- tag导航 -->
+            <section>
+                <div class="btn-group">{% for tag in page.tags %}
+                    <button class="btn" onclick="window.location.href='/tag/{{ tag }}/'">{{ tag }}</button>{% endfor %}
+                </div>
+            </section>

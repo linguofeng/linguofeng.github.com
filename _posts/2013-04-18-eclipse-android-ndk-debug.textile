@@ -18,17 +18,17 @@ tags: [android, ndk, eclipse]
 </section>
 
 <section>
-    <p>1. 创建工程</p>
+    <blockquote>一、创建工程</blockquote>
     <p><img src="http://ww3.sinaimg.cn/large/a74ecc4cjw1e3tkzqi5pdj21000uo0wt.jpg" width="648" alt=""></p>
-    <p>2. 添加Native支持</p>
+    <blockquote>二、添加Native支持</blockquote>
     <p><img src="http://ww4.sinaimg.cn/large/a74e55b4jw1e3tl0oho2bj20yk07u0us.jpg" width="622" alt=""></p>
     <p><img src="http://ww1.sinaimg.cn/large/bfadf3bejw1e3tl0wjfddj.jpg" width="639" alt=""></p>
-    <p>3. 切换至C/C++视图，方便C/C++代码编写</p>
+    <blockquote>三、切换至C/C++视图，方便C/C++代码编写</blockquote>
     <p><img src="http://ww1.sinaimg.cn/large/a74ecc4cjw1e3tl13qqurj20jo0me0uu.jpg" width="354" alt=""></p>
-    <p>4. 检查工程目录结构是否正常，如果没有includes文件夹可以关闭工程再重新打开</p>
+    <blockquote>四、检查工程目录结构是否正常，如果没有includes文件夹可以关闭工程再重新打开</blockquote>
     <p><img src="http://ww4.sinaimg.cn/large/a74eed94jw1e3tl1dhg52j20j80gymyx.jpg" width="346" alt=""></p>
-    <p>5. 这样一个完整的工程就创建完成了，接下来我们要实现的功能是点击一下按键，显示从Jni返回的字符串。</p>
-    <p>6. 修改activity_main.xml布局文件</p>
+    <blockquote>五、这样一个完整的工程就创建完成了，接下来我们要实现的功能是点击一下按键，显示从Jni返回的字符串。</blockquote>
+    <blockquote>六、修改activity_main.xml布局文件</blockquote>
 <pre class="prettyprint">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -50,7 +50,7 @@ tags: [android, ndk, eclipse]
         android:text="@string/call_jni" />
 </RelativeLayout>
 </pre>
-    <p>7. 修改MainActivity.java</p>
+    <blockquote>七、修改MainActivity.java</blockquote>
 <pre class="prettyprint">
 public class MainActivity extends Activity {
 
@@ -71,12 +71,12 @@ public class MainActivity extends Activity {
     }
 }
 </pre>
-    <p>8. 获取jni_call的jni头文件</p>
+    <blockquote>八、获取jni_call的jni头文件</blockquote>
 <pre>
 $ cd $DebugNdkTest/jni
 $ javah -classpath ../bin/classes  com.linguofeng.debugndktest.MainActivity
 </pre>
-    <p>9. 修改DebugNdkTest.cpp</p>
+    <blockquote>九、修改DebugNdkTest.cpp</blockquote>
 <pre class="prettyprint">
 #include "com_linguofeng_debugndktest_MainActivity.h"
 
@@ -86,7 +86,7 @@ JNIEXPORT jstring JNICALL Java_com_linguofeng_debugndktest_MainActivity_jni_1cal
     return env->NewStringUTF("Hello From JNI");
 }
 </pre>
-    <p>10. 运行点击按键将会看到</p>
+    <blockquote>十、运行点击按键将会看到</blockquote>
     <p><img src="http://ww4.sinaimg.cn/large/a74e55b4jw1e3tlts36k4j20qk0u8dhn.jpg" width="428" alt=""></p>
     <p><img src="http://ww4.sinaimg.cn/large/bfadf3bejw1e3tltzwuvvj.jpg" alt="" width="428"></p>
 </section>

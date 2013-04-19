@@ -1,16 +1,16 @@
 ---
 layout: default
 ---
-        {{ content }}
+            {{ content }}
         
-        {% if page.tags.size > 0 %}{% include tagbar.ext %}{% endif %}
+            {% if page.tags.size > 0 %}{% include tagbar.ext %}{% endif %}
 
-        <hr />
+            <hr />
 
-        <!-- 上一篇或下一篇文章 -->
-        <div>
-            <p style="float: left;">«&nbsp;{% if page.previous %}<a href="{{ page.previous.url }}" rel="previous" title="{{ page.previous.title }}">{{ page.previous.title | truncatewords: 15 }}</a>{% else %}没有了{% endif %}</p>
-            <p style="float: right;">{% if page.next %}<a href="{{ page.next.url }}" rel="next" title="{{ page.next.title }}">{{ page.next.title | truncatewords: 15 }}</a>{% else %}没有了{% endif %}&nbsp;»</p>
-        </div>
+            <!-- 上一篇或下一篇文章 -->
+            <div>
+                <p style="float: left;">«&nbsp;{% if page.previous %}<a href="{{ page.previous.url }}" rel="previous" title="{{ page.previous.title }}">{{ page.previous.title | truncatewords: 15 }}</a>{% else %}没有了{% endif %}</p>
+                <p style="float: right;">{% if page.next %}<a href="{{ page.next.url }}" rel="next" title="{{ page.next.title }}">{{ page.next.title | truncatewords: 15 }}</a>{% else %}没有了{% endif %}&nbsp;»</p>
+            </div>
 
         {% include disqus.ext %}
