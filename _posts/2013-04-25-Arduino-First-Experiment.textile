@@ -7,7 +7,7 @@ tags: [Arduino]
 ---
 
 <section>
-    <p>按照图片所示接线</p>
+    <p>按照图片所示接线，四个电阻都是220Ω。</p>
     <p><img src="http://ww4.sinaimg.cn/large/a74eed94jw1e428cer35mj212w0ikafj.jpg" width="700" alt=""></p>
 <pre class="prettyprint">
 
