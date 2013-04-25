@@ -1,0 +1,20 @@
+---
+layout: post
+title: Arduino 到手了
+description: Arduino
+categories: [archive]
+tags: [Arduino]
+---
+
+<section>
+    <p>前天在DFRobot买的意大利原装Arduino UNO R3到手了，比某宝上的山寨贵，不过还是喜欢原装的东西，贵也贵得值，拆开包装一看，一张信用卡大小的蓝色小板子，很不错。</p>
+    <p><img src="http://ww1.sinaimg.cn/large/a74ecc4cjw1e4266jk8qwj212w0t647z.jpg" width="700" alt=""></p>
+    <p><img src="http://ww3.sinaimg.cn/large/a74eed94jw1e4267bl0a9j212w0t647x.jpg" width="700" alt=""></p>
+    <p>准备学习的工具</p>
+    <p><img src="http://ww2.sinaimg.cn/large/a74e55b4jw1e4268shuemj212w0t6k1y.jpg" width="700" alt=""></p>
+    <p>晚上有时间做了一个小实验，GND针脚与13号针脚，LED就亮了，一闪一闪，不明真相，好像默认是不会闪的吧，是不是售前测试给我装了个来测试的。</p>
+    <p><img src="http://ww2.sinaimg.cn/large/bfadf3bejw1e426cc5gnnj212w0t6gvd.jpg" width="700" alt=""></p>
+    <p><img src="http://ww1.sinaimg.cn/large/a74ecc4cjw1e426oxmmghj212w0gb430.jpg" width="700" alt=""></p>
+    <p>接下来就是去看 "http://study.163.com/course/introduction.htm?courseId=194002":http://study.163.com/course/introduction.htm?courseId=194002 的视频了，这套视频不错。</p>
+    <p>什么是Arduino，Arduino是一个开源的单板机控制器，采用了基于开放源代码的软硬件平台，构建于开放源代码 simple I/O 接口版，并且具有使用类似Java，C 语言的Processing/Wiring开发环境。参考维基百科 "https://zh.wikipedia.org/wiki/Arduino":https://zh.wikipedia.org/wiki/Arduino</p>
+</section>
