@@ -12,21 +12,21 @@ tags: [Arduino]
 <pre class="prettyprint">
 
 /**
- * 连接2、4、6、8四个针脚，这四个灯会间隔1秒依次亮起后又依次灭掉
+ * 连接2、4、6、8四个针脚，这四个灯会间隔1秒依次亮起后又依次熄灭
  */
 
-void setup()
+void setup()            // setup函数为初始化函数,第一次启动Arduino或重启执行,且只执行一次.
 {
-  pinMode(2, OUTPUT);
+  pinMode(2, OUTPUT);   // pinMode函数是把一个引脚设置为INPUT(输出)或OUTPUT(输出).
   pinMode(4, OUTPUT);
   pinMode(6, OUTPUT);
   pinMode(8, OUTPUT);
 }
 
-void loop()
+void loop()               // loop函数是setup后执行,是一个死循环,类似while(true).
 {
-  digitalWrite(2, HIGH);
-  delay(1000);
+  digitalWrite(2, HIGH);  // digitalWrite函数是把一个引脚设置为HIGH(高电平)或LOW(低电平).
+  delay(1000);            // delay函数是睡眠,此处睡眠1秒.
   digitalWrite(4, HIGH);
   delay(1000);
   digitalWrite(6, HIGH);
@@ -42,6 +42,5 @@ void loop()
   digitalWrite(2, LOW);
   delay(1000);
 }
-
 </pre>
 </section>
