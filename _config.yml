@@ -1,8 +1,10 @@
 auto: true
 server: true
 server_port: 4000
-markdown: rdiscount
+safe: true
+lsi: false
 pygments: true
+markdown: rdiscount
 title: 林国锋个人博客
 author: linguofeng@msn.com
 description: java,android,linux,ubuntu,osx,cocos2d-x,c++,c,cpp,hhkb,lua,vim,raspberrypi
