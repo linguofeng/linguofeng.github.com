@@ -1,3 +1,7 @@
+auto: true
+server: true
+server_port: 4000
+markdown: rdiscount
 pygments: true
 title: 林国锋个人博客
 author: linguofeng@msn.com
