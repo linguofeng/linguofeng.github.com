@@ -1,0 +1,25 @@
+---
+layout: post
+title: Arduino ENC28J60
+description: Arduino 网卡
+categories: [archive]
+tags: [arduino]
+---
+
+<section>
+    <p><img src="http://ww2.sinaimg.cn/large/a74eed94jw1e4fnopunfxj20mz0e4din.jpg" width="700" alt=""></p>
+    <p>ENC28J60是一个Arduino的网卡扩展。</p>
+    <p>库: https://github.com/jcw/ethercard</p>
+    <p>文档: http://jeelabs.net/pub/docs/ethercard/index.html</p>
+
+    <h4>接线</h4>
+table(table table-bordered).
+|_.ENC|_.Arduino|
+|VCC|3.3v|
+|GND|GND|
+|SCK|Pin 13|
+|SO|Pin 12|
+|SI|Pin 11|
+|CS|Pin 8|
+
+</section>

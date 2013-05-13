@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Arduino Multiple Screens
-description: Arduino 屏幕适配的一些总结
+title: Android Multiple Screens
+description: Android 屏幕适配的一些总结
 categories: [archive]
-tags: [Android]
+tags: [android]
 ---
 
 <section>

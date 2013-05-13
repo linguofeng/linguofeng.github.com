@@ -1,0 +1,13 @@
+---
+layout: post
+title: Arduino nRF24L01
+description: Arduino 无线
+categories: [archive]
+tags: [arduino]
+---
+
+<section>
+    <p><img src="http://ww2.sinaimg.cn/large/a74eed94jw1e4fnopunfxj20mz0e4din.jpg" width="700" alt=""></p>
+    <p>nRF24L01是一个Arduino 2.4G的无线扩展。注: 不是Wifi。</p>
+    <p>库: https://github.com/maniacbug/RF24</p>
+</section>

@@ -1,0 +1,21 @@
+---
+layout: post
+title: Arduino Car
+description: Arduino 小车项目笔记
+categories: [archive]
+tags: [arduino]
+---
+
+<section>
+    <h4>2013-05-13</h4>
+    <p>原本打算是做一个四轴的，可是琢磨了好些天，感觉还是先来个小车项目吧，四轴的话最大的问题是遥控器要买，而且好一点的又贵，所以目前暂时先做个小车项目了。</p>
+    <p>其实做个小车成本也是挺贵的（╯－＿－）╯╧╧ </p>
+
+table(table table-bordered).
+|_.名称|_.数量|_.价钱|
+|小车车体|1||
+|HC-06蓝牙模块|1||
+|LN298N电机驱动模块|2||
+|SR04超声波模块|1||
+
+</section>
