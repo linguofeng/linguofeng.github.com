@@ -7,7 +7,7 @@ tags: [arduino]
 ---
 
 <section>
-    <h4>2013-05-13</h4>
+    <blockquote><h4>2013-05-13</h4></blockquote>
     <p>原本打算是做一个四轴的，可是琢磨了好些天，感觉还是先来个小车项目吧，四轴的话最大的问题是遥控器要买，而且好一点的又贵，所以目前暂时先做个小车项目了。</p>
     <p>其实做个小车成本也是挺贵的（╯－＿－）╯╧╧ </p>
 
@@ -15,7 +15,19 @@ table(table table-bordered).
 |_.名称|_.数量|_.价钱|
 |小车车体|1||
 |HC-06蓝牙模块|1||
-|LN298N电机驱动模块|2||
+|L298N电机驱动模块|2||
 |SR04超声波模块|1||
 
+    <blockquote><h4>2013-05-15</h4></blockquote>
+    <p>今天小车车体到了，晚上回来就开始组装了，原本我以为这个小车车体应该不会很大，事实是有点大啊。</p>
+    <p><img src="http://ww4.sinaimg.cn/large/6734058fjw1e4pdp04lw3j212w0t6wo0.jpg" width="700" alt=""></p>
+    <p>把电机都装上了</p>
+    <p><img src="http://ww1.sinaimg.cn/large/6734058fjw1e4pdpm39vzj212w0t612n.jpg" width="700" alt=""></p>
+    <p>有把小电钻自己焊了张电路板配合arduino nano使用</p>
+    <p><img src="http://ww3.sinaimg.cn/large/6734058fjw1e4pdq95g9ij212w0t6qd3.jpg" width="700" alt=""></p>
+    <p>装上去之后的效果还不错</p>
+    <p><img src="http://ww4.sinaimg.cn/large/6734058fjw1e4pdrko6h1j212w0t6tiu.jpg" width="700" alt=""></p>
+    <p>给电机连上线，电机驱动板还没到，暂时把线接上，明天电机驱动板一到就可以跑了</p>
+    <p><img src="http://ww2.sinaimg.cn/large/6734058fjw1e4pds6gz35j212w0t6qc9.jpg" width="700" alt=""></p>
+    <p>这个车体100多块也还算可以，质量不错。</p>
 </section>
