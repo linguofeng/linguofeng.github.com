@@ -30,4 +30,17 @@ table(table table-bordered).
     <p>给电机连上线，电机驱动板还没到，暂时把线接上，明天电机驱动板一到就可以跑了</p>
     <p><img src="http://ww2.sinaimg.cn/large/6734058fjw1e4pds6gz35j212w0t6qc9.jpg" width="700" alt=""></p>
     <p>这个车体100多块也还算可以，质量不错。</p>
+
+    <blockquote><h4>2013-05-16</h4></blockquote>
+    <p>电机驱动板收到了</p>
+    <p><img src="http://ww2.sinaimg.cn/large/6734058fjw1e4qjzbg313j212w0t648t.jpg" width="700" alt=""></p>
+    <p>由于电池盒太大了，加上一个舵机的话放不下，就搭了这样一个双层板子。</p>
+    <p><img src="http://ww2.sinaimg.cn/large/6734058fjw1e4qk00bin0j212w0t6gv4.jpg" width="700" alt=""></p>
+    <p><img src="http://ww2.sinaimg.cn/large/6734058fjw1e4qk21k1sqj212w0t6tig.jpg" width="700" alt=""></p>
+    <p>在进行电机测试，没用过电机驱动板，在调试，初步知道前进后退怎么操作，还有通过pwm进行调速。</p>
+    <p><img src="http://ww2.sinaimg.cn/large/6734058fjw1e4qk2iad4cj212w0t6n7c.jpg" width="700" alt=""></p>
+    <p>最后是把蓝牙装上去，明天写个android程序来进行小车的控制。</p>
+    <p><img src="http://ww1.sinaimg.cn/large/6734058fjw1e4qk3vs1tqj212w0t6wny.jpg" width="700" alt=""></p>
+    <p>电机与电机驱动板的接线效果</p>
+    <p><img src="http://ww4.sinaimg.cn/large/6734058fjw1e4qk4sx2vnj212w0t6n5f.jpg" width="700" alt=""></p>
 </section>
