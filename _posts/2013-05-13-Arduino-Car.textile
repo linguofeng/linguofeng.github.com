@@ -43,4 +43,12 @@ table(table table-bordered).
     <p><img src="http://ww1.sinaimg.cn/large/6734058fjw1e4qk3vs1tqj212w0t6wny.jpg" width="700" alt=""></p>
     <p>电机与电机驱动板的接线效果</p>
     <p><img src="http://ww4.sinaimg.cn/large/6734058fjw1e4qk4sx2vnj212w0t6n5f.jpg" width="700" alt=""></p>
+
+    <blockquote><h4>2013-05-16</h4></blockquote>
+    <p>开始在Arduino Nano中调试电机了</p>
+    <p><img src="http://ww2.sinaimg.cn/large/6734058fjw1e4rquswwdaj212w0t6woj.jpg" width="700" alt=""></p>
+    <p>完成了，由于地线不足，暂时用了块面包板</p>
+    <p><img src="http://ww3.sinaimg.cn/large/6734058fjw1e4rr0m6evkj212w0t6130.jpg" width="700" alt=""></p>
+    <p>试了一下车，速度与冲击力还不错，用电池需要从电机驱动板中取电，否则无法驱动。</p>
+    <p>提供Android程序与Arduino程序</p>
 </section>

@@ -8,18 +8,34 @@ tags: [arduino]
 
 <section>
     <p><img src="http://ww2.sinaimg.cn/large/a74eed94jw1e4fnopunfxj20mz0e4din.jpg" width="700" alt=""></p>
-    <p>HC-06是一个Arduino的蓝牙从机扩展。</p>
-    <p>库: https://github.com/jcw/ethercard</p>
-    <p>文档: http://jeelabs.net/pub/docs/ethercard/index.html</p>
+    <p>HC-06是一个Arduino的蓝牙从机扩展。从机不能主动与其它蓝牙发起连接。</p>
 
     <h4>接线</h4>
 table(table table-bordered).
-|_.ENC|_.Arduino|
+|_.HC-06|_.Arduino|
 |VCC|3.3v|
 |GND|GND|
-|SCK|Pin 13|
-|SO|Pin 12|
-|SI|Pin 11|
-|CS|Pin 8|
+|RXD|TXD|
+|TXD|RXD|
+
+    <h4>蓝牙参数的配置</h4>
+table(table table-bordered).
+|_.命令|_.说明|
+|AT|判断是否与蓝牙通信成功|
+|AT+NAMExxx|修改蓝牙的名称，xxx为新的名称|
+|AT+PIN1234|修改蓝牙的密码，为四个字符长度|
+|AT+BAUDx|修改蓝牙的波特率，x为
+<span>1 --> 1200bps</span>
+<span>2 --> 2400bps</span>
+<span>3 --> 4800bps</span>
+<span>4 --> 9600bps</span>
+<span>5 --> 19200bps</span>
+<span>6 --> 38400bps</span>
+<span>7 --> 57600bps</span>
+<span>8 --> 115200bps</span>
+<span>9 --> 230400bps</span>
+<span>A --> 460800bps</span>
+<span>B --> 921600bps</span>
+<span>C --> 1382400bps</span>|
 
 </section>
