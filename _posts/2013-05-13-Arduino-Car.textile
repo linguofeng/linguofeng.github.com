@@ -52,3 +52,5 @@ table(table table-bordered).
     <p>试了一下车，速度与冲击力还不错，用电池需要从电机驱动板中取电，否则无法驱动。</p>
     <p>提供Android程序与Arduino程序</p>
 </section>
+
+<div class="github-widget" data-repo="linguofeng/arduino-car"></div></br>
