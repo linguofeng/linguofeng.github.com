@@ -1,0 +1,52 @@
+---
+layout: post
+title: WR720N Install OpenWrt
+description: WR720N无线路由安装OpenWrt
+categories: [archive]
+tags: [wr720n, openwrt]
+---
+
+<section>
+    <p>今天无聊跟实在无法忍受天朝的网络，就搜索了一下wr720n openwrt，发现官方已经出了wr720n专用的固件了，之前是没有官方的，民间高手有出一些教程可以自己编译，我是懒得编译了。</p>
+    <p>既然出了就当然是要刷一下了，目前还是测试版，刷机有风险。刷机过程如下：</p>
+    <h4>第一步：下载专用固件</h4>
+<pre>http://downloads.openwrt.org/snapshots/trunk/ar71xx/openwrt-ar71xx-generic-tl-wr720n-v3-squashfs-factory.bin</pre>
+    <h4>第二步：开刷</h4>
+    <p><img src="http://ww2.sinaimg.cn/large/6734058fjw1e4to8tcm5ij20eo07paaw.jpg" alt=""></p>
+    <p>由于刷机前没有截图，网上找了一张WR703N的图片，操作是一样的。</p>
+    <h4>第三步：配置无线</h4>
+    <p>刷机过程大概一两分钟，路由重启后使用 @telnet@ 命令连接路由</p>
+<pre>
+telnet 192.168.1.1
+</pre>
+    <p>默认应该是不用帐号密码的，如果需要就是admin。接着就是开启无线，命令</p>
+<pre>
+# vi /etc/config/wireless
+</pre>
+    <p>删除 @option disabled 1@ 即可</p>
+    <p>修改密码并开启ssh</p>
+<pre>
+# passwd
+</pre>
+    <p>输入两次密码即可，现在重启</p>
+<pre>
+# reboot
+</pre>
+    <p>就可以通过无线连接路由了，目前无线是没有密码的，如果需要设置密码参考官方说明</p>
+    <pre>http://wiki.openwrt.org/doc/uci/wireless/encryption</pre>
+    <h4>第四步：配置PPPOE拨号</h4>
+<pre>
+# vi /etc/config/network
+
+config interface 'wan'
+option ifname 'eth0'
+option proto 'pppoe'
+option username '上网帐号'
+option password '上网密码'
+
+# /etc/init.d/network start
+</pre>
+    <p>过一会就可以上网</p>
+
+    <p>参考: http://www.geek-workshop.com/thread-2418-1-1.html</p>
+</section>
