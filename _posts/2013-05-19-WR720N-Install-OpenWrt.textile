@@ -49,4 +49,10 @@ option password '上网密码'
     <p>过一会就可以上网</p>
 
     <p>参考: http://www.geek-workshop.com/thread-2418-1-1.html</p>
+
+    <h4>OpenWrt常用技巧</h4>
+    <p>列表当前所有连接到路由的IP</p>
+    <pre>arp</pre>
+    <p>or</p>
+    <pre>cat /tmp/dhcp.leases</pre>
 </section>

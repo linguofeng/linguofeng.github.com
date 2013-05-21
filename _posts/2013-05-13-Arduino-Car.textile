@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Arduino Car
-description: Arduino 小车项目笔记
+description: Android手机蓝牙无线控制Arduino小车项目笔记
 categories: [archive]
 tags: [arduino]
 ---
