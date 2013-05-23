@@ -55,4 +55,20 @@ option password '上网密码'
     <pre>arp</pre>
     <p>or</p>
     <pre>cat /tmp/dhcp.leases</pre>
+    <h5>OpenWrt端口映射</h5>
+    <p>由于我内网还有一个Raspberry Pi，进行端口映射实现从外网访问我内网中的Raspberry Pi树莓派</p>
+    <p>首先要去申请一个动态dns，我选择了duckdns，非常合适OpenWrt</p>
+    <p>使用Google帐号登录DuckDns，申请一个子域名，然后生成配置文件，可参考</p>
+    <pre>https://www.duckdns.org/install.jsp#openwrt</pre>
+    <p>修改OpenWrt防火墙设置</p>
+    <pre># vim /etc/config/firewall</pre>
+    <p>在最后添加</p>
+<pre>
+config redirect
+    option src              wan
+    option proto            all
+    option dest_ip          raspberrypi ip
+</pre>
+    <p>这几行配置的作用是完全把raspberry pi作为一个服务器对外公开所有端口，当然这是不安全的</p>
+    <p>对外公开的端口中肯定是包含了 @22@ 端口，此时通过duckdns提供的域名方向将直接进入raspberry pi，如果要进入openwrt可以通过raspberry pi对openwrt进行管理。</p>
 </section>

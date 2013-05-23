@@ -1,6 +1,6 @@
 ---
 layout: post
-title: error: failed to attach to process ID 0
+title: error failed to attach to process ID 0
 description: xcode问题解决
 categories: [archive]
 tags: [ios]
