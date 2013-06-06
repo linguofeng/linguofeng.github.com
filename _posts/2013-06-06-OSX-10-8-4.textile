@@ -1,0 +1,12 @@
+---
+layout: post
+title: OSX 10.8.4
+description: OSX 10.8.4 更新
+categories: [archive]
+tags: [osx]
+---
+
+<section>
+    <p>自从昨晚升级了10.8.4，我的电脑断网问题解决了，头不疼，脚不痛了</p>
+    <p>话说升级前基本上是一天断网千百遍啊，直到现在我还怀疑是公司的无线好了，原来是我系统升级了。</p>
+</section>
