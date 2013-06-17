@@ -1,109 +1,24 @@
 ---
 layout: page
-title: Lua
-description: 简洁、轻量、可扩展的脚本语言
-navigation: [1.安装, 2.HelloWorld, 3.数据类型, 4.函数]
-update: 2013-01-17
+title: LuaJIT
+description: 一个速度更快的Lua版本
+update: 2013-06-17
 ---
 
-<section id="1">
-    <div class="page-header">
-        <h3>一、安装</h3>
-    </div>
-    <h4><small>1.1</small> Ubuntu</h4>
-<pre>
-$ sudo apt-get install lua5.2
-</pre>
-    <h4><small>1.2</small> OS X</h4>
-<pre>
-$ brew tap homebrew/versions
-$ brew install lua52 luarocks
-</pre>
-</section>
+<section>
+    <p>LuaJIT是一个利用JIT编译技术把Lua脚本直接编译成机器码由CPU运行，所以速度比Lua要快。</p>
 
-<section id="2">
-    <div class="page-header">
-        <h3>二、HelloWorld</h3>
-    </div>
-<pre>
-$ lua
-> print("Hello World!!")
-</pre>
-<pre>
-Hello World!!
-</pre>
-</section>
+    <p>安装LuaJIT</p>
+    <p>官方提示了很多平台的安装方法，在OS X上最简单的方法就是通过brew来安装了。</p>
+    <pre>
+    $ brew install luajit
+    </pre>
 
-<section id="3">
-    <div class="page-header">
-        <h3>三、数据类型 <small>有8种基本数据类型</small></h3>
-    </div>
+    <p>LuaJIT还有一个很不错的功能，就是FFI，有了它绑定C/C++就简单多了。</p>
 
-table(table table-bordered).
-|_.类型|_.说明|
-|nil||
-|boolean|布尔值|
-|number|数字型|
-|string|字符串型|
-|userdata|用户自定义类型|
-|function|函数|
-|thread|线程|
-|table|表|
-
-<pre>
-print(type(nil))                    -- 输出 nil
-print(type(99.7+12*9))              -- 输出 number
-print(type(true))                   -- 输出 boolean
-print(type("Hello Wikipedia"))      -- 输出 string
-print(type(print))                  -- 输出 function
-print(type{1, 2, test = "test"})    -- 输出 table
-</pre>
-</section>
-
-<section id="4">
-    <div class="page-header">
-        <h3>三、函数</h3>
-    </div>
-<pre class="">
-function add(x, y)                          // 定义一个函数add，并接收两个参数
-    local a = x + y                         // 定义一个局部变量a，接收x+y的和，局部变量仅在函数add中有效
-    return a                                // 返回
-end                                         // 结束add函数
-
-print("15 + 64 = " .. add(15, 64));         // 打印add(15, 64)的结果
-</pre>
-</section>
-
-<section id="5">
-    <div class="page-header">
-        <h3>四、控制语句</h3>
-    </div>
-<pre>
-for int i = 0, 10, 2 do     // for循环，2表示步长，省略时为1
-    print("i = " .. i)      // .. 表示字符串连接符
-end                         // 结束for
-
-if a > b then               // if条件判断语句
-    print("a > b")
-else
-    print("b > a")
-end
-</pre>
-</section>
-
-<section id="6">
-    <div class="page-header">
-        <h3>五、数据结构 <small>table</small></h3>
-    </div>
-<pre>
-arrays = {}                         // 数组
-arrays[0] = "abc"
-arrays[1] = 123
-
-arrays["key"] = "value"             // map
-
-for key, value in pairs(arrays) do  // 迭代table
-    print(key .. " = " .. value)
-end
+<pre class="prettyprint">
+local ffi = require("ffi")
+ffi.cdef[[int printf(const char *fmt, ...);]]
+ffi.C.printf("Hello %s!\n", "wiki")
 </pre>
 </section>
