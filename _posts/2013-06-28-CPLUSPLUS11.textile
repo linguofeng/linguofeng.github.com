@@ -1,0 +1,26 @@
+---
+layout: post
+title: C++11
+description: C++11 的一些事
+categories: [archive]
+tags: [opencv]
+---
+
+<section>
+    <p>Lambda表达式：匿名函数的实现。</p>
+<pre class="prettyprint">
+[]     // 变量参考，用于闭包
+()     // 函数参数列表
+{}     // 函数体
+()     // 函数调用，如果函数有参数，那应该是在些传入
+
+[]() { std::cout << "Hello Lambda!!" << std::endl; }();
+
+// 一个简单的闭包例子
+int num = 10;
+auto func = [&num]() { num+= 100; std::cout << "num:" << num << std::endl; };
+std::cout << "num:" << num << std::endl; // 输出10
+func();                                  // 输出110
+std::cout << "num:" << num << std::endl; // 输出110，由于num是以引用的方式传入的，所以会修改
+</pre>
+</section>

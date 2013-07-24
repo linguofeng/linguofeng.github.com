@@ -25,7 +25,17 @@ $ sudo ln -s /usr/bin/make /usr/bin/gmake   # 解决 sh: gmake: command not foun
 $ luarocks install luasocket
 $ lua
 > socket = require("socket")
-> print(socket._VERSION)                    -- LuaSocket 2.0.2
+> print(socket._VERSION)
+LuaSocket 2.0.2
+</pre>
+
+    <h4><small>1.4</small> lua-cjson库的安装</h4>
+<pre class="prettyprint">
+$ luarocks install lua-cjson
+$ lua
+> cjson = require("cjson")
+> print(cjson.encode({ name = "linguofeng" }))
+{"name":"linguofeng"}
 </pre>
 </section>
 
