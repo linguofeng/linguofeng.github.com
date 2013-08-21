@@ -24,6 +24,31 @@ $ make install
 <section>
     <h4>Hello World</h4>
 <pre>
-
+$ mkdir work
+$ cd work
+$ mkdir logs/ conf/
+</pre>
+<pre>
+worker_processes  1;
+error_log logs/error.log;
+events {
+        worker_connections 1024;
+}
+http {
+    server {
+        listen 8080;
+        location / {
+            default_type text/html;
+            content_by_lua '
+                ngx.say("<p>hello, world</p>")
+            ';
+        }
+    }
+}
+</pre>
+<pre>
+$ PATH=/usr/local/openresty/nginx/sbin:$PATH
+$ export PATH
+$ nginx -p `pwd`/ -c conf/nginx.conf
 </pre>
 </section>
