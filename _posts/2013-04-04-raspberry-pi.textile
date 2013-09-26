@@ -57,25 +57,6 @@ $ sudo ifdown wlan0
 $ sudo ifup wlan0
 </pre>
 
-    <h4><small>1.2.1</small> 配置无线</h4>
-<pre>
-$ sudo vim /etc/wpa_supplicant/wpa_supplicant.conf
-    network={
-        scan_ssid=1
-        ssid="TP-LINK_DDECA2"
-        psk=""
-        proto=RSN
-        key_mgmt=WPA-PSK
-        pairwise=CCMP TKIP
-        group=CCMP TKIP
-    }
-$ sudo vim /etc/network/interfaces
-    auto wlan0
-$ sudo ifdown wlan0
-$ sudo ifup wlan0
-$ iwconfig
-</pre>
-
     <h4><small></small> 配置ssh自动登录</h4>
 <pre>
 $ brew install ssh-copy-id
