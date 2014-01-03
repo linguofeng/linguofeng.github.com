@@ -1,0 +1,18 @@
+---
+layout: post
+title: xxtea
+description: xxtea加密算法
+categories: [archive]
+tags: [xxtea]
+---
+
+<section>
+<pre>
+// 加密
+加密后的数据 = xxtea_encrypt(原始数据, 数据的长度, 密钥, 密钥的长度, 加密后的数据长度);
+
+// 解密
+解密后的数据 = xxtea_decrypt(加密后的数据, 加密后的数据长度, 密钥, 密钥的长度, 解密后的数据长度)
+
+</pre>
+</section>

@@ -1,0 +1,40 @@
+---
+layout: post
+title: Git Flow
+description: git flow 扩展
+categories: [archive]
+tags: [git, flow]
+---
+
+<section>
+    <h4>安装</h4>
+<pre>
+$ brew update
+$ brew install git-flow
+</pre>
+
+    <h4>使用</h4>
+<pre>
+$ git flow init			// 初始化flow，会定义一些分支，默认就行
+$ git flow feature start NAME 	// 基于feature分支创建一个feature/NAME新分支
+$ git flow feature finish NAME 	// 完成，完成后合并feature/NAME分支后，并删除NAME分支
+</pre>
+
+	<h4>注意</h4>
+<p>
+	不管当前在哪个分支， @feature start@ 命令都是基于初始化时指定的feature分支作为父分支来创建新的子分支；同理， @release start@ 命令是基于release分支创建出的子分支。
+	@hotfix start@ 是基于release分支创建出来的子分支， @hotfix finish@ 后会同时合并至release与feature对应的分支上。
+</p>
+
+	<h4>支持的命令</h4>
+<pre>
+feature  -- Manage your feature branches.
+hotfix   -- Manage your hotfix branches.
+init     -- Initialize a new git repo with support for the branching model.
+release  -- Manage your release branches.
+support  -- Manage your support branches.
+version  -- Shows version information.
+</pre>
+
+<p>更多参考： http://danielkummer.github.io/git-flow-cheatsheet/index.zh_CN.html</p>
+</section>
