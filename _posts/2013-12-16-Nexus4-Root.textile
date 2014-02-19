@@ -1,0 +1,18 @@
+---
+layout: post
+title: Nexus4 Root
+description: nexus4取得root权限
+categories: [archive]
+tags: [android]
+---
+
+<section>
+1. 下载http://download.chainfire.eu/supersu
+2. 下载http://download2.clockworkmod.com/recoveries/recovery-clockwork-6.0.4.3-mako.img
+3. 复制UPDATE-SuperSU-v1.xx.zip到SD卡上
+4. 进入bootloader模式，adb reboot-bootloader
+5. 刷入recovery，fastboot flash recovery recovery-clockwork-6.0.4.3-mako.img
+6. 音量键选择recovery mode电源键确定
+7. choose zip from sdcard
+8. 完成
+</section>

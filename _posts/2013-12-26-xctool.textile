@@ -1,0 +1,27 @@
+---
+layout: post
+title: xctool
+description: 来自facebook的ios打包工具
+categories: [archive]
+tags: [xctool]
+---
+
+<section>
+    <h4>安装</h4>
+
+<pre>
+$ brew install xctool	
+</pre>
+
+	<h4>build</h4>
+	<p>build后的包在DerivedData对应的目录里</p>
+<pre>
+$ xtool -workspace xxx.xcworkspace -scheme xxx build
+</pre>
+
+	<h4>archive</h4>
+	<p>archive后的包在Archives对应的目录里</p>
+<pre>
+$ xtool -workspace xxx.xcworkspace -scheme xxx archive
+</pre>
+</section>

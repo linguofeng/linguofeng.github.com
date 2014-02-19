@@ -1,0 +1,18 @@
+---
+layout: post
+title: unity
+description: 学习Unity3d
+categories: [archive]
+tags: [unity]
+---
+
+<section>
+    <h4>正方体的平移旋转</h4>
+    <p>创建一个正方体，编写js脚本赋予正方体</p>
+<pre>
+function Update () {
+	transform.Translate(Vector3.left * Time.deltaTime);		// 向左移动
+	transform.Rotate(Vector3.right * 2);					// 向右旋转
+}
+</pre>
+</section>
