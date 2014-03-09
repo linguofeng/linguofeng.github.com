@@ -127,10 +127,16 @@ $ node --version
 $ npm version
 </pre>
 
-    <h4><small></small> 挂载树莓派的某个文件夹到本地</h4>
+    <h4><small>1.8</small> 挂载树莓派的某个文件夹到本地</h4>
     <p>安装osxfuse和sshfs: "http://osxfuse.github.io/":http://osxfuse.github.io/</p>
 <pre>
 $ sshfs pi@192.168.1.103:/var/www www
+</pre>
+
+    <h4><small>1.9</small> 使用raspberrypi.local访问树莓派</h4>
+<pre>
+$ sudo apt-get install avahi-daemon
+$ ssh pi@raspberrypi.local
 </pre>
 </section>
 
