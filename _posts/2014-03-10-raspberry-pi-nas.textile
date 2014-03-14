@@ -1,0 +1,13 @@
+---
+layout: post
+title: RaspberryPi NAS
+description: Raspberry Pi搭建NAS服务器
+categories: [archive]
+tags: [raspberrypi, nas]
+---
+
+<section>
+<pre>
+# sudo apt-get install samba samba-common-bin
+</pre>
+</section>
