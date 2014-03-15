@@ -1,0 +1,14 @@
+---
+layout: post
+title: CocoaChina 2014
+description: CocoaChina 2014 春季开发者大会
+categories: [archive]
+tags: [cocos2d-x]
+---
+
+<section>
+<p>今天去参加了CocoaChina 2014 春季开发者大会，上午7点半的时候骑自行车过去了，上午的演讲，主要是了解到了Cocos2d-x的最新动态，作为Cocos2d-x开发者，是很有必要了解的，3.0版本改动的东西确实是多，C++11特性，各种新API等，有时间真的要开始使用3.0了，要不然就跟不上了。</p>
+<p>CocoStudio也将要发布2.0版本，这个版本我最喜欢的就是跨平台，实在不想再用回Windows了，期待2.0版本的表现。现在一直是使用CocosBuilder来做场景UI，不过现在已经不更新，等出2.0以后就换。</p>
+<p>然后就是还有一个IDE，是基于Eclipse的，支持Lua与JS的断点调试，这个确实不错，现在写Lua是用Sublime Text，还行，不过不支持断点，这个IDE还有一点就是保存后自动重新加载游戏，省去重新部署游戏节省时间。</p>
+<p>然后就是有一些新的想法，周末有时间把现在的游戏代码往3.0升级，不过这里肯定会有很多问题，只能是一步一步来了</p>
+</section>
