@@ -1,0 +1,40 @@
+---
+layout: post
+title: Cocos2d-x 3.0
+description: Cocos2d-x 3.0之新容器
+categories: [archive]
+tags: [cocos2d-x]
+---
+
+<section>
+<p>今天试着把代码升级至3.0，发现之前的CCArray的容器都变了，现在是使用Vector<T>与Map<K,V>，简单用法</p>
+<pre>
+cocos2d::Vector<Sprite> sprites;
+
+auto sprite1 = Sprite::create("hello.png");
+auto sprite2 = Sprite::create("hello.png");
+auto sprite3 = Sprite::create("hello.png");
+auto sprite4 = Sprite::create("hello.png");
+
+sprites.push_back(sprite1)
+sprites.push_back(sprite2)
+sprites.push_back(sprite3)
+sprites.push_back(sprite4)
+</pre>
+<p>@sprites@ 内存管理是由编译器自动处理的，不要使用new来申请堆空间。</p>
+<pre>
+cocos2d::Map<std::string, Node> nodes;
+
+auto node1 = Layer::create():
+auto node2 = Layer::create():
+auto node3 = Layer::create():
+auto node4 = Layer::create():
+
+nodes.insert("node_1", node1)
+nodes.insert("node_2", node1)
+nodes.insert("node_3", node1)
+nodes.insert("node_4", node1)
+</pre>
+<p>参考：http://cocos2d-x.org/docs/manual/framework/native/data-structure/v3/vector/zh</p>
+<p>http://cocos2d-x.org/docs/manual/framework/native/data-structure/v3/map/zh</p>
+</section>
