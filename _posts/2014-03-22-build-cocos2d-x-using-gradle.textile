@@ -27,11 +27,11 @@ buildscript {
         classpath 'com.android.tools.build:gradle:0.9.+'
     }
 }
+</pre>
 <p>修改settings.gradle，替换成/p>
 <pre>
 include ':cocos2d:platform:android:java'
 include ':projects:xxxx:proj.android'
-</pre>
 </pre>
 <p>创建build.gradle，保存至cocos2dx/platform/android/java里</p>
 <pre>
