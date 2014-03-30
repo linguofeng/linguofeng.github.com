@@ -1,0 +1,69 @@
+---
+layout: post
+title: StormLib
+description: StormLib MPQ
+categories: [archive]
+tags: [stormlib, mpq]
+---
+
+<section>
+<p>创建mpq文件</p>
+<pre>
+HANDLE hMpq = NULL;
+DWORD dwCreateFlags = MPQ_CREATE_ARCHIVE_V4;
+TCHAR szMpqName[MAX_PATH] = "/Users/linguofeng/test/stormlib/new.mpq";
+DWORD dwMaxFileCount = 1;
+
+if (!SFileCreateArchive(szMpqName, dwCreateFlags, dwMaxFileCount, &hMpq)) {
+    nError = GetLastError();
+}
+
+SFileCloseArchive(hMpq);
+</pre>
+
+<p>添加文件</p>
+<pre>
+if (!SFileAddFileEx(hMpq, "/Users/linguofeng/test/main.c", "main.c", MPQ_FILE_COMPRESS | MPQ_FILE_ENCRYPTED, MPQ_COMPRESSION_ZLIB, MPQ_COMPRESSION_NEXT_SAME))
+{
+    nError = GetLastError();
+}
+
+if (nError != ERROR_SUCCESS)
+{
+    return nError;
+}
+</pre>
+
+<p>读取文件</p>
+<pre>
+HANDLE hFile = NULL;
+TCHAR szArchivedFile[MAX_PATH] = "main.c";
+if(!SFileOpenFileEx(hMpq, szArchivedFile, 0, &hFile))
+{
+    nError = GetLastError();
+}
+
+if (nError != ERROR_SUCCESS)
+{
+    return nError;
+}
+
+LPBYTE pbFileData = NULL;
+DWORD dwFileSizeLo = 0;
+DWORD dwBytes = 0;
+
+// 获取文件的大小
+dwFileSizeLo = SFileGetFileSize(hFile, NULL);
+// 申请文件大小的内存
+pbFileData = STORM_ALLOC(BYTE, dwFileSizeLo);
+// 初始化内存
+memset(pbFileData, 0, dwFileSizeLo);
+// 读取文件内容
+SFileReadFile(hFile, pbFileData, dwFileSizeLo, &dwBytes, NULL);
+// 关闭文件操作柄
+SFileCloseFile(hFile);
+
+printf("文件内容:\n%s\n文件长度:%d\n", pbFileData, dwBytes);
+STORM_FREE(pbFileData);
+</pre>
+</section>
