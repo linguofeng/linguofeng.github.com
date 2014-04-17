@@ -1,0 +1,126 @@
+---
+layout: post
+title: OpenGL
+description: OpenGL第二天
+categories: [archive]
+tags: [opengl]
+---
+
+<section>
+<p>今天做了一个可以移动的三角形，并且有碰撞检测功能，不可以移出窗口外</p>
+<pre class="prettyprint">
+#include <GLTools.h>
+#include <GLShaderManager.h>
+
+#include <glut/glut.h>
+
+#include <algorithm>
+
+GLBatch triangleBatch;
+GLShaderManager shaderManager;
+
+GLfloat blockSize = 0.5f;
+GLfloat vVerts[] = { -blockSize, 0.0f, 0.0f,
+                      blockSize, 0.0f, 0.0f,
+                      0.0f, blockSize * 2, 0.0f };
+
+void ChangeSize(int w, int h)
+{
+    glViewport(0, 0, w, h);
+}
+
+void SpecialKeys(int key, int x, int y)
+{
+    GLfloat stepSize = 0.025f;
+    
+    GLfloat blockX = vVerts[0];
+    GLfloat blockY = vVerts[1];
+   
+    // 按键 
+    switch (key)
+    {
+        case GLUT_KEY_UP:
+            blockY += stepSize;
+            break;
+        case GLUT_KEY_DOWN:
+            blockY -= stepSize;
+            break;
+        case GLUT_KEY_LEFT:
+            blockX -= stepSize;
+            break;
+        case GLUT_KEY_RIGHT:
+            blockX += stepSize;
+            break;
+        default:
+            break;
+    }
+    
+    // 与边界碰撞检测
+    blockX = std::max(blockX, -1.0f);
+    blockX = std::min(blockX, 1.0f - blockSize * 2);
+    blockY = std::max(blockY, -1.0f);
+    blockY = std::min(blockY, 1.0f - blockSize * 2);
+   
+    // 改变左下角的xy坐标 
+    vVerts[0] = blockX;
+    vVerts[1] = blockY;
+    
+    // 改变右下角的xy坐标 
+    vVerts[3] = blockX + blockSize * 2;
+    vVerts[4] = blockY;
+    
+    // 改变顶角的xy坐标 
+    vVerts[6] = blockX + blockSize;
+    vVerts[7] = blockY + blockSize * 2;
+    
+    triangleBatch.CopyVertexData3f(vVerts);
+    
+    glutPostRedisplay();
+}
+
+void SetupRC()
+{
+    glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+    
+    shaderManager.InitializeStockShaders();
+    
+    triangleBatch.Begin(GL_TRIANGLES, 3);
+    triangleBatch.CopyVertexData3f(vVerts);
+    triangleBatch.End();
+}
+
+void RenderScene()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    
+    GLfloat vRed[] = { 1.0f, 0.0f, 0.0f, 1.0f };
+    shaderManager.UseStockShader(GLT_SHADER_IDENTITY, vRed);
+    triangleBatch.Draw();
+    
+    glutSwapBuffers();
+}
+
+int main(int argc, char *argv[])
+{
+    gltSetWorkingDirectory(argv[0]);
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL);
+    glutInitWindowSize(800, 600);
+    glutCreateWindow("三角形");
+    glutReshapeFunc(ChangeSize);
+    glutDisplayFunc(RenderScene);
+    glutSpecialFunc(SpecialKeys);
+    
+    GLenum err = glewInit();
+    if (GLEW_OK != err) {
+        return 1;
+    }
+    
+    SetupRC();
+    
+    glutMainLoop();
+    
+    return 0;
+}
+</pre>
+</section>
