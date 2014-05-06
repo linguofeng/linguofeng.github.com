@@ -1,0 +1,51 @@
+---
+layout: post
+title: GYP
+description: 来自Chromium的项目构建工具
+categories: [archive]
+tags: [gyp]
+---
+
+<section>
+	<p>安装</p>
+<pre>
+$ git svn clone -r HEAD http://gyp.googlecode.com/svn/trunk/ gyp
+$ cd gyp
+$ ./setup.py build
+$ sudo ./setup.py instal
+</pre>
+
+	<p>Hello World</p>
+<pre>
+$ vim main.cpp
+</pre>
+<pre>
+#include <stdio.h>
+int main(int argc, char** argv)
+{
+     printf("hello world\n");  
+} 
+</pre>
+<pre>
+$ vim main.gyp
+</pre>
+<pre>
+{
+    'targets': [
+        {
+            'target_name': 'main',
+            'type': 'executable',
+            'sources': [
+                'main.cpp'
+            ]
+        }
+    ]
+}
+</pre>
+<pre>
+$ gyp --depth=. main.gyp
+$ open main.xcodeproj
+</pre>
+
+	<p>COMMAND + R 运行</p>
+</section>
