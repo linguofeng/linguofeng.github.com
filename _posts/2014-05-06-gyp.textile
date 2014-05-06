@@ -12,7 +12,7 @@ tags: [gyp]
 $ git svn clone -r HEAD http://gyp.googlecode.com/svn/trunk/ gyp
 $ cd gyp
 $ ./setup.py build
-$ sudo ./setup.py instal
+$ sudo ./setup.py install
 </pre>
 
 	<p>Hello World</p>
