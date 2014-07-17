@@ -66,4 +66,19 @@ SFileCloseFile(hFile);
 printf("文件内容:\n%s\n文件长度:%d\n", pbFileData, dwBytes);
 STORM_FREE(pbFileData);
 </pre>
+
+<p>patch的使用</p>
+<p>主文件的listfile</p>
+<pre>
+main.cpp
+</pre>
+<p>patch文件的listfile</p>
+<pre>
+main.cpp
+</pre>
+<pre>
+SFileOpenPatchArchive(hMpq, "patch.mpq", "", 0)   // szPatchPathPrefix为NULL时，默认值为base
+SFileIsPatchedArchive(hMpq)
+</pre>
+
 </section>
