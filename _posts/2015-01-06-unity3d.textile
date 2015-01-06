@@ -7,8 +7,10 @@ tags: [unity3d]
 ---
 
 <section>
-    <p>获取按钮并设置点击事件</p>
+    <p>1. 获取按钮并设置点击事件</p>
 <pre class="prettyprint">
+using UnityEngine.UI;
+
 var button = transform.Find("Btn_login").gameObject.GetComponent<Button>();
 if (button != null) {
     button.onClick.RemoveAllListeners();
@@ -18,5 +20,15 @@ if (button != null) {
         }
     );
 }
+</pre>
+
+    <p>2. JSON解析</p>
+<pre class="prettyprint">
+using SimpleJSON;
+
+var json = JSON.Parse("{\"array\":[1,2,3],\"boolean\":true,\"null\":null,\"number\":123,\"object\":{\"a\":\"b\",\"c\":\"d\",\"e\":\"f\"},\"string\":\"Hello World\"}");
+Debug.Log(json["string"].Value);
+Debug.Log(json["boolean"].AsBool);
+Debug.Log(json["array"].AsArray);
 </pre>
 </section>
