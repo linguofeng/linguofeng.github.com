@@ -7,17 +7,16 @@ tags: [unity3d]
 ---
 
 <section>
-    <p>查找子游戏对象</p>
-<pre>
-    // 获取按钮并设置点击事件
-    var button = transform.Find("Btn_login").gameObject.GetComponent<Button>();
-    if (button != null) {
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(
-            delegate {
-                this.onLogin(button);
-            }
-        );
-    }
+    <p>获取按钮并设置点击事件</p>
+<pre class="prettyprint">
+var button = transform.Find("Btn_login").gameObject.GetComponent<Button>();
+if (button != null) {
+    button.onClick.RemoveAllListeners();
+    button.onClick.AddListener(
+        delegate {
+            this.onLogin(button);
+        }
+    );
+}
 </pre>
 </section>
