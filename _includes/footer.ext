@@ -6,6 +6,8 @@
                     <li><a href="https://facebook.com/linguofeng" target="_blank">@Facebook</a></li>
                     <li><a href="https://github.com/linguofeng" target="_blank">@GitHub</a></li>
                     <li><a href="https://plus.google.com/101408036511204166638?rel=author" target="_blank">@Google+</a></li>
+                <ul>
+                <ul class="footer-links">友情链接
                     <li><a href="http://coolfish.me" target="_blank">Coolfish</a></li>
                 <ul>
             </footer>
