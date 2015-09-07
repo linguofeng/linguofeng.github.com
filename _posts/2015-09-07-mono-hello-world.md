@@ -1,4 +1,10 @@
-# Mono Hello World
+---
+layout: post
+title: Mono Hello World
+description:
+categories: [archive]
+tags: [cocos2d-x]
+---
 
 1.安装
 ```zsh
