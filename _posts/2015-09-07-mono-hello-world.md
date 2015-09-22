@@ -30,7 +30,7 @@ public class Hello {
 
 3.编译
 ```zsh
-$ gmcs Hello.cs
+$ mcs Hello.cs
 ```
 
 4.执行

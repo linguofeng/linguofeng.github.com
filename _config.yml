@@ -1,7 +1,14 @@
+url: https://blog.linguofeng.com
+enforce_ssl: https://blog.linguofeng.com
 safe: true
 lsi: false
-pygments: true
-markdown: rdiscount
+highlighter: pygments
+markdown: kramdown
 title: 林国锋个人博客
 author: linguofeng@msn.com
 description: java,android,linux,ubuntu,osx,cocos2d-x,c++,c,cpp,hhkb,lua,vim,raspberrypi
+
+kramdown:
+  input:         GFM
+  auto_ids:      true
+  auto_id_prefix: 'id-'
