@@ -1,5 +1,5 @@
 url: https://blog.linguofeng.com
-enforce_ssl: https://blog.linguofeng.com
+enforce_ssl: blog.linguofeng.com
 safe: true
 lsi: false
 highlighter: pygments
