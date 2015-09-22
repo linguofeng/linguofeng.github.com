@@ -2,6 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <script type="text/javascript">
+            var host = "blog.linguofeng.com";
+            if ((host == window.location.host) && (window.location.protocol != "https:"))
+                window.location.protocol = "https";
+        </script>
         <title>{% if page.title %}{{ page.title }} - {% endif %} {{ page.description }} - {{ site.title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{{ site.description }}">
@@ -9,11 +14,6 @@
 
         <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
         <link href="/assets/components/bootstrap/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <script type="text/javascript">
-            var host = "blog.linguofeng.com";
-            if ((host == window.location.host) && (window.location.protocol != "https:"))
-                window.location.protocol = "https";
-        </script>
         <style type="text/css">
             body {
                 padding-top: 20px;
