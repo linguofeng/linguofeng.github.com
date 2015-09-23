@@ -10,10 +10,12 @@ tags: [ssl, https, github]
 
 它会把之前的dns记录复制过来，直接替换就可以了。设置成功后，等待几分钟，使用 https://linguofeng.com 就可以访问我的网站了。
 
+* 一定要把dnspod里的解析停掉，要不么会有问题。
+
 然后是修改`_config.yml`
 <pre class="prettyprint">
 url: https://blog.linguofeng.com
-enforce_ssl: https://blog.linguofeng.com
+enforce_ssl: blog.linguofeng.com
 </pre>
 
 修改`index.html`
