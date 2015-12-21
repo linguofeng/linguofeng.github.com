@@ -1,8 +1,8 @@
 module Jekyll
-  
+
   class TagGenerator < Generator
     safe true
-   
+
     def generate(site)
         generateTag(site)
         deleteNullTag(site)
@@ -12,7 +12,7 @@ module Jekyll
     def generateTag(site)
       site.tags.keys.each do |tag|
         _path = site.source + '/tag/' + tag
-        _file = _path + '/index.textile'
+        _file = _path + '/index.md'
         if !File.exist?(_file) then
           FileUtils.mkdir_p _path
           aFile = File.new(_file, 'w')
@@ -25,7 +25,7 @@ module Jekyll
         end
       end
     end
-    
+
     # 删除不存在的Tag
     def deleteNullTag(site)
       Dir.foreach(site.source + '/tag/') {

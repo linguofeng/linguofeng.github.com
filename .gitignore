@@ -1,6 +1,7 @@
 _site/
 *.swp
 .DS_Store
+.jekyll-metadata
 
 assets/components/bootstrap/*
 !assets/components/bootstrap/bootstrap

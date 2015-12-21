@@ -7,11 +7,13 @@ tags: [cocos2d-x]
 ---
 
 1.安装
+
 ```zsh
 $ brew install mono
 ```
 
 2.创建Hello.cs
+
 ```zsh
 $ mkdir mono-workspace
 $ cd mono-workspace
@@ -29,14 +31,15 @@ public class Hello {
 ```
 
 3.编译
+
 ```zsh
 $ mcs Hello.cs
 ```
 
 4.执行
+
 ```zsh
 $ mono Hello.exe
 ```
 
-参考:
-http://logicalgenetics.com/raspberry-pi-and-mono-hello-world/
+参考: http://logicalgenetics.com/raspberry-pi-and-mono-hello-world/
