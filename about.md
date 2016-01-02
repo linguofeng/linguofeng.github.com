@@ -1,6 +1,7 @@
 ---
 layout: default
 title: About Me
+description:
 ---
 
 目前职业是 Cocos2d-x + Lua 开发，熟悉Android、iOS开发，熟悉Git团队协助模式，喜欢Flow工作流。
