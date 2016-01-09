@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "树莓派与Docker"
-date: "2016-01-09 11:44"
+title: 树莓派与Docker
+date: 2016-01-09 11:44
 ---
 
 手上的 Raspberry Pi Mobdel B+ 吃灰一年了，最近也在玩 Docker，也看到这 hypriot 这个项目，感觉太棒了，平时也只玩单机的 Docker ，现在可以组一个 Swarm 玩玩。
@@ -12,7 +12,7 @@ date: "2016-01-09 11:44"
 
 ### 安装
 
-```bash
+```
 $ brew cask install docker
 $ brew install pv axel
 $ wget https://raw.githubusercontent.com/hypriot/flash/master/`uname -s`/flash

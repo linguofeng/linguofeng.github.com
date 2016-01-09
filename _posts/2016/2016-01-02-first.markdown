@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "first"
-date: "2016-01-02 21:57"
+title: first
+date: 2016-01-02 21:57
 ---
 
 2016年第一篇文章
