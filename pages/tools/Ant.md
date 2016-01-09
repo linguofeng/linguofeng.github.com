@@ -17,10 +17,10 @@ description: 项目构建工具
         $ ant -version
     </pre>
     <pre>
-    	export ANT_HOME=/path/to/apache/apache-ant-1.8.4
-    	PATH=$PATH:$ANT_HOME/bin
+        export ANT_HOME=/path/to/apache/apache-ant-1.8.4
+        PATH=$PATH:$ANT_HOME/bin
     </pre>
     <pre>
-    	Apache Ant(TM) version 1.8.4 compiled on May 22 2012
+        Apache Ant(TM) version 1.8.4 compiled on May 22 2012
     </pre>
 </section>
