@@ -1,5 +1,0 @@
----
-layout: tag
-title: chrome
-tag: chrome
----
