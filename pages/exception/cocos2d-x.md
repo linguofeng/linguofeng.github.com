@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Cocos2d-x
-description: 开发过程中所遇到的异常信息
+title: "Cocos2d-x"
+description: "开发过程中所遇到的异常信息"
 update: 2013-03-06
 ---
 
