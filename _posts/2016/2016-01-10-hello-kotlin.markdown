@@ -3,6 +3,7 @@ layout: post
 title: "hello kotlin"
 date: "2016-01-10 22:01"
 description: "基于JVM实现的静态语言"
+tags: [kotlin, android, java]
 ---
 
 很早之前已经听说了一种运行在jvm上的类似swift的语言，kotlin。

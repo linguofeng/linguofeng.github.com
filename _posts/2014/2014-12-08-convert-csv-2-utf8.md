@@ -6,8 +6,6 @@ categories: [archive]
 tags: [csv]
 ---
 
-<section>
-<pre class="prettyprint">
+```bash
 $ iconv -c -f GBK -t UTF-8 gbk.csv > utf8.csv
-</pre>
-</section>
+```

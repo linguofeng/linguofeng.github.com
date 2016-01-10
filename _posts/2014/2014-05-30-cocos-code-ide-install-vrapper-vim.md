@@ -6,8 +6,8 @@ categories: [archive]
 tags: [cocos]
 ---
 
-<section>
-	<p>Cocos Code IDE 安装 Vrapper(vim)插件</p>
-	<p>下载Vrapper: http://sourceforge.net/projects/vrapper/files/vrapper/</p>
-	<p>解压至 $COCOS_CODE_IDE/</p>
-</section>
+Cocos Code IDE 安装 Vrapper(vim)插件
+
+下载Vrapper: http://sourceforge.net/projects/vrapper/files/vrapper/
+
+解压至 $COCOS_CODE_IDE/

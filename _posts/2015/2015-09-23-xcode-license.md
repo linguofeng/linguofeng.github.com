@@ -10,8 +10,8 @@ Agreeing to the Xcode/iOS license requires admin privileges, please re-run as ro
 
 只要执行下面的命令后就可以了。
 
-```
-sudo xcodebuild -license
+```bash
+$ sudo xcodebuild -license
 ```
 
 [https://intellij-support.jetbrains.com/hc/en-us/articles/206827657-Mac-OSX-can-t-start-Git-after-updating-Mac-OS-XCode](https://intellij-support.jetbrains.com/hc/en-us/articles/206827657-Mac-OSX-can-t-start-Git-after-updating-Mac-OS-XCode)

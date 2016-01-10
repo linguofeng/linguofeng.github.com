@@ -6,39 +6,41 @@ categories: [archive]
 tags: [DNSCrypt, Dnsmasq]
 ---
 
-<section>
-	<p>安装</p>
-<pre>
+### > 安装
+
+```bash
 $ brew update
 $ brew install dnscrypt dnsmasq
-</pre>
+```
 
-	<p>配置</p>
-<pre>
+### > 配置
+
+```bash
 $ cp /usr/local/opt/dnsmasq/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
 $ vim /usr/local/etc/dnsmasq.conf
-</pre>
+```
 
-<pre>
+```bash
 server=192.168.1.1                  # 所有IP使用该DNS
 
 server=/google.com/127.0.0.1#65053
 server=/github.com/127.0.0.1#65053
 server=/debug.opendns.com/127.0.0.1#65053
-</pre>
+```
 
-    <p>启动</p>
-<pre>
+### > 启动
+
+```bash
 $ sudo dnscrypt-proxy --local-address=127.0.0.1:65053 -R OpenDNS
 $ sudo dnsmasq --no-daemon --listen-address=127.0.0.1
-</pre>
+```
 
-    <p>更改</p>
-<pre>
+### > 更改
+
+```bash
 $ sudo vim /etc/resolv.conf
-</pre>
+```
 
-<pre>
+```bash
 nameserver 127.0.0.1
-</pre>
-</section>
+```
