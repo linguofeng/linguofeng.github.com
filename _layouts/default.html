@@ -37,10 +37,6 @@
                 line-height: 1;
             }
 
-            section {
-                font-family: "Microsoft YaHei Mono", "Microsoft YaHei";
-            }
-
             .title {
                 font-weight: bold;
             }
@@ -51,7 +47,6 @@
         </style>
         <link href="/assets/components/bootstrap/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
         <link href="/assets/css/style.css" rel="stylesheet">
-        <link href="/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
@@ -67,6 +62,8 @@
             var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
           })();
         </script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/monokai-sublime.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
     </head>
 
     <body data-spy="scroll" data-target=".sidenavbar" data-offset="39">
@@ -176,11 +173,12 @@
         </div>
 
         <script src="/assets/components/jquery/jquery.min.js"></script>
-        <script src="/assets/js/google-code-prettify/prettify.js"></script>
         <script src="/assets/components/bootstrap/bootstrap/js/bootstrap.min.js"></script>
         <script src="/assets/js/application.js"></script>
         <script type="text/javascript" src="https://raw.github.com/JoelSutherland/GitHub-jQuery-Repo-Widget/master/jquery.githubRepoWidget.min.js"></script>
         <script type="text/javascript">
+            hljs.initHighlightingOnLoad();
+
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-38545530-1']);
             _gaq.push(['_trackPageview']);
