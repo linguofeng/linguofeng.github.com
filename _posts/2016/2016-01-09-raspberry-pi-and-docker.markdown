@@ -45,4 +45,4 @@ $ docker-machine scp -r files/ pi:`docker volume inspect --format '{{ .Mountpoin
 $ docker run --rm -v web:/web ubuntu ls /web
 ```
 
-> 需要注册，如果使用`--rm`的方式运行引用该卷，退出后会删除该卷!!
+> 需要注意，如果使用`--rm`的方式运行引用该卷，退出后会删除该卷!!
