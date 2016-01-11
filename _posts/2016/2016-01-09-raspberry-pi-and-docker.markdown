@@ -38,9 +38,9 @@ $ docker info
 ```bash
 $ docker volume create --name web
 # 查看web卷真实路径
-$ docker volume inspect --format '{{ .Mountpoint }}' web
+$ docker volume inspect --format '{ { .Mountpoint } }' web
 # 同步本地文件至web卷
-$ docker-machine scp -r files/ pi:`docker volume inspect --format '{{ .Mountpoint }}' web`/
+$ docker-machine scp -r files/ pi:`docker volume inspect --format '{ { .Mountpoint } }' web`/
 # 使用卷
 $ docker run --rm -v web:/web ubuntu ls /web
 ```
