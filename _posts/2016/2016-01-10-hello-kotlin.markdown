@@ -34,7 +34,13 @@ fun main(args: Array<String>) {
 
 ---
 
-### > apply
+### > Standard
+
+[https://github.com/JetBrains/kotlin/blob/master/libraries/stdlib/src/kotlin/util/Standard.kt](https://github.com/JetBrains/kotlin/blob/master/libraries/stdlib/src/kotlin/util/Standard.kt)
+
+标准库提供了几个非常好用的方法
+
+#### > apply
 
 开发过程中，对于Bean的属性赋值过程如果属性特别多的时候，代码会很长并不是很优雅
 
