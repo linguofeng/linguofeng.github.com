@@ -1,0 +1,45 @@
+---
+layout: "post"
+title: "Go开发环境配置"
+date: "2016-01-16 16:15"
+---
+
+Ｇo开发环境配置会与其它语言的开发环境配置有所不同，主要是要理解`GOPATH`变量的重要性，`GOPATH`可以理解为Eclipse中的`Workspace`。
+
+有时候我们在开发一个新项目的时候，会创建该项目的`GOPATH`，项目所有依赖的都相应的在该GOPATH里，当然这是一种过时的作法，现在1.5版本中新增了`vendor`，可以把项目的依赖下载在当前项目的`vendor`目录下。所以一般，我们只需要一个GOPATH变量。
+
+##### > 安装GO，使用brew可以很方便地进行安装与升级，如果同时开发好几个项目，并且使用不同版本的Go，可以使用Gvm来同时安装管理多个版本的Go。
+
+```bash
+$ brew install go
+$ go version
+```
+
+##### > 创建GOPATH路径
+
+```bash
+$ mkdir ~/gocode
+$ echo 'export GOPATH=~/gocode' >> ~/.zshrc
+$ source ~/.zshrc
+```
+
+##### > Hello
+
+```bash
+$ mkdir $GOPATH/src/github.com/linguofeng/hello
+$ vim $GOPATH/src/github.com/linguofeng/hello/main.go
+```
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello")
+}
+```
+
+```bash
+$ go run $GOPATH/src/github.com/linguofeng/hello/main.go
+```
