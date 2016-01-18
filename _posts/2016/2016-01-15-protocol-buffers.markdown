@@ -21,7 +21,7 @@ $ protoc --version
 $ vim proto/hello.proto
 ```
 
-```proto
+```protobuf
 syntax = "proto3";
 
 package pb;
