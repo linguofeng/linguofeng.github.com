@@ -1,0 +1,23 @@
+---
+layout: "post"
+title: "postgres"
+date: "2016-01-19 12:47"
+---
+
+学习SQL数据库已经是几年前了，已经很久没再使用过了。
+
+最近因为想写一个简单的应用管理平台，有一些数据库相关的，因为在Raspberry Pi上没有对应的MongoDB，又不太想用MySql，所以就装个PostgreSQL来玩玩。
+
+[https://github.com/linguofeng/rpi-postgres](https://github.com/linguofeng/rpi-postgres)
+
+```bash
+$ docker volume create --name postgres-data
+$ docker pull linguofeng/rpi-postgres
+$ docker run --name postgres -v postgres-data:/var/lib/postgresql/data linguofeng/rpi-postgres
+$ docker run -i -t --rm --link postgres --entrypoint=sh linguofeng/rpi-postgres
+$ psql -h postgres -U postgres
+```
+
+```
+postgres=# \h
+```

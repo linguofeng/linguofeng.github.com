@@ -57,6 +57,7 @@ func main() {
         log.Fatal("decode error!!")
     }
 
+    // 转换成json，proto3支持json
     json_str, err := json.MarshalIndent(decode, "", "  ")
     if err != nil {
         log.Fatal("encode error!!")
