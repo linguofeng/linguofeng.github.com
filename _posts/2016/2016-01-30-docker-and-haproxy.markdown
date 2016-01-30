@@ -41,7 +41,7 @@ backend nginx
 
 ```
 $ docker volume create --name haproxy-data
-$ docker-machine scp haproxy.cfg pi:`docker volume inspect --format '{{ .Mountpoint }}' haproxy-data`/
+$ docker-machine scp haproxy.cfg pi:`docker volume inspect --format '{ { .Mountpoint }}' haproxy-data`/
 ```
 
 ---
