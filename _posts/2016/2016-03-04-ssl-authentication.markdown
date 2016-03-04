@@ -69,3 +69,5 @@ $ http --verify=ca.crt --cert=client.pem HEAD https://localhost
 [http://rockingdlabs.dunmire.org/exercises-experiments/ssl-client-certs-to-secure-mqtt](http://rockingdlabs.dunmire.org/exercises-experiments/ssl-client-certs-to-secure-mqtt)
 
 [https://gist.github.com/mtigas/952344](https://gist.github.com/mtigas/952344)
+
+[https://mosquitto.org/man/mosquitto-tls-7.html](https://mosquitto.org/man/mosquitto-tls-7.html)
