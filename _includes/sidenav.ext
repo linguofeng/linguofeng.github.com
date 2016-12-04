@@ -1,7 +1,0 @@
-<div class="navbar navbar-fixed-top sidenav" data-spy="affix">
-            <div class="navbar-inner">
-                <ul class="nav">{% for nav in page.navigation %}
-                    <li><a href="#{{ forloop.index }}"> {{nav}}</a></li>{% endfor %}
-                </ul>
-            </div>
-        </div>

@@ -1,8 +1,8 @@
 ---
 layout: default
 ---
-        {{ content }}
-        
-        {% if page.update %}
-        <hr />
-        <p>last update: {{ page.update }}</p>{% endif %}
+
+<div class="page">
+  <h1 class="page-title">{{ page.title }}</h1>
+  {{ content }}
+</div>

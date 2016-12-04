@@ -8,13 +8,13 @@ tags: [cocos2d-x]
 
 1.安装
 
-```zsh
+```bash
 $ brew install mono
 ```
 
 2.创建Hello.cs
 
-```zsh
+```bash
 $ mkdir mono-workspace
 $ cd mono-workspace
 $ vim Hello.cs
@@ -32,13 +32,13 @@ public class Hello {
 
 3.编译
 
-```zsh
+```bash
 $ mcs Hello.cs
 ```
 
 4.执行
 
-```zsh
+```bash
 $ mono Hello.exe
 ```
 

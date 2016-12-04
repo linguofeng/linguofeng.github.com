@@ -1,188 +1,47 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>{% if page.title %}{{ page.title }} - {% endif %} {{ page.description }} - {{ site.title }}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="{{ site.description }}">
-        <meta name="author" content="{{ site.author }}">
+<html lang="en-us">
 
-        <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-        <link href="/assets/components/bootstrap/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <style type="text/css">
-            body {
-                padding-top: 20px;
-                padding-bottom: 40px;
-            }
+  {% include head.html %}
 
-            .container-narrow {
-                margin: {% if page.navigation %}40px auto {% endif %}0 auto;
-                max-width: 700px;
-            }
-            .container-narrow > hr {
-                margin: 30px 0;
-            }
+  <body>
 
-            .jumbotron {
-                margin: 60px 0;
-                text-align: center;
-            }
-            .jumbotron h1 {
-                font-size: 72px;
-                line-height: 1;
-            }
+    {% include sidebar.html %}
 
-            .title {
-                font-weight: bold;
-            }
-
-            .github-box-title h3 {
-                line-height: 1;
-            }
-        </style>
-        <link href="/assets/components/bootstrap/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-        <link href="/assets/css/style.css" rel="stylesheet">
-
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="/assets/ico/apple-touch-icon-57-precomposed.png">
-        <link rel="shortcut icon" href="/assets/ico/favicon.png">
-
-        <meta name="google-site-verification" content="mI0pbdIvMWuVMULdngJ475un6RZmA_2jFCvVU-Ws7-U" />
-        <script type="text/javascript">
-          (function() {
-            var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
-            po.src = "https://apis.google.com/js/plusone.js?publisherid=104102834391130673606";
-            var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
-          })();
-        </script>
-        <link rel="stylesheet" href="/assets/bower_components/highlightjs/styles/monokai-sublime.css">
-        <script src="/assets/bower_components/highlightjs/highlight.pack.min.js"></script>
-    </head>
-
-    <body data-spy="scroll" data-target=".sidenavbar" data-offset="39">
-        <div class="container-narrow">
-            <div class="masthead">
-                <ul class="nav nav-pills pull-right">
-                    <li class="{% if page.url contains 'index' %}active{% endif %}"><a href="/index.html">Home</a></li>
-                    <li class="{% if page.url contains 'archive' %}active{% endif %}"><a href="/archive.html">Archive</a></li>
-                    <li class="dropdown{% if page.url contains 'language' and page.date == null %} active{% endif %}">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Language <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/pages/language/scala.html">Scala</a></li>
-                            <li><a href="/pages/language/ruby.html">Ruby</a></li>
-                            <li><a href="/pages/language/python.html">Python</a></li>
-                            <li><a href="/pages/language/erlang.html">Erlang</a></li>
-                            <li><a href="/pages/language/go.html">Golang</a></li>
-                            <li class="dropdown-submenu">
-                            <a href="/pages/language/c.html">Lua</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/pages/language/lua.html">Lua 基础</a></li>
-                                <li><a href="/pages/language/lua/luajit.html">LuaJIT</a></li>
-                            </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                            <a href="/pages/language/c.html">C/C++</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/pages/language/c/cpp.html">C++ 基础</a></li>
-                                <li><a href="/pages/language/c/Cocos2dx.html">Cocos2d-x 开源游戏引擎</a></li>
-                                <li><a href="/pages/language/c/box2d.html">Box2D C++物理引擎</a></li>
-                            </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                            <a href="javascript:void(0)">JavaScript</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/pages/language/javascript.html">JavaScript</a></li>
-                                <li><a href="/pages/language/jquery.html">jQuery</a></li>
-                                <li><a href="/pages/language/nodejs.html">Nodejs</a></li>
-                            </ul>
-                            </li>
-                            <li><a href="/pages/language/objective-c.html">Objective-C</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown {% if page.url contains 'tools' or page.url contains 'os' and page.date == null %} active{% endif %}">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tools <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-submenu">
-                                <a tabindex="-1" href="javascript:void(0)">项目管理工具</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/pages/tools/Maven.html">Maven - 项目管理工具</a></li>
-                                    <li><a href="/pages/tools/Ant.html">Ant - 项目构建工具</a></li>
-                                    <li><a href="/pages/tools/Git.html">Git - 项目版本管理工具</a></li>
-                                    <li><a href="/pages/tools/svn.html">Svn - 项目版本管理工具</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown-submenu">
-                                <a href="javascript:void(0)">开发工具</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/pages/tools/vim.html">Vim - 很强大的文本编辑器</a></li>
-                                    <li><a href="/pages/tools/Emacs.html">Emacs - 很强大的文本编辑器</a></li>
-                                    <li><a href="/pages/tools/SublimeText.html">Sublime Text - 很强大的文本编辑器</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="/pages/tools/Mylyn.html">Mylyn - 任务管理工具</a></li>
-                            <li><a href="/pages/tools/rsync.html">rsync - 很强大的文件同步备份工具</a></li>
-                            <li class="divider"></li>
-                            <li class="nav-header">操作系统</li>
-                            <li><a href="/pages/os/ubuntu.html">Ubuntu</a></li>
-                            <li><a href="/pages/os/osx.html">OS X</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown{% if page.url contains 'favorites' and page.date == null %} active{% endif %}">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Site <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/pages/favorites/ruby.html">About Ruby</a></li>
-                            <li><a href="/pages/favorites/eclipse.html">About Eclipse</a></li>
-                            <li class="divider"></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown{% if page.url contains 'android' and page.date == null %} active{% endif %}">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Android <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/pages/development/android/NDK.html">NDK - 交叉编译工具链</a></li>
-                            <li><a href="/pages/development/android/dialog.html">Dialog - 对话框控件</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <h3 class="muted">{{ site.title }}</h3>
-            </div>
-
-            <hr>
-
-            <div class="jumbotron">
-                <h1>{{ page.title }}</h1>
-                <p class="lead">{{ page.description }}</p>
-            </div>
-
-            <hr>
-            {% if page.navigation %}
-            <div class="sidenavbar">
-                {% include sidenav.ext %}
-            </div>
-            {% endif %}
-            {{ content }}
-            <hr>
-
-            {% include footer.ext %}
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
+            <small>{{ site.tagline }}</small>
+          </h3>
         </div>
+      </div>
 
-        <script src="/assets/components/jquery/jquery.min.js"></script>
-        <script src="/assets/components/bootstrap/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/assets/js/application.js"></script>
-        <script type="text/javascript" src="https://raw.github.com/JoelSutherland/GitHub-jQuery-Repo-Widget/master/jquery.githubRepoWidget.min.js"></script>
-        <script type="text/javascript">
-            hljs.initHighlightingOnLoad();
+      <div class="container content">
+        {{ content }}
+      </div>
+    </div>
 
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-38545530-1']);
-            _gaq.push(['_trackPageview']);
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-            (function() {
-             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-             })();
-        </script>
-    </body>
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
 </html>

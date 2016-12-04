@@ -1,10 +1,6 @@
-url: "https://blog.linguofeng.com"
-enforce_ssl: "blog.linguofeng.com"
-title: "林国锋个人博客"
-author: "linguofeng@msn.com"
-highlighter: "rouge"
-description: "java,android,linux,ubuntu,osx,cocos2d-x,c++,c,cpp,hhkb,lua,vim,raspberrypi"
-
-markdown: kramdown
-kramdown:
-  input: GFM
+title:               林国锋个人博客
+tagline:             Developer
+description:         '前端开发，热爱研究新东西'
+url:                 http://blog.linguofeng.com
+paginate:            5
+markdown:            redcarpet
